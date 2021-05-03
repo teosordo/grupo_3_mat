@@ -25,9 +25,9 @@ ___
 ___
 
 ## Referentes
-  - [PC Componentes](https://www.pccomponentes.com/)
+  - [PC Componentes](https://www.pccomponentes.com/) // login/registro
   - [HardGamers](https://www.hardgamers.com.ar/)
   - [Newegg](https://www.newegg.com/global/ar-en/)
-  -
+  - [Mercadolibre](https://www.mercadolibre.com.ar/) // carrito
   -
 ___
