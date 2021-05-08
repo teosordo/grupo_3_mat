@@ -29,7 +29,7 @@ ___
     ![pccomponentes](imgs/readme/pccomponentes.png)
   - [HardGamers](https://www.hardgamers.com.ar/) -> header
   - [Newegg](https://www.newegg.com/global/ar-en/) -> nav/carrousel/ofertas
-    ![newegg]()
+    ![newegg](imgs/readme/newegg.png)
   - [Mercadolibre](https://www.mercadolibre.com.ar/) -> carrito
     ![mercadolibre](imgs/readme/mercadolibre.png)
   <!-- - [Amazon]() -->
