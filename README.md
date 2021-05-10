@@ -20,7 +20,10 @@ ___
     Estudiante de Artes Multimediales. En mi tiempo libre me gusta tocar el bajo, ver películas,
     series, anime, jugar videojuegos o charlar con amigos.
     ~~~
-  - 
+  - ### Angélica Dutra
+    ~~~
+    Estudiante de Artes Multimediales en UNA. Hace 3 años descubrí la programación y ya no pude parar.
+    ~~~
   - 
 ___
 
