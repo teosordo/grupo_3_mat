@@ -24,7 +24,10 @@ ___
     ~~~
     Estudiante de Artes Multimediales en UNA. Hace 3 años descubrí la programación y ya no pude parar.
     ~~~
-  - 
+  - ### Matias Fabian Celentano
+	  ~~~
+	  Estudiante de Digital House, 21 años. Nuevo en el mundo de la programación.
+	  ~~~
 ___
 
 ## Referentes
