@@ -25,18 +25,29 @@ ___
     Estudiante de Artes Multimediales en UNA. Hace 3 años descubrí la programación y ya no pude parar.
     ~~~
   - ### Matias Fabian Celentano
-	  ~~~
-	  Estudiante de Digital House, 21 años. Nuevo en el mundo de la programación.
-	  ~~~
+    ~~~
+    Estudiante de Digital House, 21 años. Nuevo en el mundo de la programación.
+    ~~~
 ___
 
 ## Referentes
-  - [PC Componentes](https://www.pccomponentes.com/) -> registro
+  - [PC Componentes](https://www.pccomponentes.com/) -> **registro**
+
     ![pccomponentes](imgs/readme/pccomponentes.png)
-  - [HardGamers](https://www.hardgamers.com.ar/) -> header
-  - [Newegg](https://www.newegg.com/global/ar-en/) -> nav/carrousel/ofertas
+    
+  - [HardGamers](https://www.hardgamers.com.ar/) -> **header**
+    
+    ![hardgamers](imgs/readme/hardgamers.png)
+  
+  - [Newegg](https://www.newegg.com/global/ar-en/) -> **nav, carrousel y ofertas**
+    
     ![newegg](imgs/readme/newegg.png)
-  - [Mercadolibre](https://www.mercadolibre.com.ar/) -> login
+    
+  - [Mercadolibre](https://www.mercadolibre.com.ar/) -> **login**
+    
     ![mercadolibre](imgs/readme/mercadolibre.png)
-   - [Amazon](https://www.amazon.com/-/es/) -> carrito
+    
+  - [Amazon](https://www.amazon.com/-/es/) -> **carrito**
+  
+    ![amazon](imgs/readme/amazon.png)
 ___
