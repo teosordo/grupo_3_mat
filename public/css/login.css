@@ -1,0 +1,98 @@
+html{
+    margin: 0%;
+}
+*{
+  text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body{
+    margin: 0px;
+}
+header{
+    background-color: #2c2b7c;
+    width: 100%;
+    height: 60px;
+}
+.contenedor-login{
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+h1,h2,h3{
+  margin: 0px;
+}
+.titulo{
+  margin: 25px 0px 25px;
+}
+h1{
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.datos{
+  color: rgba(75, 75, 75, 0.507);
+  font-size: 16px;
+  background-color: #F3F3F3;
+  border: 1px solid black;
+  margin: 20px auto 20px;
+  width: 90%;
+  padding: 7px;
+  border-radius: 7px;
+}
+.datos h3{
+  font-size: 16px;
+}
+.reset-pw {
+  text-align: right;
+  width: 90%;
+  margin-bottom: 20px;
+}
+.remember-box{
+  margin-left: 10%;
+  width: 80%;
+  text-align: left;
+}
+
+.boton-ingresar{
+  color: white;
+  border: 1px solid black;
+  text-transform: uppercase;
+  background-color: #6765D6;
+  margin: auto;
+  margin-top: 10px;
+  width: 95%;
+  padding: 8px 0px 8px;
+  border-radius: 8px;
+}
+.boton-ingresar h2{
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.divisor{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.boton-registrarse{
+  background-color: #cacadc;
+  color: #6765D6;
+  margin: 20px auto 20px;
+  padding: 8px 0px 8px;
+  width: 95%;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+.boton-registrarse h2{
+  font-weight: normal;
+  font-size: 20px;
+}
+
+footer{
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
+  background-color: #2c2b7c ;
+  position: absolute;
+  bottom: 0px;
+}
