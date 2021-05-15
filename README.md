@@ -33,21 +33,21 @@ ___
 ## Referentes
   - [PC Componentes](https://www.pccomponentes.com/) -> **registro**
 
-    ![pccomponentes](imgs/readme/pccomponentes.png)
+    ![pccomponentes](capturas/pccomponentes.png)
     
   - [HardGamers](https://www.hardgamers.com.ar/) -> **header**
     
-    ![hardgamers](imgs/readme/hardgamers.png)
+    ![hardgamers](capturas/hardgamers.png)
   
   - [Newegg](https://www.newegg.com/global/ar-en/) -> **nav, carrousel y ofertas**
     
-    ![newegg](imgs/readme/newegg.png)
+    ![newegg](capturas/newegg.png)
     
   - [Mercadolibre](https://www.mercadolibre.com.ar/) -> **login**
     
-    ![mercadolibre](imgs/readme/mercadolibre.png)
+    ![mercadolibre](capturas/mercadolibre.png)
     
   - [Amazon](https://www.amazon.com/-/es/) -> **carrito**
   
-    ![amazon](imgs/readme/amazon.png)
+    ![amazon](capturas/amazon.png)
 ___
