@@ -2,7 +2,7 @@ html{
     margin: 0%;
 }
 *{
-  box-sizing: content-box;
+  box-sizing: border-box;
   text-align: center;
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-weight: normal;
@@ -24,6 +24,7 @@ main{
 .cont-register{
     width: 70%;
     margin: auto;
+    margin-top: 20px;
 }
 h1,h2,h3{
     margin: 0px;
@@ -80,6 +81,7 @@ footer{
     justify-content: space-between;
 }
 .cont-footer{
+    border-top: 1px solid black;
     display: flex;
     justify-content: space-around;
 }

@@ -2,7 +2,7 @@ html{
   margin: 0%;
 }
 *{
-  box-sizing: content-box;
+  box-sizing: border-box;
   text-align: center;
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-weight: normal;
