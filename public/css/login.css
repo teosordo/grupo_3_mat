@@ -99,25 +99,26 @@ footer{
 
 .cont-footer{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .left-footer p, .center-footer p,.right-footer p{
   font-size: 12px;
 }
 .fab{
-  margin: auto;
+  margin: 0px 5px 0px; 
 }
 .left-footer{
   color: white;
-  margin-left: 3%;
+}
+.center-footer{
+  align-self: flex-end;
 }
 .center-footer p{
   color: white;
   margin: auto;
-  margin-top: 40px;
 }
 .right-footer{
-  margin-right: 9%;
+
   color: white;
 }
 .iconos{
