@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 /***************** ETIQUETAS *******************/
 header{
@@ -19,9 +17,23 @@ nav a{
     text-decoration: none;
     color: #ffffff;
 }
-
+h2{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    font-size:30px;
+}
+h3{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 400;
+    font-size:25px;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
 /***************** CLASES **********************/
-.hamburger{
+.burger{
     color: white;
     display:block;
     max-width: 30px;
@@ -41,9 +53,6 @@ nav a{
 }
 
 /**************** MEDIA QUERIES ****************/
-@media (min-width: 361){
-
-}
 /* Tablet */
 @media (min-width: 769px){
     nav{
