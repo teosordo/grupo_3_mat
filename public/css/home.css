@@ -1,3 +1,66 @@
 * {
     box-sizing: border-box;
 }
+/***************** ETIQUETAS *******************/
+header{
+    background-color:#1A2028;
+    padding:1rem;
+}
+/*Tienen que ser clases*/
+nav{
+    display: none;
+}
+nav ul{
+    list-style: none;
+}
+nav a{
+    text-decoration: none;
+    color: #ffffff;
+}
+h2{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    font-size:30px;
+}
+h3{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 400;
+    font-size:25px;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+/***************** CLASES **********************/
+.burger{
+    color: white;
+    display:block;
+    max-width: 30px;
+    padding: 2px;
+    text-align: center;
+    font-size:1.5rem;
+}
+.buscar{
+    background-color: #6765D6;
+    color: #ffffff;
+    padding: 0.5rem;
+    border: none;
+    border-radius:20%;
+}
+.cart{
+    color: white;
+}
+
+/**************** MEDIA QUERIES ****************/
+/* Tablet */
+@media (min-width: 769px){
+    nav{
+        display: block;
+    }
+    .hamburger{
+        display: none;
+    }
+}
+
+/* Desktop */
