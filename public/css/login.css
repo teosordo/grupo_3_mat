@@ -15,13 +15,17 @@ header{
   background-color: #1A2028;
   width: 100%;
   height: 30vh;
+<<<<<<< HEAD
   min-height: 195px;
   max-height: 220px;
+=======
+>>>>>>> baa52c0bf40602d31b7aebc1a4ae01df033a9228
 }
 main{
   flex-grow: 1;
 }
 .contenedor-login{
+<<<<<<< HEAD
   width: 90%;
   max-width: 320px;
   margin: auto;
@@ -31,6 +35,23 @@ main{
   border-radius: 10px;
   padding: 20px;
   border: 1px solid #1A2028
+=======
+  max-width: 350px;
+  margin: auto;
+  margin-top: -8rem;
+  background-color: #E9E9E9;
+  border-radius: 10%;
+  padding: 20px;
+  border: 1px solid #1A2028
+  /***Media query tablet****/
+  /*max-width: 400px;
+  margin: auto;
+  margin-top: -8rem;
+  background-color: #E9E9E9;
+  border-radius: 10%;
+  padding: 20px;
+  border: 1px solid #1A2028*/
+>>>>>>> baa52c0bf40602d31b7aebc1a4ae01df033a9228
 }
 h1,h2,h3{
   margin: 0px;
@@ -46,7 +67,9 @@ h1{
   color: rgba(75, 75, 75, 0.507);
   background-color: #F3F3F3;
   border: 1px solid black;
+  font-size: 18px;
   margin: 20px auto 20px;
+<<<<<<< HEAD
   width: 93%;
   padding: 10px;
   border-radius: 7px;
@@ -54,6 +77,12 @@ h1{
 .datos h3{
   font-size: 15px;
 }
+=======
+  width: 90%;
+  padding: 10px;
+  border-radius: 7px;
+}
+>>>>>>> baa52c0bf40602d31b7aebc1a4ae01df033a9228
 .reset-pw {
   text-align: right;
   width: 90%;
