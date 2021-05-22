@@ -28,71 +28,98 @@
                 <li><a href="#">Categoria</a></li>
             </ul>
         </nav>
+        <img class="logo" src="#" alt="logo">
         <!--Buscador-->
-        <div>
-            <button class="search-bar"><i class="fas fa-search"></i></button>
-        </div>
+        <form class="buscador">
+            <fieldset>
+                <input type="search" name="buscar" placeholder="Buscar..." >
+            </fieldset>
+            <button type="submit" name="buscar" class="buscar"><i class="fas fa-search"></i></button>
+        </form>
         <!--Carrito de compras-->
-        <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="header-right">
+            <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/login" class="user-login"><i class="far fa-user-circle"></i> Iniciar sesión</a>
+        </div>
     </header>
     <main>
-        <!--Navegacion
-        <div>
+        <div class="navbar">
             <ul>
-                <li><a href="#">Categoria</a></li>
-                <li><a href="#">Categoria</a></li>
-                <li><a href="#">Categoria</a></li>
+                <li><a href="#">Categoria <i class="fas fa-angle-right"></i></a></li>
+                <li><a href="#">Categoria <i class="fas fa-angle-right"></i></a></li>
+                <li><a href="#">Categoria <i class="fas fa-angle-right"></i></a></li>
             </ul>
         </div>
-        -->
         <!--Carousel-->
-        <section>
+        <div class="carousel-contenido">
+        <section class="carousel">
             <div><i class="fas fa-angle-left"></i></div>
-            <div class="carousel"></div>
+            <div class="fotos-carousel"></div>
             <div><i class="fas fa-angle-right"></i></div>
         </section>
         <!--Oferta de productos-->
-        <section>
-            <h2>Ofertas</h2>
-            <div>
-                <p>Ver todo</p>
-                <div><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <article>
-                <img>
-                <h3>Nombre</h3>
-                <p>Detalle</p>
-                <p>$$$</p>
-                <p>Precio anterior</p>
-                <p>%OFF</p>
+        <section class="home-contenido">
+            <article class="home-ofertas">
+                <h2>Ofertas</h2>
+                <div class="ver-todo">
+                    <p>Ver todo <i class="fas fa-arrow-right"></i></p>
+                </div>
             </article>
-            <article>
-                <img>
-                <h3>Nombre</h3>
-                <p>Detalle</p>
-                <p>$$$</p>
-                <p>Precio anterior</p>
-                <p>%OFF</p>
+
+            <article class="home-productos">
+                <img src="#" alt="producto">
+                <div>
+                    <h3>Nombre</h3>
+                    <p class="detalle">Detalle</p>
+                </div>
+                <p class="home-precio">$$$</p>
+                <div class="home-precio-anterior-desc">
+                    <p class="precio-anterior">$$$</p>
+                    <p class="off">%OFF</p>
+                </div>
+            </article><article class="home-productos">
+                <img src="#" alt="producto">
+                <div>
+                    <h3>Nombre</h3>
+                    <p class="detalle">Detalle</p>
+                </div>
+                <p class="home-precio">$$$</p>
+                <div class="home-precio-anterior-desc">
+                    <p class="precio-anterior">$$$</p>
+                    <p class="off">%OFF</p>
+                </div>
+            </article><article class="home-productos">
+                <img src="#" alt="producto">
+                <div>
+                    <h3>Nombre</h3>
+                    <p class="detalle">Detalle</p>
+                </div>
+                <p class="home-precio">$$$</p>
+                <div class="home-precio-anterior-desc">
+                    <p class="precio-anterior">$$$</p>
+                    <p class="off">%OFF</p>
+                </div>
             </article>
         </section>
+        </div>
     </main>
     <footer>
-        <div class="cont-footer">
-            <section class="left-footer">
+        <section>
+            <div class="left-footer">
                 <p>Términos y condiciones</p>
                 <p>Comentarios</p>
-            </section>
-            <div class="center-footer">
-                <p>Copyright © 2021 - MAT Team</p>
             </div>
-            <section class="right-footer">
+            <div class="right-footer">
                 <p>Seguinos</p>
                 <div class="iconos">
                     <div><i class="fab fa-instagram"></i></div>
                     <div><i class="fab fa-twitter"></i></div>
                     <div><i class="fab fa-facebook-f"></i></div>
                 </div>
-            </section>
+            </div>
+        </section>
+        <div class="center-footer">
+            <p>Copyright © 2021 - MAT Team</p>
         </div>
     </footer>
 </body>
