@@ -51,3 +51,11 @@ ___
   
     ![amazon](capturas/amazon.png)
 ___
+
+## [Wireframe del sitio](https://marvelapp.com/prototype/71f2ca3)
+
+___
+
+## [Tablero de Trello](https://trello.com/b/ibvBTqoy/tareas)
+
+___
