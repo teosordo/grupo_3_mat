@@ -1,139 +1,140 @@
 *{
-  box-sizing: border-box;
-  text-align: center;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: normal;
+    margin: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-body{
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh ;
-}
+/***********   HEADER   ************/
 header{
-  background-color: #1A2028;
-  width: 100%;
-  height: 30vh;
-  min-height: 195px;
-  max-height: 220px;
+    background-color: #1A2028;
+    width: 100%;
+    height: 30vh;
+    min-height: 195px;
+    max-height: 220px;
 }
+/***********    MAIN   ************/
 main{
-  flex-grow: 1;
+    flex-grow: 1;
 }
-.contenedor-login{
-  width: 90%;
-  max-width: 320px;
-  margin: auto;
-  margin-top: -8rem;
-  margin-bottom: 10px;
-  background-color: #E9E9E9;
-  border-radius: 10px;
-  padding: 20px;
-  border: 1px solid #1A2028
-}
-h1,h2,h3{
-  margin: 0px;
-}
-.titulo{
-  margin: 25px 0px 25px;
+
+
+.main-div-container{
+    width: 90%;
+    max-width: 320px;
+    margin: -8rem auto 10px;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #1A2028
 }
 h1{
-  text-transform: uppercase;
-  font-weight: normal;
+    text-transform: uppercase;
+    margin: 25px 0px 25px;
 }
+
+.input-user-cred{
+    margin: 20px auto 20px;
+}
+
+
 .datos{
-  color: rgba(75, 75, 75, 0.507);
-  background-color: #F3F3F3;
-  border: 1px solid black;
-  margin: 20px auto 20px;
-  width: 93%;
-  padding: 10px;
-  border-radius: 7px;
+    color: rgba(75, 75, 75, 0.507);
+    background-color: white;
+    border: 1px solid black;
+    width: 93%;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 16px; 
 }
-.datos h3{
-  font-size: 16px;
-}
-.reset-pw {
-  text-align: right;
-  width: 90%;
-  margin-bottom: 20px;
-}
-.remember-box{
-  margin-left: 10%;
-  width: 80%;
-  text-align: left;
+.forget-link{
+    display: block;
+    text-align: right;
+    margin-right: 9px;
+    margin-bottom: 20px;
 }
 
-.boton-ingresar{
-  color: white;
-  border: 1px solid black;
-  text-transform: uppercase;
-  background-color: #6765D6;
-  margin: auto;
-  margin-top: 10px;
-  width: 97%;
-  padding: 8px 0px 8px;
-  border-radius: 8px;
-}
-.boton-ingresar h2{
-  font-weight: normal;
-  font-size: 20px;
+.remember-me-checkbox{
+    text-align: left;
+    margin-left: 20px;
 }
 
-.divisor{
-  margin: 20px 0px 20px;
+#boton-ingresar{
+    color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: #6765D6;
+    margin: auto;
+    margin-top: 10px;
+    width: 97%;
+    padding: 8px 0px 8px;
+    border-radius: 8px;
 }
-.titulo h2{
-  font-weight: normal;
+
+hr{
+    margin: 20px 0px 20px;
 }
-.boton-registrarse{
-  background-color: #cacadc;
-  color: #6765D6;
-  margin: 20px auto 20px;
-  padding: 8px 0px 8px;
-  width: 97%;
-  border-radius: 8px;
-  border: 1px solid black;
+
+#boton-registrarse{
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #cacadc;
+    margin: 20px auto 20px;
+    padding: 8px 0px 8px;
+    width: 97%;
+    border-radius: 8px;
+    border: 1px solid black;
 }
-.boton-registrarse h2{
-  font-weight: normal;
-  font-size: 20px;
+#boton-registrarse a{
+    display: block;
+    width: 100%;
 }
+a:link {
+    color: #6765D6;
+}
+
+
+
+
+/*********  FOOTER  **********/
+
 
 footer{
-  width: 100%;
-  background-color: #1A2028;
-  color: white;
-  font-size: 12px;
+    width: 100%;
+    background-color: #1A2028;
+    color: white;
+    font-size: 12px;
 }
-
+  
 .cont-footer{
-  border-top: 1px solid black;
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 .fab{
-  margin: 0px 5px 0px; 
+    margin: 0px 5px 0px; 
 }
-
+.left-footer p{
+    margin: 12px 0px 12px;
+}
+.right-footer p{
+    margin: 12px 0px 12px;
+}
 .center-footer{
-  align-self: flex-end;
+    align-self: flex-end;
 }
 .center-footer p{
-  margin: auto;
+    margin: auto;
 }
-
+  
 .iconos{
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
-
-/***Media query tablet****/
-  /*max-width: 400px;
-  margin: auto;
-  margin-top: -8rem;
-  background-color: #E9E9E9;
-  border-radius: 10%;
-  padding: 20px;
-  border: 1px solid #1A2028*/
