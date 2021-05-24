@@ -94,7 +94,7 @@ h1{
 .register-section h2{
     font-weight: 400;
 }
-#boton-registrarse{
+#boton-link-registrarse{
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 22px;
     text-transform: uppercase;
@@ -105,7 +105,7 @@ h1{
     border-radius: 8px;
     border: 1px solid black;
 }
-#boton-registrarse a{
+#boton-link-registrarse a{
     display: block;
     width: 100%;
 }
