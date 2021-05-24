@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 /***************** ETIQUETAS *******************/
-/* Encabezado */
+/******* Encabezado ********/
 header{
     background-color:#1A2028;
     padding:1rem;
@@ -61,7 +61,7 @@ nav a{
     align-items: center;
 }
 
-/* Cuerpo */
+/******** Cuerpo ********/
 body{
     background-color: #7B8A99;
 }
@@ -80,10 +80,9 @@ h3{
 }
 p{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
     font-size: 15px;
 }
-/* Footer */
+/******* Footer *******/
 footer{
     background-color: #1A2028;
     color: #fff;
@@ -93,7 +92,7 @@ footer section{
     justify-content:space-around;
 }
 /***************** CLASES **********************/
-/* Encabezado */
+/****** Encabezado *******/
 .burger{
     color: white;
     display:block;
@@ -119,7 +118,7 @@ footer section{
     font-size:1.5rem;
 }
 
-/* Cuerpo */
+/***** Cuerpo ******/
 /* Carousel */
 .carousel{
     max-width: 19rem;
@@ -194,15 +193,8 @@ footer section{
 }
 /**************** MEDIA QUERIES ****************/
 /* Tablet */
-@media (min-width: 769px){
+@media (min-width: 361px){
     /* Encabezado */
-    .burger{
-        display: none;
-    }
-    .logo{
-        width:30%;
-        display: block;
-    }
     form{
         max-width:40%;
         display:flex;
@@ -222,6 +214,14 @@ footer section{
     main{
         display: flex;
         justify-content:space-around;
+    }
+    /* Clases */
+    .burger{
+        display: none;
+    }
+    .logo{
+        width:30%;
+        display: block;
     }
     /*Menu de navegacion*/
     .navbar{
@@ -255,3 +255,6 @@ footer section{
 }
 
 /* Desktop */
+@media (min-width: 769px){
+
+}
