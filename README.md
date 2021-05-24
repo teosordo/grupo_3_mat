@@ -1,4 +1,7 @@
-# MATech
+<!-- # MATech
+___ -->
+
+![Logo](public/imgs/logo_final.svg)
 ___
 
 ## Acerca de
@@ -52,10 +55,21 @@ ___
     ![amazon](capturas/amazon.png)
 ___
 
-## [Wireframe del sitio](https://marvelapp.com/prototype/71f2ca3)
+## Fuentes a usar
+  - **Barlow semi condensed** para titulos
+  - **Montserrat** para textos
+___
 
+## [Paleta de colores](https://coolors.co/6765d6-cacadc-1a2028-7b8a99-ffffff)
+  - <img src="https://via.placeholder.com/15/6765d6?text=+"></img> #6765d6
+  - <img src="https://via.placeholder.com/15/cacadc?text=+"></img> #cacadc
+  - <img src="https://via.placeholder.com/15/1a2028?text=+"></img> #1a2028
+  - <img src="https://via.placeholder.com/15/7b8a99?text=+"></img> #7b8a99
+  - <img src="https://via.placeholder.com/15/ffffff?text=+"></img> #ffffff
+___
+
+## [Wireframe del sitio](https://marvelapp.com/prototype/71f2ca3)
 ___
 
 ## [Tablero de Trello](https://trello.com/b/ibvBTqoy/tareas)
-
 ___
