@@ -119,11 +119,14 @@ footer{
     background-color: #1A2028;
     color: #fff;
 }
+
+/***seccion terminos... y redes sociales***/
 footer section{
     display:flex;
     justify-content:space-around;
 }
 
+/***distancia entre los iconos del footer***/
 .fab{
     margin: 0px 5px 0px; 
 }
