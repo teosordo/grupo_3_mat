@@ -8,7 +8,7 @@ header{
     background-color:#1A2028;
     padding:1rem;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items:center;
 }
 /* Buscador en form */
@@ -181,9 +181,6 @@ footer section{
 /**************** MEDIA QUERIES ****************/
 /* Tablet */
 @media (min-width: 361px){
-}
-/* Desktop */
-@media (min-width: 769px){
     /* ENCABEZADO */
     header{
         position: relative;
@@ -247,5 +244,30 @@ footer section{
     }
     .home-productos{
         width:48%;
+    }
+}
+/* Desktop */
+@media (min-width: 769px){
+    /******** CLASES *********/
+    /* Encabezado*/
+    .header-right{
+        width:22%;
+    }
+    .user-login p{
+        display: block;
+        margin-left: 10px;
+    }
+    .user-login a{
+        text-decoration: none;
+        color: #fff;
+    }
+    .user-login{
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    /* Ofertas */
+    .home-productos{
+        width:32%;
     }
 }
