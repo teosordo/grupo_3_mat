@@ -6,30 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script src="https://kit.fontawesome.com/6fadb1d758.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&family=Lato:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/productDetail.css">
-    <title>productDetail</title>
+    <title>Detalle de producto</title>
 </head>
 <body>
     <header>
+        <!-- MENU DESPLEGABLE -->
         <div class="burger">
             <i class="fas fa-bars"></i>
         </div>
 
-        <img src="#" alt="logo">
+        <img src="/imgs/logo_final.svg" alt="logo" class="logo">
 
-        <div class="search-bar">
-            Buscar... <i class="fas fa-search"></i>
-        </div>
+        <!-- BUSCADOR -->
+        <form method="post" action="#" class="buscador">
+            <fieldset>
+                <input type="search" name="serchbar" placeholder="Buscar...">
+            </fieldset>
+            <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
+        </form>
 
-        <a href="#"><i class="far fa-user-circle"></i>Iniciar Sesión</a>
+        <!-- LOGIN -->
+        <a href="/login" class="user-login"><i class="far fa-user-circle"></i>Iniciar Sesión</a>
 
-        <a href="#" class="carito"><i class="fas fa-shopping-cart"></i></a>
+        <!-- CARRITO -->
+        <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
     </header>
 
     <main>
-        <nav class="categorias-navbar">
+        <!-- MENU DE NAVEGACIÓN -->
+        <nav class="navbar">
             <h2>Todas las categorias</h2>
             
             <ul>
@@ -39,61 +50,72 @@
             </ul>
         </nav>
 
-        <section class="container">
-            <img src="#" alt="producto">
+        <!-- CUERPO -->
+        <section class="container-main">
+            <div class="product-img">
+                <img src="#" alt="producto">
+            </div>
 
-            <article class="articulo-producto">
-                <div class="titulo-producto">
+            <article class="product-article">
+                <!-- DATA PRINCIPAL -->
+                <div class="product-title">
                     <h1>Nombre</h1>
 
                     <h2>Marca</h2>
                 </div>
 
-                <div class="detalles-producto">
-                    <h2>Precio: $$$</h2>
+                <div class="product-elements">
+                    <div class="product-details">
+                        <h3>Precio: $$$</h3>
 
-                    <ul>
-                        <li>Envio: <span>Gratis!</span></li>
-                        <li>Disponibilidad: <span>Dato</span></li>
-                        <li>Medio de pago: <span>Dato</span></li>
-                        <li>Garantia: <span>Dato</span></li>
-                        <li>Cantidad: <span>Dato</span></li>
-                    </ul>
+                        <ul>
+                            <li>Envio: <span>Gratis!</span></li>
+                            <li>Disponibilidad: <span>Dato</span></li>
+                            <li>Medio de pago: <span>Dato</span></li>
+                            <li>Garantia: <span>Dato</span></li>
+                            <li>Cantidad: <span>Dato</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="product-icons">
+                        <i class="fas fa-share-alt"></i>
+
+                        <i class="far fa-heart"></i>
+                    </div>
                 </div>
 
-                <i class="fas fa-share-alt"></i>
+                <!-- BOTONES -->
+                <div class="buttons">
+                    <button type="submit" class="buy-button">Comprar</button>
 
-                <i class="far fa-heart"></i>
-
-                <div class="botones">
-                    <button class="boton-comprar">Comprar</button>
-
-                    <button class="boton-aniadir-carrito">Añadir al carrito</button>
+                    <button type="submit" class="cart-button">Añadir al carrito</button>
                 </div>
 
+                <!-- INFO Y VIDEOS -->
                 <div class="info-producto">
                     <div class="caracteristicas">
-                        <h2>Características</h2>
+                        <h3>Características</h3>
 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
                     </div>
 
                     <div class="especificaciones">
-                        <h2>Especificaciones</h2>
+                        <h3>Especificaciones</h3>
 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
                     </div>
 
                     <div class="videos">
-                        <h2>Videos</h2>
+                        <h3>Videos</h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
+                        <div class="product-img"></div>
                     </div>
                 </div>
             </article>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="cont-footer">
             <section class="left-footer">
