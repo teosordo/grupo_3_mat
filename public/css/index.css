@@ -32,21 +32,6 @@ form button{
     padding:0 0.5rem;
     color: #ffffff;
 }
-/*Navegacion*/
-.site-navbar, .login-navbar{
-    display: none;
-    background-color: #F6F6F6;
-    border-radius: 15px;
-}
-nav ul{
-    list-style: none;
-    padding: 0;
-    margin:0;
-}
-nav a{
-    text-decoration: none;
-    color: #47525E;
-}
 
 /******** Cuerpo ********/
 body{
@@ -104,6 +89,24 @@ footer section{
     display:none;
     color: #fff;
     text-decoration: none;
+    font-size:1.5rem;
+}
+/*Navegacion*/
+.navbar{
+    display: none;
+    background-color: #F6F6F6;
+    border-radius: 15px;
+}
+.navbar ul{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+.navbar a{
+    text-decoration: none;
+    color: #47525E;
+}
+.navbar h2{
     font-size:1.5rem;
 }
 
@@ -182,9 +185,9 @@ footer section{
 /* Tablet */
 @media (min-width: 361px){
     /* ENCABEZADO */
-    header{
+    /*header{
         position: relative;
-    }
+    }*/
     form{
         max-width:40%;
         display:flex;
@@ -203,17 +206,17 @@ footer section{
     }
     /* Cuerpo*/
     /*Menu de navegacion*/
-    .site-navbar{
+    .navbar{
         width:20%;
         display:flex;
         flex-direction:column;
         align-items:center;
         font-size: 15px;
         position:absolute;
-        top:95px;
+        top:15px;
         left:1rem;
     }
-    .site-navbar li{
+    .navbar li{
         padding:1rem 0;
     }
     /* Cuerpo */
