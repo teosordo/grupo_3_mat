@@ -4,81 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/register.css">
-    
-    <title>Crear Cuenta</title>
+    <title>Registrate</title>
 </head>
 <body>
     <header>
-
+        <a href="/"><img class="logo" src="/imgs/logo_final.svg" alt="logo"></a>
     </header>
     <main>
-        <div class="cont-register">
-            <div class="titulo">
+        <div class="main-div-container">
+            <form action="/" method="POST">
                 <h1>
-                    Registrate
+                    Crea tú cuenta
                 </h1>
+            <div class="input-user-cred">
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="E-MAIL" required class="datos">
             </div>
-            <div class="datos">
-                <h3>
-                    E-MAIL
-                </h3>
+            <div class="input-user-cred">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required class="datos">
             </div>
-            <div class="datos">
-                <h3>
-                    Usuario
-                </h3>
+            <div class="input-user-cred">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required class="datos">
             </div>
-            <div class="datos">
-                <h3>
-                    Contraseña
-                </h3>
+            <div class="input-user-cred">
+                <label for="password-r"></label>
+                <input type="password" id="password-confirm" name="password" placeholder="Confirme su Contraseña" required class="datos">
             </div>
-            <div class="datos">
-                <h3>
-                    Repetir Contraseña
-                </h3>
-            </div>
-            <button type= button id="create-account">
-                Crear Cuenta
+            <button type="submit" id="boton-crear">
+                Crear cuenta
             </button>
-            <hr class="divisor">
-            <div class="titulo">
-                <h2>
-                    ¿Ya tenes cuenta?
-                </h2>
+            </form>
+            <div class="divider">
             </div>
-            <button type='button' id="login-button">
-                <a href="/login">
-                    <h2>
-                        Ingresa
-                    </h2>
-                </a>
+        <div class="login-section">
+            <h2>
+                ¿Ya tenés cuenta?
+            </h2>
+            <button type="button" id="boton-link-login">
+                <a href="/login">Inicia Sesión</a>
             </button>
         </div>
     </main>
     <footer>
-        <div class="cont-footer">
-            <section class="left-footer">
+        <section>
+            <div class="left-footer">
                 <p>Términos y condiciones</p>
                 <p>Comentarios</p>
-            </section>
-            <div class="center-footer">
-                <p>Copyright © 2021 - MAT Team</p>
             </div>
-            <section class="right-footer">
+            <div class="right-footer">
                 <p>Seguinos</p>
                 <div class="iconos">
                     <div><i class="fab fa-instagram"></i></div>
                     <div><i class="fab fa-twitter"></i></div>
                     <div><i class="fab fa-facebook-f"></i></div>
                 </div>
-            </section>
+            </div>
+        </section>
+        <div class="center-footer">
+            <p>Copyright © 2021 - MAT Team</p>
         </div>
     </footer>
 </body>

@@ -5,6 +5,8 @@
 body{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
     min-height: 100vh;
     text-align: center;
     font-family: 'Barlow Semi Condensed', sans-serif;
@@ -20,12 +22,17 @@ header{
     min-height: 195px;
     max-height: 220px;
 }
+.logo{
+    max-width: 491px;
+}
+
+
 /***********    MAIN   ************/
 main{
     flex-grow: 1;
 }
 
-
+/***Contenedor del formulario***/
 .main-div-container{
     width: 90%;
     max-width: 320px;
@@ -36,41 +43,46 @@ main{
     border: 1px solid #1A2028
 }
 h1{
+    font-weight: 400;
+    font-size: 30px;
     text-transform: uppercase;
     margin: 25px 0px 25px;
 }
-
+/***Divs contenedores de los inputs***/
 .input-user-cred{
     margin: 20px auto 20px;
 }
-
-
+/***Estilo del input***/
 .datos{
-    color: rgba(75, 75, 75, 0.507);
-    background-color: white;
+    font-family:'Barlow Semi Condensed', sans-serif ;
+    text-align: center;
     border: 1px solid black;
     width: 93%;
     padding: 10px;
     border-radius: 7px;
     font-size: 16px; 
 }
+/***link redireccion para recuperar contraseña***/
 .forget-link{
     display: block;
+    text-decoration: none;
     text-align: right;
     margin-right: 9px;
     margin-bottom: 20px;
 }
-
+/***checkbox para guardar informacion***/
 .remember-me-checkbox{
     text-align: left;
     margin-left: 20px;
 }
-
+/***boton ingresar***/
 #boton-ingresar{
     color: white;
     border: 1px solid black;
     text-transform: uppercase;
-    font-size: 20px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
     background-color: #6765D6;
     margin: auto;
     margin-top: 10px;
@@ -78,13 +90,17 @@ h1{
     padding: 8px 0px 8px;
     border-radius: 8px;
 }
-
-hr{
+.divider{
+    border-top: 1px solid black;
     margin: 20px 0px 20px;
 }
-
-#boton-registrarse{
-    font-size: 20px;
+/***Seccion redireccion registrarse***/
+.register-section h2{
+    font-weight: 400;
+}
+#boton-link-registrarse{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 22px;
     text-transform: uppercase;
     background-color: #cacadc;
     margin: 20px auto 20px;
@@ -93,14 +109,17 @@ hr{
     border-radius: 8px;
     border: 1px solid black;
 }
-#boton-registrarse a{
+#boton-link-registrarse a{
     display: block;
     width: 100%;
 }
 a:link {
+    text-decoration: none;
     color: #6765D6;
 }
-
+a:visited{
+    color: #6765D6;
+}
 
 
 
@@ -108,16 +127,15 @@ a:link {
 
 
 footer{
-    width: 100%;
     background-color: #1A2028;
-    color: white;
-    font-size: 12px;
+    color: #fff;
 }
-  
-.cont-footer{
-    display: flex;
-    justify-content: space-around;
+/***seccion terminos... y redes sociales***/
+footer section{
+    display:flex;
+    justify-content:space-around;
 }
+/***distancia entre los iconos del footer***/
 .fab{
     margin: 0px 5px 0px; 
 }
@@ -127,13 +145,6 @@ footer{
 .right-footer p{
     margin: 12px 0px 12px;
 }
-.center-footer{
-    align-self: flex-end;
-}
-.center-footer p{
-    margin: auto;
-}
-  
 .iconos{
     display: flex;
     justify-content: space-between;
