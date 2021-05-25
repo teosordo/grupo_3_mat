@@ -1,7 +1,7 @@
-<!-- # MATech
-___ -->
+# MATech
+___
 
-![Logo](public/imgs/logo_final.svg)
+![logo](public/imgs/logo_final.svg)
 ___
 
 ## Acerca de
@@ -37,18 +37,22 @@ ___
   - [PC Componentes](https://www.pccomponentes.com/) -> **registro**
 
     ![pccomponentes](capturas/pccomponentes.png)
+    ___
     
   - [HardGamers](https://www.hardgamers.com.ar/) -> **header**
     
     ![hardgamers](capturas/hardgamers.png)
+    ___
   
   - [Newegg](https://www.newegg.com/global/ar-en/) -> **nav, carrousel y ofertas**
     
     ![newegg](capturas/newegg.png)
+    ___
     
   - [Mercadolibre](https://www.mercadolibre.com.ar/) -> **login**
     
     ![mercadolibre](capturas/mercadolibre.png)
+    ___
     
   - [Amazon](https://www.amazon.com/-/es/) -> **carrito**
   
@@ -69,6 +73,21 @@ ___
 ___
 
 ## [Wireframe del sitio](https://marvelapp.com/prototype/71f2ca3)
+
+  - Home
+  ![home](capturas/)
+  ___
+  - Detalle de producto
+    ![productDetail](capturas/)
+  ___
+  - Carrito
+    ![productCart](capturas/)
+  ___
+  - Registro
+    ![register](capturas/)
+  ___
+  - Login
+  ![login](capturas/)
 ___
 
 ## [Tablero de Trello](https://trello.com/b/ibvBTqoy/tareas)
