@@ -75,19 +75,24 @@ ___
 ## [Wireframe del sitio](https://marvelapp.com/prototype/71f2ca3)
 
   - Home
-  ![home](capturas/)
+  
+  ![home](capturas/home.png)
   ___
   - Detalle de producto
-    ![productDetail](capturas/)
+  
+  ![productDetail](capturas/productDetail.png)
   ___
   - Carrito
-    ![productCart](capturas/)
+  
+  ![productCart](capturas/ProductCart.png)
   ___
   - Registro
-    ![register](capturas/)
+  
+  ![register](capturas/register.png)
   ___
   - Login
-  ![login](capturas/)
+  
+  ![login](capturas/login.png)
 ___
 
 ## [Tablero de Trello](https://trello.com/b/ibvBTqoy/tareas)
