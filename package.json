@@ -4,8 +4,8 @@
   "description": "___",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js",
-    "start": "nodemon app.js -e html,css"
+    "test": "clear && nodemon app.js -e html,css,js,mjs,json",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

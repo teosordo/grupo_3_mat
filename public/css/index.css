@@ -64,7 +64,6 @@ p{
 
 /******* Footer *******/
 footer{
-    width: 100vw;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     background-color: #1A2028;
@@ -72,15 +71,12 @@ footer{
     display: flex;
     flex-direction: column;
     text-align: center;
-    position: absolute;
-    bottom: 0;
 }
 footer section{
     display:flex;
     justify-content:space-around;
 }
 /***************** CLASES **********************/
-
 /****** Encabezado *******/
 .burger{
     width: 20%;
