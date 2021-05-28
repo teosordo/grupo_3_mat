@@ -3,8 +3,7 @@
     box-sizing: border-box;
 }
 body{
-    display: flex;
-    flex-direction: column;
+    position: relative;
     text-align: center;
     font-family: 'Barlow Semi Condensed', sans-serif;
     min-height: 100vh;
@@ -24,7 +23,7 @@ header{
 
 /***********    MAIN   ************/
 main{
-    flex-grow: 1;
+    padding-bottom: 93px;
 }
 
 /***Contenedor del formulario***/
@@ -114,6 +113,9 @@ a:visited{
 
 /*********  FOOTER  **********/
 footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
     font-family:'Montserrat', sans-serif;
     background-color: #1A2028;
     color: #fff;
