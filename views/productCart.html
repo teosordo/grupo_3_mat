@@ -5,68 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/6fadb1d758.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&family=Lato:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/productCart.css">
 
     <title>Carrito de compras</title>
 </head>
 <body>
     <header>
-        <!--Menu de navegacion-->
+        <!-- MENU DESPLEGABLE -->
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
 
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
-    
-        <nav>
+        <img src="/imgs/logo_final.svg" alt="logo" class="logo">
+
+        <!-- BUSCADOR -->
+        <form method="post" action="#" class="buscador">
+            <fieldset>
+                <input type="search" name="serchbar" placeholder="Buscar...">
+            </fieldset>
+            <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
+        </form>
+
+        <!-- CARRITO Y USER -->
+        <div class="header-right">
+            <a href="/productDetail" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            <div class="user-login">
+                <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
+                <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <nav class="navbar">
+            <h2>Todas las categorias</h2>
+            
             <ul>
-                <li><a href="/login">Iniciar sesión</a></li>
-                <li><a href="#">Categoria</a></li>
-                <li><a href="#">Categoria</a></li>
-                <li><a href="#">Categoria</a></li>
+                <li><a href="#">Categoría 1</a></li>
+                <li><a href="#">Categoría 2</a></li>
+                <li><a href="#">Categoría 3</a></li>
             </ul>
         </nav>
 
-        <img src="/imgs/logo_final.svg" alt="logo">
+        <!-- CUERPO -->
+        <section class="container-main">
+            <section class="title">
+                <h2>Carrito</h2>
+                <h2>Favoritos</h2>
+            </section>
 
-        <!--Buscador-->
-        <button class="buscar"><i class="fas fa-search"></i></button>
-        <!--Carrito de compras-->
-        <div class="cart"><a href="/views/productCart.html"><i class="fas fa-shopping-cart"></i></a></div>
-    </header>
-    <main>
-        <section>
-            <h2>Carrito</h2>
-            <h2>Favoritos</h2>
-        </section>
-        <section>
-            <article>
-                <h3>Nombre</h3>
-                <div class="controlUnidades"></div>
-                <p>$$$</p>
+            <section class="products-container">
+                <article class="product">
+                    <h3>Nombre</h3>
+                    <div class="controlUnidades"></div>
+                    <p>$$$</p>
+                </article>
+
+                <article class="product">
+                    <h3>Nombre</h3>
+                    <div class="controlUnidades"></div>
+                    <p>$$$</p>
+                </article>
+            </section>
+
+            <article class="units-total">
+                <section class="units">
+                    <h3>Unidades: <span>2</span></h3>
+                </section>
+
+                <section class="total">
+                    <h3>Total: <span>$$$</span></h3>
+                </section>
             </article>
-            <article>
-                <h3>Nombre</h3>
-                <div class="controlUnidades"></div>
-                <p>$$$</p>
-            </article>
-            <article>
-                <h3>Unidades</h3>
-                <p>2</p>
-                <h3>Total</h3>
-                <p>$$$</p>
-            </article>
-            <button>Realizar pedido</button>
+
+            <button class="buy-button">Realizar pedido</button>
+            
         </section>
     </main>
+
     <footer>
         <div class="cont-footer">
             <section class="left-footer">
                 <p>Términos y condiciones</p>
                 <p>Comentarios</p>
             </section>
-            <div class="center-footer">
-                <p>Copyright © 2021 - MAT Team</p>
-            </div>
+            
             <section class="right-footer">
                 <p>Seguinos</p>
                 <div class="iconos">
@@ -75,6 +105,9 @@
                     <div><i class="fab fa-facebook-f"></i></div>
                 </div>
             </section>
+            <div class="center-footer">
+                <p>Copyright © 2021 - MAT Team</p>
+            </div>
         </div>
     </footer>
 </body>
