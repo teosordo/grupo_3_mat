@@ -420,9 +420,13 @@ footer section {
         transition: all 0.5s;
     }
 
-    .info-producto article:hover > p {
-        visibility: visible;
+    .info-producto article {
+        height: fit-content;
+    }
+
+    article:hover > p {
         height: 20vh;
+        visibility: visible;
     }
 
     .product-vid {
