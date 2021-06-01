@@ -27,6 +27,7 @@ main{
     padding-bottom: 93px;
 }
 
+
 /***Contenedor del formulario***/
 .main-div-container{
     width: 90%;
@@ -37,7 +38,10 @@ main{
     padding: 20px;
     border: 1px solid #1A2028
 }
-
+form{
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
 h1{
     font-weight: 400;
     font-size: 30px;
@@ -85,6 +89,9 @@ h1{
 }
 
 /*** Seccion redireccion a login***/
+.login-section{
+    margin-top: 20px;
+}
 .login-section h2{
     font-weight: 400;
 }
