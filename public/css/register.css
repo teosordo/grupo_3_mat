@@ -16,8 +16,9 @@ header{
     height: 220px;
 }
 .logo{
-    width: 100%;
-    max-width: 491px;
+    width: 87vw;
+    max-width: 278p;
+    margin-top: 20px;
 }
 
 
