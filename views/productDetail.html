@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&family=Lato:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/productDetail.css">
     
     <title>Detalle de producto</title>
@@ -22,7 +23,7 @@
             <i class="fas fa-bars"></i>
         </div>
 
-        <img src="/imgs/logo_final.svg" alt="logo" class="logo">
+        <figure class="logo"><img src="/imgs/logo_final.svg" alt="logo"></figure>
 
         <!-- BUSCADOR -->
         <form method="post" action="#" class="buscador">
@@ -34,7 +35,7 @@
 
         <!-- CARRITO Y USER -->
         <div class="header-right">
-            <a href="/productDetail" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
             <div class="user-login">
                 <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
                 <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
@@ -56,9 +57,9 @@
 
         <!-- CUERPO -->
         <section class="container-main">
-            <div class="product-img">
+            <figure class="product-img">
                 <img src="#" alt="producto">
-            </div>
+            </figure>
 
             <article class="product-article">
                 <!-- DATA PRINCIPAL -->
@@ -98,19 +99,19 @@
                 <!-- INFO Y VIDEOS -->
                 <section class="info-producto">
                     <article>
-                        <h3>Características</h3>
+                        <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
                     </article>
 
                     <article>
-                        <h3>Especificaciones</h3>
+                        <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
                     </article>
 
                     <article>
-                        <h3>Videos</h3>
+                        <h3>Videos <i class="fas fa-chevron-down"></i></h3>
 
                         <p class="product-vid"></p>
                     </article>
@@ -121,24 +122,23 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="cont-footer">
-            <section class="left-footer">
+        <section>
+            <div class="left-footer">
                 <p>Términos y condiciones</p>
                 <p>Comentarios</p>
-            </section>
-            
-            <section class="right-footer">
+            </div>
+            <div class="right-footer">
                 <p>Seguinos</p>
                 <div class="iconos">
                     <div><i class="fab fa-instagram"></i></div>
                     <div><i class="fab fa-twitter"></i></div>
                     <div><i class="fab fa-facebook-f"></i></div>
                 </div>
-            </section>
-            <div class="center-footer">
-                <p>Copyright © 2021 - MAT Team</p>
             </div>
-        </div>
+        </section>
+        <section class="center-footer">
+            <p>Copyright © 2021 - MAT Team</p>
+        </section>
     </footer>
 </body>
 </html>

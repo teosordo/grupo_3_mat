@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+/***************** ETIQUETAS *******************/
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #7B8A99;
+}
+h2{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    font-size:30px;
+}
+h3{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 400;
+    font-size:25px;
+}
+p, footer{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+/******* Encabezado ********/
+header{
+    height: 80px;
+    background-color:#1A2028;
+    padding:1rem;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+/* Buscador en form */
+form *{
+    border: none;
+}
+form{
+    width:50%;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 5px;
+    padding:0;
+}
+form fieldset{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+form fieldset input{
+    width:100%;
+    padding:10px;
+}
+form button{
+    background-color: #6765D6;
+    border-radius: 2px;
+    padding:0 0.5rem;
+    color: #ffffff;
+}
+/******* Footer *******/
+footer{
+    width:100%;
+    background-color: #1A2028;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position:absolute;
+    bottom:0px;
+}
+footer section{
+    display:flex;
+    justify-content:space-around;
+}
+/***************** CLASES **********************/
+/****** Encabezado *******/
+.burger{
+    width: 20%;
+    padding: 2px;
+    color: white;
+    display:block;
+    text-align: center;
+    font-size:1.5rem;
+}
+.logo{
+    display:none;
+    margin: 5px 0 0 1rem;
+}
+.header-right{
+    width:20%;
+    text-align: center;
+}
+.cart{
+    color: white;
+    font-size:1.5rem;
+}
+.usuario{
+    display:none;
+}
+.login{
+    display:none;
+    color: #fff;
+    text-decoration: none;
+    font-size:1.5rem;
+}
+/*Navegacion*/
+.navbar{
+    display: none;
+    background-color: #F6F6F6;
+    border-radius: 15px;
+    text-align: center;
+}
+.navbar ul{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+.navbar a{
+    text-decoration: none;
+    color: #47525E;
+}
+.navbar h2{
+    font-size:1.5rem;
+}
+/******* Footer *******/
+.iconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.center-footer{
+    color: #A6ADB7;
+}
+
+/**************** MEDIA QUERIES ****************/
+/* Tablet */
+@media (min-width: 481px) {
+    form{
+        display:flex;
+        flex-direction:row;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .header-right {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .login{
+        display: block;
+    }
+}
+/* Desktop */
+@media (min-width: 769px){
+    /******** CLASES *********/
+    /* Encabezado*/
+    .logo{
+        width:20%;
+        display: block;
+    }
+    .burger{
+        display: none;
+    }
+    .header-right{
+        text-align:left;
+    }
+    .user-login p{
+        display: block;
+        margin: 0 5px;
+    }
+    .user-login a{
+        text-decoration: none;
+        color: #fff;
+    }
+    .user-login{
+        margin: 20px;
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    /*Menu de navegacion*/
+    .navbar{
+        width:20%;
+        display:flex;
+        flex-direction:column;
+        font-size: 15px;
+        position:absolute;
+        top:15px;
+        left:1rem;
+    }
+    .navbar li{
+        padding:1rem 0;
+    }
+}
