@@ -3,17 +3,19 @@ ___
 
 ## Empezar a hacer
 
-  - Usar Trello más seguido.
-  - comentar mas el código para mejor comprensión.
-  - Revisar que el codigo escrito sea el necesario y eliminar lo que no.
+  - Validar código
+  - Ser mas concisos en las videollamadas.
 ___
 
 ## Hacer más
 
+  - Revisar que el codigo escrito sea el necesario y eliminar lo que no.
 ___
 
 ## Continuar haciendo
 
+  - Usar Trello más seguido.
+  - Comentar mas el código para mejor comprensión.
 ___
 
 ## Hacer menos
