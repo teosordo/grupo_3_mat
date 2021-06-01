@@ -64,14 +64,14 @@ footer{
     background-color: #1A2028;
     color: #fff;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     text-align: center;
+    justify-content: space-around;
     position:absolute;
     bottom:0px;
 }
 footer section{
-    display:flex;
-    justify-content:space-around;
+    width:45%;
 }
 /***************** CLASES **********************/
 /****** Encabezado *******/
@@ -125,12 +125,18 @@ footer section{
 }
 /******* Footer *******/
 .iconos{
+    width:30%;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 .center-footer{
     color: #A6ADB7;
+    width:100%;
+}
+.right-footer a{
+    color: #fff;
 }
 
 /**************** MEDIA QUERIES ****************/
