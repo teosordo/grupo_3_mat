@@ -1,6 +1,14 @@
 /***************** ETIQUETAS *******************/
 main {
     padding: 10px 1rem 1px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700;
+    font-size:30px;
 }
 
 h3 {
@@ -12,9 +20,11 @@ p, ul, footer {
     font-weight: 400;
     font-size: 15px;
 }
+
 figure{
     margin:0;
 }
+
 /***************** CLASES **********************/
 .container-main {
     width: 98%;
@@ -25,9 +35,21 @@ figure{
     padding: 8px;
 }
 
-.product-img, .product-vid {
+.product-img {
     background-color: #CACADC;
-    height: 60vw;
+    /*height: 60vw;*/
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.product-img img {
+    width: 80%;
+    max-width: 360px;
+}
+
+.product-vid {
+    background-color: #CACADC;
 }
 
 /* Artículo */
@@ -78,8 +100,8 @@ figure{
 /* Iconos */
 
 .product-icons {
-    width: 35%;
-    padding: 15px 8px;
+    width: 30%;
+    padding: 15px 0;
     font-size: 1.7rem;
     display: flex;
     justify-content: space-around;
@@ -116,23 +138,27 @@ figure{
 
 /* Informacion del producto */
 
-.info-producto {
+.info-producto-mobile {
     background-color: #E8E8E8;
     padding: 10px;
     margin-top: 20px;
 }
 
-.info-producto article {
+.info-producto-mobile article {
     margin-bottom: 15px;
 }
 
-.info-producto h3 {
+.info-producto-mobile h3 {
     margin-bottom: 8px;
+}
+
+.info-producto-desktop {
+    display: none;
 }
 
 @media (min-width: 481px) {    
     .product-icons {
-        width: 20%;
+        width: 25%;
     }
 }
 
@@ -143,48 +169,54 @@ figure{
         position: relative;
     }
 
-    .container-main {
-        width: 45%;
-        margin: initial;
+    main > section {
+        width: 78%;
     }
-    
-    .product-img, .product-vid {
-        width: 28vw;
-        max-height: 340px;
+
+    .container-main {
+        width: 100%;
+        margin: initial;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .product-article {
+        width: 55%;
+        /*display: flex;
+        flex-direction: column;
+        justify-content: space-around;*/
     }
 
     .product-img {
-        position: absolute;
-        right: 48vw;
+        width: 40%;
+        min-width: 240px;
     }
 
-    .info-producto {
-        background-color: transparent;
-        position: absolute;
-        right: 2vw;
-        left: 23vw;
+    .info-producto-mobile {
+        display: none;
+    }
+
+    .info-producto-desktop {
+        width: 100%;
         display: flex;
+        margin-top: 1rem;
         justify-content: space-between;
-        margin-top: 3rem;
-        z-index: 1;
     }
 
-    .info-producto article {
+    .info-producto-desktop article {
+        height: fit-content;
         background-color: #E8E8E8;
         border-radius: 10px;
         padding: 5px;
         width: 32%;
     }
 
-    .info-producto article p {
+    .info-producto-desktop article p {
         visibility: hidden;
         height: 0vh;
         overflow: hidden;
         transition: all 0.5s;
-    }
-
-    .info-producto article {
-        height: fit-content;
     }
 
     article:hover > p {

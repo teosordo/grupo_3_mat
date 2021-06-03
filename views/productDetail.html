@@ -19,9 +19,7 @@
 <body>
     <header>
         <!-- MENU DESPLEGABLE -->
-        <div class="burger">
-            <i class="fas fa-bars"></i>
-        </div>
+        <i class="fas fa-bars burger"></i> <!-- elimine el div y pase la clase a la etiqueta i -->
 
         <figure class="logo"><img src="/imgs/logo_final.svg" alt="logo"></figure>
 
@@ -33,14 +31,14 @@
             <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
         </form>
 
-        <!-- CARRITO Y USER -->
-        <div class="header-right">
+        <!-- CARRITO Y USER --> 
+        <nav class="header-right">
             <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
-            <div class="user-login">
+            <section class="user-login"> <!-- preguntar que hacer con login y user-login -->
                 <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
                 <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
-            </div>
-        </div>
+            </section>
+        </nav>
     </header>
 
     <main>
@@ -56,67 +54,90 @@
         </nav>
 
         <!-- CUERPO -->
-        <section class="container-main">
-            <figure class="product-img">
-                <img src="#" alt="producto">
-            </figure>
+        <section>
+            <section class="container-main">
+            
+                <figure class="product-img">
+                    <img src="/imgs/productDetail/productDetail-temp.png" alt="producto">
+                </figure>
 
-            <article class="product-article">
-                <!-- DATA PRINCIPAL -->
-                <section class="product-title">
-                    <h1>Nombre</h1>
+                <article class="product-article">
+                    <!-- DATA PRINCIPAL -->
+                    <section class="product-title">
+                        <h1>Nombre</h1>
 
-                    <h2>Marca</h2>
-                </section>
+                        <h2>Marca</h2>
+                    </section>
 
-                <section class="product-elements">
-                    <article class="product-details">
-                        <h3>Precio: $$$</h3>
+                    <section class="product-elements">
+                        <article class="product-details">
+                            <h3>Precio: $$$</h3>
 
-                        <ul>
-                            <li>Envio: <span>Gratis!</span></li>
-                            <li>Disponibilidad: <span>Dato</span></li>
-                            <li>Medio de pago: <span>Dato</span></li>
-                            <li>Garantia: <span>Dato</span></li>
-                            <li>Cantidad: <span>Dato</span></li>
-                        </ul>
-                    </article>
+                            <ul>
+                                <li>Envio: <span>Gratis!</span></li>
+                                <li>Disponibilidad: <span>Dato</span></li>
+                                <li>Medio de pago: <span>Dato</span></li>
+                                <li>Garantia: <span>Dato</span></li>
+                                <li>Cantidad: <span>Dato</span></li>
+                            </ul>
+                        </article>
 
-                    <div class="product-icons">
-                        <i class="fas fa-share-alt"></i>
+                        <section class="product-icons">
+                            <i class="fas fa-share-alt"></i>
 
-                        <i class="far fa-heart"></i>
-                    </div>
-                </section>
+                            <i class="far fa-heart"></i>
+                        </section>
+                    </section>
 
-                <!-- BOTONES -->
-                <section class="buttons">
-                    <button type="submit" class="buy-button">Comprar</button>
+                    <!-- BOTONES -->
+                    <section class="buttons">
+                        <button type="submit" class="buy-button">Comprar</button>
 
-                    <button type="submit" class="cart-button">Añadir al carrito</button>
-                </section>
+                        <button type="submit" class="cart-button">Añadir al carrito</button>
+                    </section>
 
-                <!-- INFO Y VIDEOS -->
-                <section class="info-producto">
-                    <article>
-                        <h3>Características <i class="fas fa-chevron-down"></i></h3>
+                    <!-- INFO Y VIDEOS -->
+                    <section class="info-producto-mobile">
+                        <article>
+                            <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
-                    </article>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
+                        </article>
 
-                    <article>
-                        <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
+                        <article>
+                            <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
-                    </article>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
+                        </article>
 
-                    <article>
-                        <h3>Videos <i class="fas fa-chevron-down"></i></h3>
+                        <article>
+                            <h3>Videos <i class="fas fa-chevron-down"></i></h3>
 
-                        <p class="product-vid"></p>
-                    </article>
-                </section>
-            </article>
+                            <p class="product-vid"></p>
+                        </article>
+                    </section>
+                </article>
+            </section>
+
+            <section class="info-producto-desktop">
+                <article>
+                    <h3>Características <i class="fas fa-chevron-down"></i></h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
+                </article>
+
+                <article>
+                    <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.</p>
+                </article>
+
+                <article>
+                    <h3>Videos <i class="fas fa-chevron-down"></i></h3>
+
+                    <p class="product-vid"></p>
+                </article>
+            </section>
         </section>
     </main>
 
