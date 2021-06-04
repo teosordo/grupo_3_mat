@@ -193,6 +193,10 @@ figure{
         min-width: 240px;
     }
 
+    .product-img img {
+        width: 100%;
+    }    
+
     .info-producto-mobile {
         display: none;
     }
