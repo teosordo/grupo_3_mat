@@ -20,8 +20,18 @@ header{
     max-width: 278px;
     margin-top: 20px;
 }
-
-
+.logo:hover{
+    animation: minibounce 0.5s alternate infinite;
+}
+@keyframes minibounce{
+    0% {
+        transform: translateY(0px);
+    }
+    
+    100% {
+        transform: translateY(-10px) scale(1.1);
+    }
+}
 /***********    MAIN   ************/
 main{
     padding-bottom: 93px;
@@ -80,14 +90,12 @@ h1{
     width: 97%;
     padding: 8px 0px 8px;
     border-radius: 8px;
+    transition: all .4s;
 }
-
-
-.divider{
-    border-top: 1px solid black;
-    margin: 20px 0px 20px;
+#boton-crear:hover{
+    cursor: pointer;
+    background-color: #3633C1;
 }
-
 /*** Seccion redireccion a login***/
 .login-section{
     margin-top: 20px;
