@@ -126,31 +126,36 @@ a:visited{
 
 /*********  FOOTER  **********/
 
-
 footer{
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    font-family:'Montserrat', sans-serif;
+    width:100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
     background-color: #1A2028;
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    position:absolute;
+    bottom:0px;
 }
-/***seccion terminos... y redes sociales***/
 footer section{
-    display:flex;
-    justify-content:space-around;
+    width:45%;
 }
-/***distancia entre los iconos del footer***/
-.fab{
-    margin: 0px 5px 0px; 
-}
-.left-footer p{
-    margin: 12px 0px 12px;
-}
-.right-footer p{
-    margin: 12px 0px 12px;
+footer p{
+    margin: 15px 0px 15px;
 }
 .iconos{
+    width:30%;
+    margin: auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.center-footer{
+    color: #A6ADB7;
+    width:100%;
+}
+.right-footer a{
+    color: #fff;
 }
