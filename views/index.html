@@ -18,7 +18,7 @@
 <body>
     <header>
         <!--Menu de navegacion-->
-        <div class="burger"><i class="fas fa-bars"></i></div>
+        <i class="fas fa-bars burger"></i>
         <figure class="logo"><img src="/imgs/logo_final.svg" alt="logo"></figure> 
         <!--Buscador-->
         <form class="buscador">
@@ -28,13 +28,13 @@
             <button type="submit" name="buscar" class="buscar"><i class="fas fa-search"></i></button>
         </form>
         <!--Carrito de compras-->
-        <div class="header-right">
+        <nav class="header-right">
             <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
-            <div class="user-login">
+            <section class="user-login">
                 <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
                 <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
-            </div>
-        </div>
+            </section>
+        </nav>
     </header>
     <main>
         <!-- MENU DE NAVEGACIÓN -->
@@ -46,59 +46,59 @@
                 <li><a href="#">Categoría 3</a></li>
             </ul>
         </nav>
-        <div class="carousel-contenido">
+        <section class="carousel-contenido">
             <!--Carousel-->
-            <section class="carousel">
-                <div><i class="fas fa-angle-left"></i></div>
-                <div class="fotos-carousel"></div>
-                <div><i class="fas fa-angle-right"></i></div>
-            </section>
+            <aside class="carousel">
+                <i class="fas fa-angle-left i-left"></i>
+                <figure class="fotos-carousel"><img src="imgs/index/carousel.jpg"></figure>
+                <i class="fas fa-angle-right i-right"></i>
+            </aside>
             <!--Oferta de productos-->
             <section class="home-contenido">
                 <article class="home-ofertas">
                     <h2>Ofertas</h2>
-                    <div class="ver-todo">
-                        <p>Ver todo <i class="fas fa-arrow-right"></i></p>
-                    </div>
+                    <section class="ver-todo">
+                        <a href="#">Ver todo <i class="fas fa-arrow-right"></i></a>
+                    </section>
                 </article>
                 <article class="home-productos">
-                    <img src="#" alt="producto">
-                    <div>
+                    <figure><img src="imgs/index/componentRAM.jpg" alt="producto"></figure>
+                    <section>
                         <h3>Nombre</h3>
                         <p class="detalle">Detalle</p>
-                    </div>
+                    </section>
                     <p class="home-precio">$$$</p>
-                    <div class="home-precio-anterior-desc">
+                    <section class="home-precio-anterior-desc">
                         <p class="precio-anterior">$$$</p>
                         <p class="off">%OFF</p>
-                    </div>
+                    </section>
                 </article>
                 <article class="home-productos">
-                    <img src="#" alt="producto">
-                    <div>
+                    <figure><img src="imgs/index/componentCASE.jpg" alt="producto"></figure>
+                    <section>
                         <h3>Nombre</h3>
                         <p class="detalle">Detalle</p>
-                    </div>
+                    </section>
                     <p class="home-precio">$$$</p>
-                    <div class="home-precio-anterior-desc">
+                    <section class="home-precio-anterior-desc">
                         <p class="precio-anterior">$$$</p>
                         <p class="off">%OFF</p>
-                    </div>
+                    </section>
                 </article>
                 <article class="home-productos">
-                    <img src="#" alt="producto">
-                    <div>
+                    <figure><img src="imgs/index/componentGC.jpg" alt="producto"></figure>
+                    <section>
                         <h3>Nombre</h3>
                         <p class="detalle">Detalle</p>
-                    </div>
+                    </section>
                     <p class="home-precio">$$$</p>
-                    <div class="home-precio-anterior-desc">
+                    <section class="home-precio-anterior-desc">
                         <p class="precio-anterior">$$$</p>
                         <p class="off">%OFF</p>
-                    </div>
+                    </section>
                 </article>
             </section>
-        </div>
+        </section>
     </main>
     <footer>
         <section class="left-footer">

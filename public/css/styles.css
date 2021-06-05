@@ -108,8 +108,10 @@ footer section{
 .navbar{
     display: none;
     background-color: #F6F6F6;
+    box-shadow: 1px 1px 10px 1px #6765D6;
     border-radius: 15px;
     text-align: center;
+    transition: all 0.5s ease-in-out;
 }
 .navbar ul{
     list-style: none;
@@ -122,6 +124,11 @@ footer section{
 }
 .navbar h2{
     font-size:1.5rem;
+}
+
+.navbar a:hover{
+    color:#6765D6;
+    font-weight: bold;
 }
 /******* Footer *******/
 .iconos{

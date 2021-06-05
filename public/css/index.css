@@ -5,12 +5,38 @@ main{
 /***************** CLASES **********************/
 /* Carousel */
 .carousel{
-    padding:2.5rem 1rem;
-    background-color: #fff;
-    margin:auto;
     display: flex;
-    justify-content:space-between;
     align-items:center;
+    flex-wrap: inherit;
+}
+.carousel figure{
+    margin:0;
+    width:100%;
+}
+.carousel img{
+    width:100%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 1px black;
+}
+.i-left, .i-right{
+    color: #fff;
+    font-size:3rem;
+    width: 0;
+    position: relative;
+}
+.i-left{
+    left:5%;
+}
+.i-right{
+    right: 5%;
+}
+.carousel i:hover{
+    animation:aumentar 0.4s alternate infinite;
+}
+@keyframes aumentar{
+    100%{
+        transform: scale(1.2);
+    }
 }
 /* Ofertas */
 .home-contenido{
@@ -32,16 +58,36 @@ main{
     margin-top:10px;
     padding:0 1rem;
 }
+.ver-todo a{
+    text-decoration: none;
+    color: black;
+    font-size:1.2rem;
+    transition:color 0.2s ease-in-out;
+    transition:font-weight 0.1s linear;
+}
+.ver-todo a:hover{
+    color: #6765D6;
+    font-weight: bold;
+}
 .home-productos{
     margin-bottom: 1rem;
     width:90%;
     padding: 1rem;
-    border:1px solid #E3E3E3;
+    border:2px solid #E3E3E3;
     border-radius:10px;
     display: flex;
     flex-direction:column;
+    transition: box-shadow 0.2s ease-in-out;
+}
+.home-productos:hover{
+    box-shadow: 1px 1px 10px 1px #969FAA;
+}
+.home-productos figure{
+    margin:0;
+    margin: auto;
 }
 .home-productos img{
+    width:100%;
     border: 1px solid #E3E3E3;
 }
 .detalle{
@@ -61,6 +107,11 @@ main{
 }
 .off{
     color:#77D353;
+}
+.home-detalle-hover{
+    visibility: visible;
+    overflow: hidden;
+    border: 1px solid red;
 }
 
 /**************** MEDIA QUERIES ****************/
