@@ -37,7 +37,6 @@ figure{
 
 .product-img {
     background-color: #CACADC;
-    /*height: 60vw;*/
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -97,6 +96,13 @@ figure{
     margin-bottom: 10px;
 }
 
+.product-details .controlUnidades {
+    width: 10%;
+    border: 1px solid black;
+    padding: 12px 45px;
+    display: inline-block;
+}
+
 /* Iconos */
 
 .product-icons {
@@ -105,6 +111,20 @@ figure{
     font-size: 1.7rem;
     display: flex;
     justify-content: space-around;
+    transition: 0.5s color;
+}
+
+.product-icons i {
+    height: fit-content;
+    transition: 0.5s color;
+}
+
+.product-icons .heart:hover {
+    color: #6765D6/*rgb(244, 91, 91)*/;
+}
+
+.product-icons .share:hover {
+    color: #6765D6/*rgb(90, 225, 255)*/;
 }
 
 /* Botones */
@@ -122,6 +142,7 @@ figure{
     padding: 10px 15px;
     width: 40%;
     max-height: 42px;
+    transition: 0.5s background-color;
 }
 
 .buy-button {
@@ -130,10 +151,18 @@ figure{
     min-width: 104px;
 }
 
+.buy-button:hover {
+    background-color: #5250ae;
+}
+
 .cart-button {
     background-color: #CACADC;
     color: #6765D6;
     min-width: 158px;
+}
+
+.cart-button:hover {
+    background-color: #b5b5c9;
 }
 
 /* Informacion del producto */
@@ -223,7 +252,21 @@ figure{
         transition: all 0.5s;
     }
 
-    article:hover > p {
+    /*@keyframes rotar {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotateZ(-180deg);
+        }
+    }
+
+    .info-producto-desktop article:hover > h3 i {
+        animation: rotar 0.5s ease-in-out;
+    }*/
+
+    .info-producto-desktop article:hover > p {
         height: 20vh;
         visibility: visible;
     }

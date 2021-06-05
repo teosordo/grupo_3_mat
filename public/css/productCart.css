@@ -41,7 +41,7 @@ h3{
     padding: 8px 10px 8px;
 }
 
-.products-container div {
+.products-container > section {
     border-bottom: 1px solid black;
 }
 
@@ -52,6 +52,7 @@ h3{
 }
 
 .controlUnidades {
+    width: 10%;
     border: 1px solid black;
     padding: 12px 45px;
     border-radius: 5px;
@@ -85,9 +86,15 @@ h3{
     border-radius: 5px;
     padding: 10px;
     width: 50%;
+    max-width: 200px;
     background-color: #6765D6;
     color: #fff;
     align-self: flex-end;
+    transition: 0.5s background-color;
+}
+
+.buy-button:hover {
+    background-color: #5250ae;
 }
 
 /**************** MEDIA QUERIES ****************/
@@ -108,7 +115,7 @@ h3{
     }
 
     .buy-button {
-        width: 25%;
+        width: 35%;
     }
 }
 

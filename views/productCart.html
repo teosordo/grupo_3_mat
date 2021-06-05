@@ -19,11 +19,11 @@
 <body>
     <header>
         <!-- MENU DESPLEGABLE -->
-        <div class="burger">
-            <i class="fas fa-bars"></i>
-        </div>
+        <i class="fas fa-bars burger"></i>
 
-        <figure class="logo"><img src="/imgs/logo_final.svg" alt="logo"></figure>
+        <figure class="logo">
+            <a href="/"><img src="/imgs/logo_final.svg" alt="logo"></a>
+        </figure>
 
         <!-- BUSCADOR -->
         <form method="post" action="#" class="buscador">
@@ -34,13 +34,13 @@
         </form>
 
         <!-- CARRITO Y USER -->
-        <div class="header-right">
+        <nav class="header-right">
             <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
-            <div class="user-login">
+            <section class="user-login">
                 <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
                 <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
-            </div>
-        </div>
+            </section>
+        </nav>
     </header>
 
     <main>
@@ -57,27 +57,27 @@
 
         <!-- CUERPO -->
         <section class="container-main">
-            <div class="title">
+            <section class="title">
                 <h2 class="selected">Carrito</h2>
                 <h2>Favoritos</h2>
-            </div>
+            </section>
 
             <article class="products-container">
-               <div>
+               <section>
                     <section class="product"> 
                         <h3>Nombre</h3>
-                        <div class="controlUnidades"></div>
+                        <form class="controlUnidades"></form>
                         <p>$$$</p>
                     </section>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <section class="product">
                         <h3>Nombre</h3>
-                        <div class="controlUnidades"></div>
+                        <form class="controlUnidades"></form>
                         <p>$$$</p>
                     </section>
-                </div>
+                </section>
             </article>
 
             <article class="units-total">
