@@ -115,13 +115,14 @@ h1{
     text-transform: uppercase;
     background-color: #cacadc;
     margin: 20px auto 20px;
-    padding: 8px 0px 8px;
+    padding: 0px;
     width: 97%;
     border-radius: 8px;
     border: 1px solid black;
 }
 #boton-link-registrarse a{
     display: block;
+    padding: 8px 0px;
     width: 100%;
     text-decoration: none;
     color: #6765D6;
@@ -133,8 +134,6 @@ h1{
 #boton-link-registrarse:hover a{
     color: white;
 }
-
-
 
 /*********  FOOTER  **********/
 
