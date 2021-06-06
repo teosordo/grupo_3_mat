@@ -16,38 +16,63 @@
         <a href="/"><img class="logo" src="/imgs/logo_final.svg" alt="logo"></a>
     </header>
     <main>
-        <section class="main-section-container">
-            <form action="/" method="POST">
-                <h1>
-                    Crea tú cuenta
-                </h1>
-            <article class="input-user-cred">
-                <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="E-MAIL" required class="datos">
-            </article>
-            <article class="input-user-cred">
-                <label for="username"></label>
-                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required class="datos">
-            </article>
-            <article class="input-user-cred">
-                <label for="password"></label>
-                <input type="password" id="password" name="password" placeholder="Contraseña" required class="datos">
-            </article>
-            <article class="input-user-cred">
-                <label for="password-confirm"></label>
-                <input type="password" id="password-confirm" name="password" placeholder="Confirme su Contraseña" required class="datos">
-            </article>
-            <button type="submit" id="boton-crear">
-                Crear cuenta
-            </button>
-            </form>
-            <section class="login-section">
-                <h2>
-                    ¿Ya tenés cuenta?
-                </h2>
-                <button type="button" id="boton-link-login">
-                    <a href="/login">Inicia Sesión</a>
+        <section class="main-section">
+            <section class="main-section-desktop">
+                <article class="article-descrip">
+                    <i class="fas fa-truck-moving"></i>
+                    <section class="article-descrip-text">
+                        <h3>TITULO DESCRIPTIVO</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis dui maximus, rutrum turpis suscipit, congue est.</p>
+                    </section>
+                </article>
+                <article class="article-descrip">
+                    <i class="fas fa-cart-plus"></i>
+                    <section class="">
+                        <h3>TITULO DESCRIPTIVO</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis dui maximus, rutrum turpis suscipit, congue est.</p>
+                    </section>
+                </article>
+                <article class="article-descrip">
+                    <i class="fas fa-heart"></i>
+                    <section class="">
+                        <h3>TITULO DESCRIPTIVO</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis dui maximus, rutrum turpis suscipit, congue est.</p>
+                    </section>
+                </article>
+            </section>
+            <section class="main-section-container">
+                <form action="/" method="POST">
+                    <h1>
+                        Crea tú cuenta
+                    </h1>
+                <article class="input-user-cred">
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="E-MAIL" required class="datos">
+                </article>
+                <article class="input-user-cred">
+                    <label for="username"></label>
+                    <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required class="datos">
+                </article>
+                <article class="input-user-cred">
+                    <label for="password"></label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required class="datos">
+                </article>
+                <article class="input-user-cred">
+                    <label for="password-confirm"></label>
+                    <input type="password" id="password-confirm" name="password" placeholder="Confirme su Contraseña" required class="datos">
+                </article>
+                <button type="submit" id="boton-crear">
+                    Crear cuenta
                 </button>
+                </form>
+                <section class="login-section">
+                    <h2>
+                        ¿Ya tenés cuenta?
+                    </h2>
+                    <button type="button" id="boton-link-login">
+                        <a href="/login">Inicia Sesión</a>
+                    </button>
+                </section>
             </section>
         </section>
     </main>

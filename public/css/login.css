@@ -21,20 +21,13 @@ header{
     width: 87vw;
     max-width: 278px;
     margin-top: 20px;
+    transition: all .4s;
 }
 
 .logo:hover{
-    animation: minibounce 0.5s alternate infinite;
+    transform: scale(1.4);
 }
-@keyframes minibounce{
-    0% {
-        transform: translateY(0px);
-    }
-    
-    100% {
-        transform: translateY(-10px) scale(1.1);
-    }
-}
+
 /***********    MAIN   ************/
 main{
     padding-bottom: 127px;
@@ -130,13 +123,15 @@ h1{
 #boton-link-registrarse a{
     display: block;
     width: 100%;
-}
-a:link {
     text-decoration: none;
     color: #6765D6;
 }
-a:visited{
-    color: #6765D6;
+#boton-link-registrarse:hover{
+    background-color: #6765D6;
+    cursor: pointer;
+}
+#boton-link-registrarse:hover a{
+    color: white;
 }
 
 

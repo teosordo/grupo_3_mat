@@ -19,24 +19,39 @@ header{
     width: 87vw;
     max-width: 278px;
     margin-top: 20px;
+    transition: all .4s;
 }
 .logo:hover{
-    animation: minibounce 0.5s alternate infinite;
+    transform: scale(1.4);
 }
-@keyframes minibounce{
-    0% {
-        transform: translateY(0px);
-    }
-    
-    100% {
-        transform: translateY(-10px) scale(1.1);
-    }
-}
+
 /***********    MAIN   ************/
 main{
     padding-bottom: 127px;
 }
 
+/***Seccion beneficios desktop***/
+.main-section-desktop{
+    display: none;
+    width: 50%;
+    padding: 3rem;
+    border-right: 1px solid #d4d3d3;
+}
+.article-descrip{
+    display: flex;
+}
+.article-descrip i{
+    font-size: 2em;
+    margin-right: 15px;
+}
+.main-section-desktop h3{
+    text-align: left;
+    padding-bottom: 10px;
+}
+.main-section-desktop p{
+    text-align: left;
+    padding-bottom: 20px;
+}
 
 /***Contenedor del formulario***/
 .main-section-container{
@@ -113,18 +128,22 @@ h1{
     width: 97%;
     border-radius: 8px;
     border: 1px solid black;
+    transition: all .3s;
 }
 #boton-link-login a{
     display: block;
     width: 100%;
-}
-a:link {
     text-decoration: none;
     color: #6765D6;
 }
-a:visited{
-    color: #6765D6;
+#boton-link-login:hover{
+    background-color: #6765D6;
+    cursor: pointer;
 }
+#boton-link-login:hover a{
+    color: white;
+}
+
 
 
 /*********  FOOTER  **********/
@@ -160,4 +179,25 @@ footer p{
 }
 .right-footer a{
     color: #fff;
+}
+
+/*********  MEDIA QUERIES  **********/
+
+@media (min-width: 769px){
+    header{
+        height: fit-content;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    .main-section{
+        display: flex;
+        margin: 0px auto 10px;
+        max-width: 1252px;
+    }
+    .main-section-desktop{
+        display: block;
+    }
+    .main-section-container{
+        margin: 0px auto;
+    }
 }
