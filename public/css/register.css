@@ -90,6 +90,15 @@ legend{
     border-radius: 7px;
     font-size: 16px; 
 }
+.datos:hover{
+    border: 1px solid #6765D6;
+    box-shadow: 0px 0px 0px 1px #6765D6 inset;
+}
+.datos:focus{
+    outline: none;
+    border: 1px solid #6765D6;
+    box-shadow: 0px 0px 0px 1px #6765D6 inset;  
+}
 /*** Boton crear cuenta***/
 #boton-crear{
     background-color: #6765D6;
