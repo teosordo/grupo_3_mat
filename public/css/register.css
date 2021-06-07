@@ -190,7 +190,7 @@ footer p{
 @media (min-width: 769px){
     header{
         height: fit-content;
-        background-color: white;
+        background-color: #1A2028;
         margin-bottom: 20px;
     }
     .main-section{
