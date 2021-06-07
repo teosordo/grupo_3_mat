@@ -21,7 +21,7 @@ header{
     transition: all .4s;
 }
 .logo:hover{
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
 /***********    MAIN   ************/
