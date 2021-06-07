@@ -79,23 +79,17 @@ legend{
     text-transform: uppercase;
 }
 
-/***Divs contenedores de los inputs***/
-.input-user-cred{
-    margin: 20px auto 20px;
-}
-
 /***Estilo del input***/
 .datos{
     font-family:'Montserrat', sans-serif;
     text-align: center;
     border: 1px solid black;
     width: 93%;
+    margin: 15px auto;
     padding: 10px;
     border-radius: 7px;
     font-size: 16px; 
 }
-
-
 /*** Boton crear cuenta***/
 #boton-crear{
     background-color: #6765D6;
