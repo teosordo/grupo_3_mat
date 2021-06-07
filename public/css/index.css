@@ -16,13 +16,13 @@ main{
 .carousel img{
     width:100%;
     border-radius: 20px;
-    box-shadow: 1px 1px 5px 1px black;
 }
 .i-left, .i-right{
     color: #fff;
     font-size:3rem;
     width: 0;
     position: relative;
+    transition: transform 0.5s ease-in-out;
 }
 .i-left{
     left:5%;
@@ -31,7 +31,7 @@ main{
     right: 5%;
 }
 .carousel i:hover{
-    animation:aumentar 0.4s alternate infinite;
+    transform: scale(1.2);
 }
 @keyframes aumentar{
     100%{
@@ -42,7 +42,8 @@ main{
 .home-contenido{
     margin: 1.5rem auto;
     background-color: #fff;
-    border:3px solid #CACADC;
+    box-shadow: 1px 1px 10px 1px #666666;
+    /*border:3px solid #CACADC;*/
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -67,7 +68,7 @@ main{
 }
 .ver-todo a:hover{
     color: #6765D6;
-    font-weight: bold;
+    text-decoration:underline;
 }
 .home-productos{
     margin-bottom: 1rem;
