@@ -60,7 +60,9 @@
             <section class="container-main">
             
                 <figure class="product-img">
+                    <i class="fas fa-angle-left i-left"></i>
                     <img src="/imgs/productDetail/productDetail-temp.png" alt="producto">
+                    <i class="fas fa-angle-right i-right"></i>
                 </figure>
 
                 <article class="product-article">
@@ -76,12 +78,23 @@
                             <h3>Precio: $$$</h3>
 
                             <ul>
-                                <li>Envio: <span>Gratis!</span></li>
-                                <li>Disponibilidad: <span>Dato</span></li>
-                                <li>Medio de pago: <span>Dato</span></li>
-                                <li>Garantia: <span>Dato</span></li>
-                                <li>Cantidad: <form class="controlUnidades"></form></li>
+                                <li>Envio: Gratis!</li>
+                                <li>Disponibilidad: Dato</li>
+                                <li>Medio de pago: Dato</li>
+                                <li>Garantia: Dato</li>    
                             </ul>
+                            
+                            <form action="/" method="POST" required>
+                                <label>Cantidad:</label>
+                                <select name="cantidad" id="cantidad">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </form>
                         </article>
 
                         <section class="product-icons">
