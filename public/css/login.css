@@ -163,11 +163,14 @@ footer p{
     margin: 15px 0px;
 }
 .iconos{
+    font-size: 25px;
+    min-width: 100px;
     width:30%;
     margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    transition:text-shadow 0.5s ease-in-out;
 }
 .center-footer{
     color: #A6ADB7;
