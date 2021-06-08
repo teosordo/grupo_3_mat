@@ -103,11 +103,12 @@ ul {
     background-color: #6765D6;
     color: #fff;
     align-self: flex-end;
-    transition: 0.5s background-color;
+    transition: 0.5s all;
 }
 
 .buy-button:hover {
-    background-color: #5250ae;
+    background-color: #CACADC;
+    color: #6765D6;
 }
 
 /**************** MEDIA QUERIES ****************/
