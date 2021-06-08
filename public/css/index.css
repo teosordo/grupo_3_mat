@@ -140,8 +140,12 @@ main{
     .carousel-contenido{
         width:78%;
     }
+    .home-contenido{
+        justify-content: space-around;
+    }
     /* Ofertas */
     .home-productos{
         width:32%;
+        max-width: 300px;
     }
 }

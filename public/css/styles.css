@@ -39,19 +39,22 @@ form{
     display:flex;
     flex-direction:row;
     justify-content: space-between;
-    background-color: #fff;
     border-radius: 5px;
     padding:0;
 }
-form fieldset{
-    margin:0;
-    padding:0;
-    width:100%;
-}
-form fieldset input{
+
+form input{
     width:100%;
     padding:10px;
-    border-radius: 20px;
+    border-radius: 1px;
+    transition: all .2s;
+}
+#searchbar:focus{
+    outline: 0px;
+    border: 1px solid #6765D6;
+}
+#searchbar:hover{
+    border: 1px solid #6765D6;
 }
 form button{
     background-color: #6765D6;
@@ -136,6 +139,8 @@ footer section{
 }
 /******* Footer *******/
 .iconos{
+    font-size: 25px;
+    min-width: 100px;
     width:30%;
     margin: auto;
     display: flex;
@@ -158,9 +163,6 @@ header i:hover, header p:hover{
 /* Tablet */
 @media (min-width: 481px) {
     form{
-        display:flex;
-        flex-direction:row;
-        background-color: #fff;
         border-radius: 5px;
     }
     .header-right {
