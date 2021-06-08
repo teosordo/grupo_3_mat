@@ -29,7 +29,7 @@ figure{
     width: 98%;
     margin: 0 auto 1.5rem;
     background-color: #fff;
-    border: 3px solid #CACADC;
+    box-shadow: 1px 1px 10px 1px #666666;
     border-radius: 10px;
     padding: 8px;
 }
@@ -37,9 +37,9 @@ figure{
 .product-img {
     background-color: #CACADC;
     padding: 1rem;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     position: relative;
+    margin: auto 0;
 }
 
 .product-img img {
@@ -57,12 +57,12 @@ figure{
 
 .i-left {
     left: 1%;
-    top: 50%;
+    top: 48%;
 }
 
 .i-right {
     right: 1%;
-    top: 50%;
+    top: 48%;
 }
 
 .product-img i:hover {
@@ -98,6 +98,7 @@ figure{
 .product-elements {
     display: flex;
     justify-content: space-between;
+    margin: 1.2rem 0;
 }
 
 /* Detalles */
@@ -113,15 +114,18 @@ figure{
 
 .product-details ul {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0;
+    margin: 0;
 }
 
 .product-details li {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .product-details li i {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    font-style: initial;
+    margin-left: 0.5rem;
 }
 
 .product-details form {
@@ -242,8 +246,8 @@ figure{
     }
 
     .product-img {
-        width: 40%;
-        min-width: 240px;
+        width: 42%;
+        min-width: 250px;
     } 
 
     .info-producto-mobile {
@@ -260,12 +264,21 @@ figure{
 
     .info-producto-desktop article {
         height: fit-content;
+        width: 33%;
         background-color: #E8E8E8;
         border-radius: 10px;
         padding: 5px;
-        width: 32%;
-        border: 3px solid #CACADC;
+        box-shadow: 1px 1px 10px 1px #666666;
         border-radius: 10px;
+    }
+
+    .info-producto-desktop article i{
+        font-size: 1rem;
+        transition: all 0.5s ease-out;
+    }
+
+    .info-producto-desktop article:hover i {
+        transform: rotateZ(90deg);
     }
 
     .info-producto-desktop article p {
@@ -275,23 +288,8 @@ figure{
         transition: all 0.5s;
     }
     
-    .info-producto-desktop article:hover > p {
-            height: 12vh;
-            visibility: visible;
-        }
-    /*@keyframes rotar {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotateZ(-180deg);
-        }
-    }
-
-    .info-producto-desktop article:hover > h3 i {
-        animation: rotar 0.5s ease-in-out;
-    }*/
-
-    
+    .info-producto-desktop article:hover p {
+        height: 13vh;
+        visibility: visible;
+    }   
 }
