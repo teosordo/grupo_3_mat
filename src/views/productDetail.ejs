@@ -1,46 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="https://kit.fontawesome.com/6fadb1d758.js" crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&family=Lato:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/css/normalize.css">
+    <%- include('./includes/head')%>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/productDetail.css">
     
     <title>Detalle de producto</title>
 </head>
 <body>
-    <header>
-        <!-- MENU DESPLEGABLE -->
-        <i class="fas fa-bars burger"></i> <!-- elimine el div y pase la clase a la etiqueta i -->
-
-        <figure class="logo">
-            <a href="/"><img src="/imgs/logo_final.svg" alt="logo"></a>
-        </figure>
-
-        <!-- BUSCADOR -->
-        <form method="post" action="#" class="buscador">
-            <input type="search" name="serchbar" placeholder="Buscar...">
-            <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
-        </form>
-
-        <!-- CARRITO Y USER --> 
-        <nav class="header-right">
-            <a href="/productCart" class="cart"><i class="fas fa-shopping-cart"></i></a>
-            <section class="user-login"> <!-- preguntar que hacer con login y user-login -->
-                <a href="/login" class="login"><i class="far fa-user-circle"></i></a>
-                <p class="usuario"><a href="/login">Iniciar Sesión</a></p>
-            </section>
-        </nav>
-    </header>
-
+    <!-- HEADER -->
+    <% include('./includes/header')  %> 
+    
     <main>
         <!-- MENU DE NAVEGACIÓN -->
         <nav class="navbar">
@@ -157,22 +127,6 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <section class="left-footer">
-            <p>Términos y condiciones</p>
-            <p>Comentarios</p>
-        </section>
-        <section class="right-footer">
-            <p>Seguinos</p>
-            <nav class="iconos">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </nav>
-        </section>
-        <section class="center-footer">
-            <p>Copyright © 2021 - MAT Team</p>
-        </section>
-    </footer>
+    <%- include('./includes/footer')  %> 
 </body>
 </html>
