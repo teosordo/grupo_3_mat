@@ -137,9 +137,6 @@ main{
         justify-content:flex-end;
         position: relative;
     }
-    .carousel-contenido{
-        width:78%;
-    }
     .home-contenido{
         justify-content: space-around;
     }

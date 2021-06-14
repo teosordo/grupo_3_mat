@@ -13,20 +13,13 @@ h1{
 h3 {
     margin: 0;
 }
-
 ul {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 15px;
 }
-
-figure{
-    margin:0;
-}
-
-/***************** CLASES **********************/
+/***************** ID **********************/
 .container-main {
-    width: 98%;
     margin: 0 auto 1.5rem;
     background-color: #fff;
     box-shadow: 1px 1px 10px 1px #666666;
@@ -34,25 +27,26 @@ figure{
     padding: 8px;
 }
 
+/***************** CLASES **********************/
 .product-img {
-    background-color: #CACADC;
     padding: 1rem;
     text-align: center;
     position: relative;
-    margin: auto 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgb(187, 185, 185) inset;
+    width:90%;
 }
 
 .product-img img {
-    width: 90%;
-    max-width: 360px;
+    width: 70%;
 }
 
 .i-left, .i-right {
-    color: #fff;
+    color: grey;
     font-size: 3rem;
-    /*width: 0;*/
     position: absolute;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .i-left {
@@ -66,8 +60,8 @@ figure{
 }
 
 .product-img i:hover {
-    transform: scale(1.2);
-    text-shadow: 2px 2px 15px grey;
+    transform: scale(1.1);
+    text-shadow: 2px 2px 10px grey;
 }
 
 .product-vid {
@@ -78,7 +72,7 @@ figure{
 /* Artículo */
 
 .product-article {
-    padding: 5px;
+    padding: 5px 35px 5px 35px;
 }
 
 /* Título */
@@ -224,17 +218,15 @@ figure{
 @media (min-width: 769px) {
     main {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         position: relative;
     }
 
     main > section {
-        width: 78%;
+        width: 80%;
     }
 
     .container-main {
-        width: 100%;
-        margin: initial;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -243,11 +235,18 @@ figure{
 
     .product-article {
         width: 55%;
+        padding: 5px;
     }
 
     .product-img {
         width: 42%;
         min-width: 250px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .product-img img{
+        width: 100%;
     } 
 
     .info-producto-mobile {
@@ -291,5 +290,5 @@ figure{
     .info-producto-desktop article:hover p {
         height: 13vh;
         visibility: visible;
-    }   
+    }
 }

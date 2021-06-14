@@ -176,11 +176,12 @@ header i:hover, header p:hover{
 }
 /* Desktop */
 @media (min-width: 769px){
+    /******** ID *********/
+    #contenido{
+        width: 78%;
+    }
     /******** CLASES *********/
     /* Encabezado*/
-    .contenido{
-        width: 80%;
-    }
     .logo{
         width:20%;
         display: block;
