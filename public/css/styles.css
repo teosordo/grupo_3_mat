@@ -17,7 +17,7 @@ h3{
     font-weight: 400;
     font-size:25px;
 }
-p, footer{
+p, footer, #buscador{
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
 }
@@ -91,18 +91,18 @@ footer section{
     display:none;
     margin: 5px 0 0 1rem;
 }
-.header-right{
+#header-right{
     width:20%;
     text-align: center;
 }
-.cart{
+#cart{
     color: white;
     font-size:1.5rem;
 }
-.usuario{
+#usuario{
     display:none;
 }
-.login{
+#login{
     display:none;
     color: #fff;
     text-decoration: none;
@@ -138,7 +138,7 @@ footer section{
     font-weight: bold;
 }
 /******* Footer *******/
-.iconos{
+#iconos{
     font-size: 25px;
     min-width: 100px;
     width:30%;
@@ -151,11 +151,11 @@ footer section{
 header i:hover, header p:hover{
     text-shadow: 1px 1px 20px #7e7cff;
 }
-.center-footer{
+#center-footer{
     color: #A6ADB7;
     width:100%;
 }
-.right-footer a{
+#right-footer a{
     color: #fff;
 }
 
@@ -165,12 +165,12 @@ header i:hover, header p:hover{
     form{
         border-radius: 5px;
     }
-    .header-right {
+    #header-right {
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    .login{
+    #login{
         display: block;
     }
 }
@@ -178,6 +178,9 @@ header i:hover, header p:hover{
 @media (min-width: 769px){
     /******** CLASES *********/
     /* Encabezado*/
+    .contenido{
+        width: 80%;
+    }
     .logo{
         width:20%;
         display: block;
@@ -185,18 +188,18 @@ header i:hover, header p:hover{
     .burger{
         display: none;
     }
-    .header-right{
+    #header-right{
         text-align:left;
     }
-    .user-login p{
+    #user-login p{
         display: block;
         margin: 0 5px;
     }
-    .user-login a{
+    #user-login a{
         text-decoration: none;
         color: #fff;
     }
-    .user-login{
+    #user-login{
         margin: 20px;
         display: flex;
         align-items:center;
