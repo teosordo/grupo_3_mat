@@ -41,11 +41,11 @@
                             <figure><img src="<%=product[i].img%>" alt="producto"></figure>
                             <section>
                                 <h3><%= product[i].nombre %></h3>
-                                <p class="detalle">Detalle</p>
+                                <p class="detalle"><%= product[i].detalle %></p>
                             </section>
                             <p class="home-precio"><%= product[i].precio %> </p>
                             <section class="home-precio-anterior-desc">
-                                <p class="precio-anterior">$$$</p>
+                                <p class="precio-anterior"><%= product[i].precioA %></p>
                                 <p class="off">%OFF</p>
                             </section>
                         </article>
