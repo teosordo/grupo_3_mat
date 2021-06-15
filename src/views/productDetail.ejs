@@ -13,33 +13,33 @@
     
     <main>
         <!-- CUERPO -->
-        <section id="contenido">
+        <section>
             <section class="container-main">
             
                 <figure class="product-img">
                     <i class="fas fa-angle-left i-left"></i>
-                    <img src=<%= product[idProduct -1].img %> alt="producto">
+                    <img src=<%= product[idProduct].img %> alt="producto">
                     <i class="fas fa-angle-right i-right"></i>
                 </figure>
 
                 <article class="product-article">
                     <!-- DATA PRINCIPAL -->
                     <section class="product-title">
-                        <h1><%= product[idProduct -1].nombre %></h1>
+                        <h1><%= product[idProduct].nombre %></h1>
 
-                        <h2>Marca: <%= product[idProduct -1].marca %></h2>
+                        <h2>Marca: <%= product[idProduct].marca %></h2>
                     </section>
 
                     <section class="product-elements">
                         <article class="product-details">
-                            <h3>Precio: <%= product[idProduct -1].precio %></h3>
+                            <h3>Precio: <%= product[idProduct].precio %></h3>
 
                             <section>
                                 <ul>
-                                    <li>Envio: <i><%= product[idProduct -1].envio %></i></li>
-                                    <li>Disponibilidad: <i class= "<%= product[idProduct -1].disponibilidad %>"></i></li>
-                                    <li>Medio de pago: <i class= "<%= product[idProduct -1].pago %>"></i></li>
-                                    <li>Garantia: <i><%= product[idProduct -1].garantia %></i></li>    
+                                    <li>Envio: <i><%= product[idProduct].envio %></i></li>
+                                    <li>Disponibilidad: <i class= "<%= product[idProduct].disponibilidad %>"></i></li>
+                                    <li>Medio de pago: <i class= "<%= product[idProduct].pago %>"></i></li>
+                                    <li>Garantia: <i><%= product[idProduct].garantia %></i></li>    
                                 </ul>
                                 
                                 <form action="/" method="POST" required>
@@ -75,13 +75,13 @@
                         <article>
                             <h3>Características</h3>
 
-                            <p><%= product[idProduct -1].caract %></p>
+                            <p><%= product[idProduct].caract %></p>
                         </article>
 
                         <article>
                             <h3>Especificaciones</h3>
 
-                            <p><%= product[idProduct -1].esp %></p>
+                            <p><%= product[idProduct].esp %></p>
                         </article>
 
                         <article>
@@ -98,13 +98,13 @@
                 <article>
                     <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product[idProduct -1].caract %></p>
+                    <p><%= product[idProduct].caract %></p>
                 </article>
 
                 <article>
                     <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product[idProduct -1].esp %></p>
+                    <p><%= product[idProduct].esp %></p>
                 </article>
 
                 <article>
