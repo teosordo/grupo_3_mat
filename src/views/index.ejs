@@ -35,48 +35,22 @@
                         <a href="#">Ver todo <i class="fas fa-arrow-right"></i></a>
                     </section>
                 </article>
-                <a href="/productDetail" class="home-productos">
-                    <article>
-                        <figure><img src="imgs/index/componentRAM.jpg" alt="producto"></figure>
-                        <section>
-                            <h3>Nombre</h3>
-                            <p class="detalle">Detalle</p>
-                        </section>
-                        <p class="home-precio">$$$</p>
-                        <section class="home-precio-anterior-desc">
-                            <p class="precio-anterior">$$$</p>
-                            <p class="off">%OFF</p>
-                        </section>
-                    </article>
-                </a>
-                <a href="/productDetail" class="home-productos">
-                    <article>
-                        <figure><img src="imgs/index/componentCASE.jpg" alt="producto"></figure>
-                        <section>
-                            <h3>Nombre</h3>
-                            <p class="detalle">Detalle</p>
-                        </section>
-                        <p class="home-precio">$$$</p>
-                        <section class="home-precio-anterior-desc">
-                            <p class="precio-anterior">$$$</p>
-                            <p class="off">%OFF</p>
-                        </section>
-                    </article>
-                </a>
-                <a href="/productDetail" class="home-productos">
-                    <article>
-                        <figure><img src="imgs/index/componentGC.jpg" alt="producto"></figure>
-                        <section>
-                            <h3>Nombre</h3>
-                            <p class="detalle">Detalle</p>
-                        </section>
-                        <p class="home-precio">$$$</p>
-                        <section class="home-precio-anterior-desc">
-                            <p class="precio-anterior">$$$</p>
-                            <p class="off">%OFF</p>
-                        </section>
-                    </article>
-                </a>
+                <% for(i = 0; i < product.length; i++) { %>
+                    <a href="/productDetail/<%=i%> " class="home-productos">
+                        <article>
+                            <figure><img src="<%=product[i].img%>" alt="producto"></figure>
+                            <section>
+                                <h3><%= product[i].nombre %></h3>
+                                <p class="detalle">Detalle</p>
+                            </section>
+                            <p class="home-precio"><%= product[i].precio %> </p>
+                            <section class="home-precio-anterior-desc">
+                                <p class="precio-anterior">$$$</p>
+                                <p class="off">%OFF</p>
+                            </section>
+                        </article>
+                    </a>
+                <% } %>         
             </section>
         </section>
     </main>
