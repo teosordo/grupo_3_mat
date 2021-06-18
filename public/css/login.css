@@ -9,7 +9,9 @@ body{
     min-height: 100vh;
     text-decoration: none;
 }
-
+p, .datos, .forget-link, .remember-me-checkbox{
+    font-family:'Montserrat', sans-serif;
+}
 /***********   HEADER   ************/
 header{
     background-color: #1A2028;
@@ -56,7 +58,6 @@ legend{
 }
 /***Estilo del input***/
 .datos{
-    font-family:'Montserrat', sans-serif;
     text-align: center;
     border: 1px solid black;
     margin: 15px auto;
@@ -77,7 +78,6 @@ legend{
 }
 /***link redireccion para recuperar contraseña***/
 .forget-link{
-    font-family:'Montserrat', sans-serif;
     display: block;
     text-decoration: none;
     text-align: right;
@@ -86,7 +86,6 @@ legend{
 }
 /***checkbox para guardar informacion***/
 .remember-me-checkbox{
-    font-family:'Montserrat', sans-serif;
     text-align: left;
     margin-left: 20px;
 }
@@ -142,11 +141,13 @@ legend{
 }
 
 /*********  FOOTER  **********/
-
+/*fix para footer*/
+footer p{
+    font-size: 15px;
+    margin: 15px 0;
+}
 footer{
     width:100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
     background-color: #1A2028;
     color: #fff;
     display: flex;
@@ -159,10 +160,7 @@ footer{
 footer section{
     width:45%;
 }
-footer p{
-    margin: 15px 0px;
-}
-.iconos{
+#iconos{
     font-size: 25px;
     min-width: 100px;
     width:30%;
@@ -172,10 +170,11 @@ footer p{
     justify-content: space-around;
     transition:text-shadow 0.5s ease-in-out;
 }
-.center-footer{
+
+#center-footer{
     color: #A6ADB7;
     width:100%;
 }
-.right-footer a{
+#right-footer a{
     color: #fff;
 }

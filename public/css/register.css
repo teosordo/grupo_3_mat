@@ -152,10 +152,12 @@ legend{
 }
 
 /*********  FOOTER  **********/
+footer p{
+    font-size: 15px;
+    margin: 15px 0;
+}
 footer{
     width:100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
     background-color: #1A2028;
     color: #fff;
     display: flex;
@@ -168,10 +170,7 @@ footer{
 footer section{
     width:45%;
 }
-footer p{
-    margin: 15px 0px;
-}
-.iconos{
+#iconos{
     font-size: 25px;
     min-width: 100px;
     width:30%;
@@ -181,14 +180,14 @@ footer p{
     justify-content: space-around;
     transition:text-shadow 0.5s ease-in-out;
 }
-.center-footer{
+
+#center-footer{
     color: #A6ADB7;
     width:100%;
 }
-.right-footer a{
+#right-footer a{
     color: #fff;
 }
-
 /*********  MEDIA QUERIES  **********/
 
 @media (min-width: 769px){
