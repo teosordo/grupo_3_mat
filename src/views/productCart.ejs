@@ -12,73 +12,43 @@
     <%- include('./includes/header')  %> 
 
     <main>
-        <!-- MENU DE NAVEGACIÓN -->
-        <nav class="navbar">
-            <h2>Todas las categorias</h2>
-            
-            <ul>
-                <li><a href="#">Categoría 1</a></li>
-                <li><a href="#">Categoría 2</a></li>
-                <li><a href="#">Categoría 3</a></li>
-            </ul>
-        </nav>
-
         <!-- CUERPO -->
-        <section class="container-main">
-            <section class="title">
-                <h2 class="selected">Carrito</h2>
+        <section id="contenido">
+            <section id="title">
+                <h2 id="selected">Carrito</h2>
                 <h2>Favoritos</h2>
             </section>
 
-            <article class="products-container">
-               <section>
-                    <section class="product"> 
-                        <h3><a href="/productDetail">Nombre</a></h3>
-                        <form action="/" method="POST" required>
-                            <label>Cantidad:</label>
-                            <select name="cantidad" id="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </form>
-                        <p>$$$</p>
+            <article id="products-container">
+                <% for(let i = 0; i < product.length; i++){ %> 
+                    <section>
+                        <section class="product"> 
+                            <h3><a href="/productDetail/<%= i %> "><%= product[i].nombre %> </a></h3>
+                            <form action="/" method="POST" required>
+                                <label>Cantidad:</label>
+                                <select name="cantidad" id="cantidad">
+                                    <% for(let i = 1; i <= 6; i++){ %> 
+                                        <option value="<%= i %>"><%= i %></option>
+                                    <% } %> 
+                                </select>
+                            </form>
+                            <p>$<%= product[i].precio %></p>
+                        </section>
                     </section>
-                </section>
-
-                <section>
-                    <section class="product">
-                        <h3><a href="/productDetail">Nombre</a></h3>
-                        <form action="/" method="POST" required>
-                            <label>Cantidad:</label>
-                            <select name="cantidad" id="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </form>
-                        <p>$$$</p>
-                    </section>
-                </section>
+                <% } %> 
             </article>
 
-            <article class="units-total">
-                <section class="units">
+            <article id="units-total">
+                <section>
                     <h3>Unidades: X</h3>
                 </section>
 
-                <section class="total">
-                    <h3>Total: $$$</h3>
+                <section>
+                    <h3>Total: $<%= total %> </h3>
                 </section>
             </article>
 
-            <button class="buy-button">Realizar pedido</button>
+            <button id="buy-button">Realizar pedido</button>
             
         </section>
     </main>
