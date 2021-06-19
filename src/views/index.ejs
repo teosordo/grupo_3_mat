@@ -36,7 +36,7 @@
                     </section>
                 </article>
                 <% for(i = 0; i < product.length; i++) { %>
-                    <a href="/productDetail/<%=i%> " class="home-productos">
+                    <a href="/productDetail/<%=product[i].id%> " class="home-productos">
                         <article>
                             <figure><img src="<%=product[i].img%>" alt="producto"></figure>
                             <section>

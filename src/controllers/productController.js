@@ -1,4 +1,5 @@
 const productsFunctions = require('../models/product')
+const products = productsFunctions.all()
 const productController = {
     productDetail: (req, res) => {
         let idProduct = req.params.id;

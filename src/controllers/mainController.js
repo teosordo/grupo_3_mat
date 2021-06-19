@@ -1,7 +1,8 @@
-const product = require('../../public/js/productos')
+const productsFunctions = require('../models/product')
+const products = productsFunctions.all()
 const mainController = {
     index: (req, res) => {
-        res.render('index', {product: product});
+        res.render('index', {product: products});
     }
 };
 module.exports = mainController;
