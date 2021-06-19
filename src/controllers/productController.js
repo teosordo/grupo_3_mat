@@ -9,6 +9,10 @@ const productController = {
     productNewProduct:(req,res) => {
         res.render('productCreate')
     },
+    productCreate:(req,res)=>{
+        let result = productsFunctions.create(req.body, req.file)
+        return result == true ? res.redirect('/') : res.send("ERROR")
+    },
     productEdit:(req,res) => {
         let idProduct = req.params.id
         let product = productsFunctions.search(idProduct)
