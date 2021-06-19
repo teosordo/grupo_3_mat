@@ -27,8 +27,7 @@ p, footer, #buscador{
     font-size: 15px;
 }
 main{
-    padding:1rem;
-    padding-bottom: 126px;
+    padding: 0px 0px 126px;
 }
 /******* Encabezado ********/
 header{
@@ -188,6 +187,7 @@ header i:hover, header p:hover{
     /******** ID *********/
     #contenido{
         width: 78%;
+        margin-top:1rem;
     }
     /******** CLASES *********/
     /* Encabezado*/

@@ -3,7 +3,7 @@
 <head>
     <%- include('./includes/head') %>
     <link rel="stylesheet" href="/css/styles.css"> 
-    <link rel="stylesheet" href="/css/productEdit.css">
+    <link rel="stylesheet" href="/css/productForm.css">
     <title>Editando <%=product.nombre%></title>
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <section id="product-info-section">
                     <form action="/" method="POST" enctype="multipart/form-data">
                         <fieldset id="edit-info">
-                            <label for="nombre" class="product-info-labels">Nombre del producto</label>
+                            <label for="nombre" class="one-product-info-labels">Nombre del producto</label>
                             <input type="text" name="nombre" class="product-info" value="<%=product.nombre%>">
                             <label for="marca" class="product-info-labels">Marca del producto</label>
                             <input type="text" name="marca" class="product-info" value="<%=product.marca%>">
@@ -28,15 +28,15 @@
                             <input type="text" name="precio" class="product-info" value="<%=product.precio%>">
                             <label for="garantia" class="product-info-labels">Garantia del producto</label>
                             <input type="text" name="garantia" class="product-info" value="<%=product.garantia%>">
+                            <label for="img" class="product-info-labels">Imagen del producto</label>
+                            <input type="file" name="img" id="img" class="product-info">
                             <label for="caract" class="product-info-labels">Características del producto</label>
                             <textarea name="caract" class="product-info" rows="4"><%=product.caract%></textarea> 
                             <label for="esp" class="product-info-labels">Especificaciones del producto</label>
                             <textarea name="esp" class="product-info" rows="4"><%=product.esp%></textarea> 
                             <label for="detalle" class="product-info-labels">Detalle del producto</label>
                             <textarea name="detalle" class="product-info" rows="4"><%=product.detalle%></textarea> 
-                            <label for="img" class="product-info-labels">Imagen del producto</label>
-                            <input type="file" name="img" id="img" class="product-info">
-                            <button type="submit" id="button-edit">Editar</button>
+                            <button type="submit" id="button-submit">Editar</button>
                         </fieldset>
                     </form>
                 </section>

@@ -18,28 +18,28 @@
             
                 <figure class="product-img">
                     <i class="fas fa-angle-left i-left"></i>
-                    <img src=<%= product[idProduct].img %> alt="producto">
+                    <img src=<%= product.img %> alt="producto">
                     <i class="fas fa-angle-right i-right"></i>
                 </figure>
 
                 <article class="product-article">
                     <!-- DATA PRINCIPAL -->
                     <section class="product-title">
-                        <h1><%= product[idProduct].nombre %></h1>
+                        <h1><%= product.nombre %></h1>
 
-                        <h2>Marca: <%= product[idProduct].marca %></h2>
+                        <h2>Marca: <%= product.marca %></h2>
                     </section>
 
                     <section class="product-elements">
                         <article class="product-details">
-                            <h3>Precio: <%= product[idProduct].precio %></h3>
+                            <h3>Precio: <%= product.precio %></h3>
 
                             <section>
                                 <ul>
-                                    <li>Envio: <i><%= product[idProduct].envio %></i></li>
-                                    <li>Disponibilidad: <i class= "<%= product[idProduct].disponibilidad %>"></i></li>
-                                    <li>Medio de pago: <i class= "<%= product[idProduct].pago %>"></i></li>
-                                    <li>Garantia: <i><%= product[idProduct].garantia %></i></li>    
+                                    <li>Envio: <i><%= product.envio %></i></li>
+                                    <li>Disponibilidad: <i class= "<%= product.disponibilidad %>"></i></li>
+                                    <li>Medio de pago: <i class= "<%= product.pago %>"></i></li>
+                                    <li>Garantia: <i><%= product.garantia %></i></li>    
                                 </ul>
                                 
                                 <form action="/" method="POST" required>
@@ -75,13 +75,13 @@
                         <article>
                             <h3>Características</h3>
 
-                            <p><%= product[idProduct].caract %></p>
+                            <p><%= product.caract %></p>
                         </article>
 
                         <article>
                             <h3>Especificaciones</h3>
 
-                            <p><%= product[idProduct].esp %></p>
+                            <p><%= product.esp %></p>
                         </article>
 
                         <article>
@@ -98,13 +98,13 @@
                 <article>
                     <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product[idProduct].caract %></p>
+                    <p><%= product.caract %></p>
                 </article>
 
                 <article>
                     <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product[idProduct].esp %></p>
+                    <p><%= product.esp %></p>
                 </article>
 
                 <article>

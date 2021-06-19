@@ -10,22 +10,20 @@ ul {
 
 /***************** ID **********************/
 .container-main {
-    margin: 0 auto 1.5rem;
     background-color: #fff;
     box-shadow: 1px 1px 10px 1px #666666;
-    border-radius: 10px;
-    padding: 8px;
 }
 
 /***************** CLASES **********************/
 .product-img {
     padding: 1rem;
-    text-align: center;
-    position: relative;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 1px 1px 10px 1px rgb(187, 185, 185) inset;
     width:90%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .product-img img {
@@ -35,18 +33,7 @@ ul {
 .i-left, .i-right {
     color: grey;
     font-size: 3rem;
-    position: absolute;
     transition: all 0.3s ease-in-out;
-}
-
-.i-left {
-    left: 1%;
-    top: 48%;
-}
-
-.i-right {
-    right: 1%;
-    top: 48%;
 }
 
 .product-img i:hover {
@@ -62,7 +49,7 @@ ul {
 /* Artículo */
 
 .product-article {
-    padding: 5px 35px 5px 35px;
+    padding: 10px 20px 5px 20px;
 }
 
 /* Título */
@@ -221,6 +208,8 @@ ul {
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 8px;
+        margin: 0 auto 1.5rem;
+        border-radius: 10px;
     }
 
     .product-article {
@@ -235,12 +224,9 @@ ul {
     .product-img {
         width: 42%;
         min-width: 250px;
-        display:flex;
-        align-items: center;
-        justify-content: center;
     }
     .product-img img{
-        width: 100%;
+        width: 80%;
     } 
 
     .info-producto-mobile {
@@ -249,7 +235,7 @@ ul {
 
     .info-producto-desktop {
         width: 100%;
-        height: 22vh;
+        height: 28vh;
         display: flex;
         margin-top: 1rem;
         justify-content: space-between;

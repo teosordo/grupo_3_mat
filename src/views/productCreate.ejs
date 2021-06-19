@@ -3,23 +3,30 @@
 <head>
     <%- include('./includes/head') %>
     <link rel="stylesheet" href="/css/styles.css"> 
-    <link rel="stylesheet" href="/css/productCreate.css">
+    <link rel="stylesheet" href="/css/productForm.css">
     <title>Crear Producto Nuevo</title>
 </head>
 <body>
     <%- include('./includes/header') %>
-    <main id="contenido">
+    <main>
         <section id="content-container">
+            <h1>Crea tu Producto</h1>
             <form action="/products/create" method="POST" enctype="multipart/form-data">
-                
                 <fieldset id="">
-                    <legend>Crea tu Producto</legend>
                     <label for="nombre" class="product-info-labels">Nombre del Producto</label>
                     <input type="text" name="nombre" class="product-info" value="">
                     <label for="marca" class="product-info-labels">Marca del producto</label>
                     <input type="text" name="marca" class="product-info" value="">
                     <label for="precio" class="product-info-labels">Precio del producto</label>
                     <input type="text" name="precio" class="product-info" value="">
+                    <label for="img" class="product-info-labels">Imagen del producto</label>
+                    <input type="file" name="img" id="img" class="product-info">
+                    <label for="color">Colores</label>
+                    <select name="color" id="color" class="product-info">
+                        <option value="rojo">Rojo</option>
+                        <option value="verde">Verde</option>
+                        <option value="azul">Azul</option>
+                    </select>
                     <label for="garantia" class="product-info-labels">Garantia del producto</label>
                     <input type="text" name="garantia" class="product-info" value="">
 
@@ -29,15 +36,7 @@
                     <textarea name="esp" class="product-info" rows="4"></textarea> 
                     <label for="detalle" class="product-info-labels">Detalle del producto</label>
                     <textarea name="detalle" class="product-info" rows="4"></textarea> 
-                    <label for="img" class="product-info-labels">Imagen del producto</label>
-                    <input type="file" name="img" id="img" class="product-info">
-                    <label for="color">Colores</label>
-                    <select name="color" id="color">
-                        <option value="rojo">Rojo</option>
-                        <option value="verde">Verde</option>
-                        <option value="azul">Azul</option>
-                    </select>
-                    <button type="submit" id="button-create">Crear</button>
+                    <button type="submit" id="button-submit">Crear</button>
                 </fieldset>
             </form>
         </section>
