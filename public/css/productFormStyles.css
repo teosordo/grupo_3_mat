@@ -1,0 +1,86 @@
+main{
+    text-align: center;
+}
+
+/******ESTILOS EN COMUN******/
+h1, #button-submit, label{
+    font-family:'Barlow Semi Condensed', sans-serif;
+}
+#button-submit, h1{
+    color: white;
+}
+.product-info,label,textarea, select{
+    display: block;
+    margin: 10px auto 15px;
+}
+#content-container, .product-info,#button-submit, legend{
+    border: 1px solid black;
+}
+
+.product-info, #button-submit{ 
+    border-radius: 5px;
+}
+
+/****** Contenido de Main*********/
+#content-container{
+    background-color: white;
+}
+h1{
+    background-color: #6765D6;
+    margin: 0 0 20px;
+    padding: 15px;
+}
+label{
+    font-weight: 600;
+    font-size: 20px;
+}
+.small-input-labels{
+    width: 75%;
+}
+.large-input-labels{
+    width: 90%;
+}
+.small-input, .large-input{
+    width: 100%;
+}
+.small-input{
+    height: 40px;
+}
+/****Estilo general de los inputs****/
+.product-info{
+    font-family:'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #f3f3f3;
+}
+
+/**Centra el boton de la seleccion de archivo para subir**/
+#img{
+    padding: 6px;
+}    
+
+#button-submit{
+    display: block;
+    margin: 25px auto 20px;
+    color: white;
+    font-size: 30px;
+    padding: 18px;
+    background-color: #6765D6;
+    width: 262px;
+}
+
+
+@media(min-width: 769px){
+    fieldset{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #content-container{
+        width: 90%;
+        border-radius: 8px;
+        margin: 20px auto 10px;
+        box-shadow: 1px 0 10px #666666
+    }
+    h1{
+        border-radius: 6px 6px 0 0;
+    }
+}
