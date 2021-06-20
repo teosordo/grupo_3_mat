@@ -1,57 +1,3 @@
-*{
-    margin: 0px;
-    box-sizing: border-box;
-}
-body{
-    position: relative;
-    text-align: center;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    min-height: 100vh;
-}
-/***** Estilos en comun *****/
-/* Transiciones */
-#boton-ingresar,#boton-link-login, #boton-link-login a, #logo{
-    transition: all .4s;
-}
-/* Header y Footer Color y ancho */
-header, footer{
-    background-color: #1A2028;
-    width: 100%;
-}
-/* Bordes */
-#boton-crear, .datos, #boton-link-login,#main-section-container{
-    border: 1px solid black;
-}
-/* Centrado */
-header, #main-section-container, .datos, footer{
-    text-align: center;
-}
-/* Fuentes*/
-p, .datos{
-    font-family:'Montserrat', sans-serif;
-}
-legend, #boton-crear,#login-section h2{
-    font-weight: 400;
-}
-/*Colores Textos*/
-#boton-crear, #boton-link-login:hover > a{
-    color: white;
-} 
-/***********   HEADER   ************/
-#logo{
-    width: 87vw;
-    max-width: 278px;
-    margin-top: 20px;
-    transition: all .4s;
-}
-#logo:hover{
-    transform: scale(1.2);
-}
-
-/***********    MAIN   ************/
-main{
-    padding-bottom: 126px;
-}
 /***Seccion beneficios desktop***/
 #main-section-desktop{
     display: none;
@@ -66,141 +12,19 @@ main{
     font-size: 2em;
     margin-right: 15px;
 }
-#main-section-desktop h3, #main-section-desktop p{
-    text-align: left;
-}
 #main-section-desktop h3{
     text-transform:uppercase;
+    text-align: left;
     font-size: 20px;
     margin-bottom: 10px;
 }
 #main-section-desktop p{
+    text-align: left;
     font-size: 14px;
     margin-bottom: 20px;
 }
 
-/***Contenedor del formulario***/
-#main-section-container{
-    background-color: #E9E9E9;
-    padding: 20px;
-}
-form{
-    padding-bottom: 20px;
-}
-fieldset{
-    border: none;
-}
-legend{
-    font-size: 30px;
-    text-transform: uppercase;
-}
-
-/***Estilo del input***/
-.datos{
-    font-family:'Montserrat', sans-serif;
-    text-align: center;
-    width: 93%;
-    margin: 15px auto;
-    padding: 10px;
-    border-radius: 7px;
-    font-size: 16px; 
-}
-.datos:hover, .datos:focus{
-    outline: none;
-    border: 1px solid #6765D6;
-    box-shadow: 0px 0px 0px 1px #6765D6 inset;  
-}
-/***Estilo Comun entre botones***/
-
-#boton-crear ,#boton-link-login{
-    font-size: 22px;
-    width: 97%;
-    border-radius: 8px;
-    text-transform: uppercase;
-}
-/*** Boton crear cuenta***/
-#boton-crear{
-    background-color: #6765D6;
-    margin-top: 10px;
-    padding: 8px 0px;
-    border-radius: 8px;
-    width: 97%;
-    transition: all .4s;
-}
-#boton-crear:hover{
-    cursor: pointer;
-    background-color: #3633C1;
-}
-/*** Seccion redireccion a login***/
-.login-section{
-    margin-top: 20px;
-}
-#boton-link-login{
-    background-color: #cacadc;
-    font-size: 22px;
-    text-transform: uppercase;
-    border-radius: 8px;
-    margin: 20px auto;
-    padding: 0px;
-    width: 97%;
-}
-#boton-link-login  a{
-    display: block;
-    padding: 8px 0px;
-    width: 100%;
-    text-decoration: none;
-    color: #6765D6;
-}
-#boton-link-login:hover{
-    background-color: #6765D6;
-}
-/*********  FOOTER  **********/
-footer p{
-    font-size: 15px;
-    margin: 15px 0;
-}
-footer{
-    color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: space-around;
-    position:absolute;
-    bottom:0px;
-}
-footer section{
-    width:45%;
-}
-#iconos{
-    font-size: 25px;
-    min-width: 100px;
-    width:30%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    transition:text-shadow 0.5s ease-in-out;
-}
-
-#center-footer{
-    color: #A6ADB7;
-    width:100%;
-}
-#right-footer a{
-    color: #fff;
-}
 /*********  MEDIA QUERIES  **********/
-@media (min-width: 481px){
-    header{
-        height: 220px;
-    }
-    #main-section-container{
-        height: initial;
-        max-width: 320px;
-        margin: -8rem auto 5px;
-        border-radius: 7px;
-    }
-}
 @media (min-width: 769px){
     header{
         height: fit-content;

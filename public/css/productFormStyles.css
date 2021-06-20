@@ -51,6 +51,12 @@ label{
     font-family:'Montserrat', sans-serif;
     font-size: 16px;
     background-color: #f3f3f3;
+    transition: all .2s;
+}
+.product-info:hover,.product-info:focus{
+    outline: none;
+    border: 1px solid #6765D6;
+    box-shadow: 0px 0px 0px 1px #6765D6 inset;  
 }
 
 /**Centra el boton de la seleccion de archivo para subir**/
