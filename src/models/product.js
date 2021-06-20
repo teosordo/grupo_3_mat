@@ -37,7 +37,7 @@ const product = {
             envio: "Gratis!", 
             disponibilidad: "fas fa-check", 
             pago: "fas fa-credit-card", 
-            garantia: newData.detalle,
+            garantia: newData.garantia,
             img: imgFile.filename,
             caract:  newData.caract,
             esp:    newData.esp
