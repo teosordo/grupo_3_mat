@@ -72,6 +72,11 @@ label{
     padding: 18px;
     background-color: #6765D6;
     width: 262px;
+    transition: all .4s;
+}
+#button-submit:hover{
+    cursor: pointer;
+    background-color: #3633C1;
 }
 
 
