@@ -7,7 +7,11 @@ const productController = {
         res.render('productDetail', {product: product[0]});
     },
     productNewProduct:(req,res) => {
-        res.render('newProductCreate')
+        if(req.params.id == undefined){
+            res.redirect('/')
+        }else{
+            res.render('newProductCreate')
+        }
     },
     productCreate:(req,res)=>{
         let result = productsFunctions.create(req.body, req.file)
