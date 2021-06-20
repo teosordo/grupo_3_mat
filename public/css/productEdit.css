@@ -7,8 +7,13 @@ legend{
 legend img{
     width: 100%;
     max-width: 320px;
+    display: block;
 }
-
+legend h2{
+    margin: 0px;
+    padding: 15px;
+    border-top: 1px solid black;
+}
 @media(min-width: 769px){
     legend{
         margin-left: 1vw;

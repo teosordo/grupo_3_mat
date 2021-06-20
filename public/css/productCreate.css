@@ -3,10 +3,6 @@
         width: 30%;
     }
     .large-input-labels{
-        width: 100%;
+        margin: 20px
     }
-}
-
-@media(min-width: 1280px){
-
 }
