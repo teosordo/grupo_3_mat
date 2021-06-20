@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./includes/head')%>
+    <link rel="stylesheet" href="/css/userFormStyles.css">
     <link rel="stylesheet" href="/css/login.css">
     <title>Inicia Sesion</title>
 </head>
@@ -15,24 +16,24 @@
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
                     <label for="user"></label>
-                    <input type="text" name="user" id="user" placeholder="Usuario" class="datos" required>
+                    <input type="text" name="user" id="user" placeholder="Usuario" class="info" required>
                     <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" class="datos" required>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" class="info" required>
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
                     <article class="remember-me-checkbox">
                         <label for="remember-me">Recordarme</label>
                         <input type="checkbox" name="remember-me" id="remember-me">
                     </article>
-                    <button type="submit" id="boton-ingresar">
+                    <button type="submit" id="button-submit">
                         Ingresar
                     </button>
                 </fieldset>    
             </form>
-            <section class="register-section">
+            <section id="redirect-section">
                 <h2>
                     ¿No tenés cuenta?
                 </h2>
-                <button type="button" id="boton-link-registrarse">
+                <button type="button" id="button-link-redirect">
                     <a href="/register">Registrate</a>
                 </button>
             </section>

@@ -1,0 +1,176 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    min-height: 100vh;
+}
+/***** Estilos en comun *****/
+/* Header y Footer Color y ancho */
+header, footer{
+    background-color: #1A2028;
+    width: 100%;
+}
+/* Bordes */
+#button-submit, .info,#button-link-redirect{
+    border: 1px solid black;
+}
+/* Centrado */
+header, #main-section-container, .info, footer{
+    text-align: center;
+}
+/* Fuentes*/
+p, .info, .forget-link, .remember-me-checkbox{
+    font-family:'Montserrat', sans-serif;
+}
+legend, #button-submit,#redirect-section h2{
+    font-weight: 400;
+}
+/***********   HEADER   ************/
+#logo{
+    width: 87vw;
+    max-width: 278px;
+    margin-top: 20px;
+    transition: all .4s;
+}
+
+#logo:hover{
+    transform: scale(1.2);
+}
+/***********   MAIN   ************/
+main{
+    padding-bottom: 126px;
+}
+/***Contenedor del formulario***/
+#main-section-container{
+    height: 650px;
+    background-color: #E9E9E9;
+    padding: 20px
+}
+form{
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+fieldset{
+    border: none;
+}
+legend{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+}  
+/***Estilo del input***/
+.info{
+    margin: 15px auto;
+    width: 93%;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 16px;
+    transition: all .2s;
+}
+.info:hover,.info:focus{
+    outline: none;
+    border: 1px solid #6765D6;
+    box-shadow: 0px 0px 0px 1px #6765D6 inset;  
+}
+
+#button-submit{
+    background-color: #6765D6;
+    color: white;
+    margin-top: 10px;
+    padding: 8px 0px;
+    border-radius: 8px;
+    width: 97%;
+    transition: all .4s;
+}
+#button-submit:hover{
+    cursor: pointer;
+    background-color: #3633C1;
+}
+
+#button-submit ,#button-link-redirect{
+    font-size: 22px;
+    width: 97%;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+/***Seccion redireccion***/
+#redirect-section{
+    margin-top: 20px;
+}
+#button-link-redirect{
+    background-color: #cacadc;
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 0px;
+    width: 97%;
+    transition: all .4s;
+}
+#button-link-redirect a{
+    display: block;
+    padding: 8px 0px;
+    width: 100%;
+    text-decoration: none;
+    color: #6765D6;
+    transition: all .4s;
+}
+#button-link-redirect:hover{
+    background-color: #6765D6;
+}
+#button-link-redirect:hover > a{
+    color: white;
+}
+
+/***********   FOOTER   ************/
+footer p{
+    font-size: 15px;
+    margin: 15px 0;
+}
+footer{
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    position:absolute;
+    bottom:0px;
+}
+footer section{
+    width:45%;
+}
+#iconos{
+    font-size: 25px;
+    min-width: 100px;
+    width:30%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition:text-shadow 0.5s ease-in-out;
+}
+
+#center-footer{
+    color: #A6ADB7;
+    width:100%;
+}
+#right-footer a{
+    color: #fff;
+}
+
+@media (min-width: 481px){
+    header{
+        height: 220px;
+    }
+    #main-section-container{
+        height: initial;
+        max-width: 320px;
+        margin: -8rem auto 5px;
+        border: 1px solid black;
+        border-radius: 7px;
+    }
+}

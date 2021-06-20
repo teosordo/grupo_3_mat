@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./includes/head')%>
+    <link rel="stylesheet" href="/css/userFormStyles.css">
     <link rel="stylesheet" href="/css/register.css">
     <title>Registrate</title>
 </head>
@@ -39,23 +40,23 @@
                 <fieldset>
                     <legend>Crea tú cuenta</legend>
                     <label for="email"></label>
-                    <input type="email" id="email" name="email" placeholder="E-MAIL" required class="datos">
+                    <input type="email" id="email" name="email" placeholder="E-MAIL" required class="info">
                     <label for="username"></label>
-                    <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required class="datos">
+                    <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required class="info">
                     <label for="password"></label>
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required class="datos">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required class="info">
                     <label for="password-confirm"></label>
-                    <input type="password" id="password-confirm" name="password" placeholder="Confirme su Contraseña" required class="datos">
-                    <button type="submit" id="boton-crear">
+                    <input type="password" id="password-confirm" name="password" placeholder="Confirme su Contraseña" required class="info">
+                    <button type="submit" id="button-submit">
                         Crear cuenta
                     </button>
                 </fieldset>
                 </form>
-                <section id="login-section">
+                <section id="redirect-section">
                     <h2>
                         ¿Ya tenés cuenta?
                     </h2>
-                    <button type="button" id="boton-link-login">
+                    <button type="button" id="button-link-redirect">
                         <a href="/login">Inicia Sesión</a>
                     </button>
                 </section>
