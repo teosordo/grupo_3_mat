@@ -2,6 +2,9 @@
     .small-input-labels{
         width: 30%;
     }
+    .large-input-labels{
+        width: 100%;
+    }
 }
 
 @media(min-width: 1280px){
