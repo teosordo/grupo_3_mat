@@ -263,7 +263,7 @@ h1, h2 {
         transform: rotateZ(90deg);
     }
 
-    .info-producto-desktop p, iframe {
+    .info-producto-desktop p, .info-producto-desktop iframe {
         visibility: hidden;
         height: 0;
         overflow: hidden;
@@ -280,8 +280,8 @@ h1, h2 {
     }
     .info-producto-desktop article:hover iframe {
         visibility: visible;
-        width: 50%;
-        height: 90%;
+        width: 80%;
+        height: 95%;
         padding: 20px 0;
         position: absolute;
         top: 30px;
