@@ -119,20 +119,34 @@ label{
         justify-content: center;
         height: 500px;
     }
+    #fieldset-small .edit-labels{
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    #fieldset-small .product-info{
+        width: 70%;
+    }
     #fielset-large label{
         width:97%;
+    }
+    .edit-labels{
+        width: 45%;
+    }
+}
+@media(min-width: 965px){
+    #fieldset-small .product-info{
+        width: 80%;
     }
     .edit-labels{
         width: 50%;
     }
 }
-@media(min-width: 965px){
+@media(min-width: 1280px){
+    #fieldset-small .product-info{
+        width: 85%;
+    }
     .edit-labels{
         width: 60%;
-    }
-}
-@media(min-width: 1280px){
-    .edit-labels{
-        width: 70%;
     }
 }

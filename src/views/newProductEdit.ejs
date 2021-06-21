@@ -18,34 +18,38 @@
                         <img src="/imgs/index/<%=product.img%>" alt="" id="product-img">
                         <h2><%=product.nombre%></h2>
                     </legend>
-                    <label for="nombre" class="edit-labels">Nombre del producto
+                    <label for="nombre" class="edit-labels">Nombre:
                         <input type="text" name="nombre" id="nombre" class="product-info" value="<%=product.nombre%>">
                     </label>
-                    <label for="marca" class="edit-labels">Marca del producto
+                    <label for="marca" class="edit-labels">Marca:
                         <input type="text" name="marca" id="marca" class="product-info" value="<%=product.marca%>">
                     </label>
                     
-                    <label for="precio" class="edit-labels">Precio del producto 
+                    <label for="precio" class="edit-labels">Precio: 
                         <input type="text" name="precio" id="precio" class="product-info" value="<%=product.precio%>">
                     </label>
                     
-                    <label for="garantia" class="edit-labels">Garantia del producto
+                    <label for="garantia" class="edit-labels">Garantía:
                             <input type="text" name="garantia" id="garantia" class="product-info" value="<%=product.garantia%>">
                     </label>
                     
-                    <label for="img" class="edit-labels">Imagen del producto
+                    <label for="img" class="edit-labels">Imágen:
                         <input type="file" name="img" id="img" class="product-info">
+                    </label>
+
+                    <label for="img" class="edit-labels">Video:
+                        <input type="text" name="vid" id="vid" class="product-info">
                     </label>
                     </fieldset>
                 <fieldset id="fielset-large">
-                    <label for="detalle" class="edit-labels large-input-labels">Detalle del producto
+                    <label for="detalle" class="edit-labels large-input-labels">Detalle:
                             <textarea name="detalle" id="detalle" class="product-info large-input"><%=product.detalle%></textarea> 
                     </label>
-                    <label for="caract" class="edit-labels large-input-labels">Características del producto
+                    <label for="caract" class="edit-labels large-input-labels">Características:
                             <textarea name="caract" id="caract" class="product-info large-input"><%=product.caract%></textarea> 
                     </label>
                     
-                    <label for="esp" class="edit-labels large-input-labels">Especificaciones del producto
+                    <label for="esp" class="edit-labels large-input-labels">Especificaciones:
                         <textarea name="esp" id="esp" class="product-info large-input"><%=product.esp%></textarea> 
                     </label>
                 </fieldset>
