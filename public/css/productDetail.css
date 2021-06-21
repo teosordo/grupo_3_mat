@@ -10,10 +10,6 @@ ul {
 img {
     width: 70%;
 }
-iframe {
-    padding: 13px 0;
-    height: 200px;
-}
 /***************** ID **********************/
 .container-main {
     background-color: #fff;
@@ -238,13 +234,16 @@ h1, h2 {
         height: 28vh;
         display: flex;
         margin-top: 1rem;
-        justify-content: space-between;
         position: relative;
+        padding-bottom: 400px;
     }
 
+    .info-producto-desktop article {
+        width: 200px;
+        margin: 0 1rem 0 0;
+    }
     .info-producto-desktop h3 {
         font-size: 1.5rem;
-        width: 90%;
     }
 
     .info-producto-desktop h3, .info-producto-desktop p {
@@ -257,7 +256,7 @@ h1, h2 {
 
     .info-producto-desktop h3 i{
         font-size: 1rem;
-        transition: all 0.5s ease-out;
+        transition: transform 0.5s ease-out;
     }
 
     .info-producto-desktop h3:hover i {
@@ -268,15 +267,27 @@ h1, h2 {
         visibility: hidden;
         height: 0;
         overflow: hidden;
-        transition: all 0.5s;
+        transition: height 0.5s;
     }
     
-    .info-producto-desktop article:hover p, .info-producto-desktop article:hover iframe {
-        height: 15vh;
+    .info-producto-desktop article:hover p{
+        height: 65%;
+        width: 100%;
         visibility: visible;
-        width: 70vw;
         position: absolute;
-        bottom: 0;
+        top: 30px;
         left: 0;
+    }
+    .info-producto-desktop article:hover iframe {
+        visibility: visible;
+        width: 50%;
+        height: 90%;
+        padding: 20px 0;
+        position: absolute;
+        top: 30px;
+        left: 0;
+    }
+    .info-producto-desktop article:hover h3{
+        width:95%;
     }
 }
