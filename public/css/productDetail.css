@@ -7,7 +7,13 @@ ul {
     font-weight: 400;
     font-size: 15px;
 }
-
+img {
+    width: 70%;
+}
+iframe {
+    padding: 13px 0;
+    height: 200px;
+}
 /***************** ID **********************/
 .container-main {
     background-color: #fff;
@@ -24,10 +30,6 @@ ul {
     display:flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.product-img img {
-    width: 70%;
 }
 
 .i-left, .i-right {
@@ -62,8 +64,9 @@ ul {
     padding: 8px;
 }
 
-.product-title h1, .product-title h2 {
+h1, h2 {
     margin: 0;
+    font-size: 1.5rem;
 }
 
 .product-elements {
@@ -195,12 +198,10 @@ ul {
 @media (min-width: 769px) {
     main {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         position: relative;
-    }
-
-    main > section {
-        width: 80%;
+        margin:auto;
     }
 
     .container-main {
@@ -208,7 +209,6 @@ ul {
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 8px;
-        margin: 0 auto 1.5rem;
         border-radius: 10px;
     }
 
@@ -239,40 +239,44 @@ ul {
         display: flex;
         margin-top: 1rem;
         justify-content: space-between;
-    }
-
-    .info-producto-desktop article {
-        height: fit-content;
-        width: 33%;
-        background-color: #E8E8E8;
-        border-radius: 10px;
-        padding: 5px;
-        box-shadow: 1px 1px 10px 1px #666666;
-        border-radius: 10px;
-    }
-
-    .info-producto-desktop article i{
-        font-size: 1rem;
-        transition: all 0.5s ease-out;
-    }
-
-    .info-producto-desktop article:hover i {
-        transform: rotateZ(90deg);
+        position: relative;
     }
 
     .info-producto-desktop h3 {
         font-size: 1.5rem;
+        width: 90%;
     }
 
-    .info-producto-desktop article p {
+    .info-producto-desktop h3, .info-producto-desktop p {
+        height: fit-content;
+        background-color: #E8E8E8;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 1px 1px 10px 1px #666666;
+    }
+
+    .info-producto-desktop h3 i{
+        font-size: 1rem;
+        transition: all 0.5s ease-out;
+    }
+
+    .info-producto-desktop h3:hover i {
+        transform: rotateZ(90deg);
+    }
+
+    .info-producto-desktop p, iframe {
         visibility: hidden;
-        height: 0vh;
+        height: 0;
         overflow: hidden;
         transition: all 0.5s;
     }
     
-    .info-producto-desktop article:hover p {
-        height: 13vh;
+    .info-producto-desktop article:hover p, .info-producto-desktop article:hover iframe {
+        height: 15vh;
         visibility: visible;
+        width: 70vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 }

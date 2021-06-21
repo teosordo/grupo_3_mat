@@ -11,108 +11,105 @@
     <!-- HEADER -->
     <%- include('./includes/header')  %> 
     
-    <main>
+    <main id="contenido">
         <!-- CUERPO -->
-        <section>
-            <section class="container-main">
-            
-                <figure class="product-img">
-                    <i class="fas fa-angle-left i-left"></i>
-                    <img src='/imgs/index/<%= product.img %>' alt="producto">
-                    <i class="fas fa-angle-right i-right"></i>
-                </figure>
+        <section class="container-main">
+        
+            <figure class="product-img">
+                <i class="fas fa-angle-left i-left"></i>
+                <img src='/imgs/index/<%= product.img %>' alt="producto">
+                <i class="fas fa-angle-right i-right"></i>
+            </figure>
 
-                <article class="product-article">
-                    <!-- DATA PRINCIPAL -->
-                    <section class="product-title">
-                        <h1><%= product.nombre %></h1>
+            <article class="product-article">
+                <!-- DATA PRINCIPAL -->
+                <section class="product-title">
+                    <h1><%= product.nombre %></h1>
 
-                        <h2>Marca: <%= product.marca %></h2>
-                    </section>
+                    <h2>Marca: <%= product.marca %></h2>
+                </section>
 
-                    <section class="product-elements">
-                        <article class="product-details">
-                            <h3>Precio: <%= product.precio %></h3>
+                <section class="product-elements">
+                    <article class="product-details">
+                        <h3>Precio: <%= product.precio %></h3>
 
-                            <section>
-                                <ul>
-                                    <li>Envio: <i><%= product.envio %></i></li>
-                                    <li>Disponibilidad: <i class= "<%= product.disponibilidad %>"></i></li>
-                                    <li>Medio de pago: <i class= "<%= product.pago %>"></i></li>
-                                    <li>Garantia: <i><%= product.garantia %></i></li>    
-                                </ul>
-                                
-                                <form action="/" method="POST" required>
-                                    <label>Cantidad:</label>
-                                    <select name="cantidad" id="cantidad">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
-                                </form>
-                            </section>
-                        </article>
-
-                        <section class="product-icons">
-                            <i class="fas fa-share-alt share"></i>
-
-                            <i class="far fa-heart heart"></i>
+                        <section>
+                            <ul>
+                                <li>Envio: <i><%= product.envio %></i></li>
+                                <li>Disponibilidad: <i class= "<%= product.disponibilidad %>"></i></li>
+                                <li>Medio de pago: <i class= "<%= product.pago %>"></i></li>
+                                <li>Garantia: <i><%= product.garantia %></i></li>    
+                            </ul>
+                            
+                            <form action="/" method="POST" required>
+                                <label>Cantidad:</label>
+                                <select name="cantidad" id="cantidad">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </form>
                         </section>
+                    </article>
+
+                    <section class="product-icons">
+                        <i class="fas fa-share-alt share"></i>
+
+                        <i class="far fa-heart heart"></i>
                     </section>
+                </section>
 
-                    <!-- BOTONES -->
-                    <section class="buttons">
-                        <button type="submit" class="buy-button">Comprar</button>
+                <!-- BOTONES -->
+                <section class="buttons">
+                    <button type="submit" class="buy-button">Comprar</button>
 
-                        <button type="submit" class="cart-button">Añadir al carrito</button>
-                    </section>
+                    <button type="submit" class="cart-button">Añadir al carrito</button>
+                </section>
 
-                    <!-- INFO Y VIDEOS -->
-                    <section class="info-producto-mobile">
-                        <article>
-                            <h3>Características</h3>
+                <!-- INFO Y VIDEOS -->
+                <section class="info-producto-mobile">
+                    <article>
+                        <h3>Características</h3>
 
-                            <p><%= product.caract %></p>
-                        </article>
+                        <p><%= product.caract %></p>
+                    </article>
 
-                        <article>
-                            <h3>Especificaciones</h3>
+                    <article>
+                        <h3>Especificaciones</h3>
 
-                            <p><%= product.esp %></p>
-                        </article>
+                        <p><%= product.esp %></p>
+                    </article>
 
-                        <article>
-                            <h3>Videos</h3>
+                    <article>
+                        <h3>Videos</h3>
 
-                            <p class="product-vid"></p>
-                        </article>
-                    </section>
-                </article>
-            </section>
-            
-<!-- Esto podría hacerse con uno sólo -->
-            <section class="info-producto-desktop">
-                <article>
-                    <h3>Características <i class="fas fa-chevron-down"></i></h3>
+                        <p class="product-vid"></p>
+                    </article>
+                </section>
+            </article>
+        </section>
+        
+        <section class="info-producto-desktop">
+            <article>
+                <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product.caract %></p>
-                </article>
+                <p><%= product.caract %></p>
+            </article>
 
-                <article>
-                    <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
+            <article>
+                <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
-                    <p><%= product.esp %></p>
-                </article>
+                <p><%= product.esp %></p>
+            </article>
 
-                <article>
-                    <h3>Videos <i class="fas fa-chevron-down"></i></h3>
+            <article>
+                <h3>Videos <i class="fas fa-chevron-down"></i></h3>
 
-                    <p class="product-vid"></p>
-                </article>
-            </section>
+                <iframe height="315" src="https://www.youtube.com/embed/Eaq89YCDH4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
         </section>
     </main>
 
