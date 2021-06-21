@@ -1,0 +1,138 @@
+main{
+    text-align: center;
+}
+
+/****** ESTILOS OPTIMIZADOS ******/
+label, #button-submit{
+    font-family:'Barlow Semi Condensed', sans-serif;
+}
+h1, #button-submit{
+    color: #fff;
+    background-color: #6765D6;
+}
+legend, #content-container, #button-submit, .product-info{
+    border: 1px solid black;
+}
+#button-submit, .product-info { 
+    border-radius: 5px;
+}
+#content-container, .product-info{
+    background-color: #fff;
+}
+/* CREATE */
+.create-labels, .create-textarea{
+    width: 80%;
+}
+
+/****** Contenido de Main*********/
+h1, h2{
+    margin: 0 0 10px;
+    padding: 15px;
+}
+h2{
+    border-top: 1px solid black;
+}
+legend{   
+    width: fit-content;
+    background-color: #CACADC;
+    box-shadow: 0 0 4px 3px #8c8bc7;
+    margin-top: 25px;
+}
+img{
+    width: 100%;
+    max-width: 320px;
+}
+label{
+    display: block;
+    margin: 10px auto 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/**** Estilo general para etiquetas dentro del form ****/
+.product-info{
+    font-family:'Montserrat', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    transition: all .2s;
+    height: 40px;
+    margin-top: 10px;
+}
+.product-info:hover,.product-info:focus{
+    outline: none;
+    border: 1px solid #6765D6;
+    box-shadow: 0px 0px 0px 1px #6765D6 inset;  
+}
+.large-input{
+    height: 70px;    
+}
+
+/** Centra el contenido dentro del input "img" **/
+#img{
+    padding: 6px;
+}
+
+#button-submit{
+    display: block;
+    margin: 25px auto 20px;
+    font-size: 30px;
+    padding: 18px;
+    width: 262px;
+    transition: all .4s;
+}
+#button-submit:hover{
+    cursor: pointer;
+    background-color: #3633C1;
+}
+
+@media(min-width: 769px){
+    h1{
+        border-radius: 6px 6px 0 0;
+    }
+    fieldset{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #content-container{
+        width: 90%;
+        border-radius: 8px;
+        margin: 20px auto 10px;
+        box-shadow: 1px 0 10px #666666
+    }
+
+    /* CREATE */
+    #product-name, .create-textarea{
+        width:97%;
+    }
+    .create-labels{
+        width: 31%;
+    }
+    /* EDIT */
+    legend{
+        margin-left: 2vw;
+        float:left;
+        margin-bottom: 25px;
+    }
+    #fieldset-small, #fielset-large{
+        padding: 0px;
+        flex-direction: column;
+        justify-content: center;
+        height: 500px;
+    }
+    #fielset-large label{
+        width:97%;
+    }
+    .edit-labels{
+        width: 50%;
+    }
+}
+@media(min-width: 965px){
+    .edit-labels{
+        width: 60%;
+    }
+}
+@media(min-width: 1280px){
+    .edit-labels{
+        width: 70%;
+    }
+}

@@ -4,53 +4,56 @@
         <%- include('./includes/head') %> 
         <title>Creando un Producto</title>
         <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/productFormStyles.css">
-        <link rel="stylesheet" href="/css/productCreate.css">
+        <link rel="stylesheet" href="/css/productForm.css">
     </head>
     <body>
         <%- include('./includes/header') %> 
         <main>
             <section id="content-container">
-                <h1>Crea un Producto</h1>
+                <h1>Creá un Producto</h1>
                 <form action="/product/create" method="POST" enctype="multipart/form-data">
                     <fieldset>
-                        <label for="nombre" class="product-info-labels small-input-labels">Nombre del Producto 
-                            <input type="text" name="nombre" id='nombre' class="product-info small-input">
+                        <label for="nombre" class="create-labels" id="product-name">Nombre del Producto 
+                            <input type="text" name="nombre" id='nombre' class="product-info">
                         </label>
                     
-                        <label for="marca" class="product-info-labels small-input-labels">Marca del producto
-                            <input type="text" name="marca" id='marca' class="product-info small-input">
+                        <label for="marca" class="create-labels">Marca del producto
+                            <input type="text" name="marca" id='marca' class="product-info">
                         </label>
                         
-                        <label for="precio" class="product-info-labels small-input-labels">Precio del producto
-                            <input type="text" name="precio"  id='precio' class="product-info small-input">
+                        <label for="precio" class="create-labels">Precio del producto
+                            <input type="text" name="precio"  id='precio' class="product-info">
                         </label>
                         
-                        <label for="img" class="product-info-labels small-input-labels">Imagen del producto
-                            <input type="file" name="img" id="img" class="product-info small-input">
+                        <label for="img" class="create-labels">Imagen del producto
+                            <input type="file" name="img" id="img" class="product-info">
                         </label>
                         
-                        <label for="color" class="product-info-labels small-input-labels">Colores
-                            <select name="color" id="color" class="product-info small-input">
+                        <label for="vid" class="create-labels">Link a video del producto
+                            <input type="text" name="vid" id="vid" class="product-info">
+                        </label>
+                        
+                        <label for="color" class="create-labels">Colores
+                            <select name="color" id="color" class="product-info">
                             <option value="rojo">Rojo</option>
                             <option value="verde">Verde</option>
                             <option value="azul">Azul</option>
                             </select>
                         </label>
                         
-                        <label for="garantia" class="product-info-labels small-input-labels">Garantia del producto
-                            <input type="text" name="garantia" id="garantia" class="product-info small-input">
+                        <label for="garantia" class="create-labels">Garantia del producto
+                            <input type="text" name="garantia" id="garantia" class="product-info">
                         </label>
                         
-                        <label for="caract" class="product-info-labels large-input-labels">Características del producto
+                        <label for="caract" class="create-textarea">Características del producto
                             <textarea name="caract" id='caract' class="product-info large-input" rows="4"></textarea>
                         </label>
                         
-                        <label for="esp" class="product-info-labels large-input-labels">Especificaciones del producto
+                        <label for="esp" class="create-textarea">Especificaciones del producto
                             <textarea name="esp" id='esp' class="product-info large-input" rows="4"></textarea>
                         </label>
                         
-                        <label for="detalle" class="product-info-labels large-input-labels">Detalle del producto
+                        <label for="detalle" class="create-textarea">Detalle del producto
                             <textarea name="detalle" id='detalle' class="product-info large-input" rows="4"></textarea> 
                         </label>
                         
