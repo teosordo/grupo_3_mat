@@ -41,6 +41,7 @@ legend{
 img{
     width: 100%;
     max-width: 320px;
+    display: block;
 }
 label{
     display: block;
