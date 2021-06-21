@@ -7,13 +7,14 @@ ul {
     font-weight: 400;
     font-size: 15px;
 }
-img {
+main img {
     width: 70%;
 }
 /***************** ID **********************/
 .container-main {
     background-color: #fff;
     box-shadow: 1px 1px 10px 1px #666666;
+    padding-top: 1rem;
 }
 
 /***************** CLASES **********************/
@@ -74,7 +75,7 @@ h1, h2 {
 /* Detalles */
 
 .product-details {
-    padding: 15px 8px;
+    padding: 0px 8px;
     width: 55%
 }
 
@@ -106,17 +107,22 @@ h1, h2 {
 }
 
 /* Iconos */
-
 .product-icons {
     width: 30%;
-    padding: 15px 0;
+    height: 100%;
     font-size: 1.7rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#productEdit {
+    text-align: right;
 }
 
 .product-icons i {
     height: fit-content;
+    color: black;
     transition: 0.3s all ease-in-out;
 }
 
@@ -286,8 +292,5 @@ h1, h2 {
         position: absolute;
         top: 30px;
         left: 0;
-    }
-    .info-producto-desktop article:hover h3{
-        width:95%;
     }
 }

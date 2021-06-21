@@ -126,9 +126,6 @@ footer section{
     transition: all 0.5s ease-in-out;
 }
 .navbar ul{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
     list-style: none;
     padding: 0;
     margin:0;
@@ -221,11 +218,16 @@ header i:hover, header p:hover{
         display:flex;
         flex-direction:column;
         font-size: 15px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
         position:absolute;
         top:15px;
         left:1rem;
     }
     .navbar li{
         padding:1rem 0;
+    }
+    #productCreate {
+        border-top: 1px solid #c4c3c3;
     }
 }

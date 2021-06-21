@@ -27,8 +27,9 @@
                     <h1><%= product.nombre %></h1>
 
                     <h2>Marca: <%= product.marca %></h2>
+   
                 </section>
-
+                
                 <section class="product-elements">
                     <article class="product-details">
                         <h3>Precio: <%= product.precio %></h3>
@@ -56,9 +57,10 @@
                     </article>
 
                     <section class="product-icons">
-                        <i class="fas fa-share-alt share"></i>
-
-                        <i class="far fa-heart heart"></i>
+                        <a href="/product/edit/<%= product.id %> "><i class="fas fa-edit" id="productEdit"></i></a>
+                        
+                        <i class="fas fa-share-alt"></i>
+                        <i class="far fa-heart"></i>
                     </section>
                 </section>
 
