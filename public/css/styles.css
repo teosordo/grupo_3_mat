@@ -116,32 +116,6 @@ footer section{
     text-decoration: none;
     font-size:1.5rem;
 }
-/*Navegacion*/
-.navbar{
-    display: none;
-    background-color: #F6F6F6;
-    box-shadow: 1px 0 10px #666666;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.5s ease-in-out;
-}
-.navbar ul{
-    list-style: none;
-    padding: 0;
-    margin:0;
-}
-.navbar a{
-    text-decoration: none;
-    color: #47525E;
-}
-.navbar h2{
-    font-size:1.5rem;
-}
-
-.navbar a:hover{
-    color:#6765D6;
-    font-weight: bold;
-}
 /******* Footer *******/
 #iconos{
     font-size: 25px;
@@ -211,23 +185,5 @@ header i:hover, header p:hover{
         display: flex;
         align-items:center;
         justify-content: space-between;
-    }
-    /*Menu de navegacion*/
-    .navbar{
-        width:20%;
-        display:flex;
-        flex-direction:column;
-        font-size: 15px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-        position:absolute;
-        top:15px;
-        left:1rem;
-    }
-    .navbar li{
-        padding:1rem 0;
-    }
-    #productCreate {
-        border-top: 1px solid #c4c3c3;
     }
 }
