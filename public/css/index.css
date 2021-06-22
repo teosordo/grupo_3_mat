@@ -47,10 +47,10 @@ aside i{
     position: absolute;
     transition: transform 0.5s ease-in-out;
 }
-#i-left{
+.i-left{
     left:5%;
 }
-#i-right{
+.i-right{
     right: 5%;
 }
 aside i:hover{
@@ -61,36 +61,40 @@ aside i:hover{
         transform: scale(1.2);
     }
 }
-/* Ofertas */
-.home-contenido{
+/*** Ofertas ***/
+#contenido > section{
     background-color: #fff;
     box-shadow: 1px 1px 10px 1px #666666;
     display: flex;
     flex-direction: column;
     align-items:center;
 }
-.home-ofertas{
+#contenido > section > article{
     width: 100%;
     padding:0 1rem;
     display: flex;
     align-items:center;
 }
-.ver-todo{
+
+/* Ver todo */
+#contenido > section > article > section{
     margin-top:10px;
     padding:0 1rem;
 }
-.ver-todo a{
+#contenido > section > article > section a{
     text-decoration: none;
     color: black;
     font-size:1.2rem;
     transition:color 0.2s ease-in-out;
     transition:font-weight 0.1s linear;
 }
-.ver-todo a:hover{
+#contenido > section > article > section a:hover{
     color: #6765D6;
     text-decoration:underline;
 }
-.home-productos{
+
+/* Productos en oferta */
+#contenido > section > a {
     text-decoration: none;
     color: black;
     margin-bottom: 1rem;
@@ -102,53 +106,53 @@ aside i:hover{
     flex-direction:column;
     transition: box-shadow 0.2s ease-in-out;
 }
-.home-productos:hover{
+#contenido > section > a:hover{
     box-shadow: 1px 1px 10px 1px #969FAA;
 }
-.home-productos figure{
+/*Imagen del producto*/
+#contenido > section > a figure{
     margin:0;
     margin: auto;
 }
-.home-productos img{
+#contenido > section > a img{
     width:100%;
     border: 1px solid #E3E3E3;
 }
-.detalle{
+/*detalle*/
+#detalle{
     font-style: italic;
 }
-.home-precio{
+/*precio*/
+#contenido > section > a > article > p{
     display: flex;
     justify-content: center;
 }
-.home-precio-anterior-desc{
+#precio-anterior-desc{
     display: flex;
     justify-content:space-between;
 }
-.precio-anterior{
+/*precio anterior*/
+#precio-anterior{
     text-decoration: line-through;
     color: #969FAA;
 }
-.off{
+/*descuento*/
+#off{
     color:#77D353;
-}
-.home-detalle-hover{
-    visibility: visible;
-    overflow: hidden;
-    border: 1px solid red;
 }
 
 /**************** MEDIA QUERIES ****************/
 /* Tablet */
 @media (min-width: 481px){
     /* Ofertas */
-    .home-contenido{
+    #contenido > section{
         flex-direction: row;
         flex-wrap: wrap;
         align-items:center;
         justify-content: space-between;
         padding: 0 2rem;
     }
-    .home-productos{
+    #contenido > section > a{
         width:48%;
     }
 }
@@ -189,13 +193,13 @@ aside i:hover{
 
 /***************** CLASES **********************/
     /* Ofertas */
-    .home-productos{
-        width:32%;
-        max-width: 300px;
-    }
-    .home-contenido{
+    #contenido > section{
         justify-content: space-around;
         border-radius: 10px;
         margin: 1.5rem auto;
+    }
+    #contenido > section > a{
+        width:32%;
+        max-width: 300px;
     }
 }

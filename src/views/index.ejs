@@ -25,31 +25,31 @@
         </nav>
         <section id="contenido">
             <!--Carousel-->
-            <aside id="carousel">
-                <i id="fas fa-angle-left i-left"></i>
-                <figure class="fotos-carousel"><img src="imgs/index/carousel.jpg"></figure>
-                <i id="fas fa-angle-right i-right"></i>
+            <aside>
+                <i class="fas fa-angle-left i-left"></i>
+                <figure><img src="imgs/index/carousel.jpg"></figure>
+                <i class="fas fa-angle-right i-right"></i>
             </aside>
             <!--Oferta de productos-->
-            <section class="home-contenido">
-                <article class="home-ofertas">
+            <section>
+                <article>
                     <h2>Ofertas</h2>
-                    <section class="ver-todo">
+                    <section>
                         <a href="#">Ver todo <i class="fas fa-arrow-right"></i></a>
                     </section>
                 </article>
                 <% for(i = 0; i < product.length; i++) { %>
-                    <a href="/productDetail/<%=product[i].id%> " class="home-productos">
+                    <a href="/productDetail/<%=product[i].id%>">
                         <article>
                             <figure><img src="/imgs/index/<%=product[i].img%>" alt="producto"></figure>
                             <section>
                                 <h3><%= product[i].nombre %></h3>
-                                <p class="detalle"><%= product[i].detalle %></p>
+                                <p id="detalle"><%= product[i].detalle %></p>
                             </section>
-                            <p class="home-precio"><%= product[i].precio %> </p>
-                            <section class="home-precio-anterior-desc">
-                                <p class="precio-anterior">$<%= product[i].precioA %></p>
-                                <p class="off"><%= product[i].descuento %>% OFF</p>
+                            <p><%= product[i].precio %> </p>
+                            <section id="precio-anterior-desc">
+                                <p id="precio-anterior">$<%= product[i].precioA %></p>
+                                <p id="off"><%= product[i].descuento %>% OFF</p>
                             </section>
                         </article>
                     </a>
