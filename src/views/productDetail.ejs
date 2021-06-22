@@ -17,28 +17,28 @@
         
             <figure>
                 <i id="i-left" class="fas fa-angle-left"></i>
-                <img src='/imgs/index/<%= product.img %>' alt="producto">
+                <img src='/imgs/index/<%= product.image %>' alt="producto">
                 <i id="i-right" class="fas fa-angle-right"></i>
             </figure>
 
             <article id="product-article">
                 <!-- DATA PRINCIPAL -->
                 <section id="product-title">
-                    <h1><%= product.nombre %></h1>
+                    <h1><%= product.name %></h1>
 
-                    <h2>Marca: <%= product.marca %></h2>
+                    <h2>Marca: <%= product.brand %></h2>
                 </section>
                 
                 <section id="product-elements">
                     <article id="product-details">
-                        <h3>Precio: $<%= product.precio %></h3>
+                        <h3>Precio: $<%= product.price %></h3>
 
                         <section>
                             <ul>
-                                <li>Envio: <i><%= product.envio %></i></li>
-                                <li>Disponibilidad: <i class= "<%= product.disponibilidad %>"></i></li>
-                                <li>Medio de pago: <i class= "<%= product.pago %>"></i></li>
-                                <li>Garantia: <i><%= product.garantia %></i></li>    
+                                <li>Envio: <i><%= product.shipping %></i></li>
+                                <li>Disponibilidad: <i class= "<%= product.available %>"></i></li>
+                                <li>Medio de pago: <i class= "<%= product.payment %>"></i></li>
+                                <li>Garantia: <i><%= product.warranty %></i></li>    
                             </ul>
                             
                             <form action="/" method="POST" required>
@@ -81,13 +81,13 @@
                     <article>
                         <h3>Especificaciones</h3>
 
-                        <p><%= product.esp %></p>
+                        <p><%= product.specs %></p>
                     </article>
 
                     <article>
                         <h3>Videos</h3>
 
-                        <iframe src="<%=product.vid%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </article>
                 </section>
             </article>
@@ -103,13 +103,13 @@
             <article>
                 <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
 
-                <p><%= product.esp %></p>
+                <p><%= product.specs %></p>
             </article>
 
             <article>
                 <h3>Videos <i class="fas fa-chevron-down"></i></h3>
                 
-                <iframe src="<%=product.vid%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </article>
         </section>
     </main>
