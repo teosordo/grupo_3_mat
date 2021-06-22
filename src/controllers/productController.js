@@ -3,7 +3,7 @@ const productsFunctions = require('../models/product');
 const productController = {
     productDetail: (req, res) => {
         let idProduct = req.params.id
-        if(idProduct == undefined){
+        if(idProduct == undefined || idProduct == 0){
             res.redirect('/')
         }else{
             let product = productsFunctions.search(idProduct)
@@ -19,7 +19,7 @@ const productController = {
     },
     productEdit:(req,res) => {
         let idProduct = req.params.id
-        if(idProduct == undefined){
+        if(idProduct == undefined || idProduct == 0){
             res.redirect('/')
         }else{
             let product = productsFunctions.search(idProduct)

@@ -38,7 +38,7 @@ legend{
     box-shadow: 0 0 4px 3px #8c8bc7;
     margin-top: 25px;
 }
-img{
+#product-img{
     width: 100%;
     max-width: 320px;
     display: block;

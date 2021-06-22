@@ -30,18 +30,19 @@ const product = {
         let newProduct = {
             id: newId,
             nombre: newData.nombre,
+            marca: newData.marca,
             precio: newData.precio, 
             precioA:  newData.precio, 
-            descuento: 40,
-            detalle: newData.detalle,
-            envio: "Gratis!", 
-            disponibilidad: "fas fa-check", 
-            pago: "fas fa-credit-card", 
+            descuento: 0,
+            detalle: newData.detalle, 
+            disponibilidad: "fas fa-check",             
+            pago: "fas fa-credit-card",         
+            envio: "Gratis!",
             garantia: newData.garantia,
             img: imgFile.filename,
-            caract:  newData.caract,
-            esp:    newData.esp
-
+            vid: newData.vid,
+            caract: newData.caract,
+            esp: newData.esp
         }
         products.push(newProduct);
         if(product.write(products) == true){
