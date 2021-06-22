@@ -13,25 +13,24 @@
     
     <main id="contenido">
         <!-- CUERPO -->
-        <section class="container-main">
+        <section id="container-main">
         
-            <figure class="product-img">
-                <i class="fas fa-angle-left i-left"></i>
+            <figure>
+                <i id="i-left" class="fas fa-angle-left"></i>
                 <img src='/imgs/index/<%= product.img %>' alt="producto">
-                <i class="fas fa-angle-right i-right"></i>
+                <i id="i-right" class="fas fa-angle-right"></i>
             </figure>
 
-            <article class="product-article">
+            <article id="product-article">
                 <!-- DATA PRINCIPAL -->
-                <section class="product-title">
+                <section id="product-title">
                     <h1><%= product.nombre %></h1>
 
                     <h2>Marca: <%= product.marca %></h2>
-   
                 </section>
                 
-                <section class="product-elements">
-                    <article class="product-details">
+                <section id="product-elements">
+                    <article id="product-details">
                         <h3>Precio: <%= product.precio %></h3>
 
                         <section>
@@ -56,7 +55,7 @@
                         </section>
                     </article>
 
-                    <section class="product-icons">
+                    <section id="product-icons">
                         <a href="/product/edit/<%= product.id %> "><i class="fas fa-edit" id="productEdit"></i></a>
                         
                         <i class="fas fa-share-alt"></i>
@@ -65,14 +64,14 @@
                 </section>
 
                 <!-- BOTONES -->
-                <section class="buttons">
-                    <button type="submit" class="buy-button">Comprar</button>
+                <section id="buttons">
+                    <button type="submit" id="buy-button">Comprar</button>
 
-                    <button type="submit" class="cart-button">Añadir al carrito</button>
+                    <button type="submit" id="cart-button">Añadir al carrito</button>
                 </section>
 
                 <!-- INFO Y VIDEOS -->
-                <section class="info-producto-mobile">
+                <section id="info-producto-mobile">
                     <article>
                         <h3>Características</h3>
 
@@ -88,13 +87,13 @@
                     <article>
                         <h3>Videos</h3>
 
-                        <p class="product-vid"></p>
+                        <iframe src="<%= product.vid %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </article>
                 </section>
             </article>
         </section>
         
-        <section class="info-producto-desktop">
+        <section id="info-producto-desktop">
             <article>
                 <h3>Características <i class="fas fa-chevron-down"></i></h3>
 
