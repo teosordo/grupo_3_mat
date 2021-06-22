@@ -112,13 +112,13 @@ label{
     legend{
         margin-left: 2vw;
         float:left;
-        margin-bottom: 25px;
+        margin-bottom: 100px;
     }
     #fieldset-small, #fielset-large{
         padding: 0px;
         flex-direction: column;
         justify-content: center;
-        height: 500px;
+        height: 535px;
     }
     #fieldset-small .edit-labels{
         display: flex;

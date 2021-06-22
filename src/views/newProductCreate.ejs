@@ -14,23 +14,23 @@
                 <form action="/product/create" method="POST" enctype="multipart/form-data">
                     <fieldset>
                         <label for="nombre" class="create-labels" id="product-name">Nombre del Producto 
-                            <input type="text" name="nombre" id='nombre' class="product-info">
+                            <input type="text" name="nombre" id='nombre' class="product-info" required>
                         </label>
                     
                         <label for="marca" class="create-labels">Marca del producto
-                            <input type="text" name="marca" id='marca' class="product-info">
+                            <input type="text" name="marca" id='marca' class="product-info" required>
                         </label>
                         
                         <label for="precio" class="create-labels">Precio del producto
-                            <input type="text" name="precio"  id='precio' class="product-info">
+                            <input type="text" name="precio"  id='precio' class="product-info" required>
                         </label>
-                        
+
                         <label for="img" class="create-labels">Imagen del producto
-                            <input type="file" name="img" id="img" class="product-info">
+                            <input type="file" name="img" id="img" class="product-info" required>
                         </label>
                         
                         <label for="vid" class="create-labels">Link a video del producto
-                            <input type="text" name="vid" id="vid" class="product-info">
+                            <input type="text" name="vid" id="vid" class="product-info" required>
                         </label>
                         
                         <label for="color" class="create-labels">Colores
@@ -42,19 +42,19 @@
                         </label>
                         
                         <label for="garantia" class="create-labels">Garantia del producto
-                            <input type="text" name="garantia" id="garantia" class="product-info">
+                            <input type="text" name="garantia" id="garantia" class="product-info" required>
                         </label>
                         
                         <label for="caract" class="create-textarea">Características del producto
-                            <textarea name="caract" id='caract' class="product-info large-input" rows="4"></textarea>
+                            <textarea name="caract" id='caract' class="product-info large-input" rows="4" required></textarea>
                         </label>
                         
                         <label for="esp" class="create-textarea">Especificaciones del producto
-                            <textarea name="esp" id='esp' class="product-info large-input" rows="4"></textarea>
+                            <textarea name="esp" id='esp' class="product-info large-input" rows="4" required></textarea>
                         </label>
                         
                         <label for="detalle" class="create-textarea">Detalle del producto
-                            <textarea name="detalle" id='detalle' class="product-info large-input" rows="4"></textarea> 
+                            <textarea name="detalle" id='detalle' class="product-info large-input" rows="4" required></textarea> 
                         </label>
                         
                         <button type="submit" id="button-submit">Crear</button>
