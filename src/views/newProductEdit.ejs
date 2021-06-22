@@ -4,7 +4,7 @@
     <%- include('./includes/head') %>
     <link rel="stylesheet" href="/css/styles.css"> 
     <link rel="stylesheet" href="/css/products/productForm.css">
-    <title>Editando <%=product.nombre%></title>
+    <title>Editando <%=product.name%></title>
 </head>
 <body>
     <%- include('./includes/header') %>
@@ -14,46 +14,46 @@
             <form action="/" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
-                        <img src="/imgs/index/<%=product.img%>" alt="" id="product-img">
-                        <h2><%=product.nombre%></h2>
+                        <img src="/imgs/index/<%=product.image%>" alt="" id="product-img">
+                        <h2><%=product.name%></h2>
                     </legend>
-                    <label for="nombre" class="edit-labels">Nombre:
-                        <input type="text" name="nombre" id="nombre" class="product-info" value="<%=product.nombre%>">
+                    <label for="name" class="edit-labels">Nombre:
+                        <input type="text" name="name" id="name" class="product-info" value="<%=product.name%>">
                     </label>
                     <label for="marca" class="edit-labels">Marca:
-                        <input type="text" name="marca" id="marca" class="product-info" value="<%=product.marca%>">
+                        <input type="text" name="brand" id="brand" class="product-info" value="<%=product.brand%>">
                     </label>
                     
-                    <label for="precio" class="edit-labels">Precio: 
-                        <input type="text" name="precio" id="precio" class="product-info" value="<%=product.precio%>">
+                    <label for="price" class="edit-labels">Precio: 
+                        <input type="text" name="price" id="price" class="product-info" value="<%=product.price%>">
                     </label>
 
-                    <label for="descuento" class="edit-labels">Descuento:
-                        <input type="text" name="descuento"  id='descuento' class="product-info" value="<%=product.descuento%>" required>
+                    <label for="discount" class="edit-labels">Descuento:
+                        <input type="text" name="discount"  id='discount' class="product-info" value="<%=product.discount%>" required>
                     </label>
                     
-                    <label for="garantia" class="edit-labels">Garantía:
-                            <input type="text" name="garantia" id="garantia" class="product-info" value="<%=product.garantia%>">
+                    <label for="warranty" class="edit-labels">Garantía:
+                            <input type="text" name="warranty" id="warranty" class="product-info" value="<%=product.warranty%>">
                     </label>
                     
-                    <label for="img" class="edit-labels">Imágen:
-                        <input type="file" name="img" id="img" class="product-info" accept="image/jpeg, image/png, image/jpg">
+                    <label for="image" class="edit-labels">Imágen:
+                        <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
                     </label>
 
-                    <label for="vid" class="edit-labels">Video:
-                        <input type="text" name="vid" id="vid" class="product-info" value="<%=product.vid%>">
+                    <label for="videos" class="edit-labels">Video:
+                        <input type="text" name="videos" id="videos" class="product-info" value="<%=product.videos%>">
                     </label>
                     </fieldset>
                 <fieldset id="fielset-large">
-                    <label for="detalle" class="edit-labels large-input-labels">Detalle:
-                            <textarea name="detalle" id="detalle" class="product-info large-input"><%=product.detalle%></textarea> 
+                    <label for="detail" class="edit-labels large-input-labels">Detalle:
+                            <textarea name="detalle" id="detalle" class="product-info large-input"><%=product.detail%></textarea> 
                     </label>
                     <label for="caract" class="edit-labels large-input-labels">Características:
                             <textarea name="caract" id="caract" class="product-info large-input"><%=product.caract%></textarea> 
                     </label>
                     
-                    <label for="esp" class="edit-labels large-input-labels">Especificaciones:
-                        <textarea name="esp" id="esp" class="product-info large-input"><%=product.esp%></textarea> 
+                    <label for="specs" class="edit-labels large-input-labels">Especificaciones:
+                        <textarea name="specs" id="specs" class="product-info large-input"><%=product.specs%></textarea> 
                     </label>
                 </fieldset>
                 <button type="submit" id="button-submit">Editar</button>

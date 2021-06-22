@@ -69,7 +69,7 @@ label{
 }
 
 /** Centra el contenido dentro del input "img" **/
-#img{
+#image{
     padding: 6px;
 }
 
@@ -102,12 +102,14 @@ label{
     }
 
     /* CREATE */
-    #product-name, .create-textarea{
-        width:97%;
-    }
     .create-labels{
         width: 31%;
     }
+
+    .full-sized, .create-textarea{
+        width:97%;
+    }
+    
     /* EDIT */
     legend{
         margin-left: 2vw;

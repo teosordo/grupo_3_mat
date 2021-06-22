@@ -29,20 +29,19 @@ const product = {
         let newId = products.length > 0? products[products.length-1].id +1 : 1
         let newProduct = {
             id: newId,
-            nombre: newData.nombre,
-            marca: newData.marca,
-            precio: parseInt(newData.precio,10),
-            precioA:  parseInt(newData.precio,10), 
-            descuento: 0,
-            detalle: newData.detalle, 
-            disponibilidad: "fas fa-check",             
-            pago: "fas fa-credit-card",         
-            envio: "Gratis!",
-            garantia: newData.garantia,
+            name: newData.name,
+            brand: newData.brand,
+            price: parseInt(newData.price,10),
+            discount: 0,
+            detail: newData.detalle, 
+            available: "fas fa-check",             
+            payment: "fas fa-credit-card",         
+            shipping: "Gratis!",
+            warranty: newData.warranty,
             img: imgFile.filename,
-            vid: newData.vid,
+            videos: newData.videos,
             caract: newData.caract,
-            esp: newData.esp
+            specs: newData.specs
         }
         products.push(newProduct);
         if(product.write(products) == true){

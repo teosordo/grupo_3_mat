@@ -13,8 +13,12 @@
                 <h1>Creá un Producto</h1>
                 <form action="/product/create" method="POST" enctype="multipart/form-data">
                     <fieldset>
-                        <label for="nombre" class="create-labels" id="product-name">Nombre del Producto 
+                        <label for="nombre" class="create-labels full-sized" id="product-name">Nombre del Producto 
                             <input type="text" name="nombre" id='nombre' class="product-info" required>
+                        </label>
+
+                        <label for="category" class="create-labels full-sized">Categorias del Producto
+                            <input type="text" name="category" id='category' class="product-info" required>
                         </label>
                     
                         <label for="marca" class="create-labels">Marca del producto
