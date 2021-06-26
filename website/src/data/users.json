@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Angelica",
+        "lastName": "Dutra",
+        "userName": "bussiness_woman",
+        "email": "angiedutra@hotmail.com",
+        "password": "",
+        "category": "admin",
+        "avatar": ""
+    },
+    {
+        "id": 2,
+        "name": "Matias",
+        "lastName": "Celentano",
+        "userName": "reinwulf",
+        "email": "matiascelentano562@gmail.com",
+        "password": "",
+        "category": "admin",
+        "avatar": ""
+    },
+    {
+        "id": 3,
+        "name": "Teo",
+        "lastName": "Sordó",
+        "userName": "teusa28",
+        "email": "teosordo98@gmail.com",
+        "password": "",
+        "category": "admin",
+        "avatar": ""
+    }
+]
