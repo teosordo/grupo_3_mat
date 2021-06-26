@@ -31,8 +31,8 @@ const product = {
         let newProduct = {
             id: newId,
             name: newData.name,
-            brand: newData.brand,
-            price: parseInt(newData.price,10),
+            brand: parseInt(newData.brand),
+            price: parseInt(newData.price),
             discount: 0,
             detail: newData.detalle, 
             available: "fas fa-check",             

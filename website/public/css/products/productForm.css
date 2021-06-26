@@ -67,7 +67,12 @@ label{
 .large-input{
     height: 70px;    
 }
-
+.create-labels select{
+    text-transform: capitalize;
+}
+.create-labels #colors{
+    height: fit-content;
+}
 /** Centra el contenido dentro del input "img" **/
 #image{
     padding: 6px;

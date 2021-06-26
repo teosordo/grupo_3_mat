@@ -17,12 +17,20 @@
                             <input type="text" name="name" id='name' class="product-info" required>
                         </label>
 
-                        <label for="category" class="create-labels full-sized">Categorias del Producto
-                            <input type="text" name="category" id='category' class="product-info" required>
+                        <label for="category" class="create-labels">Categorias del Producto
+                            <select name="category" id="category" class="product-info" required>
+                            <% categories.forEach(element =>{ %> 
+                                <option value="<%= element.id%>"><%=element.name%></option>
+                            <% }) %> 
+                            </select>
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
-                            <input type="text" name="brand" id='brand' class="product-info" required>
+                            <select name="brand" id='brand' class="product-info" required>
+                                <% brands.forEach(element =>{ %> 
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <%  })  %>
+                            </select>
                         </label>
                         
                         <label for="price" class="create-labels">Precio del producto
@@ -36,18 +44,20 @@
                         <label for="videos" class="create-labels">Link a video del producto
                             <input type="text" name="videos" id="videos" class="product-info" required>
                         </label>
-                        
-                        <label for="colors" class="create-labels">Colores
-                            <select name="color" id="colors" class="product-info">
-                            <option value="rojo">Rojo</option>
-                            <option value="verde">Verde</option>
-                            <option value="azul">Azul</option>
-                            </select>
-                        </label>
-                        
+
                         <label for="warranty" class="create-labels">Garantia del producto
                             <input type="text" name="warranty" id="warranty" class="product-info" required>
                         </label>
+
+                        <label for="colors" class="create-labels full-sized">Colores
+                            <select name="colors" id="colors" class="product-info" multiple>
+                                <% colors.forEach(element =>{ %> 
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <%  })  %>
+                            </select>
+                        </label>
+                        
+                        
                         
                         <label for="caract" class="create-textarea">Características del producto
                             <textarea name="caract" id='caract' class="product-info large-input" rows="4" required></textarea>

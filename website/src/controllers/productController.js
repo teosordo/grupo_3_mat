@@ -1,5 +1,9 @@
 const { response } = require('express');
 const productsFunctions = require('../models/product');
+const brandFunctions = require('../models/brand')
+const categoryFunctions = require('../models/category')
+const colorFunctions = require('../models/color')
+
 const productController = {
     listProduct: (req, res)=>{
         res.render('list', {products : productsFunctions.all()});
@@ -11,7 +15,7 @@ const productController = {
 
     },
     productNewProduct:(req,res) => {
-        res.render('newProductCreate')
+        res.render('newProductCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})
     },
     productCreate:(req,res)=>{
         let result = productsFunctions.create(req.body, req.file);
