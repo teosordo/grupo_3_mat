@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./includes/head')%>
+    <%- include('../includes/head')%>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/products/productDetail.css">
     
@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- HEADER -->
-    <%- include('./includes/header')  %> 
+    <%- include('../includes/header')  %> 
     
     <main id="contenido">
         <!-- CUERPO -->
@@ -17,7 +17,7 @@
         
             <figure>
                 <i id="i-left" class="fas fa-angle-left"></i>
-                <img src='/imgs/uploads/<%= product.image %>' alt="producto">
+                <img src='/uploads/products/<%= product.image %>' alt="producto">
                 <i id="i-right" class="fas fa-angle-right"></i>
             </figure>
 
@@ -56,7 +56,7 @@
                     </article>
 
                     <section id="product-icons">
-                        <a href="/products/edit/<%= product.id %> "><i class="fas fa-edit" id="productEdit"></i></a>
+                        <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
                         
                         <i class="fas fa-share-alt"></i>
                         <i class="far fa-heart"></i>
@@ -115,6 +115,6 @@
     </main>
 
     <!-- FOOTER -->
-    <%- include('./includes/footer')  %> 
+    <%- include('../includes/footer')  %> 
 </body>
 </html>

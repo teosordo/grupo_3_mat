@@ -34,7 +34,7 @@ aside{
     position: relative;
 }
 aside figure{
-    margin:0;
+    margin:0 0 1rem 0;
     width:100%;
 }
 aside img{
@@ -194,7 +194,7 @@ aside i:hover{
     /* Ofertas */
     #contenido > section{
         border-radius: 10px;
-        margin: 1.5rem auto;
+        margin: 0 auto 1.5rem ;
     }
     #contenido > section > a{
         width:32%;

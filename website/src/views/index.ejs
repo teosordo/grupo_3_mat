@@ -40,9 +40,9 @@
                 </article>
                 <% for(i = 0; i < product.length; i++) { %>
                     <% if(product[i].discount > 0){ %>
-                        <a href="/products/productDetail/<%=product[i].id%>">
+                        <a href="/products/<%=product[i].id%>">
                             <article>
-                                <figure><img src="/imgs/uploads/<%=product[i].image%>" alt="producto"></figure>
+                                <figure><img src="/uploads/products/<%=product[i].image%>" alt="producto"></figure>
                                 <section>
                                     <h3><%= product[i].name %></h3>
                                     <p id="detalle"><%= product[i].detail %></p>

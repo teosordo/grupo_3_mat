@@ -4,17 +4,17 @@ const products = [
 
 const userController = {
     login: (req, res) => {
-        res.render('login');
+        res.render('users/login');
     },
     register: (req, res) => {
-        res.render('register');
+        res.render('users/register');
     },
     productCart: (req, res) => {
         total = products.reduce((total, product) => {
             return total + product.priceA;
         }, 0);
 
-        res.render('productCart', {product: products});
+        res.render('users/productCart', {product: products});
     }
 };
 

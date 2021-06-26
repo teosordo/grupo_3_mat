@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./includes/head')%>
+    <%- include('../includes/head')%>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/index.css">
     <title>Home</title>
 </head>
 <body>
     <!-- HEADER -->
-    <%- include('./includes/header')  %> 
+    <%- include('../includes/header')  %> 
     
     <main>
         <!-- MENU DE NAVEGACIÓN -->
@@ -24,12 +24,6 @@
             
         </nav>
         <section id="contenido">
-            <!--Carousel-->
-            <aside>
-                <i class="fas fa-angle-left i-left"></i>
-                <figure><img src="imgs/index/carousel.jpg"></figure>
-                <i class="fas fa-angle-right i-right"></i>
-            </aside>
             <!--Oferta de productos-->
             <section>
                 <article>
@@ -41,7 +35,7 @@
                 <% for(i = 0; i < products.length; i++) { %>
                     <a href="/products/productDetail/<%=products[i].id%>">
                         <article>
-                            <figure><img src="/imgs/uploads/<%=products[i].image%>" alt="producto"></figure>
+                            <figure><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
                             <section>
                                 <h3><%= products[i].name %></h3>
                                 <p id="detalle"><%= products[i].detail %></p>
@@ -58,6 +52,6 @@
         </section>
     </main>
     <!-- FOOTER -->
-    <%- include('./includes/footer')  %> 
+    <%- include('../includes/footer')  %> 
 </body>
 </html>

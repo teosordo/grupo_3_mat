@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./includes/head')%>
+    <%- include('../includes/head')%>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/users/productCart.css">
 
@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- HEADER -->
-    <%- include('./includes/header')  %> 
+    <%- include('../includes/header')  %> 
 
     <main>
         <!-- CUERPO -->
@@ -23,7 +23,7 @@
                 <% for(let i = 0; i < product.length; i++){ %> 
                     <section>
                         <section class="product"> 
-                            <h3><a href="/products/productDetail/<%= product[i].id %> "><%= product[i].name %> </a></h3>
+                            <h3><a href="/products/<%= product[i].id %> "><%= product[i].name %> </a></h3>
                             <form action="/" method="POST" required>
                                 <label>Cantidad:</label>
                                 <select name="cantidad" id="cantidad">
@@ -53,6 +53,6 @@
         </section>
     </main>
     <!-- FOOTER -->
-    <%- include('./includes/footer')  %> 
+    <%- include('../includes/footer')  %> 
 </body>
 </html>

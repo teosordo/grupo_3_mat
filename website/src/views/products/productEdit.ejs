@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./includes/head') %>
+    <%- include('../includes/head') %>
     <link rel="stylesheet" href="/css/styles.css"> 
     <link rel="stylesheet" href="/css/products/productForm.css">
     <title>Editando <%=product.name%></title>
 </head>
 <body>
-    <%- include('./includes/header') %>
+    <%- include('../includes/header') %>
     <main>
         <section id="content-container">
             <h1>Editá tu producto:</h1>
             <form action="/" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
-                        <img src="/imgs/uploads/<%=product.image%>" alt="" id="product-img">
+                        <img src="/uploads/products/<%=product.image%>" alt="" id="product-img">
                         <h2><%=product.name%></h2>
                     </legend>
                     <label for="name" class="edit-labels">Nombre:
@@ -60,6 +60,6 @@
             </form>
         </section>
     </main>
-    <%- include('./includes/footer')  %> 
+    <%- include('../includes/footer')  %> 
 </body>
 </html>
