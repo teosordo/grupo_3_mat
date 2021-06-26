@@ -6,12 +6,9 @@ const productController = {
     },
     productDetail: (req, res) => {
         let idProduct = req.params.id
-        if(idProduct == undefined || idProduct == 0){
-            res.redirect('/');
-        }else{
-            let product = productsFunctions.search(idProduct);
-            return product == false ?  res.redirect('/'):res.render('productDetail',{product: product[0]})
-        }
+        let product = productsFunctions.search(idProduct);
+        return product == false ?  res.redirect('/'):res.render('productDetail',{product: product[0]})
+
     },
     productNewProduct:(req,res) => {
         res.render('newProductCreate')
@@ -22,12 +19,8 @@ const productController = {
     },
     productEdit:(req,res) => {
         let idProduct = req.params.id;
-        if(idProduct == undefined || idProduct == 0){
-            res.redirect('/')
-        }else{
-            let product = productsFunctions.search(idProduct);
-            return product == false ? res.redirect('/') : res.render('newProductEdit',{product: product[0]})
-        }
+        let product = productsFunctions.search(idProduct);
+         return product == false ? res.redirect('/') : res.render('newProductEdit',{product: product[0]})
     }
 };
 
