@@ -1,7 +1,9 @@
 const { response } = require('express');
 const productsFunctions = require('../models/product');
-//const products = productsFunctions.all()
 const productController = {
+    listProduct: (req, res)=>{
+        res.render('list', {products : productsFunctions.all()});
+    },
     productDetail: (req, res) => {
         let idProduct = req.params.id
         if(idProduct == undefined || idProduct == 0){

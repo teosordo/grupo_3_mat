@@ -190,11 +190,9 @@ aside i:hover{
     #productCreate {
         border-top: 1px solid #c4c3c3;
     }
-
-/***************** CLASES **********************/
+    
     /* Ofertas */
     #contenido > section{
-        justify-content: space-around;
         border-radius: 10px;
         margin: 1.5rem auto;
     }

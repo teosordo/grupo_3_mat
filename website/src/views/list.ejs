@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./includes/head')%>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Home</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include('./includes/header')  %> 
+    
+    <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <nav id="navbar">
+            <h2>Todas las categorias</h2>
+            <ul>
+                <li><a href="#">Categoría 1</a></li>
+                <li><a href="#">Categoría 2</a></li>
+                <li><a href="#">Categoría 3</a></li>
+                
+                <li id="productCreate"><a href="/product/create">Crear nuevo producto</a></li>
+            </ul>
+            
+        </nav>
+        <section id="contenido">
+            <!--Carousel-->
+            <aside>
+                <i class="fas fa-angle-left i-left"></i>
+                <figure><img src="imgs/index/carousel.jpg"></figure>
+                <i class="fas fa-angle-right i-right"></i>
+            </aside>
+            <!--Oferta de productos-->
+            <section>
+                <article>
+                    <h2>Todos los productos</h2>
+                    <section>
+                        <a href="/">Ofertas <i class="fas fa-arrow-right"></i></a>
+                    </section>
+                </article>
+                <% for(i = 0; i < products.length; i++) { %>
+                    <a href="/products/productDetail/<%=products[i].id%>">
+                        <article>
+                            <figure><img src="/imgs/uploads/<%=products[i].image%>" alt="producto"></figure>
+                            <section>
+                                <h3><%= products[i].name %></h3>
+                                <p id="detalle"><%= products[i].detail %></p>
+                            </section>
+                            <p>$<%= products[i].precio %> </p>
+                            <section id="precio-anterior-desc">
+                                <p id="precio-anterior">$<%= products[i].priceA %></p>
+                                <p id="off"><%= products[i].discount %>% OFF</p>
+                            </section>
+                        </article>
+                    </a>
+                <% } %>         
+            </section>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <%- include('./includes/footer')  %> 
+</body>
+</html>

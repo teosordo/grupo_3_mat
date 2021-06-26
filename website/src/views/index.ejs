@@ -19,7 +19,7 @@
                 <li><a href="#">Categoría 2</a></li>
                 <li><a href="#">Categoría 3</a></li>
                 
-                <li id="productCreate"><a href="/product/create">Crear nuevo producto</a></li>
+                <li id="productCreate"><a href="/products/create">Crear nuevo producto</a></li>
             </ul>
             
         </nav>
@@ -35,24 +35,26 @@
                 <article>
                     <h2>Ofertas</h2>
                     <section>
-                        <a href="#">Ver todo <i class="fas fa-arrow-right"></i></a>
+                        <a href="/products">Todos los productos <i class="fas fa-arrow-right"></i></a>
                     </section>
                 </article>
                 <% for(i = 0; i < product.length; i++) { %>
-                    <a href="/productDetail/<%=product[i].id%>">
-                        <article>
-                            <figure><img src="/imgs/uploads/<%=product[i].image%>" alt="producto"></figure>
-                            <section>
-                                <h3><%= product[i].nombre %></h3>
-                                <p id="detalle"><%= product[i].detail %></p>
-                            </section>
-                            <p>$<%= product[i].precio %> </p>
-                            <section id="precio-anterior-desc">
-                                <p id="precio-anterior">$<%= product[i].priceA %></p>
-                                <p id="off"><%= product[i].discount %>% OFF</p>
-                            </section>
-                        </article>
-                    </a>
+                    <% if(product[i].discount > 0){ %>
+                        <a href="/products/productDetail/<%=product[i].id%>">
+                            <article>
+                                <figure><img src="/imgs/uploads/<%=product[i].image%>" alt="producto"></figure>
+                                <section>
+                                    <h3><%= product[i].name %></h3>
+                                    <p id="detalle"><%= product[i].detail %></p>
+                                </section>
+                                <p>$<%= product[i].precio %> </p>
+                                <section id="precio-anterior-desc">
+                                    <p id="precio-anterior">$<%= product[i].priceA %></p>
+                                    <p id="off"><%= product[i].discount %>% OFF</p>
+                                </section>
+                            </article>
+                        </a>
+                    <% } %>
                 <% } %>         
             </section>
         </section>

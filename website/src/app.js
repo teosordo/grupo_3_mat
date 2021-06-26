@@ -22,7 +22,7 @@ const mainRouter = require('./routes/mainRoutes');
 app.use(mainRouter);
 // Products
 const productRouter = require('./routes/productRoutes');
-app.use(productRouter);
+app.use('/products', productRouter);
 // User
 const userRouter = require('./routes/userRoutes');
 app.use(userRouter);

@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const product = {
     all: ()=>{
+        //Luego requerir los json que arme Mati de colores marcas, etc
         const directory = path.resolve(__dirname, '../data/products.json');
         const file = fs.readFileSync(directory,'utf-8');
         const list = JSON.parse(file);
