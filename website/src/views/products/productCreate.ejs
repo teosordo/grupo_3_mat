@@ -51,8 +51,12 @@
 
                         <label for="colors" class="create-labels full-sized">Colores
                             <select name="colors" id="colors" class="product-info" multiple>
-                                <% colors.forEach(element =>{ %> 
-                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <% colors.forEach(element =>{ %>
+                                    <% if(element.id == 1){ %> 
+                                        <option value="<%= element.id%>" style="<%= `background-color:${element.value};`%> color:white"><%=element.name%></option>
+                                    <%}else{ %>
+                                        <option value="<%= element.id%>" style="<%= `background-color:${element.value};`%>"><%=element.name%></option>
+                                    <% } %> 
                                 <%  })  %>
                             </select>
                         </label>

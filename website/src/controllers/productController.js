@@ -10,7 +10,7 @@ const productController = {
     productDetail: (req, res) => {
         let idProduct = req.params.id
         let product = productsFunctions.search(idProduct);
-        return product == false ?  res.redirect('/'):res.render('products/productDetail', {product: product[0]})
+        return product == false ?  res.redirect('/'):res.render('products/productDetail', {product: product})
 
     },
     newProduct:(req,res) => {
@@ -23,7 +23,7 @@ const productController = {
     productEdit:(req,res) => {
         let idProduct = req.params.id;
         let product = productsFunctions.search(idProduct);
-        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product[0]})
+        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product})
     }
 };
 

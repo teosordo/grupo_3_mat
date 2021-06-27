@@ -26,7 +26,7 @@
                 <section id="product-title">
                     <h1><%= product.name %></h1>
 
-                    <h2>Marca: <%= product.brand %></h2>
+                    <h2>Marca: <%= product.brand.name %></h2>
                 </section>
                 
                 <section id="product-elements">
@@ -42,15 +42,23 @@
                             </ul>
                             
                             <form action="/" method="POST" required>
-                                <label>Cantidad:</label>
-                                <select name="cantidad" id="cantidad">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
+                                <label for="color">Colores
+                                    <select name="color" id="color">
+                                        <%product.color.forEach(element=>{ %>
+                                            <option value="<%=element.id%>"><%= element.name %></option>
+                                        <% }) %> 
+                                    </select>
+                                </label>
+                                <label for="cantidad">Cantidad:
+                                    <select name="cantidad" id="cantidad">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </label>
                             </form>
                         </section>
                     </article>
@@ -80,7 +88,6 @@
 
                     <article>
                         <h3>Especificaciones</h3>
-
                         <p><%= product.specs %></p>
                     </article>
 

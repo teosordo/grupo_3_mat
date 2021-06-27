@@ -1,5 +1,10 @@
 const path = require("path")
 const fs = require('fs')
+//Funciones de los otros modelos
+const brandModel = require('./brand')
+const categoryModel = require('./category')
+const colorModel = require('./color')
+
 
 const product = {
     all: ()=>{
@@ -7,7 +12,24 @@ const product = {
         const directory = path.resolve(__dirname, '../data/products.json');
         const file = fs.readFileSync(directory,'utf-8');
         const list = JSON.parse(file);
-        return list
+        return list;
+    },
+    allComplete:()=>{
+        let products = product.all();
+        products.map(element=> {
+            element.brand = brandModel.search(element.brand);
+            return element;
+        }).map(element=> {
+            element.category = brandModel.search(element.brand);
+            return element;
+        }).map(element=>{
+            element.color = element.color.map(element=>{
+                element = colorModel.search(element);
+                return element;
+            })
+            return element
+        })
+        return products
     },
     write:(products)=>{
         const directory = path.resolve(__dirname, '../data/products.json');
@@ -16,14 +38,9 @@ const product = {
         return true
     },
     search:(idProduct)=>{
-        let products = product.all();
-        let thisProduct = [];
-        products.forEach(element => {
-            if(element.id == idProduct){
-                thisProduct.push(element)
-            }
-        });
-        return thisProduct
+        let products = product.allComplete()
+        let oneProduct = products.find(element => element.id == idProduct)
+        return oneProduct
     },
     create:(newData, imgFile)=>{
         let products = product.all();
@@ -32,9 +49,10 @@ const product = {
             id: newId,
             name: newData.name,
             brand: parseInt(newData.brand),
+            category: parseInt(newData.category),
+            color: newData.colors.map(element => parseInt(element)),
             price: parseInt(newData.price),
-            colors: newData.colors.map(element => parseInt(element)),
-            detail: newData.detalle, 
+            detail: newData.detail, 
             discount: 0,
             shipping: "Gratis!",
             available: "fas fa-check",             

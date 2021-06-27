@@ -9,8 +9,8 @@ const color ={
     },
     search:(idColor)=>{
         const allColors = color.all()
-        const oneCategory = allColors.find(element => element.id == idColor)
-        return oneCategory
+        const oneColor = allColors.find(element => element.id == idColor)
+        return oneColor
     }
 }
 
