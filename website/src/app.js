@@ -19,7 +19,7 @@ app.set("views", path.resolve(__dirname, "./views"));
 // Rutas
 // Index
 const mainRouter = require('./routes/mainRoutes');
-app.use(mainRouter);
+app.use('/', mainRouter);
 // Products
 const productRouter = require('./routes/productRoutes');
 app.use('/products', productRouter);

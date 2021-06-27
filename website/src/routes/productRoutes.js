@@ -18,10 +18,11 @@ const upload = multer({storage})
 //Product List
 router.get('/', productController.listProduct);
 // Product Detail
-router.get('/:id', productController.productDetail);
+//How tf!!
+router.get('/detail/:id?', productController.productDetail);
 //Product Create
-router.get('/create', productController.productNewProduct);
-router.post('/create',upload.single('image') ,productController.productCreate);
+router.get('/create', productController.newProduct);
+router.post('/create',upload.single('image') ,productController.createError);
 //Product Edit
 router.get('/:id/edit', productController.productEdit);
 module.exports = router;

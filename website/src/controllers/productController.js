@@ -10,20 +10,20 @@ const productController = {
     productDetail: (req, res) => {
         let idProduct = req.params.id
         let product = productsFunctions.search(idProduct);
-        return product == false ?  res.redirect('/'):res.render('products/productDetail',{product: product[0]})
+        return product == false ?  res.redirect('/'):res.render('products/productDetail', {product: product[0]})
 
     },
-    productNewProduct:(req,res) => {
+    newProduct:(req,res) => {
         res.render('products/productCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})
     },
-    productCreate:(req,res)=>{
+    createError:(req,res)=>{
         let result = productsFunctions.create(req.body, req.file);
         return result == true ? res.redirect('/') : res.send("ERROR");
     },
     productEdit:(req,res) => {
         let idProduct = req.params.id;
         let product = productsFunctions.search(idProduct);
-         return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product[0]})
+        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product[0]})
     }
 };
 
