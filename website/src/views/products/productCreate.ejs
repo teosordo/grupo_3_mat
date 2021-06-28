@@ -53,9 +53,9 @@
                             <select name="colors" id="colors" class="product-info" multiple>
                                 <% colors.forEach(element =>{ %>
                                     <% if(element.id == 1){ %> 
-                                        <option value="<%= element.id%>" style="<%= `background-color:${element.value};`%> color:white"><%=element.name%></option>
+                                        <option value="<%= element.id%>"></option>
                                     <%}else{ %>
-                                        <option value="<%= element.id%>" style="<%= `background-color:${element.value};`%>"><%=element.name%></option>
+                                        <option value="<%= element.id%>"></option>
                                     <% } %> 
                                 <%  })  %>
                             </select>

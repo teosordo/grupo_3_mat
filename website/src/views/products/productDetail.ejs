@@ -82,13 +82,21 @@
                 <section id="info-producto-mobile">
                     <article>
                         <h3>Características</h3>
-
-                        <p><%= product.caract %></p>
+                        <section>
+                            <p>Colores: 
+                                <% product.color.forEach(element=>{ %>
+                                    <%= element.name %>
+                                <% }) %>
+                            </p>
+                            <p><%= product.caract %></p>
+                        </section>
                     </article>
 
                     <article>
                         <h3>Especificaciones</h3>
-                        <p><%= product.specs %></p>
+                        <section>
+                            <p><%= product.specs %></p>
+                        </section>
                     </article>
 
                     <article>
@@ -103,14 +111,21 @@
         <section id="info-producto-desktop">
             <article>
                 <h3>Características <i class="fas fa-chevron-down"></i></h3>
-
-                <p><%= product.caract %></p>
+                <section>
+                    <p>Colores: 
+                        <% product.color.forEach(element=>{ %>
+                            <%= element.name %>
+                        <% }) %>
+                    </p>
+                    <p><%= product.caract %></p>
+                </section>
             </article>
 
             <article>
                 <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
-
-                <p><%= product.specs %></p>
+                <section>
+                    <p><%= product.specs %></p>
+                </section>
             </article>
 
             <article>

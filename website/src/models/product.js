@@ -20,7 +20,7 @@ const product = {
             element.brand = brandModel.search(element.brand);
             return element;
         }).map(element=> {
-            element.category = brandModel.search(element.brand);
+            element.category = categoryModel.search(element.category);
             return element;
         }).map(element=>{
             element.color = element.color.map(element=>{
