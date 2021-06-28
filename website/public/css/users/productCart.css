@@ -7,6 +7,14 @@ main > section {
     flex-direction: column;
 }
 
+figure {
+    display: none;
+}
+
+figure img{
+    width: 80px;
+}
+
 h3, h2{
     margin: 0;
 }
@@ -121,11 +129,6 @@ ul {
         width: 60%;
     }
 
-    .product {
-        width: 84%;
-        justify-content: space-between;
-    }
-
     #units-total {
         align-self: flex-end;
         width: 75%;
@@ -148,5 +151,8 @@ ul {
     }
     #contenido {
         padding: 30px;
+    }
+    figure {
+        display: flex;
     }
 }
