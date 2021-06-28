@@ -1,7 +1,7 @@
 # MATech
 ___
 
-![logo](public/imgs/logo_final.svg)
+![logo](website/public/imgs/logo_final.svg)
 ___
 
 ## Acerca de
