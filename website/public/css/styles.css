@@ -127,7 +127,7 @@ footer section{
     justify-content: space-around;
     transition:text-shadow 0.5s ease-in-out;
 }
-header i:hover, header p:hover{
+header a:hover{
     text-shadow: 1px 1px 20px #7e7cff;
 }
 #center-footer{
@@ -176,7 +176,7 @@ header i:hover, header p:hover{
         display: block;
         margin: 0 5px;
     }
-    #user-login a{
+    #user-login{
         text-decoration: none;
         color: #fff;
     }
