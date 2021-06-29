@@ -5,7 +5,7 @@ const colorFunctions = require('../models/color')
 
 const productController = {
     listProduct: (req, res)=>{
-        res.render('products/productList', {products : productsFunctions.allComplete()});
+        res.render('products/productList', {products : productsFunctions.allComplete(),category: categoryFunctions.all()});
     },
     productDetail: (req, res) => {
         let idProduct = req.params.id
