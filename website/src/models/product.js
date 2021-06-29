@@ -8,7 +8,6 @@ const colorModel = require('./color')
 
 const product = {
     all: ()=>{
-        //Luego requerir los json que arme Mati de colores marcas, etc
         const directory = path.resolve(__dirname, '../data/products.json');
         const file = fs.readFileSync(directory,'utf-8');
         const list = JSON.parse(file);
@@ -69,6 +68,15 @@ const product = {
         }else{
             return console.log('error');
         }   
+    },
+    deleteAll: function (idProduct) {
+        const directory = path.resolve(__dirname,"../data","products.json")
+        let products = this.all();
+        let deleted = this.search(idProduct);
+        fs.unlinkSync(path.resolve(__dirname,"../../public/uploads/products",deleted.image))
+        products = products.filter(producto => producto.id != deleted.id )
+        fs.writeFileSync(directory,JSON.stringify(products,null,2));
+        return true;
     }
 }
 

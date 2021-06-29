@@ -69,7 +69,11 @@
                         <i class="fas fa-share-alt"></i>
                         <i class="far fa-heart"></i>
                     </section>
-                </section>
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                
+                </section>    
 
                 <!-- BOTONES -->
                 <section id="buttons">
@@ -77,7 +81,6 @@
 
                     <button type="submit" id="cart-button">Añadir al carrito</button>
                 </section>
-
                 <!-- INFO Y VIDEOS -->
                 <section id="info-producto-mobile">
                     <article>

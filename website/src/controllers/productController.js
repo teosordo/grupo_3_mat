@@ -24,6 +24,10 @@ const productController = {
         let idProduct = req.params.id;
         let product = productsFunctions.search(idProduct);
         return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product})
+    },
+    deleteAll: (req,res) => {
+        let result = productsFunctions.deleteAll(req.params.id);
+        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se borró el producto") 
     }
 };
 

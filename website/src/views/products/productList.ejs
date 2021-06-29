@@ -20,7 +20,15 @@
                 <article>
                     <h2>Todos los productos</h2>
                     <section>
-                        <a href="/">Ofertas <i class="fas fa-arrow-right"></i></a>
+                        <select name="filters" id="filters">
+                            <option value="">Filtros</option>
+                            <option value=""></option>
+                        </select>
+                        <select name="filters" id="filters">
+                            <option value="">Ordenar por</option>
+                            <option value="">Menor a mayor precio</option>
+                            <option value="">Mayor a menor precio</option>
+                        </select>
                     </section>
                 </article>
                 <% for(i = 0; i < products.length; i++) { %>
