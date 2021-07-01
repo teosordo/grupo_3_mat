@@ -41,8 +41,8 @@
                                 <li>Garantia: <i><%= product.warranty %></i></li>    
                             </ul>
                             
-                            <form action="/" method="POST" required>
-                                <label for="color">Colores
+                            <form action="/" method="POST" class='form-product-stock' required>
+                                <label for="color">Colores:
                                     <select name="color" id="color">
                                         <%product.color.forEach(element=>{ %>
                                             <option value="<%=element.id%>"><%= element.name %></option>

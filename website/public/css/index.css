@@ -34,7 +34,7 @@ aside{
     position: relative;
 }
 aside figure{
-    margin:0 0 1rem 0;
+    margin:0;
     width:100%;
 }
 aside img{
@@ -155,6 +155,7 @@ aside i:hover{
     #contenido > section > a{
         width:48%;
     }
+
 }
 /* Desktop */
 @media (min-width: 769px){
@@ -165,6 +166,9 @@ aside i:hover{
     }
     aside img{
         border-radius: 20px;
+    }
+    aside figure{
+        margin:0 0 1rem 0;
     }
 
 /***************** ID **********************/

@@ -1,8 +1,8 @@
 const productsFunctions = require('../models/product')
-
+const categoryFunctions = require('../models/category')
 const mainController = {
     index: (req, res) => {
-        res.render('index', {products: productsFunctions.allComplete()});
+        res.render('index', {products: productsFunctions.all(), category: categoryFunctions.all()});
     }
         
 };

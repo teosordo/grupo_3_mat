@@ -1,8 +1,8 @@
 <nav id="navbar">
     <h2>Todas las categorias</h2>
     <ul>
-        <% products.forEach(element =>{ %>
-            <li><a href="#"><%=element.category.name%></a></li>
+        <% category.forEach(element =>{ %>
+            <li><a href="#"><%=element.name%></a></li>
         <% }) %>
         <li id="productCreate"><a href="/products/create">Crear nuevo producto</a></li>
     </ul>
