@@ -43,6 +43,23 @@ legend{
     max-width: 320px;
     display: block;
 }
+/** Centra el contenido dentro del input "img" **/
+#image{
+    padding: 6px;
+}
+
+#button-submit{
+    display: block;
+    margin: 25px auto 20px;
+    font-size: 30px;
+    padding: 18px;
+    width: 262px;
+    transition: all .4s;
+}
+#button-submit:hover{
+    cursor: pointer;
+    background-color: #3633C1;
+}
 label{
     display: block;
     margin: 10px auto 15px;
@@ -72,23 +89,6 @@ label{
 }
 .create-labels #colors{
     height: fit-content;
-}
-/** Centra el contenido dentro del input "img" **/
-#image{
-    padding: 6px;
-}
-
-#button-submit{
-    display: block;
-    margin: 25px auto 20px;
-    font-size: 30px;
-    padding: 18px;
-    width: 262px;
-    transition: all .4s;
-}
-#button-submit:hover{
-    cursor: pointer;
-    background-color: #3633C1;
 }
 
 @media(min-width: 769px){

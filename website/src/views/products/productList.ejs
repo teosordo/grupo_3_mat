@@ -22,7 +22,9 @@
                     <section>
                         <select name="filters" id="filters">
                             <option value="">Filtros</option>
-                            <option value=""></option>
+                            <% for(i = 0; i < category.length; i++) { %>
+                                <option value="<%=category[i]%>"><%=category[i].name%></option>
+                            <% } %>
                         </select>
                         <select name="filters" id="filters">
                             <option value="">Ordenar por</option>

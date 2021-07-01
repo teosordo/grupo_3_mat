@@ -100,6 +100,9 @@ label select {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+#product-icons form{
+    width: 100%;
+}
 #productEdit {
     text-align: right;
 }
@@ -118,7 +121,7 @@ label select {
     display: flex;
     justify-content: space-around;
 }
-#buy-button, #cart-button {
+#buy-button, #cart-button, #delete-button{
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 1.2rem;
     border: none;
@@ -136,6 +139,15 @@ label select {
 #buy-button:hover {
     background-color: #CACADC;
     color: #6765D6;
+}
+#delete-button {
+    background-color: #696892;
+    color: rgb(255, 255, 255);
+    width: 100%;
+}
+#delete-button:hover {
+    background-color: #d0d0ff;
+    color: #5a14b6;
 }
 #cart-button {
     background-color: #CACADC;

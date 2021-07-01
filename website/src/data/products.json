@@ -1,27 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Memoria RAM",
-    "brand": 1,
-    "category": 1,
-    "color": [
-      1,
-      2
-    ],
-    "price": 2000,
-    "priceA": 26,
-    "discount": 99,
-    "detail": "esto es una descripción",
-    "shipping": "Gratis!",
-    "available": "fas fa-check",
-    "payment": "fas fa-credit-card",
-    "warranty": "1 año",
-    "image": "componentRAM.jpg",
-    "videos": "https://youtube.com/embed/Eaq89YCDH4s",
-    "caract": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.",
-    "specs": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."
-  },
-  {
     "id": 2,
     "name": "Ordenador",
     "brand": 1,

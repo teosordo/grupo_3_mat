@@ -64,14 +64,14 @@
                     </article>
 
                     <section id="product-icons">
-                        <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
-                        
                         <i class="fas fa-share-alt"></i>
                         <i class="far fa-heart"></i>
+                        <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
+                        
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+                            <button type="submit" id="delete-button">Eliminar</button>
+                        </form>
                     </section>
-                    <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-                        <button type="submit">Eliminar</button>
-                    </form>
                 
                 </section>    
 
