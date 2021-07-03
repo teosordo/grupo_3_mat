@@ -36,12 +36,12 @@
                 <% for(i = 0; i < products.length; i++) { %>
                     <a href="/products/detail/<%=products[i].id%>">
                         <article>
-                            <figure><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
+                            <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
                             <section>
                                 <h3><%= products[i].name %></h3>
                                 <p id="detalle"><%= products[i].detail %></p>
                             </section>
-                            <p>$<%= products[i].precio %> </p>
+                            <p>$<%= products[i].price %> </p>
                             <section id="precio-anterior-desc">
                                 <p id="precio-anterior">$<%= products[i].priceA %></p>
                                 <p id="off"><%= products[i].discount %>% OFF</p>
