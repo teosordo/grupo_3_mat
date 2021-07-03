@@ -53,6 +53,7 @@ const product = {
             price: parseInt(newData.price),
             detail: newData.detail, 
             discount: 0,
+            stock: parseInt(newData.stock),
             shipping: "Gratis!",
             available: "fas fa-check",             
             payment: "fas fa-credit-card",         

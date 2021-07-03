@@ -97,8 +97,10 @@ aside i:hover{
 #contenido > section > a {
     text-decoration: none;
     color: black;
-    margin-bottom: 1rem;
+    margin: 0px 4px 1rem;
     width:90%;
+    min-width: 290px;
+    max-width: 320px;
     padding: 1rem;
     border:2px solid #E3E3E3;
     border-radius:10px;
@@ -111,12 +113,22 @@ aside i:hover{
 }
 /*Imagen del producto*/
 #contenido > section > a figure{
-    margin:0;
+    margin: 0;
     margin: auto;
+    border: 1px solid #E3E3E3;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #contenido > section > a img{
     width:100%;
-    border: 1px solid #E3E3E3;
+    height: 100%;
+}
+#contenido > section > a h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 /*detalle*/
 #detalle{
@@ -149,7 +161,7 @@ aside i:hover{
         flex-direction: row;
         flex-wrap: wrap;
         align-items:center;
-        justify-content: space-between;
+        justify-content: center;
         padding: 0 2rem;
     }
     #contenido > section > a{
@@ -202,6 +214,5 @@ aside i:hover{
     }
     #contenido > section > a{
         width:32%;
-        max-width: 300px;
     }
 }
