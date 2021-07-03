@@ -36,7 +36,7 @@
                         <section>
                             <ul>
                                 <li>Envio: <i><%= product.shipping %></i></li>
-                                <li>Disponibilidad: <i class= "<%= product.available %>"></i></li>
+                                <li>Stock: <%= product.stock %> unidades</li>
                                 <li>Medio de pago: <i class= "<%= product.payment %>"></i></li>
                                 <li>Garantia: <i><%= product.warranty %></i></li>    
                             </ul>
@@ -67,10 +67,6 @@
                         <i class="fas fa-share-alt"></i>
                         <i class="far fa-heart"></i>
                         <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
-                        
-                        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-                            <button type="submit" id="delete-button">Eliminar</button>
-                        </form>
                     </section>
                 
                 </section>    

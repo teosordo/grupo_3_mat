@@ -21,29 +21,33 @@
                         <input type="text" name="name" id="name" class="product-info" value="<%=product.name%>">
                     </label>
                     <label for="marca" class="edit-labels">Marca:
-                        <input type="text" name="brand" id="brand" class="product-info" value="<%=product.brand%>">
+                        <input type="text" name="brand" id="brand" class="product-info" value="<%=product.brand.name%>">
                     </label>
                     
-                    <label for="price" class="edit-labels">Precio: 
+                    <label for="price" class="edit-labels">Precio ($):
                         <input type="text" name="price" id="price" class="product-info" value="<%=product.price%>">
                     </label>
 
-                    <label for="discount" class="edit-labels">Descuento:
+                    <label for="discount" class="edit-labels">Descuento (%):
                         <input type="text" name="discount"  id='discount' class="product-info" value="<%=product.discount%>" required>
                     </label>
                     
+                    <label for="discount" class="edit-labels">Stock (x unidad):
+                        <input type="text" name="discount"  id='discount' class="product-info" value="<%=product.discount%>" required>
+                    </label>
+
                     <label for="warranty" class="edit-labels">Garantía:
                             <input type="text" name="warranty" id="warranty" class="product-info" value="<%=product.warranty%>">
                     </label>
                     
-                    <label for="image" class="edit-labels">Imágen:
+                    <label for="image" class="edit-labels">Imágenes:
                         <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
                     </label>
 
                     <label for="videos" class="edit-labels">Video:
                         <input type="text" name="videos" id="videos" class="product-info" value="<%=product.videos%>">
                     </label>
-                    </fieldset>
+                </fieldset>
                 <fieldset id="fielset-large">
                     <label for="detail" class="edit-labels large-input-labels">Detalle:
                             <textarea name="detalle" id="detalle" class="product-info large-input"><%=product.detail%></textarea> 
@@ -57,6 +61,9 @@
                     </label>
                 </fieldset>
                 <button type="submit" id="button-submit">Editar</button>
+            </form>
+            <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+                <button type="submit" id="delete-button">Eliminar</button>
             </form>
         </section>
     </main>
