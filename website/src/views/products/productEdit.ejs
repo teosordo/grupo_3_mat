@@ -11,17 +11,43 @@
     <main>
         <section id="content-container">
             <h1>Editá tu producto:</h1>
-            <form action="/" method="POST" enctype="multipart/form-data">
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
                         <img src="/uploads/products/<%=product.image%>" alt="" id="product-img">
                         <h2><%=product.name%></h2>
                     </legend>
+                    
                     <label for="name" class="edit-labels">Nombre:
                         <input type="text" name="name" id="name" class="product-info" value="<%=product.name%>">
                     </label>
-                    <label for="marca" class="edit-labels">Marca:
-                        <input type="text" name="brand" id="brand" class="product-info" value="<%=product.brand.name%>">
+
+                    <label for="category" class="edit-labels">Categoría:
+                        <select name="category" id="category" class="product-info" required>
+                        <% categories.forEach(element =>{ %> 
+                            <option value="<%= element.id%>"><%=element.name%></option>
+                        <% }) %> 
+                        </select>
+                    </label>
+
+                    <label for="brand" class="edit-labels">Marca:
+                        <select name="brand" id='brand' class="product-info" required>
+                            <% brands.forEach(element =>{ %> 
+                                <option value="<%= element.id%>"><%=element.name%></option>
+                            <%  })  %>
+                        </select>
+                    </label>
+
+                    <label for="colors" class="edit-labels">Colores:
+                        <select name="colors" id="colors" class="product-info" multiple>
+                            <% colors.forEach(element =>{ %>
+                                <% if(element.id == 1){ %> 
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <%}else{ %>
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <% } %> 
+                            <%  })  %>
+                        </select>
                     </label>
                     
                     <label for="price" class="edit-labels">Precio ($):
@@ -50,7 +76,7 @@
                 </fieldset>
                 <fieldset id="fielset-large">
                     <label for="detail" class="edit-labels large-input-labels">Detalle:
-                            <textarea name="detalle" id="detalle" class="product-info large-input"><%=product.detail%></textarea> 
+                            <textarea name="detail" id="detail" class="product-info large-input"><%=product.detail%></textarea> 
                     </label>
                     <label for="caract" class="edit-labels large-input-labels">Características:
                             <textarea name="caract" id="caract" class="product-info large-input"><%=product.caract%></textarea> 

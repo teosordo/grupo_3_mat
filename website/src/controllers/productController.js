@@ -23,7 +23,11 @@ const productController = {
     productEdit:(req,res) => {
         let idProduct = req.params.id;
         let product = productsFunctions.search(idProduct);
-        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product})
+        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product, brands: brandFunctions.all(),categories: categoryFunctions.all(), colors: colorFunctions.all()})
+    },
+    update: (req, res) => {
+        let result = productsFunctions.edit(req.body, req.file, req.params.id);
+        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se pudo editar el producto");
     },
     deleteAll: (req,res) => {
         let result = productsFunctions.deleteAll(req.params.id);

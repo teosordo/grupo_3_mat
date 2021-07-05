@@ -136,7 +136,7 @@ label{
         justify-content: center;
     }
     #fieldset-small{
-        height: 600px;
+        height: 540px;
     }
     #fieldset-small .edit-labels{
         display: flex;
@@ -154,6 +154,10 @@ label{
     }
     .edit-labels{
         width: 45%;
+        margin: 0px auto 10px;
+    }
+    .edit-labels .product-info{
+        margin-top: 0;
     }
 }
 @media(min-width: 965px){

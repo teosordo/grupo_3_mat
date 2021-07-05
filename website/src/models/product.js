@@ -55,7 +55,6 @@ const product = {
             discount: 0,
             stock: parseInt(newData.stock),
             shipping: "Gratis!",
-            available: "fas fa-check",             
             payment: "fas fa-credit-card",         
             warranty: newData.warranty,
             image: imgFile.filename,
@@ -78,6 +77,36 @@ const product = {
         products = products.filter(producto => producto.id != deleted.id )
         fs.writeFileSync(directory,JSON.stringify(products,null,2));
         return true;
+    },
+    edit: function(data, file, id){
+        let products = product.all();
+        
+        products.map(producto => {
+            if(producto.id == id){
+                producto.name = data.name;
+                producto.brand = parseInt(data.brand);
+                producto.category = parseInt(data.category);
+                producto.color = data.colors == undefined ? producto.color : data.colors.map(element => parseInt(element)); // hacer con express-validator
+                producto.price = parseInt(data.price);
+                producto.detail = data.detail;
+                producto.discount = data.discount;
+                producto.stock = parseInt(data.stock);       
+                producto.warranty = data.warranty;
+                producto.image = file == undefined ? producto.image : file.filename; // hacer con express-validator
+                producto.videos = data.videos;
+                producto.caract = data.caract;
+                producto.specs = data.specs;
+
+                return producto;
+            }
+            return producto;
+        })
+
+        if(product.write(products) == true){
+            return true
+        }else{
+            return console.log('error');
+        } 
     }
 }
 
