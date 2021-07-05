@@ -3,21 +3,27 @@ ___
 
 ## Empezar a hacer
 
-  - Validar código
+  - Validar código.
+  - Consultar con los profesores mas seguido.
 ___
 
 ## Hacer más
-  - Ser mas concisos en las videollamadas.
+
+  -
 ___
 
 ## Continuar haciendo
+
   - Revisar que el codigo escrito sea el necesario y eliminar lo que no.
   - Usar Trello más seguido.
   - Comentar mas el código para mejor comprensión.
+  - Ser mas concisos en las videollamadas.
 ___
 
 ## Hacer menos
-
+  
 ___
 
 ## Dejar de hacer
+
+___
