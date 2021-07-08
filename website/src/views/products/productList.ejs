@@ -37,7 +37,11 @@
                             </section>
                             <p>$<%= products[i].price %> </p>
                             <section id="precio-anterior-desc">
-                                <p id="precio-anterior">$<%= products[i].priceA %></p>
+                                <% if(products[i].discount > 0) {%>
+                                    <p id="precio-anterior">$<%= products[i].priceA %></p>
+                                <% } else {%>
+                                    <p id="precio-anterior"></p>
+                                <% } %>
                                 <p id="off"><%= products[i].discount %>% OFF</p>
                             </section>
                         </article>

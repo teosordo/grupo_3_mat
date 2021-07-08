@@ -160,7 +160,7 @@ aside i:hover{
         flex-direction: row;
         flex-wrap: wrap;
         align-items:center;
-        justify-content: center;
+        justify-content: space-evenly;
         padding: 0 2rem;
     }
 }
