@@ -164,10 +164,6 @@ aside i:hover{
         justify-content: center;
         padding: 0 2rem;
     }
-    #contenido > section > a{
-        width:48%;
-    }
-
 }
 /* Desktop */
 @media (min-width: 769px){
