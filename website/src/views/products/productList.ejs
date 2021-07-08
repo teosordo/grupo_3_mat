@@ -35,10 +35,10 @@
                                 <h3><%= products[i].name %></h3>
                                 <p id="detalle"><%= products[i].detail %></p>
                             </section>
-                            <p>$<%= products[i].price %> </p>
+                            <p>$<%= finalPrice(products[i].price, products[i].discount) %> </p>
                             <section id="precio-anterior-desc">
                                 <% if(products[i].discount > 0) {%>
-                                    <p id="precio-anterior">$<%= products[i].priceA %></p>
+                                    <p id="precio-anterior">$<%= products[i].price %></p>
                                 <% } else {%>
                                     <p id="precio-anterior"></p>
                                 <% } %>

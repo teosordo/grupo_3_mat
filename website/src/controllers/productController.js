@@ -3,9 +3,15 @@ const brandFunctions = require('../models/brand')
 const categoryFunctions = require('../models/category')
 const colorFunctions = require('../models/color')
 
+// pasar a middleware
+const finalPrice = (price, discount) => {
+    let restante = (price * discount) / 100;
+    return price - restante;
+}
+
 const productController = {
     listProduct: (req, res)=>{
-        res.render('products/productList', {products: productsFunctions.all(), category: categoryFunctions.all()})
+        res.render('products/productList', {products: productsFunctions.all(), category: categoryFunctions.all(), finalPrice: finalPrice})
     },
     productDetail: (req, res) => {
         let idProduct = req.params.id

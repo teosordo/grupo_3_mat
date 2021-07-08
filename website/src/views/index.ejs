@@ -38,9 +38,9 @@
                                     <h3><%= products[i].name %></h3>
                                     <p id="detalle"><%= products[i].detail %></p>
                                 </section>
-                                <p>$<%= products[i].precio %> </p>
+                                <p>$<%= finalPrice(products[i].price, products[i].discount) %> </p>
                                 <section id="precio-anterior-desc">
-                                    <p id="precio-anterior">$<%= products[i].priceA %></p>
+                                    <p id="precio-anterior">$<%= products[i].price %></p>
                                     <p id="off"><%= products[i].discount %>% OFF</p>
                                 </section>
                             </article>
