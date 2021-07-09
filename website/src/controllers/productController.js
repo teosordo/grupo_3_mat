@@ -16,7 +16,7 @@ const productController = {
     productDetail: (req, res) => {
         let idProduct = req.params.id
         let product = productsFunctions.search(idProduct);
-        return product == false ?  res.redirect('/'):res.render('products/productDetail', {product: product})
+        return product ? res.render('products/productDetail', {product: product}): res.redirect('/')
 
     },
     newProduct:(req,res) => {

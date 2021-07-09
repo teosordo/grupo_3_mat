@@ -24,8 +24,12 @@
 
                     <label for="category" class="edit-labels">Categoría:
                         <select name="category" id="category" class="product-info" required>
-                        <% categories.forEach(element =>{ %> 
-                            <option value="<%= element.id%>"><%=element.name%></option>
+                        <% categories.forEach(element =>{ %>
+                            <% if(element.id == product.category.id){ %>
+                                <option value="<%= element.id%>" selected><%=element.name%></option>
+                            <% }else{ %>
+                                <option value="<%= element.id%>"><%=element.name%></option>
+                            <% }%>
                         <% }) %> 
                         </select>
                     </label>
@@ -33,7 +37,11 @@
                     <label for="brand" class="edit-labels">Marca:
                         <select name="brand" id='brand' class="product-info" required>
                             <% brands.forEach(element =>{ %> 
-                                <option value="<%= element.id%>"><%=element.name%></option>
+                                <% if(element.id == product.brand.id){ %>
+                                    <option value="<%= element.id%>" selected><%=element.name%></option>
+                                <% }else{ %>
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <% }%>
                             <%  })  %>
                         </select>
                     </label>
@@ -41,11 +49,13 @@
                     <label for="colors" class="edit-labels">Colores:
                         <select name="colors" id="colors" class="product-info" multiple>
                             <% colors.forEach(element =>{ %>
-                                <% if(element.id == 1){ %> 
-                                    <option value="<%= element.id%>"><%=element.name%></option>
-                                <%}else{ %>
-                                    <option value="<%= element.id%>"><%=element.name%></option>
-                                <% } %> 
+                                <% for(i=0;i<product.color.length;i++){ %>
+                                    <% if(element.id == product.color[i].id){ %>
+                                        <option value="<%= element.id%>" selected><%=element.name%></option>
+                                    <% }else{ %>
+                                        <option value="<%= element.id%>"><%=element.name%></option>
+                                    <% }%>
+                                <% } %>
                             <%  })  %>
                         </select>
                     </label>

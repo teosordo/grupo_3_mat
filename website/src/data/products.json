@@ -1,1 +1,171 @@
-[{"id":2,"name":"Ordenador","brand":1,"category":1,"color":[1,2],"price":5000,"stock":20,"discount":40,"detail":"esto es una descripción","shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"2 años","image":"componentCASE.jpg","videos":"https://youtube.com/embed/HSseaknEv9Q","caract":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.","specs":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."},{"id":3,"name":"Tarjeta gráfica","brand":4,"category":3,"color":[1,2],"price":25000,"stock":20,"discount":20,"detail":"esto es una descripción","shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"6 meses","image":"image-1625526389096.jpg","videos":"https://www.youtube.com/embed/uTwPn3JWfV4","caract":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.","specs":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."},{"id":4,"name":"Motherboard 22003","brand":1,"category":1,"color":[1,2],"price":2000,"stock":20,"discount":10,"detail":"esto es un detalle del producto","payment":"fas fa-credit-card","shipping":"Gratis!","warranty":"6 meses","image":"motherboard-png_8735396.png","videos":"https://youtube.com/embed/rx71hDO-fqQ","caract":"esto es una caracteristica ","specs":"1 motherboard"},{"id":5,"name":"Memoria Ram ","brand":3,"category":8,"color":[5,6],"price":5600,"detail":"esto es un detalle del producto","stock":20,"discount":0,"shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"4 meses","image":"image-1625333121814.png","videos":"https://www.youtube.com/watch?v=yRNwl24l39E","caract":"esto es una caracteristica","specs":"esto es una especificacion"},{"id":6,"name":"CPU X47329","brand":4,"category":2,"color":[3,4,5],"price":7600,"detail":"esto es un detalle","stock":20,"discount":0,"shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"5 meses","image":"image-1625334008921.png","videos":"https://www.youtube.com/embed/8NynfgRvQxQ ","caract":"esto es una caracteristica ","specs":"esto es una especificacion"},{"id":7,"name":"SSD S3300U 1TB ","brand":1,"category":4,"color":[1,2],"price":11000,"detail":"esto es un detalle","stock":20,"discount":32,"shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"1 año","image":"image-1625335247184.png","videos":"https://www.youtube.com/embed/EK29Weiz6_Q","caract":"esto es una característica ","specs":"esto es una especificación"},{"id":8,"name":"Fuente EGBA 600w 80 Plus Gold","brand":3,"category":6,"color":[1,2],"price":7500,"detail":"esto es un detalle","stock":20,"discount":0,"shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"9 meses","image":"image-1625335522010.png","videos":"https://www.youtube.com/embed/bUh2EZzJZRU","caract":"esto es una característica ","specs":"esto es una especificación"},{"id":9,"name":"Cooler CPU x9393 ","brand":2,"category":7,"color":[1,2],"price":3222,"stock":20,"detail":"Esto es un detalle","discount":0,"shipping":"Gratis!","payment":"fas fa-credit-card","warranty":"2 años","image":"image-1625336088103.jpg","videos":"https://www.youtube.com/embed/fACBaqxnb9k","caract":"Esto es una características ","specs":"Esto es una especificación"}]
+[
+  {
+    "id": 2,
+    "name": "Ordenador",
+    "brand": 1,
+    "category": 1,
+    "color": [
+      1,
+      2
+    ],
+    "price": 5000,
+    "stock": 20,
+    "discount": 40,
+    "detail": "esto es una descripción",
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "2 años",
+    "image": "componentCASE.jpg",
+    "videos": "https://youtube.com/embed/HSseaknEv9Q",
+    "caract": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.",
+    "specs": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."
+  },
+  {
+    "id": 3,
+    "name": "Tarjeta gráfica",
+    "brand": 4,
+    "category": 3,
+    "color": [
+      1,
+      2
+    ],
+    "price": 25000,
+    "stock": 20,
+    "discount": 20,
+    "detail": "esto es una descripción",
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "6 meses",
+    "image": "image-1625526389096.jpg",
+    "videos": "https://www.youtube.com/embed/uTwPn3JWfV4",
+    "caract": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.",
+    "specs": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."
+  },
+  {
+    "id": 4,
+    "name": "Motherboard 22003",
+    "brand": 1,
+    "category": 1,
+    "color": [
+      1,
+      2
+    ],
+    "price": 2000,
+    "stock": 20,
+    "discount": 10,
+    "detail": "esto es un detalle del producto",
+    "payment": "fas fa-credit-card",
+    "shipping": "Gratis!",
+    "warranty": "6 meses",
+    "image": "motherboard-png_8735396.png",
+    "videos": "https://youtube.com/embed/rx71hDO-fqQ",
+    "caract": "esto es una caracteristica ",
+    "specs": "1 motherboard"
+  },
+  {
+    "id": 5,
+    "name": "Memoria Ram ",
+    "brand": 3,
+    "category": 8,
+    "color": [
+      5,
+      6
+    ],
+    "price": 5600,
+    "detail": "esto es un detalle del producto",
+    "stock": 20,
+    "discount": 0,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "4 meses",
+    "image": "image-1625333121814.png",
+    "videos": "https://www.youtube.com/watch?v=yRNwl24l39E",
+    "caract": "esto es una caracteristica",
+    "specs": "esto es una especificacion"
+  },
+  {
+    "id": 6,
+    "name": "CPU X47329",
+    "brand": 4,
+    "category": 2,
+    "color": [
+      3,
+      4,
+      5
+    ],
+    "price": 7600,
+    "detail": "esto es un detalle",
+    "stock": 20,
+    "discount": 0,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "5 meses",
+    "image": "image-1625334008921.png",
+    "videos": "https://www.youtube.com/embed/8NynfgRvQxQ ",
+    "caract": "esto es una caracteristica ",
+    "specs": "esto es una especificacion"
+  },
+  {
+    "id": 7,
+    "name": "SSD S3300U 1TB ",
+    "brand": 1,
+    "category": 4,
+    "color": [
+      1,
+      2
+    ],
+    "price": 11000,
+    "detail": "esto es un detalle",
+    "stock": 20,
+    "discount": 32,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "1 año",
+    "image": "image-1625335247184.png",
+    "videos": "https://www.youtube.com/embed/EK29Weiz6_Q",
+    "caract": "esto es una característica ",
+    "specs": "esto es una especificación"
+  },
+  {
+    "id": 8,
+    "name": "Fuente EGBA 600w 80 Plus Gold",
+    "brand": 3,
+    "category": 6,
+    "color": [
+      1,
+      2
+    ],
+    "price": 7500,
+    "detail": "esto es un detalle",
+    "stock": 20,
+    "discount": 0,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "9 meses",
+    "image": "image-1625335522010.png",
+    "videos": "https://www.youtube.com/embed/bUh2EZzJZRU",
+    "caract": "esto es una característica ",
+    "specs": "esto es una especificación"
+  },
+  {
+    "id": 9,
+    "name": "Cooler CPU x9393 ",
+    "brand": 2,
+    "category": 7,
+    "color": [
+      1,
+      2
+    ],
+    "price": 3222,
+    "stock": 20,
+    "detail": "Esto es un detalle",
+    "discount": 0,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "2 años",
+    "image": "image-1625336088103.jpg",
+    "videos": "https://www.youtube.com/embed/fACBaqxnb9k",
+    "caract": "Esto es una características ",
+    "specs": "Esto es una especificación"
+  }
+]
