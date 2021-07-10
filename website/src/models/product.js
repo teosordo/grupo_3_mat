@@ -32,7 +32,7 @@ const product = {
     },
     write:(products)=>{
         const directory = path.resolve(__dirname, '../data/products.json');
-        let newProducts = JSON.stringify(products);
+        let newProducts = JSON.stringify(products,null,2);
         fs.writeFileSync(directory, newProducts);
         return true
     },
@@ -75,8 +75,11 @@ const product = {
         let deleted = this.search(idProduct);
         fs.unlinkSync(path.resolve(__dirname,"../../public/uploads/products",deleted.image))
         products = products.filter(producto => producto.id != deleted.id )
-        fs.writeFileSync(directory,JSON.stringify(products,null,2));
-        return true;
+        if(product.write(products) == true){
+            return true
+        }else{
+            return console.log('error');
+        } 
     },
     edit: function(data, file, id){
         let products = product.all();

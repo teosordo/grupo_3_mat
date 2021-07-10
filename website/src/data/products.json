@@ -2,15 +2,15 @@
   {
     "id": 2,
     "name": "Ordenador",
-    "brand": 1,
-    "category": 1,
+    "brand": 3,
+    "category": 5,
     "color": [
       1,
       2
     ],
     "price": 5000,
     "stock": 20,
-    "discount": 40,
+    "discount": "40",
     "detail": "esto es una descripción",
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",

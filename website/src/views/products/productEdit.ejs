@@ -49,13 +49,7 @@
                     <label for="colors" class="edit-labels">Colores:
                         <select name="colors" id="colors" class="product-info" multiple>
                             <% colors.forEach(element =>{ %>
-                                <% for(i=0;i<product.color.length;i++){ %>
-                                    <% if(element.id == product.color[i].id){ %>
-                                        <option value="<%= element.id%>" selected><%=element.name%></option>
-                                    <% }else{ %>
-                                        <option value="<%= element.id%>"><%=element.name%></option>
-                                    <% }%>
-                                <% } %>
+                                <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
                             <%  })  %>
                         </select>
                     </label>
