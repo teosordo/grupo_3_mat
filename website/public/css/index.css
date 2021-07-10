@@ -151,7 +151,10 @@ aside i:hover{
 #off{
     color:#77D353;
 }
-
+/*esconder descuento y precio anterior*/
+.hidden-stuff{
+    visibility: hidden;
+}
 /**************** MEDIA QUERIES ****************/
 /* Tablet */
 @media (min-width: 481px){
