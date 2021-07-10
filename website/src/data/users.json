@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "name": "Angelica",
+        "firstName": "Angelica",
         "lastName": "Dutra",
-        "userName": "bussiness_woman",
+        "username": "bussiness_woman",
         "email": "angiedutra@hotmail.com",
         "password": "",
         "category": "admin",
@@ -11,9 +11,9 @@
     },
     {
         "id": 2,
-        "name": "Matias",
+        "firstName": "Matias",
         "lastName": "Celentano",
-        "userName": "reinwulf",
+        "username": "reinwulf",
         "email": "matiascelentano562@gmail.com",
         "password": "",
         "category": "admin",
@@ -21,9 +21,9 @@
     },
     {
         "id": 3,
-        "name": "Teo",
+        "firstName": "Teo",
         "lastName": "Sordó",
-        "userName": "teusa28",
+        "username": "teusa28",
         "email": "teosordo98@gmail.com",
         "password": "",
         "category": "admin",

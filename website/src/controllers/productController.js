@@ -22,7 +22,7 @@ const productController = {
     newProduct:(req,res) => {
         res.render('products/productCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})
     },
-    createError:(req,res)=>{
+    createProduct:(req,res)=>{
         let result = productsFunctions.create(req.body, req.file);
         return result == true ? res.redirect('/') : res.send("ERROR");
     },

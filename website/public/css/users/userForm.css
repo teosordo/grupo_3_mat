@@ -22,7 +22,7 @@ header, #main-section-container, .info, footer{
     text-align: center;
 }
 /* Fuentes*/
-p, .info, .forget-link, .remember-me-checkbox{
+p, .info, .forget-link, label{
     font-family:'Montserrat', sans-serif;
 }
 legend, #button-submit,#redirect-section h2{
@@ -45,7 +45,6 @@ main{
 }
 /***Contenedor del formulario***/
 #main-section-container{
-    height: 650px;
     background-color: #E9E9E9;
     padding: 20px
 }
@@ -60,7 +59,10 @@ legend{
     font-size: 30px;
     text-transform: uppercase;
 }
-
+label{
+    display: block;
+    font-weight: 700;
+}
 a{
     text-decoration: none;
 }  

@@ -1,5 +1,11 @@
-#main-section-container{
-    height: 715px;
+legend{
+    margin-bottom: 10px;
+}
+#avatar-upload{
+    display: block;
+}
+#image{
+    width: 100%;
 }
 /***Seccion beneficios desktop***/
 #main-section-desktop{
@@ -29,6 +35,15 @@
 }
 
 /*********  MEDIA QUERIES  **********/
+@media (min-width: 481px){
+    #main-section-container{
+        height: initial;
+        min-height: initial;
+        width: 40%;
+        min-width: 385px;
+        max-width: 460px;
+    }
+}
 @media (min-width: 769px){
     header{
         height: fit-content;
@@ -38,6 +53,7 @@
     #main-section{
         display: flex;
         margin: 0px auto 10px;
+        min-width: 360px;
         max-width: 1252px;
     }
     #main-section-desktop{

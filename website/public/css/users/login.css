@@ -1,3 +1,8 @@
+/***tamaño contenedor***/
+#main-section-container{
+    min-height: 477px;
+    height: 75vh
+}
 /***link redireccion para recuperar contraseña***/
 .forget-link{
     display: block;
@@ -7,13 +12,13 @@
     margin-bottom: 20px;
 }
 /***checkbox para guardar informacion***/
-.remember-me-checkbox{
-    text-align: left;
-    margin-left: 20px;
+.remember-me-box{
+    float: left;
 }
 /***** Media Queries******/
 @media (min-width: 481px){
     #main-section-container{
+        height: initial;
         min-height: initial;
     }
 }
