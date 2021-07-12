@@ -23,7 +23,7 @@
             </aside>
             <!--Oferta de productos-->
             <section>
-                <article>
+                <article id="section-titles">
                     <h2>Ofertas</h2>
                     <section>
                         <a href="/products">Todos los productos <i class="fas fa-arrow-right"></i></a>
@@ -31,20 +31,20 @@
                 </article>
                 <% for(i = 0; i < products.length; i++) { %>
                     <% if(products[i].discount > 0){ %>
-                        <a href="/products/detail/<%=products[i].id%>">
-                            <article>
-                                <figure><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
+                        <article class="content-box">
+                            <a href="/products/detail/<%=products[i].id%>" class="product-box">
+                                <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
                                 <section>
                                     <h3><%= products[i].name %></h3>
-                                    <p id="detalle"><%= products[i].detail %></p>
+                                    <p class="detalle"><%= products[i].detail %></p>
                                 </section>
-                                <p>$<%= finalPrice(products[i].price, products[i].discount) %> </p>
-                                <section id="precio-anterior-desc">
-                                    <p id="precio-anterior">$<%= products[i].price %></p>
-                                    <p id="off"><%= products[i].discount %>% OFF</p>
+                                <p class="price">$<%= finalPrice(products[i].price, products[i].discount) %> </p>
+                                <section class="precio-anterior-desc">
+                                    <p class="precio-anterior">$<%= products[i].price %></p>
+                                    <p class="off"><%= products[i].discount %>% OFF</p>
                                 </section>
-                            </article>
-                        </a>
+                            </a>
+                        </article>
                     <% } %>
                 <% } %>         
             </section>

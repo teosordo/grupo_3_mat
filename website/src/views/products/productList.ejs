@@ -17,7 +17,7 @@
         <section id="contenido">
             <!--Oferta de productos-->
             <section>
-                <article>
+                <article id="section-titles">
                     <h2>Todos los productos</h2>
                     <section>
                         <select name="filters" id="filters">
@@ -28,24 +28,24 @@
                     </section>
                 </article>
                 <% for(i = 0; i < products.length; i++) { %>
-                    <a href="/products/detail/<%=products[i].id%>">
-                        <article>
+                    <article class="content-box">
+                        <a href="/products/detail/<%=products[i].id%>" class="product-box">
                             <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
                             <section>
-                                <h3><%= products[i].name %></h3>
-                                <p id="detalle"><%= products[i].detail %></p>
+                                <h3 class="product-title"><%= products[i].name %></h3>
+                                <p class="detalle"><%= products[i].detail %></p>
                             </section>
-                            <p>$<%= finalPrice(products[i].price, products[i].discount) %> </p>
-                            <section id="precio-anterior-desc">
+                            <p class="price">$<%= finalPrice(products[i].price, products[i].discount) %> </p>
+                            <section class="precio-anterior-desc">
                                 <% if(products[i].discount > 0) {%>
-                                    <p id="precio-anterior">$<%= products[i].price %></p>
-                                    <p id="off"><%= products[i].discount %>% OFF</p>
+                                    <p class="precio-anterior">$<%= products[i].price %></p>
+                                    <p class="off"><%= products[i].discount %>% OFF</p>
                                 <% } else {%>
-                                    <p id="off" class="hidden-stuff"><%= products[i].discount %>%</p>
+                                    <p class="hidden-stuff"><%= products[i].discount %>%</p>
                                 <% } %>
                             </section>
-                        </article>
-                    </a>
+                        </a>
+                    </article>
                 <% } %>         
             </section>
         </section>

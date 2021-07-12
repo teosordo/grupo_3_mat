@@ -109,6 +109,7 @@ label select {
 #product-icons i {
     height: fit-content;
     color: black;
+    margin: 0 5px 10px;
     transition: 0.3s all ease-in-out;
 }
 #product-icons i:hover {
@@ -165,11 +166,12 @@ label select {
 #info-producto-desktop {
     display: none;
 }
-/***************** CLASES **********************/
-.product-vid {
-    background-color: #CACADC;
-    height: 20vh;
+
+#video-player{
+    width: 100%;
+    min-height: 330px;
 }
+/***************** CLASES **********************/
 .form-product-stock{
     display: flex;
     flex-direction: column;

@@ -24,9 +24,7 @@
             <article id="product-article">
                 <!-- DATA PRINCIPAL -->
                 <section id="product-title">
-                    <h1><%= product.name %></h1>
-
-                    <h2>Marca: <%= product.brand.name %></h2>
+                    <h1><%= product.name %></h1> 
                 </section>
                 
                 <section id="product-elements">
@@ -82,7 +80,9 @@
                     <article>
                         <h3>Características</h3>
                         <section>
-                            <p>Colores: 
+                            <p>Marca: <%= product.brand.name %></p>
+                            <p>
+                                Colores: 
                                 <% product.color.forEach(element=>{ %>
                                     <%= element.name %>
                                 <% }) %>
@@ -100,8 +100,7 @@
 
                     <article>
                         <h3>Videos</h3>
-
-                        <iframe src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="video-player" src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </article>
                 </section>
             </article>
@@ -111,11 +110,13 @@
             <article>
                 <h3>Características <i class="fas fa-chevron-down"></i></h3>
                 <section>
-                    <p>Colores: 
+                    <h4>Marca: <%= product.brand.name %></h4>
+                    <h4>
+                        Colores: 
                         <% product.color.forEach(element=>{ %>
                             <%= element.name %>
                         <% }) %>
-                    </p>
+                    </h4>
                     <p><%= product.caract %></p>
                 </section>
             </article>
