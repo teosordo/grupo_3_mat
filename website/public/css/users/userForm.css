@@ -84,7 +84,9 @@ a{
     border: 1px solid #6765D6;
     box-shadow: 0px 0px 0px 1px #6765D6 inset;  
 }
-
+.form-input-error{
+    box-shadow: 0px 0px 5px red;
+}
 #button-submit{
     background-color: #6765D6;
     color: white;
