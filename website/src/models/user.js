@@ -29,7 +29,7 @@ const user = {
             lastName: newData.lastName,
             username: newData.username,
             email: newData.email,
-            password: newData.password,
+            password: bcrypt.hashSync(newData.password, 10),
             avatar: imgFile == undefined ? 'default-user' : imgFile.filename
         }
         users.push(newUser);
