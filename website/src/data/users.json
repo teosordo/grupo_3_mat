@@ -1,32 +1,31 @@
 [
-    {
-        "id": 1,
-        "firstName": "Angelica",
-        "lastName": "Dutra",
-        "username": "bussiness_woman",
-        "email": "angiedutra@hotmail.com",
-        "password": "",
-        "category": "admin",
-        "avatar": ""
-    },
-    {
-        "id": 2,
-        "firstName": "Matias",
-        "lastName": "Celentano",
-        "username": "reinwulf",
-        "email": "matiascelentano562@gmail.com",
-        "password": "",
-        "category": "admin",
-        "avatar": ""
-    },
-    {
-        "id": 3,
-        "firstName": "Teo",
-        "lastName": "Sordó",
-        "username": "teusa28",
-        "email": "teosordo98@gmail.com",
-        "password": "",
-        "category": "admin",
-        "avatar": ""
-    }
+  {
+    "id": 1,
+    "firstName": "Angelica",
+    "lastName": "Dutra",
+    "username": "bussiness_woman",
+    "email": "angiedutra@hotmail.com",
+    "password": "",
+    "category": "admin",
+    "avatar": ""
+  },
+  {
+    "id": 2,
+    "firstName": "Teo",
+    "lastName": "Sordó",
+    "username": "teusa28",
+    "email": "teosordo98@gmail.com",
+    "password": "",
+    "category": "admin",
+    "avatar": ""
+  },
+  {
+    "id": 3,
+    "firstName": "Matias",
+    "lastName": "Celentano",
+    "username": "mcelentano",
+    "email": "matiascelentano562@gmail.com",
+    "password": "$2a$10$5ajrKiw1hXsAkGq9XlmhvOrQVrkmiHJofdpM7K.h5LBTd3HFIXNSa",
+    "avatar": "avatar-1626195062880.png"
+  }
 ]
