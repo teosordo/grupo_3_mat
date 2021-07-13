@@ -3,6 +3,10 @@
     min-height: 477px;
     height: 75vh
 }
+
+.info{
+    margin: 15px auto;
+}
 /***link redireccion para recuperar contraseña***/
 .forget-link{
     display: block;
