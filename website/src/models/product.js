@@ -49,7 +49,7 @@ const product = {
             name: newData.name,
             brand: parseInt(newData.brand),
             category: parseInt(newData.category),
-            color: newData.colors.map(element => parseInt(element)),
+            color: typeof newData.colors == 'string' ? [newData.colors] : newData.colors.map(element => parseInt(element)),
             price: parseInt(newData.price),
             detail: newData.detail, 
             discount: 0,
