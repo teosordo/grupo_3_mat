@@ -15,7 +15,7 @@ const userController = {
     createUser: (req, res) => {
         const result = validationResult(req);
         if(result.errors.length > 0){
-            return res.render('users/register',{errors: result.mapped(), userValue: req.body})
+            return res.render('users/register',{errors: result.mapped(), userInfo: req.body})
         }else{
             let create = userFunctions.create(req.body,req.file)
             return create ? res.redirect('/') : null
