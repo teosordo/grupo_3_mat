@@ -23,7 +23,7 @@ const userController = {
     },
     productCart: (req, res) => {
         total = productsFunctions.all().reduce((total, product) => {
-            return total + product.priceA;
+            return total + product.price;
         }, 0);
 
         res.render('users/productCart', {product: productsFunctions.all()});
