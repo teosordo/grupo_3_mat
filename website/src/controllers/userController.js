@@ -28,10 +28,9 @@ const userController = {
 
         res.render('users/productCart', {product: productsFunctions.all()});
     },
-    userTest: (req,res) => {
-        let userId  = req.params.id
-        let result = userFunctions.search(userId)
-        return result ? res.render('users/test', {user: result}) : res.send("error")
+    userlist: (req,res) => {
+        let allUsers = userFunctions.all()
+        res.render('users/list', {users: allUsers})
     }
 };
 

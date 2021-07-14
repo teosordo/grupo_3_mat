@@ -24,5 +24,5 @@ router.get('/register', userController.register);
 router.post('/register',[upload.single('avatar'),registerMiddleware],userController.createUser);
 // Product Cart
 router.get('/cart', userController.productCart);
-router.get('/test/:id', userController.userTest);
+router.get('/list', userController.userlist);
 module.exports = router;
