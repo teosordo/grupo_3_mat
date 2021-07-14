@@ -31,7 +31,7 @@ const user = {
             email: newData.email,
             password: bcrypt.hashSync(newData.password, 10),
             admin: newData.email.indexOf('@matech.com') >= 0? 1 : 0,
-            avatar: imgFile == undefined ? 'default-user' : imgFile.filename
+            avatar: imgFile == undefined ? 'default-user.jpg' : imgFile.filename
         }
         users.push(newUser);
         if(user.write(users) == true){
