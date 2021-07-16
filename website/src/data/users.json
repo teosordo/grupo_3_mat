@@ -17,5 +17,15 @@
     "password": "$2a$10$ZA6vt.k9C8KhRQU4GUC0HOkQowkVqkVKVELv/B91y99WI6tpIb5I.",
     "admin": 0,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "Angelica",
+    "lastName": "Dutra",
+    "username": "angie",
+    "email": "angiedutra@hotmail.com",
+    "password": "$2a$10$OPFdhK2j/ewfKcg2EiRJaO4PJUtdhM4Z.LKv4Jz1/wpBKPRedKp9O",
+    "admin": 0,
+    "avatar": "avatar-1626406488521.jpg"
   }
 ]

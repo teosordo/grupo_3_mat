@@ -17,8 +17,8 @@
                     <legend>Iniciar Sesión</legend>
                     <label for="user"></label>
                     <input type="text" name="user" id="user" placeholder="Usuario" class="info" required>
-                    <%if(locals.errors %% errors.email){%>
-                        <p><%= errors.email.msg%></p>
+                    <%if(locals.errors && errors.email){%>
+                        <p><%= errors.email.msg %></p>
                     <% } %> 
                     <label for="password"></label>
                     <input type="password" name="password" id="password" placeholder="Contraseña" class="info" required>
