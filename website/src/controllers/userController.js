@@ -18,7 +18,7 @@ const userController = {
             return res.render('users/register',{errors: result.mapped(), userInfo: req.body})
         }else{
             let create = userFunctions.create(req.body,req.file)
-            return create ? res.redirect('/') : null
+            return create ? res.redirect('/users/login') : null
         }
     },
     productCart: (req, res) => {

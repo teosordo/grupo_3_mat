@@ -128,7 +128,7 @@ a{
     transition: all .4s;
 }
 #button-link-redirect:hover{
-    background-color: #6765D6;
+    background-color: #7d7caf;
 }
 #button-link-redirect:hover > a{
     color: white;
