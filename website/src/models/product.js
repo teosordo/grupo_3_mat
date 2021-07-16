@@ -70,7 +70,6 @@ const product = {
         }   
     },
     deleteAll: function (idProduct) {
-        //const directory = path.resolve(__dirname,"../data","products.json")
         let products = this.all();
         let deleted = this.search(idProduct);
         // Unlink de las imagenes del producto

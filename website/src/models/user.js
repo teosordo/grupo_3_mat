@@ -16,7 +16,7 @@ const user = {
         return userFound;
     },
     //Econtrar por campo
-    findByField: (id)=>{
+    findByField: (field, text)=>{
         let allUsers = user.all();
         let userFound = allUsers.find(oneUser => oneUser[field] === text);
         return userFound;

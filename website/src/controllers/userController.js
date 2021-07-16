@@ -1,17 +1,18 @@
 const productsFunctions = require('../models/product');
 const userFunctions = require('../models/user');
 const {validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs')
 
 const userController = {
     login: (req, res) => {
         res.render('users/login');
     },
     loginProcess: (req, res) => {
-        let userToLogin = user.findByField('username', req.body.text);
+        let userToLogin = userFunctions.findByField('username', req.body.user);
         // Si el usuario exite devulve usuario, si no devuelve mensaje de error
         if(userToLogin){
             //comparo contraseña hasheada
-            let okPassword = bcryptjs.compareSync(re.body.password, userToLogin.password);
+            let okPassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if(okPassword){
                 return res.redirect('/')
             }
@@ -25,7 +26,7 @@ const userController = {
         }
         return res.render('users/login', {
             errors:{
-                email: {
+                username: {
                     msg: 'No existe este usuario.'
                 }
             }
@@ -55,5 +56,5 @@ const userController = {
         res.render('users/list', {users: allUsers})
     }
 };
-
+console.log(userFunctions.findByField('username', 'angie'));
 module.exports = userController;
