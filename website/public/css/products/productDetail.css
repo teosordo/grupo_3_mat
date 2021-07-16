@@ -28,11 +28,13 @@ figure i:hover {
 main img {
     width: 70%;
 }
+label {
+    margin-bottom: 20px;
+}
 label select {
     border: 1px solid black;
     border-radius: 5px;
     text-transform: capitalize;
-    margin-bottom: 5px;
 }
 /***************** ID **********************/
 #container-main {

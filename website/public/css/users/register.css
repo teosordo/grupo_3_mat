@@ -1,11 +1,17 @@
 legend{
     margin-bottom: 10px;
 }
+label{
+    margin: 10px 0 10px;
+}
 #avatar-upload{
     display: block;
 }
 #image{
     width: 100%;
+}
+.info{
+    margin: 8px auto 5px;
 }
 /***Seccion beneficios desktop***/
 #main-section-desktop{
@@ -33,7 +39,6 @@ legend{
     font-size: 14px;
     margin-bottom: 20px;
 }
-
 /*********  MEDIA QUERIES  **********/
 @media (min-width: 481px){
     #main-section-container{

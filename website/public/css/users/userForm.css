@@ -22,7 +22,7 @@ header, #main-section-container, .info, footer{
     text-align: center;
 }
 /* Fuentes*/
-p, .info, .forget-link, label{
+p, .info, .forget-link, label,.errors{
     font-family:'Montserrat', sans-serif;
 }
 legend, #button-submit,#redirect-section h2{
@@ -42,6 +42,11 @@ legend, #button-submit,#redirect-section h2{
 /***********   MAIN   ************/
 main{
     padding-bottom: 126px;
+}
+/***Errores***/
+.errors{
+    color:red;
+    font-size: 15px;
 }
 /***Contenedor del formulario***/
 #main-section-container{
@@ -68,7 +73,6 @@ a{
 }  
 /***Estilo del input***/
 .info{
-    margin: 15px auto;
     width: 93%;
     padding: 10px;
     border-radius: 7px;
@@ -80,7 +84,9 @@ a{
     border: 1px solid #6765D6;
     box-shadow: 0px 0px 0px 1px #6765D6 inset;  
 }
-
+.form-input-error{
+    box-shadow: 0px 0px 5px red;
+}
 #button-submit{
     background-color: #6765D6;
     color: white;

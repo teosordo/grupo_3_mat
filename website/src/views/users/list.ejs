@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head')%>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/users/userList.css">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>
+        <section id="contenido">
+            <% for(i = 0;i < users.length;i++) { %>
+                <article class="container-user">
+                    <figure class="container-img-user">
+                        <img src="/uploads/users/<%=users[i].avatar%>" alt="" class="img-user">
+                    </figure>
+                    <section class="user-info">
+                        <h2><%= users[i].username%></h2>
+                        <h3>Nombre Completo: <%= users[i].firstName + ' ' + users[i].lastName %></h3>
+                    </section>
+                </article>
+            <% } %>
+        </section>
+    </main>
+    <%-include('../includes/footer') %> 
+</body>
+</html>
