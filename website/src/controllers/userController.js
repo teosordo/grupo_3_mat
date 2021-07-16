@@ -1,12 +1,34 @@
 const productsFunctions = require('../models/product');
-const userFunctions = require('../models/user')
+const userFunctions = require('../models/user');
 
 const userController = {
     login: (req, res) => {
         res.render('users/login');
     },
     loginProcess: (req, res) => {
-        res.send(req.body);
+        let userToLogin = user.findByField('username', req.body.text);
+        // Si el usuario exite devulve usuario, si no devuelve mensaje de error
+        if(userToLogin){
+            //comparo contraseña hasheada
+            let okPassword = bcryptjs.compareSync(re.body.password, userToLogin.password);
+            if(okPassword){
+                return res.redirect('/')
+            }
+            return res.render('users/login', {
+                errors:{
+                    email: {
+                        msg: 'El dato ingresado es incorrecto'
+                    }
+                }
+            });
+        }
+        return res.render('users/login', {
+            errors:{
+                email: {
+                    msg: 'No existe este usuario.'
+                }
+            }
+        });
     },
     register: (req, res) => {
         res.render('users/register');

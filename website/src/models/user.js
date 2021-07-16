@@ -1,7 +1,6 @@
 const path = require("path")
 const fs = require('fs')
 
-
 const user = {
     all: ()=>{
         const directory = path.resolve(__dirname, '../data/users.json');
@@ -9,6 +8,19 @@ const user = {
         const list = JSON.parse(file);
         return list;
     },
+    //Econtrar por "primary key"
+    findByPk: (id)=>{
+        let allUsers = user.all();
+        let userFound = allUsers.find(oneUser => oneUser.id === id);
+        return userFound;
+    },
+    //Econtrar por campo
+    findByField: (id)=>{
+        let allUsers = user.all();
+        let userFound = allUsers.find(oneUser => oneUser[field] === text);
+        return userFound;
+    },
+    //Sobreescribe el array de usuarios
     write:(userList)=>{
         const directory = path.resolve(__dirname, '../data/users.json');
         let newProducts = JSON.stringify(products,null,2);
@@ -32,5 +44,4 @@ const user = {
         }
     }
 }
-
 module.exports = user

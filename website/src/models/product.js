@@ -70,10 +70,12 @@ const product = {
         }   
     },
     deleteAll: function (idProduct) {
-        const directory = path.resolve(__dirname,"../data","products.json")
+        //const directory = path.resolve(__dirname,"../data","products.json")
         let products = this.all();
         let deleted = this.search(idProduct);
-        fs.unlinkSync(path.resolve(__dirname,"../../public/uploads/products",deleted.image))
+        // Unlink de las imagenes del producto
+        fs.unlinkSync(path.resolve(__dirname,"../../public/uploads/products",deleted.image));
+        // Sobreesribe el array excluyendo al producto seleccionado
         products = products.filter(producto => producto.id != deleted.id )
         if(product.write(products) == true){
             return true
