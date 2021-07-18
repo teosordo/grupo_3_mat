@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <%- include('../includes/head')%>
-    <link rel="stylesheet" href="/css/styles.css">
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
     <link rel="stylesheet" href="/css/users/productCart.css">
 
     <title>Carrito de compras</title>

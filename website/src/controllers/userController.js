@@ -18,15 +18,15 @@ const userController = {
             }
             return res.render('users/login', {
                 errors:{
-                    email: {
-                        msg: 'El dato ingresado es incorrecto'
+                    user: {
+                        msg: 'Los datos ingresados son incorrectos.'
                     }
                 }
             });
         }
         return res.render('users/login', {
             errors:{
-                username: {
+                user: {
                     msg: 'No existe este usuario.'
                 }
             }
@@ -56,5 +56,4 @@ const userController = {
         res.render('users/list', {users: allUsers})
     }
 };
-console.log(userFunctions.findByField('username', 'angie'));
 module.exports = userController;

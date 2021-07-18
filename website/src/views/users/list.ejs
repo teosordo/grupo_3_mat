@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <%- include('../includes/head')%>
-    <link rel="stylesheet" href="/css/styles.css">
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
     <link rel="stylesheet" href="/css/users/userList.css">
     <title>Lista de Usuarios</title>
 </head>

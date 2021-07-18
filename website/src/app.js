@@ -16,6 +16,12 @@ app.use(method("_method"))
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"));
 
+// Middleware Aplicación
+app.use((req, res, next) => {
+    res.locals.styles = ['normailize.css', 'styles.css']
+    next()
+})
+
 // Rutas
 // Index
 const mainRouter = require('./routes/mainRoutes');

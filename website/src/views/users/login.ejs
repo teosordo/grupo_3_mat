@@ -16,12 +16,22 @@
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
                     <label for="user"></label>
-                    <input type="text" name="user" id="user" placeholder="Usuario" class="info" required>
-                    <%if(locals.errors && errors.username){%>
-                        <p><%= errors.username.msg %></p>
-                    <% } %> 
+                    <input type="text" name="user" id="user" 
+                    placeholder="Usuario" class="info" required>
+                    <!-- class="<%= //locals.errors & errors.user ? 'is-valid' : null %>"
+                    value ="<%= //locals.oldData ? oldData.user : null %>"
+                    Si hay errores de logeo del usuario, aparece el primero-->
+                    <%if(locals.errors && errors.user){%>
+                        <p><%= errors.user.msg %></p>
+                    <% } %>
+                    <%if(locals.errors && errors.password){%>
+                        <p><%= errors.user.msg %></p>
+                    <% } %>
                     <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" class="info" required>
+                    <input type="password" name="password" id="password" 
+                    placeholder="Contraseña" class="info" required>
+                    <!-- class="<%= //locals.errors & errors.password ? 'is-valid' : null %>"
+                    value ="<%= //locals.oldData ? oldData.password : null %>"-->
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
                     <label for="remember-me" class="remember-me-box">Recordarme
                         <input type="checkbox" name="remember-me" id="remember-me">
