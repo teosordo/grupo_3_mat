@@ -17,18 +17,22 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"));
 
 // Middleware Aplicación
-app.use((req, res, next) => {
-    res.locals.styles = ['normailize.css', 'styles.css']
-    next()
-})
+    // Estilos css globales
+const styles = require('./middlewares/styles')
+app.use(styles);
+
+    //Página en mantenimiento
+const mantain = require('./middlewares/mantain')
+app.use(mantain);
+
 
 // Rutas
-// Index
+    // Index
 const mainRouter = require('./routes/mainRoutes');
 app.use('/', mainRouter);
-// Products
+    // Products
 const productRouter = require('./routes/productRoutes');
 app.use('/products', productRouter);
-// User
+    // User
 const userRouter = require('./routes/userRoutes');
 app.use('/users', userRouter);
