@@ -31,7 +31,7 @@
                 </article>
                 <% for(i = 0; i < products.length; i++) { %>
                     <article class="content-box">
-                        <a href="/products/detail/<%=products[i].id%>" class="product-box">
+                        <a href="/products/<%=products[i].id%>" class="product-box">
                             <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].image%>" alt="producto"></figure>
                             <section>
                                 <h3 class="product-title"><%= products[i].name %></h3>
