@@ -42,9 +42,11 @@
                         <% categories.forEach(element =>{ %>
                             <% if(element.id == product.category.id){ %>
                                 <option value="<%= element.id%>" selected><%=element.name%></option>
-                            <% }else{ %>
+                            <% }else if(product.category == element.id){ %>
+                                <option value="<%= element.id%>" selected><%=element.name%></option>
+                            <% }else{%>
                                 <option value="<%= element.id%>"><%=element.name%></option>
-                            <% }%>
+                            <% } %>
                         <% }) %> 
                         </select>
                     </label>
@@ -52,11 +54,13 @@
                     <label for="brand" class="edit-labels">Marca:
                         <select name="brand" id='brand' class="product-info" required>
                             <% brands.forEach(element =>{ %> 
-                                <% if(element.id == product.brand.id){ %>
+                                <% if(element.id == product.category.id){ %>
                                     <option value="<%= element.id%>" selected><%=element.name%></option>
-                                <% }else{ %>
+                                <% }else if(product.brand == element.id){ %>
+                                    <option value="<%= element.id%>" selected><%=element.name%></option>
+                                <% }else{%>
                                     <option value="<%= element.id%>"><%=element.name%></option>
-                                <% }%>
+                                <% } %>
                             <%  })  %>
                         </select>
                     </label>

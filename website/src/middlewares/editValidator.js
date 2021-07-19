@@ -8,18 +8,18 @@ module.exports = [
         .notEmpty().withMessage('Ingrese el Precio del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para precios'),
     body('discount')
-        .notEmpty().withMessage('Complete el campo').bail()
+        .notEmpty().withMessage('Ingrese el descuento del producto, si no tiene ingrese 0').bail()
         .isNumeric().withMessage('Solo se permiten números para descuentos'),
     body('stock')
-        .notEmpty().withMessage('Complete el campo')
+        .notEmpty().withMessage('Complete el stock del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para stock'),
     body('warranty')
         .notEmpty().withMessage('Ingrese la garantia del producto'),
     body('videos')
         .custom(value =>{
-            if(value === ''){
+            if(value == ''){
                 return true
-            }else if(value.indexOf('youtube.com/embed/' ) >= 0){
+            }else if(value.indexOf('youtube.com/embed/') >= 0){
                 return true 
                 
             }else{

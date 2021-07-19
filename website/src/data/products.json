@@ -3,7 +3,7 @@
     "id": 2,
     "name": "Ordenador",
     "brand": 1,
-    "category": 1,
+    "category": 5,
     "color": [
       1,
       2
@@ -23,8 +23,8 @@
   {
     "id": 3,
     "name": "Tarjeta gráfica",
-    "brand": 1,
-    "category": 1,
+    "brand": 4,
+    "category": 4,
     "color": [
       2,
       6
@@ -36,7 +36,7 @@
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",
     "warranty": "6 meses",
-    "image": "image-1625526389096.jpg",
+    "image": "image-1626712818486.jpg",
     "videos": "https://www.youtube.com/embed/uTwPn3JWfV4",
     "caract": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.",
     "specs": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia."
