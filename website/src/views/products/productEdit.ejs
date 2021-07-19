@@ -13,15 +13,28 @@
     <main>
         <section id="content-container">
             <h1>Editá tu producto:</h1>
+            <% if (locals.errors) { %>
+                <ul class="errorsList desktopList">
+                <% for(let oneError in errors){ %>
+                    <li class="errors"><%= errors[oneError].msg %> </li>
+                <% } %> 
+                </ul>
+            <% } %>
             <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
                         <img src="/uploads/products/<%=product.image%>" alt="" id="product-img">
                         <h2><%=product.name%></h2>
                     </legend>
-                    
+                    <% if (locals.errors) { %>
+                        <ul class="errorsList mobileList">
+                        <% for(let oneError in errors){ %>
+                            <li class="errors"><%= errors[oneError].msg %> </li>
+                        <% } %> 
+                        </ul>
+                    <% } %>
                     <label for="name" class="edit-labels">Nombre:
-                        <input type="text" name="name" id="name" class="product-info" value="<%=product.name%>">
+                        <input type="text" name="name" id="name" class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%=product.name%>">
                     </label>
 
                     <label for="category" class="edit-labels">Categoría:
@@ -49,27 +62,33 @@
                     </label>
 
                     <label for="colors" class="edit-labels">Colores:
-                        <select name="colors" id="colors" class="product-info" multiple>
+                        <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
                             <% colors.forEach(element =>{ %>
-                                <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                <% if(product.color) { %>
+                                    <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                <% } else if (product.colors) { %>
+                                    <option value="<%= element.id%>" <%= product.colors.findIndex(productColor=> {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                <% }else{ %>
+                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <% } %>
                             <%  })  %>
                         </select>
                     </label>
                     
                     <label for="price" class="edit-labels">Precio ($):
-                        <input type="text" name="price" id="price" class="product-info" value="<%=product.price%>">
+                        <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.price%>">
                     </label>
 
                     <label for="discount" class="edit-labels">Descuento (%):
-                        <input type="text" name="discount"  id='discount' class="product-info" value="<%=product.discount%>" required>
+                        <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>" required>
                     </label>
                     
                     <label for="stock" class="edit-labels">Stock (x unidad):
-                        <input type="text" name="stock"  id='stock' class="product-info" value="<%=product.stock%>" required>
+                        <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>" required>
                     </label>
 
                     <label for="warranty" class="edit-labels">Garantía:
-                            <input type="text" name="warranty" id="warranty" class="product-info" value="<%=product.warranty%>">
+                            <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%=product.warranty%>">
                     </label>
                     
                     <label for="image" class="edit-labels">Imágenes:
@@ -77,19 +96,19 @@
                     </label>
 
                     <label for="videos" class="edit-labels">Video:
-                        <input type="text" name="videos" id="videos" class="product-info" value="<%=product.videos%>">
+                        <input type="text" name="videos" id="videos" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.videos%>">
                     </label>
                 </fieldset>
                 <fieldset id="fielset-large">
                     <label for="detail" class="edit-labels large-input-labels">Detalle:
-                            <textarea name="detail" id="detail" class="product-info large-input"><%=product.detail%></textarea> 
+                            <textarea name="detail" id="detail" class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>"><%=product.detail%></textarea> 
                     </label>
                     <label for="caract" class="edit-labels large-input-labels">Características:
-                            <textarea name="caract" id="caract" class="product-info large-input"><%=product.caract%></textarea> 
+                            <textarea name="caract" id="caract" class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>"><%=product.caract%></textarea> 
                     </label>
                     
                     <label for="specs" class="edit-labels large-input-labels">Especificaciones:
-                        <textarea name="specs" id="specs" class="product-info large-input"><%=product.specs%></textarea> 
+                        <textarea name="specs" id="specs" class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>"><%=product.specs%></textarea> 
                     </label>
                 </fieldset>
                 <button type="submit" id="button-submit">Editar</button>

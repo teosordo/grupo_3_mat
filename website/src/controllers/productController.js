@@ -27,8 +27,8 @@ const productController = {
         if(result.errors.length > 0){
             return res.render('products/productCreate',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), productInfo: req.body})
         }else{
-            let result = productsFunctions.create(req.body, req.file); 
-            return result == true ? res.redirect('/') : res.send("ERROR");
+            let product = productsFunctions.create(req.body, req.file); 
+            return product == true ? res.redirect('/') : res.send("ERROR");
         }
     },
     productEdit:(req,res) => {
@@ -37,8 +37,18 @@ const productController = {
         return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product, brands: brandFunctions.all(),categories: categoryFunctions.all(), colors: colorFunctions.all()})
     },
     update: (req, res) => {
-        let result = productsFunctions.edit(req.body, req.file, req.params.id);
-        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se pudo editar el producto");
+        const result = validationResult(req);
+        let idProduct = req.params.id;
+        let origProduct = productsFunctions.search(idProduct);
+        let editedProduct = req.body
+        editedProduct.id = idProduct
+        editedProduct.image = origProduct.image
+        if(result.errors.length > 0){
+            return res.render('products/productEdit',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), product: editedProduct})
+        }else{
+            let product = productsFunctions.edit(req.body, req.file, req.params.id);
+            return product == true ? res.redirect("/") : res.send("Ocurrió un error. No se pudo editar el producto");
+        }
     },
     deleteAll: (req,res) => {
         let result = productsFunctions.deleteAll(req.params.id);
