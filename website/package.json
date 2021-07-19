@@ -6,11 +6,7 @@
   "scripts": {
     "test": "clear && nodemon src/app.js -e html,css,js,mjs,json",
     "start": "node src/app.js",
-    "nodemonConfi": {
-      "ignore": [
-        "#.json"
-      ]
-    }
+    "nodemonConfi": {"ignore":["#.json"]}
   },
   "repository": {
     "type": "git",

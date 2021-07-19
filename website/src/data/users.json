@@ -15,7 +15,6 @@
     "username": "teusa28",
     "email": "teosordo98@gmail.com",
     "password": "$2a$10$ZA6vt.k9C8KhRQU4GUC0HOkQowkVqkVKVELv/B91y99WI6tpIb5I.",
-    "admin": 0,
     "avatar": "default-user.jpg"
   },
   {
@@ -25,7 +24,17 @@
     "username": "angie",
     "email": "angiedutra@hotmail.com",
     "password": "$2a$10$OPFdhK2j/ewfKcg2EiRJaO4PJUtdhM4Z.LKv4Jz1/wpBKPRedKp9O",
+    "avatar": "avatar-1626406488521.jpg",
+    "admin": true
+  },
+  {
+    "id": 6,
+    "firstName": "Belen",
+    "lastName": "Ortiz",
+    "username": "Belen",
+    "email": "angiedutraa@gmail.com",
+    "password": "$2a$10$1OhdtKVYPkVKPuPbBs2c4uX.qMCq9ee6jNc48.4wBli36DDQYsMT6",
     "admin": 0,
-    "avatar": "avatar-1626406488521.jpg"
+    "avatar": "default-user.jpg"
   }
 ]

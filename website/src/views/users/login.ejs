@@ -18,9 +18,7 @@
                     <label for="user"></label>
                     <input type="text" name="user" id="user" 
                     placeholder="Usuario" class="info" required>
-                    <!-- class="<%= //locals.errors & errors.user ? 'is-valid' : null %>"
-                    value ="<%= //locals.oldData ? oldData.user : null %>"
-                    Si hay errores de logeo del usuario, aparece el primero-->
+                    <!--Si hay errores de logeo del usuario, aparece el primero-->
                     <%if(locals.errors && errors.user){%>
                         <p><%= errors.user.msg %></p>
                     <% } %>
@@ -33,8 +31,8 @@
                     <!-- class="<%= //locals.errors & errors.password ? 'is-valid' : null %>"
                     value ="<%= //locals.oldData ? oldData.password : null %>"-->
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
-                    <label for="remember-me" class="remember-me-box">Recordarme
-                        <input type="checkbox" name="remember-me" id="remember-me">
+                    <label for="remember" class="remember-me-box">Recordarme
+                        <input type="checkbox" name="remember" id="remember">
                     </label>
                     <button type="submit" id="button-submit">
                         Ingresar

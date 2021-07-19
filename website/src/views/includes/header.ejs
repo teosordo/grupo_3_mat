@@ -11,10 +11,18 @@
     <nav id="header-right">
         <a href="/users/cart" id="cart"><i class="fas fa-shopping-cart"></i></a>
         <section>
-            <a href="/users/login" id="user-login">
-                <i id="login" class="far fa-user-circle"></i>
-                <p id="usuario">Iniciar Sesión</p>
-            </a>
+            <% if(user){%>
+                <!-- Falta link a la página del perfil -->
+                <a href="/users/login" id="user-login">
+                    <i id="login" class="far fa-user-circle"></i>
+                    <p id="usuario">Perfil</p>
+                </a>
+            <% } else { /*console.log(user)*/ %> 
+                <a href="/users/login" id="user-login">
+                    <i id="login" class="far fa-user-circle"></i>
+                    <p id="usuario">Iniciar Sesión</p>
+                </a>
+            <% } %> 
         </section>
     </nav>
 </header>
