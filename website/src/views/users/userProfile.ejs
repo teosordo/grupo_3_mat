@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head')%>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/users/userProfile.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include('../includes/header')  %>
+
+    <main id="contenido">
+        <section id="container-main">
+            <figure>
+                <img src="/uploads/users/<%= user.avatar %>" alt="profile-image">
+            </figure>
+
+            <section id="user-info">
+                <h2><%= user.firstName + ' ' + user.lastName %></h2>
+
+                <ul>
+                    <li>Nombre de usuario: <%= user.username %></li>
+                    <li>Email: <%= user.email %></li>
+                    <li><%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('../includes/footer')  %> 
+</body>
+</html>
