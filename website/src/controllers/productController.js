@@ -2,7 +2,7 @@ const productsFunctions = require('../models/product');
 const brandFunctions = require('../models/brand')
 const categoryFunctions = require('../models/category')
 const colorFunctions = require('../models/color')
-
+const {validationResult} = require('express-validator')
 // pasar a middleware
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
@@ -23,8 +23,13 @@ const productController = {
         res.render('products/productCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})
     },
     createProduct:(req,res)=>{
-        let result = productsFunctions.create(req.body, req.file);
-        return result == true ? res.redirect('/') : res.send("ERROR");
+        const result = validationResult(req);
+        if(result.errors.length > 0){
+            return res.render('products/productCreate',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), productInfo: req.body})
+        }else{
+            let result = productsFunctions.create(req.body, req.file); 
+            return result == true ? res.redirect('/') : res.send("ERROR");
+        }
     },
     productEdit:(req,res) => {
         let idProduct = req.params.id;

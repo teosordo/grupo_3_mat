@@ -167,5 +167,25 @@
     "videos": "https://www.youtube.com/embed/fACBaqxnb9k",
     "caract": "Esto es una características ",
     "specs": "Esto es una especificación"
+  },
+  {
+    "id": 10,
+    "name": "estp",
+    "brand": 3,
+    "category": 2,
+    "color": [
+      "2"
+    ],
+    "price": 123144,
+    "detail": "eqweqweqwe",
+    "discount": 0,
+    "stock": 26,
+    "shipping": "Gratis!",
+    "payment": "fas fa-credit-card",
+    "warranty": "4 meses",
+    "image": "image-1626653000655.png",
+    "videos": "https://www.youtube.com/embed/8pEfPE1iOZg",
+    "caract": "qqqqq",
+    "specs": "qweqweqwe"
   }
 ]
