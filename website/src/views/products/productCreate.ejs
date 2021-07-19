@@ -14,13 +14,20 @@
             <section id="content-container">
                 <h1>Creá un Producto</h1>
                 <form action="/products/create" method="POST" enctype="multipart/form-data">
+                    <% if (locals.errors) { %>
+                        <ul class="errorsList">
+                        <% for(let oneError in errors){ %>
+                            <li class="errors"><%= errors[oneError].msg %> </li>
+                        <% } %> 
+                        </ul>
+                    <% } %>
                     <fieldset>
                         <label for="name" class="create-labels full-sized" id="product-name">Nombre del Producto 
-                            <input type="text" name="name" id='name' class="product-info" required>
+                            <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.name : null%>">
                         </label>
 
                         <label for="category" class="create-labels">Categorias del Producto
-                            <select name="category" id="category" class="product-info" required>
+                            <select name="category" id="category" class="product-info">
                             <% categories.forEach(element =>{ %> 
                                 <option value="<%= element.id%>"><%=element.name%></option>
                             <% }) %> 
@@ -28,7 +35,7 @@
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
-                            <select name="brand" id='brand' class="product-info" required>
+                            <select name="brand" id='brand' class="product-info">
                                 <% brands.forEach(element =>{ %> 
                                     <option value="<%= element.id%>"><%=element.name%></option>
                                 <%  })  %>
@@ -36,47 +43,51 @@
                         </label>
                         
                         <label for="price" class="create-labels">Precio del producto
-                            <input type="text" name="price"  id='price' class="product-info" required>
+                            <input type="text" name="price"  id='price' class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.price : null%>">
                         </label>
 
                         <label for="image" class="create-labels">Imagen del producto
-                            <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg" required>
+                            <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
                         </label>
 
                         <label for="warranty" class="create-labels">Garantia del producto
-                            <input type="text" name="warranty" id="warranty" class="product-info" required>
+                            <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.warranty : null%>">
                         </label>
 
                         <label for="stock" class="create-labels">Stock del producto
-                            <input type="text" name="stock" id="stock" class="product-info" required>
+                            <input type="text" name="stock" id="stock" class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.stock : null%>">
                         </label>
 
-                        <label for="videos" class="create-labels full-sized">Link a video del producto
-                            <input type="text" name="videos" id="videos" class="product-info" required>
+                        <label for="videos" class="create-labels full-sized">Link a video del producto (opcional)
+                            <input type="text" name="videos" id="videos" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.videos : null%>">
                         </label>
 
-                        <label for="colors" class="create-labels full-sized">Colores
-                            <select name="colors" id="colors" class="product-info" multiple>
-                                <% colors.forEach(element =>{ %>
-                                    <% if(element.id == 1){ %> 
-                                        <option value="<%= element.id%>"><%=element.name%></option>
-                                    <%}else{ %>
-                                        <option value="<%= element.id%>"><%=element.name%></option>
-                                    <% } %> 
+                        <label for="colors" class="create-labels full-sized">Colores 
+                            <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
+                                <% colors.forEach(color =>{ %>\
+                                    <%if(locals.errors && productInfo && productInfo.colors){%>
+                                        <% if (typeof productInfo.colors == 'string') { %>
+                                            <option value="<%= color.id%>" <%= productInfo.colors.indexOf(color.id) >= 0? 'selected' : ''%>><%=color.name%></option>
+                                        <% } else { %>
+                                            <option value="<%= color.id%>" <%= productInfo.colors.findIndex(productColor => {return productColor == color.id}) >= 0? 'selected' : ''%>><%=color.name%></option>
+                                        <% } %>
+                                    <% }else{ %>
+                                        <option value="<%= color.id%>"><%=color.name%></option>
+                                    <% } %>
                                 <%  })  %>
                             </select>
                         </label>
 
                         <label for="caract" class="create-textarea">Características del producto
-                            <textarea name="caract" id='caract' class="product-info large-input" rows="4" required></textarea>
+                            <textarea name="caract" id='caract' class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.caract : null%>" rows="4"></textarea>
                         </label>
                         
                         <label for="specs" class="create-textarea">Especificaciones del producto
-                            <textarea name="specs" id='specs' class="product-info large-input" rows="4" required></textarea>
+                            <textarea name="specs" id='specs' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea>
                         </label>
                         
                         <label for="detail" class="create-textarea">Detalle del producto
-                            <textarea name="detail" id='detail' class="product-info large-input" rows="4" required></textarea> 
+                            <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea> 
                         </label>
                         
                         <button type="submit" id="button-submit">Crear</button>

@@ -104,6 +104,10 @@ label{
 #colors option{
     border: 1px solid black;
 }
+/* EDIT ERRORS */
+.desktopList{
+    display: none;
+}
 @media(min-width: 769px){
     h1{
         border-radius: 6px 6px 0 0;
@@ -132,7 +136,7 @@ label{
     legend{
         margin-left: 4vw;
         float:left;
-        margin-bottom: 110px;
+        margin-bottom: 170px;
     }
     #fieldset-small, #fielset-large{
         padding: 0px;
@@ -162,6 +166,12 @@ label{
     }
     .edit-labels .product-info{
         margin-top: 0;
+    }
+    ul.mobileList{
+        display: none;
+    }
+    .desktopList{
+        display: initial;
     }
 }
 @media(min-width: 965px){

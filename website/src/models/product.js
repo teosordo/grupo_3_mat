@@ -93,7 +93,7 @@ const product = {
                 producto.color = data.colors == undefined ? producto.color : data.colors.map(element => parseInt(element)); // hacer con express-validator
                 producto.price = parseInt(data.price);
                 producto.detail = data.detail;
-                producto.discount = data.discount;
+                producto.discount = parseInt(data.discount);
                 producto.stock = parseInt(data.stock);       
                 producto.warranty = data.warranty;
                 producto.image = file == undefined ? producto.image : file.filename; // hacer con express-validator
