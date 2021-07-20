@@ -13,7 +13,7 @@
         <section>
             <% if(user){%>
                 <!-- Falta link a la página del perfil -->
-                <a href="/users/login" id="user-login">
+                <a href="/users/<%= user.id %> " id="user-login">
                     <i id="login" class="far fa-user-circle"></i>
                     <p id="usuario">Perfil</p>
                 </a>

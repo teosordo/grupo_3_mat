@@ -11,19 +11,23 @@
     <%- include('../includes/header')  %>
 
     <main id="contenido">
-        <section id="container-main">
-            <figure>
-                <img src="/uploads/users/<%= user.avatar %>" alt="profile-image">
-            </figure>
+        <figure>
+            <img src="/uploads/users/<%= user.avatar %>" alt="profile-image">
+        </figure>
 
-            <section id="user-info">
-                <h2><%= user.firstName + ' ' + user.lastName %></h2>
+        <section id="user-info">
+            <h2><%= user.firstName + ' ' + user.lastName %></h2>
 
+            <section>
                 <ul>
                     <li>Nombre de usuario: <%= user.username %></li>
                     <li>Email: <%= user.email %></li>
                     <li><%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
                 </ul>
+
+                <form action="#" method="post">
+                    <button type="submit" id="logout-button">Cerrar Sesión</button>
+                </form>
             </section>
         </section>
     </main>

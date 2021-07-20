@@ -32,7 +32,7 @@ router.get('/register',[state],userController.register);
 router.post('/register',[state,upload.single('avatar'),registerMiddleware],userController.createUser);
 // Product Cart
 router.get('/cart',[state],userController.productCart);
-//List
+//User List
 router.get('/list',[state],userController.userlist);
 // Profile
 router.get('/:id', userController.userProfile);
