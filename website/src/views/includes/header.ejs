@@ -9,10 +9,11 @@
     </form>
     <!--Carrito de compras-->
     <nav id="header-right">
-        <a href="/users/cart" id="cart"><i class="fas fa-shopping-cart"></i></a>
+        <% if(user){ %> 
+            <a href="/users/cart" id="cart"><i class="fas fa-shopping-cart"></i></a>
+        <% } %> 
         <section>
             <% if(user){%>
-                <!-- Falta link a la página del perfil -->
                 <a href="/users/<%= user.id %> " id="user-login">
                     <i id="login" class="far fa-user-circle"></i>
                     <p id="usuario">Perfil</p>

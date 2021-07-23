@@ -9,6 +9,9 @@ const mainController = {
         }
 
         res.render('index', {products: productsFunctions.all(), category: categoryFunctions.all(), finalPrice: finalPrice});
+    },
+    maintainment: (req, res) => {
+        res.render('maintainment');
     }
         
 };

@@ -10,6 +10,8 @@ const userLogged = require('../middlewares/logged');
 const auth = require('../middlewares/auth');
 const login = require('../middlewares/loginValidator');
 const admin = require('../middlewares/admin');
+const userAccess = require('../middlewares/userAccess');
+const hostAccess = require('../middlewares/hostAccess');
 
 const registerMiddleware = require('../middlewares/registerValidator');
 
@@ -25,16 +27,16 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
 
 // Login
-router.get('/login',[state,userLogged],userController.login);
-router.post('/login',[state,userLogged,login,admin], userController.loginProcess);
+router.get('/login',[hostAccess],userController.login);
+router.post('/login',[userLogged,login,admin], userController.loginProcess);
 // Register
-router.get('/register',[state],userController.register);
-router.post('/register',[state,upload.single('avatar'),registerMiddleware],userController.createUser);
+router.get('/register',[hostAccess],userController.register);
+router.post('/register',[upload.single('avatar'),registerMiddleware],userController.createUser);
 // Product Cart
-router.get('/cart',[state],userController.productCart);
+router.get('/cart',[userAccess],userController.productCart);
 //User List
-router.get('/list',[state],userController.userlist);
+router.get('/list',userController.userlist);
 // Profile
-router.get('/:id', userController.userProfile);
+router.get('/:id', [userAccess], userController.userProfile);
 
 module.exports = router;

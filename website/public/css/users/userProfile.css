@@ -12,6 +12,14 @@ figure {
 figure img {
     width: 70%;
 }
+a {
+    text-decoration: none;
+    color: #6765D6;
+    transition: 0.5s all;
+}
+a:hover {
+    text-decoration: underline;
+}
 
 /***************** ID **********************/
 #contenido {
