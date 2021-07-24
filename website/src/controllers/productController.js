@@ -38,10 +38,9 @@ const productController = {
     },
     update: (req, res) => {
         const result = validationResult(req);
-        let idProduct = req.params.id;
-        let origProduct = productsFunctions.search(idProduct);
+        let origProduct = productsFunctions.search(req.params.id);
         let editedProduct = req.body
-        editedProduct.id = idProduct
+        editedProduct.id = req.params.id
         editedProduct.image = origProduct.image
         if(result.errors.length > 0){
             return res.render('products/productEdit',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), product: editedProduct})

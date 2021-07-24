@@ -36,5 +36,15 @@
     "password": "$2a$10$1OhdtKVYPkVKPuPbBs2c4uX.qMCq9ee6jNc48.4wBli36DDQYsMT6",
     "admin": 0,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "Matias",
+    "lastName": "Celentano",
+    "username": "mcelentano123",
+    "email": "matiascelentano@matech.com",
+    "password": "$2a$10$TaIpRQHfJwZfQu0Wviug7OJipEh3FuVrfL8ohfzUJ04qKjqW2CLvG",
+    "admin": 1,
+    "avatar": "default-user.jpg"
   }
 ]

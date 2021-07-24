@@ -112,13 +112,6 @@
             <article>
                 <h3>Características <i class="fas fa-chevron-down"></i></h3>
                 <section>
-                    <h4>Marca: <%= product.brand.name %></h4>
-                    <h4>
-                        Colores: 
-                        <% product.color.forEach(element=>{ %>
-                            <%= element.name %>
-                        <% }) %>
-                    </h4>
                     <p><%= product.caract %></p>
                 </section>
             </article>
@@ -126,7 +119,8 @@
             <article>
                 <h3>Especificaciones <i class="fas fa-chevron-down"></i></h3>
                 <section>
-                    <p><%= product.specs %></p>
+
+                    <p><%= product.brand.name + " " + product.specs %></p>
                 </section>
             </article>
 

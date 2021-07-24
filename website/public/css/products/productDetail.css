@@ -6,6 +6,10 @@ h1, h2 {
 h3 {
     margin: 0;
 }
+h4{
+    font-weight: 400;
+    font-size: 20px;
+}
 ul {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -263,6 +267,7 @@ label select {
         position: absolute;
         top: 30px;
         left: 0;
+        padding: 15px;
     }
     #info-producto-desktop article:hover iframe {
         visibility: visible;
