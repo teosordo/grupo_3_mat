@@ -38,7 +38,6 @@ main{
 header{
     height: 80px;
     background-color:#1A2028;
-    padding:1rem;
     display: flex;
     justify-content:space-between;
     align-items:center;
@@ -142,7 +141,23 @@ li.errors{
     text-decoration: none;
     font-size:1.5rem;
 }
-
+#avatar-cont{
+    display: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0;
+    width: 47px;
+    height: 47px;
+    overflow: hidden;
+    /*Fix para paginas con etiquetas figure*/
+    padding: 0;
+    min-width: 0;
+}
+#avatar{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 /******* Footer *******/
 #iconos{
     font-size: 25px;
@@ -175,6 +190,9 @@ li.errors{
         align-items: center;
     }
     #login{
+        display: block;
+    }
+    #avatar-cont{
         display: block;
     }
 }

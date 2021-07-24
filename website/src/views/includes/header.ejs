@@ -15,11 +15,9 @@
         <section>
             <% if(user){%>
                 <a href="/users/profile" id="user-login">
-                    <i id="login" class="far fa-user-circle"></i>
-                    <p id="usuario">Perfil</p>
-                    <% if (user.admin) { %>
-                        <p>admin</p>
-                    <% } %>
+                    <figure id="avatar-cont">
+                        <img id="avatar" src="/uploads/users/<%= user.avatar%>" alt="">
+                    </figure>
                 </a>
             <% } else { %> 
                 <a href="/users/login" id="user-login">
