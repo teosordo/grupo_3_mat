@@ -75,8 +75,7 @@ const userController = {
         res.render('users/list', {users: allUsers})
     },
     userProfile: (req,res) => {
-        let user = userFunctions.search(req.params.id);
-        res.render('users/userProfile', {user: user});
+        res.render('users/userProfile', {user: req.session.userLogged});
     }
 };
 module.exports = userController;

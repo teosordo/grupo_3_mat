@@ -34,6 +34,8 @@ router.get('/cart',[userAccess],userController.productCart);
 //User List
 router.get('/list',userController.userlist);
 // Profile
-router.get('/:id', [userAccess], userController.userProfile);
+router.get('/profile', [userAccess], userController.userProfile);
+// Logout
+router.post('/logout', userController.logout);
 
 module.exports = router;
