@@ -66,7 +66,9 @@
                     <section id="product-icons">
                         <i class="fas fa-share-alt"></i>
                         <i class="far fa-heart"></i>
-                        <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
+                        <% if (user && user.admin) { %>
+                            <a href="/products/<%= product.id %>/edit"><i class="fas fa-edit" id="productEdit"></i></a>
+                        <% } %>
                     </section>
                 
                 </section>    

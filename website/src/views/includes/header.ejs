@@ -17,6 +17,9 @@
                 <a href="/users/profile" id="user-login">
                     <i id="login" class="far fa-user-circle"></i>
                     <p id="usuario">Perfil</p>
+                    <% if (user.admin) { %>
+                        <p>admin</p>
+                    <% } %>
                 </a>
             <% } else { %> 
                 <a href="/users/login" id="user-login">
