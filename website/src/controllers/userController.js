@@ -8,10 +8,8 @@ const userController = {
         res.render('users/login');
     },
     loginProcess: (req, res) => {
-        // Sesión de usuario - req.session.userLogged = req.body;
-
         // Validación
-        let userToLogin = userFunctions.findByField('username', req.body.user);
+        let userToLogin = userFunctions.findByField('email', req.body.email);
         // Si el usuario exite devulve usuario, si no devuelve mensaje de error
         if(userToLogin){
             //Comparo contraseña hasheada
@@ -20,20 +18,16 @@ const userController = {
                 //por seguridad borro la visibilización del password en session
                 delete userToLogin.password;
                 delete req.body.password;
-                req.session.userLogged = userToLogin;
-                
-                if(req.body.remember != undefined){
-                    // Cookie - Recuerda al usuario
-                    res.cookie('user', req.body.userLogged,{expire: new Date() + 9999})
-                    //console.log(req.body.userLogged)
-                } else {
-                    //console.log('chau')
+                //Guardo la session del body y la comparo con la información del json
+                req.session.userLogged = req.body;
+                if(req.body.email == userToLogin.email){
+                    req.session.logged = userToLogin;
                 }
-
-                //console.log(req.session.userLogged);
-                //console.log(userToLogin.admin);
-                //console.log(req.body.admin);
                 
+                // Cookie - Recuerda al usuario
+                if(req.body.remember != undefined){
+                    res.cookie('email', req.body.email,{expire: new Date() + 9999})
+                }
                 return res.redirect('/')
             }
             return res.render('users/login', {

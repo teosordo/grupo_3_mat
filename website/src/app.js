@@ -25,7 +25,6 @@ app.set("views", path.resolve(__dirname, "./views"));
 app.use(require('./middlewares/styles'));
     //Página en mantenimiento
 app.use(require('./middlewares/maintain'));
-app.use(require('./middlewares/state'));
     //Sesion de Usuarios
 app.use(require('./middlewares/userSession'));
 
