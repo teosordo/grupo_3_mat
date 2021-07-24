@@ -26,7 +26,7 @@ const userController = {
                 
                 // Cookie - Recuerda al usuario
                 if(req.body.remember != undefined){
-                    res.cookie('email', req.body.email,{expire: new Date() + 9999})
+                    res.cookie('email', req.body.email,{maxAge: 1000 })
                 }
                 return res.redirect('/')
             }
@@ -47,7 +47,7 @@ const userController = {
         });
     },
     logout: (req, res) => {
-        res.clearCookie('user');
+        res.clearCookie('email');
         req.session.destroy();
         return res.redirect('/');
     },
