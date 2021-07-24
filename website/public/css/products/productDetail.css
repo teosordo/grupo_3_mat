@@ -203,12 +203,15 @@ label select {
     figure img{
         width: 80%;
     } 
-
+    #contenido{
+        margin-top:0;
+    }
     #container-main {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 8px;
+        margin-top: 10px;
         border-radius: 10px;
     }
     #product-article {

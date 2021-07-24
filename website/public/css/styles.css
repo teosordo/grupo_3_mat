@@ -32,15 +32,18 @@ p, footer, #buscador, .errors{
     font-size: 15px;
 }
 main{
-    padding: 0px 0px 126px;
+    padding: 80px 0px 126px;
 }
 /******* Encabezado ********/
 header{
     height: 80px;
+    width: 100vw;
     background-color:#1A2028;
     display: flex;
     justify-content:space-between;
     align-items:center;
+    position: absolute;
+    z-index: 2;
 }
 header a{
     color: transparent;
