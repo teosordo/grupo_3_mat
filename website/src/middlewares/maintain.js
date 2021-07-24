@@ -1,4 +1,8 @@
 module.exports = (req, res, next) => {
     res.locals.mantenimiento = false;
-    next();
+    if(res.locals.mantenimiento){
+        res.render("maintainment");
+    } else {
+        next();
+    }
 }

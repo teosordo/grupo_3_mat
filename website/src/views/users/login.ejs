@@ -15,9 +15,9 @@
             <form action="/users/login" method="POST">
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
-                    <label for="user"></label>
-                    <input type="text" name="user" id="user" 
-                    placeholder="Usuario" class="info" required>
+                    <label for="email"></label>
+                    <input type="email" name="email" id="enail" 
+                    placeholder="Email" class="info" required>
                     <!--Si hay errores de logeo del usuario, aparece el primero-->
                     <%if(locals.errors && errors.user){%>
                         <p><%= errors.user.msg %></p>
@@ -28,11 +28,10 @@
                     <label for="password"></label>
                     <input type="password" name="password" id="password" 
                     placeholder="Contraseña" class="info" required>
-                    <!-- class="<%= //locals.errors & errors.password ? 'is-valid' : null %>"
-                    value ="<%= //locals.oldData ? oldData.password : null %>"-->
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
-                    <label for="remember" class="remember-me-box">Recordarme
+                    <label for="remember" class="remember-me-box">
                         <input type="checkbox" name="remember" id="remember">
+                        Recordarme
                     </label>
                     <button type="submit" id="button-submit">
                         Ingresar

@@ -6,7 +6,7 @@ module.exports = [
     body('lastName').notEmpty().withMessage('Ingrese su apellido'),
     body('email')
         .notEmpty().withMessage('Ingrese su e-mail').bail()
-        .isEmail().withMessage('Ingrese un e-mail valido').bail()
+        .isEmail().withMessage('Ingrese un e-mail válido').bail()
         .custom(value =>{
             /* Revisa si hay un usuario con el mismo email*/
             if(findByField('email',value)){

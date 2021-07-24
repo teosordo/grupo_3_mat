@@ -3,7 +3,6 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const productController = require('../controllers/productController');
-const state = require('../middlewares/state');
 const createValidations = require('../middlewares/createValidator')
 const editValidations = require('../middlewares/editValidator')
 
