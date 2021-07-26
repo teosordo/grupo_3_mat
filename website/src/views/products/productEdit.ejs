@@ -38,7 +38,7 @@
                     </label>
 
                     <label for="category" class="edit-labels">Categoría:
-                        <select name="category" id="category" class="product-info" required>
+                        <select name="category" id="category" class="product-info">
                         <% categories.forEach(element =>{ %>
                             <% if(element.id == product.category.id){ %>
                                 <option value="<%= element.id%>" selected><%=element.name%></option>
@@ -52,7 +52,7 @@
                     </label>
 
                     <label for="brand" class="edit-labels">Marca:
-                        <select name="brand" id='brand' class="product-info" required>
+                        <select name="brand" id='brand' class="product-info">
                             <% brands.forEach(element =>{ %> 
                                 <% if(element.id == product.category.id){ %>
                                     <option value="<%= element.id%>" selected><%=element.name%></option>
@@ -71,7 +71,11 @@
                                 <% if(product.color) { %>
                                     <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
                                 <% } else if (product.colors) { %>
-                                    <option value="<%= element.id%>" <%= product.colors.findIndex(productColor=> {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% if (typeof product.colors == 'string') { %>
+                                        <option value="<%= element.id%>" <%= product.colors.indexOf(element.id) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% } else { %>
+                                        <option value="<%= element.id%>" <%= product.colors.findIndex(productColor => {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% } %>
                                 <% }else{ %>
                                     <option value="<%= element.id%>"><%=element.name%></option>
                                 <% } %>
@@ -84,11 +88,11 @@
                     </label>
 
                     <label for="discount" class="edit-labels">Descuento (%):
-                        <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>" required>
+                        <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>">
                     </label>
                     
                     <label for="stock" class="edit-labels">Stock (x unidad):
-                        <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>" required>
+                        <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>">
                     </label>
 
                     <label for="warranty" class="edit-labels">Garantía:

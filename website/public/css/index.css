@@ -195,6 +195,7 @@ aside i:hover{
     }
     aside img{
         border-radius: 20px;
+        max-height: 300px;
     }
     aside figure{
         margin:0 0 1rem 0;

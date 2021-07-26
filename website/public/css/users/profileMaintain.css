@@ -10,7 +10,10 @@ figure {
     justify-content: center;
 }
 figure img {
-    width: 70%;
+    width: 60%;
+}
+h2 {
+    margin-top: 0;
 }
 a {
     text-decoration: none;
@@ -22,15 +25,22 @@ a:hover {
 }
 
 /***************** ID **********************/
+#logo {
+    width: 95%;
+}
 #contenido {
     background-color: #fff;
     box-shadow: 1px 1px 10px 1px #666666;
     padding: 1rem;
-    height: 100vh
+    height: 100vh;
 }
 #user-info {
     width: 90%;
     margin: 0 auto;
+}
+#user-info > a {
+    display: flex;
+    justify-content: center;
 }
 #user-info ul {
     padding: 0;
@@ -78,5 +88,8 @@ a:hover {
     #user-info {
         width: 45%;
         margin: 0;
+    }
+    #user-info > a {
+        display: block;
     }
 }
