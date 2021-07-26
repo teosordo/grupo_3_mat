@@ -45,5 +45,15 @@
     "password": "$2a$10$TaIpRQHfJwZfQu0Wviug7OJipEh3FuVrfL8ohfzUJ04qKjqW2CLvG",
     "admin": 1,
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 8,
+    "firstName": "Teo",
+    "lastName": "Sordó",
+    "username": "TeoGoteo",
+    "email": "teosordo@matech.com",
+    "password": "$2a$10$e7K62S1Cxk6d75L2DX6I4.Gy4ppzn6NZQtzm3sa1Hmx6lJA/cz3Fu",
+    "admin": 1,
+    "avatar": "avatar-1627338682788.png"
   }
 ]

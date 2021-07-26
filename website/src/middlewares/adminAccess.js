@@ -1,7 +1,7 @@
 module.exports = (req, res, next) => {
-    if(/*???*/){
+    if(req.session.user && req.session.user.admin){
         next();
     } else {
-        res.send('Esta página es solo para administradores');
+        res.redirect('/');
     }
 }
