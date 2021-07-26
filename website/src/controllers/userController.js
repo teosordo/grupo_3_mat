@@ -9,39 +9,18 @@ const userController = {
     },
     loginProcess: (req, res) => {
         // Validación
-        let userToLogin = userFunctions.findByField('email', req.body.email);
-        // Si el usuario exite devulve usuario, si no devuelve mensaje de error
-        if(userToLogin){
-            //Comparo contraseña hasheada
-            let okPassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-            if(okPassword){
-                //por seguridad borro la visibilización del password en session
-                delete userToLogin.password;
-                delete req.body.password;
-                req.session.user = userToLogin;
-                //Permisos de administrador
-                req.session.user.admin = req.body.email.indexOf('@matech.com') !== -1 ? true : false;
-                // Cookie - Recuerda al usuario
-                if(req.body.remember != undefined){
-                    res.cookie('email', req.body.email,{maxAge: 1000 })
-                }
-                return res.redirect('/')
-            }
-            return res.render('users/login', {
-                errors:{
-                    email: {
-                        msg: 'Los datos ingresados son incorrectos.'
-                    }
-                }
-            });
+        const results = validationResult(req);
+        if(results.errors.length > 0){
+            return res.render('users/login',{errors: results.mapped(), userInfo: req.body})
         }
-        return res.render('users/login', {
-            errors:{
-                email: {
-                    msg: 'No existe este email.'
-                }
-            }
-        });
+
+        // Cookie - Recuerda al usuario
+        if(req.body.remember != undefined){
+            res.cookie('email', req.body.email,{maxAge: 1000 })
+        }
+
+        return res.redirect('/')
+        
     },
     logout: (req, res) => {
         res.clearCookie('email');

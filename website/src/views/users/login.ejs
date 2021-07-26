@@ -17,17 +17,17 @@
                     <legend>Iniciar Sesión</legend>
                     <label for="email"></label>
                     <input type="email" name="email" id="email" 
-                    placeholder="Email" class="info" required>
+                    placeholder="Email" class="info <%= locals.errors && errors.email ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.email : null%>">
                     <!--Si hay errores de logeo del usuario, aparece el primero-->
                     <%if(locals.errors && errors.email){%>
                         <p><%= errors.email.msg %></p>
                     <% } %>
                     <%if(locals.errors && errors.password){%>
-                        <p><%= errors.user.msg %></p>
+                        <p><%= errors.password.msg %></p>
                     <% } %>
                     <label for="password"></label>
                     <input type="password" name="password" id="password" 
-                    placeholder="Contraseña" class="info" required>
+                    placeholder="Contraseña" class="info" >
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
                     <label for="remember" class="remember-me-box">
                         <input type="checkbox" name="remember" id="remember">
