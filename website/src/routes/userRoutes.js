@@ -6,7 +6,6 @@ const multer = require('multer');
 const userController = require('../controllers/userController');
 
 const login = require('../middlewares/loginValidator');
-const admin = require('../middlewares/admin');
 const userAccess = require('../middlewares/userAccess');
 const hostAccess = require('../middlewares/hostAccess');
 
@@ -25,7 +24,7 @@ const upload = multer({storage})
 
 // Login
 router.get('/login',[hostAccess],userController.login);
-router.post('/login',[login,admin], userController.loginProcess);
+router.post('/login',[login], userController.loginProcess);
 // Register
 router.get('/register',[hostAccess],userController.register);
 router.post('/register',[upload.single('avatar'),registerMiddleware],userController.createUser);

@@ -16,11 +16,11 @@
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
                     <label for="email"></label>
-                    <input type="email" name="email" id="enail" 
+                    <input type="email" name="email" id="email" 
                     placeholder="Email" class="info" required>
                     <!--Si hay errores de logeo del usuario, aparece el primero-->
-                    <%if(locals.errors && errors.user){%>
-                        <p><%= errors.user.msg %></p>
+                    <%if(locals.errors && errors.email){%>
+                        <p><%= errors.email.msg %></p>
                     <% } %>
                     <%if(locals.errors && errors.password){%>
                         <p><%= errors.user.msg %></p>

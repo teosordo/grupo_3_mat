@@ -18,12 +18,9 @@ const userController = {
                 //por seguridad borro la visibilización del password en session
                 delete userToLogin.password;
                 delete req.body.password;
-                //Guardo la session del body y la comparo con la información del json
-                req.session.userLogged = req.body;
-                if(req.body.email == userToLogin.email){
-                    req.session.logged = userToLogin;
-                }
-                
+                req.session.user = userToLogin;
+                //Permisos de administrador
+                req.session.user.admin = req.body.email.indexOf('@matech.com') !== -1 ? true : false;
                 // Cookie - Recuerda al usuario
                 if(req.body.remember != undefined){
                     res.cookie('email', req.body.email,{maxAge: 1000 })
@@ -32,7 +29,7 @@ const userController = {
             }
             return res.render('users/login', {
                 errors:{
-                    user: {
+                    email: {
                         msg: 'Los datos ingresados son incorrectos.'
                     }
                 }
@@ -40,8 +37,8 @@ const userController = {
         }
         return res.render('users/login', {
             errors:{
-                user: {
-                    msg: 'No existe este usuario.'
+                email: {
+                    msg: 'No existe este email.'
                 }
             }
         });
@@ -75,7 +72,7 @@ const userController = {
         res.render('users/list', {users: allUsers})
     },
     userProfile: (req,res) => {
-        res.render('users/userProfile', {user: req.session.userLogged});
+        res.render('users/userProfile', {user: req.session.user});
     }
 };
 module.exports = userController;
