@@ -71,7 +71,11 @@
                                 <% if(product.color) { %>
                                     <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
                                 <% } else if (product.colors) { %>
-                                    <option value="<%= element.id%>" <%= product.colors.findIndex(productColor=> {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% if (typeof product.colors == 'string') { %>
+                                        <option value="<%= element.id%>" <%= product.colors.indexOf(element.id) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% } else { %>
+                                        <option value="<%= element.id%>" <%= product.colors.findIndex(productColor => {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
+                                    <% } %>
                                 <% }else{ %>
                                     <option value="<%= element.id%>"><%=element.name%></option>
                                 <% } %>
