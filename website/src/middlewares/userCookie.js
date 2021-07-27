@@ -6,6 +6,7 @@ module.exports = (req,res,next) =>{
         delete user.password
         //"Inicia" la sesion
         req.session.user = user
+        req.session.user.admin = req.session.user.email.indexOf('@matech.com') !== -1 ? true : false;
     }
     next()
 }
