@@ -17,11 +17,8 @@ module.exports = [
         .notEmpty().withMessage('Ingrese la garantia del producto'),
     body('videos')
         .custom(value =>{
-            if(value == ''){
+            if(value == '' || value.indexOf('youtube.com/embed/') >= 0){
                 return true
-            }else if(value.indexOf('youtube.com/embed/') >= 0){
-                return true 
-                
             }else{
                throw new Error('El link debe empezar con youtube.com/embed/')
             }
