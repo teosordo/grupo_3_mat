@@ -90,7 +90,7 @@ const product = {
                 producto.name = data.name;
                 producto.brand = parseInt(data.brand);
                 producto.category = parseInt(data.category);
-                producto.color = data.colors == undefined ? producto.color : data.colors.map(element => parseInt(element)); // hacer con express-validator
+                producto.color = typeof data.colors == 'string' ? [data.colors] : data.colors.map(element => parseInt(element));
                 producto.price = parseInt(data.price);
                 producto.detail = data.detail;
                 producto.discount = parseInt(data.discount);

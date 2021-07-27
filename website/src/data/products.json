@@ -5,8 +5,7 @@
     "brand": 1,
     "category": 5,
     "color": [
-      1,
-      2
+      "3"
     ],
     "price": 5000,
     "stock": 20,
@@ -26,8 +25,8 @@
     "brand": 4,
     "category": 4,
     "color": [
-      2,
-      6
+      1,
+      2
     ],
     "price": 25000,
     "stock": 20,
@@ -47,8 +46,7 @@
     "brand": 1,
     "category": 1,
     "color": [
-      1,
-      2
+      "6"
     ],
     "price": 2000,
     "stock": 20,

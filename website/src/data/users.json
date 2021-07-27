@@ -33,7 +33,6 @@
     "username": "Belen",
     "email": "angiedutraa@gmail.com",
     "password": "$2a$10$1OhdtKVYPkVKPuPbBs2c4uX.qMCq9ee6jNc48.4wBli36DDQYsMT6",
-    "admin": 0,
     "avatar": "default-user.jpg"
   },
   {
@@ -43,7 +42,6 @@
     "username": "mcelentano123",
     "email": "matiascelentano@matech.com",
     "password": "$2a$10$TaIpRQHfJwZfQu0Wviug7OJipEh3FuVrfL8ohfzUJ04qKjqW2CLvG",
-    "admin": 1,
     "avatar": "default-user.jpg"
   },
   {
@@ -53,7 +51,6 @@
     "username": "TeoGoteo",
     "email": "teosordo@matech.com",
     "password": "$2a$10$e7K62S1Cxk6d75L2DX6I4.Gy4ppzn6NZQtzm3sa1Hmx6lJA/cz3Fu",
-    "admin": 1,
     "avatar": "avatar-1627338682788.png"
   }
 ]

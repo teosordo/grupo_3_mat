@@ -4,9 +4,9 @@
   "description": "___",
   "main": "app.js",
   "scripts": {
-    "test": "clear && nodemon src/app.js -e html,css,js,mjs,json",
+    "test": "clear && nodemon src/app.js -e html,css,js,mjs",
     "start": "node src/app.js",
-    "nodemonConfi": {"ignore":["#.json"]}
+    "nodemonConfig": {"ignore":["src/data/*.json"]}
   },
   "repository": {
     "type": "git",
