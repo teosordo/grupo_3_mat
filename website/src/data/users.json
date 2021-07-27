@@ -52,5 +52,14 @@
     "email": "teosordo@matech.com",
     "password": "$2a$10$e7K62S1Cxk6d75L2DX6I4.Gy4ppzn6NZQtzm3sa1Hmx6lJA/cz3Fu",
     "avatar": "avatar-1627338682788.png"
+  },
+  {
+    "id": 9,
+    "firstName": "juancho",
+    "lastName": "pancho",
+    "username": "juapan",
+    "email": "juancho@mail.com",
+    "password": "$2a$10$FcDzXuoop2AE410javtBi.du.KAEFUy/vj7.w1IhIVSiVzRmS5OZO",
+    "avatar": "default-user.jpg"
   }
 ]
