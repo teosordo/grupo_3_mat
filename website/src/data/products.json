@@ -9,7 +9,7 @@
     ],
     "price": 5000,
     "stock": 20,
-    "discount": 40,
+    "discount": 50,
     "detail": "esto es una descripción",
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",
