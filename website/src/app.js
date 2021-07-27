@@ -27,6 +27,8 @@ app.use(require('./middlewares/styles'));
 app.use(require('./middlewares/maintain'));
     //Sesion de Usuarios
 app.use(require('./middlewares/userSession'));
+    //Cookie para recordar usuario
+app.use(require('./middlewares/userCookie'))
 
 // Rutas
     // Index

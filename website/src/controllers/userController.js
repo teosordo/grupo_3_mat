@@ -16,7 +16,7 @@ const userController = {
 
         // Cookie - Recuerda al usuario
         if(req.body.remember != undefined){
-            res.cookie('email', req.body.email,{maxAge: 1000 })
+            res.cookie('email', req.session.user.email,{maxAge: 9999999 })
         }
 
         return res.redirect('/')
