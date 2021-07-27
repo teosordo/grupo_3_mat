@@ -4,12 +4,13 @@ ___
 ## Empezar a hacer
 
   - Validar código.
-  - Consultar con los profesores mas seguido.
+  - Explicar a los compañeros sobre la lógica códigos complejos
 ___
 
 ## Hacer más
 
   - Comentar mas el código para mejor comprensión.
+  - Consultar con los profesores mas seguido.
 ___
 
 ## Continuar haciendo
