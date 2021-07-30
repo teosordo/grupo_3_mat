@@ -106,7 +106,7 @@
   {
     "id": 7,
     "name": "SSD S3300U 1TB ",
-    "brand": 1,
+    "brand": 4,
     "category": 4,
     "color": [
       1,
@@ -122,12 +122,12 @@
     "image": "image-1625335247184.png",
     "videos": "https://www.youtube.com/embed/EK29Weiz6_Q",
     "caract": "esto es una característica ",
-    "specs": "esto es una especificación"
+    "specs": "Ancho: 100.5 mm\r\nAltura: 69.85 mm\r\nPeso: 32.2 g\r\nMemoria Cache: 128 mb\r\nVelocidad De Rotación: 0 RPM\r\nTasa De Transferencia: 6.0 gb/s\r\nVelocidad Lectura Secuencial 500 mb/s\r\nVelocidad Escritura Secuencial: 320 mb/s\r\n"
   },
   {
     "id": 8,
-    "name": "Fuente EGBA 600w 80 Plus Gold",
-    "brand": 3,
+    "name": "Fuente A02 600w 80 Plus Gold",
+    "brand": 1,
     "category": 6,
     "color": [
       1,
@@ -143,12 +143,12 @@
     "image": "image-1625335522010.png",
     "videos": "https://www.youtube.com/embed/bUh2EZzJZRU",
     "caract": "esto es una característica ",
-    "specs": "esto es una especificación"
+    "specs": "Potencia: 600W\r\n20 + 4 Pines\r\n2 Conectores SATA\r\n2 Conectores HDD\r\n1 Conector P4\r\n1 Ventilador de 12 cm\r\nCable de 40 cm\r\n\r\n"
   },
   {
     "id": 9,
     "name": "Cooler CPU x9393 ",
-    "brand": 2,
+    "brand": 1,
     "category": 7,
     "color": [
       1,
@@ -164,6 +164,6 @@
     "image": "image-1625336088103.jpg",
     "videos": "https://www.youtube.com/embed/fACBaqxnb9k",
     "caract": "Esto es una características ",
-    "specs": "Esto es una especificación"
+    "specs": "Tamaño del Ventilador: 90mm\r\nModelo: BEK-93900 Black/White\r\nDimensiones del producto: 73 × 97 × 135 mm\r\nVelocidad: 800-1800 RPM (PWM) ± 10%\r\nConector: 4 pines (PWM)"
   }
 ]
