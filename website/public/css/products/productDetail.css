@@ -172,7 +172,9 @@ label select {
 #info-producto-desktop {
     display: none;
 }
-
+#info-producto-desktop article section p {
+    white-space: break-spaces;
+}
 #video-player{
     width: 100%;
     min-height: 330px;
@@ -238,7 +240,6 @@ label select {
     }
     #info-producto-desktop h3 {
         font-size: 1.5rem;
-        
     }
     #info-producto-desktop h3, #info-producto-desktop section {
         height: fit-content;
