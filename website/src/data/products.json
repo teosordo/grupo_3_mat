@@ -10,13 +10,12 @@
     "price": 5000,
     "stock": 20,
     "discount": 50,
-    "detail": "esto es una descripción",
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",
     "warranty": "2 años",
     "image": "componentCASE.jpg",
     "videos": "https://youtube.com/embed/HSseaknEv9Q",
-    "caract": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nemo distinctio fugiat repellendus rem, deserunt nihil nisi quis repellat et numquam placeat. Voluptates, porro unde. Iusto nesciunt praesentium expedita mollitia.",
+    "caract": "Incluye fuente de alimentación: No //\r\nTipo de estructura: Mid tower //\r\nPuertos: USB 3.0,USB 2.0,Audio HD //\r\nBahías: 3.5 in,2.5 in //\r\nAltura x Ancho x Largo: 480 mm x 210 mm x 440 mm //\r\nPlacas madre compatibles: ATX,Micro-ATX,Mini-ITX,E-ATX //",
     "specs": "Línea: Carbide \r\nModelo: SPEC-05 // CC-9011138-WW"
   },
   {
@@ -31,7 +30,6 @@
     "price": 25000,
     "stock": 19,
     "discount": 20,
-    "detail": "esto es una descripción",
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",
     "warranty": "6 meses",
@@ -51,7 +49,6 @@
     "price": 2000,
     "stock": 20,
     "discount": 10,
-    "detail": "esto es un detalle del producto",
     "payment": "fas fa-credit-card",
     "shipping": "Gratis!",
     "warranty": "6 meses",
@@ -70,7 +67,6 @@
       6
     ],
     "price": 5600,
-    "detail": "esto es un detalle del producto",
     "stock": 20,
     "discount": 0,
     "shipping": "Gratis!",
@@ -92,7 +88,6 @@
       5
     ],
     "price": 7600,
-    "detail": "esto es un detalle",
     "stock": 20,
     "discount": 0,
     "shipping": "Gratis!",
@@ -113,7 +108,6 @@
       2
     ],
     "price": 11000,
-    "detail": "esto es un detalle",
     "stock": 20,
     "discount": 32,
     "shipping": "Gratis!",
@@ -134,7 +128,6 @@
       2
     ],
     "price": 7500,
-    "detail": "esto es un detalle",
     "stock": 20,
     "discount": 0,
     "shipping": "Gratis!",
@@ -156,7 +149,6 @@
     ],
     "price": 3222,
     "stock": 20,
-    "detail": "Esto es un detalle",
     "discount": 0,
     "shipping": "Gratis!",
     "payment": "fas fa-credit-card",
