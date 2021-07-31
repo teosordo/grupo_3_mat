@@ -5,10 +5,10 @@ const multer = require('multer');
 
 const userController = require('../controllers/userController');
 
-const login = require('../middlewares/loginValidator');
-const userAccess = require('../middlewares/userAccess');
-const hostAccess = require('../middlewares/hostAccess');
-const registerMiddleware = require('../middlewares/registerValidator');
+const login = require('../middlewares/users/loginValidator');
+const userAccess = require('../middlewares/users/userAccess');
+const hostAccess = require('../middlewares/users/hostAccess');
+const registerMiddleware = require('../middlewares/users/registerValidator');
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{

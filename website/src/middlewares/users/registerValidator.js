@@ -1,5 +1,5 @@
 const {body} = require('express-validator');
-const {findByField} = require('../models/user');
+const {findByField} = require('../../models/user');
 
 module.exports = [
     body('firstName').notEmpty().withMessage('Ingrese su nombre'),

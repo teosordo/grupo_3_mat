@@ -54,8 +54,8 @@
     "warranty": "6 meses",
     "image": "motherboard-png_8735396.png",
     "videos": "https://youtube.com/embed/rx71hDO-fqQ",
-    "caract": "Plataforma: AMD. Socket: AM4 A-Series, AM4 APU 2da generación, AM4 APU 1ra generación, AM4 Ryzen 1ra generación, AM4 Ryzen2da generación, AM4 Ryzen 3er generación. Chipsets principal: AMD A320.",
-    "specs": "Conectividad: Slot Pci-e 16X (1), puertos Sata (4), salidas HDMI, salidas DVI, placa de red: gigabit LAN 10/100/1000 Mb/s, puertos USB 2.0 (2), puertos USB 3.0 (4). Dimensiones: factor M-ATX. Energía: consumo de 35 w. Memoria: slot Ddr4 (2). Placa de sonido: 7.1 Realtek ALC 887."
+    "caract": "Plataforma: AMD mm\r\nSocket: AM4 A-Series, AM4 APU 2da generación, AM4 APU 1ra generación, AM4 Ryzen 1ra generación, AM4 Ryzen2da generación, AM4 Ryzen 3er generación mm\r\nChipsets principal: AMD A320.",
+    "specs": "Conectividad: Slot Pci-e 16X (1), puertos Sata (4), salidas HDMI, salidas DVI, placa de red: gigabit LAN 10/100/1000 Mb/s, puertos USB 2.0 (2), puertos USB 3.0 (4) mm\r\nDimensiones: factor M-ATX mm\r\nEnergía: consumo de 35 w mm\r\nMemoria: slot Ddr4 (2) mm\r\nPlaca de sonido: 7.1 Realtek ALC 887."
   },
   {
     "id": 5,
