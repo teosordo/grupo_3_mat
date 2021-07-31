@@ -272,6 +272,7 @@ label select {
         top: 30px;
         left: 0;
         padding: 15px;
+        overflow: scroll;
     }
     #info-producto-desktop article:hover iframe {
         visibility: visible;
