@@ -23,8 +23,6 @@ module.exports = [
                throw new Error('El link debe empezar con youtube.com/embed/')
             }
         }),
-    body('detail')
-        .notEmpty().withMessage('Complete el campo con el detalle del producto'),
     body('caract')
         .notEmpty().withMessage('Complete el campo con las características del producto'),
     body('specs')

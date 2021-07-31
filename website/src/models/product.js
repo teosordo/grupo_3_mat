@@ -51,7 +51,6 @@ const product = {
             category: parseInt(newData.category),
             color: typeof newData.colors == 'string' ? [newData.colors] : newData.colors.map(element => parseInt(element)),
             price: parseInt(newData.price),
-            detail: newData.detail, 
             discount: 0,
             stock: parseInt(newData.stock),
             shipping: "Gratis!",
@@ -92,7 +91,6 @@ const product = {
                 producto.category = parseInt(data.category);
                 producto.color = typeof data.colors == 'string' ? [data.colors] : data.colors.map(element => parseInt(element));
                 producto.price = parseInt(data.price);
-                producto.detail = data.detail;
                 producto.discount = parseInt(data.discount);
                 producto.stock = parseInt(data.stock);       
                 producto.warranty = data.warranty;

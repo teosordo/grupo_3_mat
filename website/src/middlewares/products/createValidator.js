@@ -27,7 +27,5 @@ module.exports = [
     body('caract')
         .notEmpty().withMessage('Debe ingresar las caracteristicas'),
     body('specs')
-        .notEmpty().withMessage('Debe ingresar las especificaciones'),
-    body('detail')
-        .notEmpty().withMessage('Debe ingresar el detalle'),
+        .notEmpty().withMessage('Debe ingresar las especificaciones')
 ]

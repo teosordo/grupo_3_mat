@@ -1,4 +1,4 @@
-const {findByField} = require('../models/user')
+const {findByField} = require('../../models/user')
 module.exports = (req,res,next) =>{
     if(req.cookies.email){
         //Busca el usuario segun el email de la cookie
