@@ -31,5 +31,6 @@ router.post('/create', [adminAccess, upload.single('image'), createValidations],
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
 router.delete("/:id", [adminAccess], productController.deleteAll);
-
+//Product Categories
+router.get('/categories', [adminAccess], productController.categories);
 module.exports = router;

@@ -17,7 +17,6 @@ const productController = {
         let idProduct = req.params.id
         let product = productsFunctions.search(idProduct);
         return product ? res.render('products/productDetail', {product: product} ): res.redirect('/')
-
     },
     newProduct:(req,res) => {
         res.render('products/productCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})
@@ -52,6 +51,9 @@ const productController = {
     deleteAll: (req,res) => {
         let result = productsFunctions.deleteAll(req.params.id);
         return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se borró el producto") 
+    },
+    categories: (req, res) => {
+        res.render('products/productCategories', {categories: categoryFunctions.all()});
     }
 };
 

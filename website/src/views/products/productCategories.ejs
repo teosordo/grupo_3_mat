@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Creando un Producto</title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Categorias y detalles de productos</h1>
+            <form action="/products/create" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <% categories.forEach(element =>{ %>
+                        <label for="detail" value="<%=element.id%>"><%=element.name%></label>
+                        <textarea name="detail" id='detail' class="product-info large-input" value="<%=element.id%>"><%=element.detail%></textarea> 
+                    <% }) %>
+                        <label for="detail" value="otra">Otra</label>
+                        <textarea name="detail" id='detail' class="product-info large-input" value=""></textarea>
+                    <button type="submit" id="button-submit">Crear</button>
+                </fieldset>
+            </form>
+    </section>
+    </main>
+        <%-include('../includes/footer') %>  
+</body>
+</html>

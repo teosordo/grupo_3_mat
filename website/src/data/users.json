@@ -61,5 +61,14 @@
     "email": "juancho@mail.com",
     "password": "$2a$10$FcDzXuoop2AE410javtBi.du.KAEFUy/vj7.w1IhIVSiVzRmS5OZO",
     "avatar": "default-user.jpg"
+  },
+  {
+    "id": 10,
+    "firstName": "Angelica Belen",
+    "lastName": "Dutra Ortiz",
+    "username": "angiee",
+    "email": "angie@matech.com",
+    "password": "$2a$10$vPPK3yJbWaQs1OCSsk173eg4biH1wMgfWQ8gvwFpe6MI17obCk4Fq",
+    "avatar": "default-user.jpg"
   }
 ]

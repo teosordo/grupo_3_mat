@@ -28,6 +28,7 @@
 
                         <label for="category" class="create-labels">Categorias del Producto
                             <select name="category" id="category" class="product-info">
+                                <option selected disabled>Seleccione categoria</option>
                             <% categories.forEach(element =>{ %> 
                                 <option value="<%= element.id%>"><%=element.name%></option>
                             <% }) %> 
@@ -35,6 +36,7 @@
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
+                            <option selected disabled>Seleccione marca</option>
                             <select name="brand" id='brand' class="product-info">
                                 <% brands.forEach(element =>{ %> 
                                     <option value="<%= element.id%>"><%=element.name%></option>
@@ -64,6 +66,7 @@
 
                         <label for="colors" class="create-labels full-sized">Colores 
                             <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
+                                <option selected disabled>Seleccione color/es</option>
                                 <% colors.forEach(color =>{ %>\
                                     <%if(locals.errors && productInfo && productInfo.colors){%>
                                         <% if (typeof productInfo.colors == 'string') { %>
