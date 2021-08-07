@@ -22,13 +22,13 @@ module.exports = {
             key: 'id'
           }
         },
-       /*  categoryId: {
+        category_id: {
           type: Sequelize.INTEGER,
           references: {
             model: 'categories',
             key: 'id'
           } 
-        } */ 
+        },
         price: {
           type: Sequelize.DECIMAL,
           allowNull: false
@@ -45,14 +45,7 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
           defaultValue: null
-        },
-        /* imagesId: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'images',
-            key: 'id'
-          }
-        }, */
+        }, 
         video: {
           type: Sequelize.STRING,
           allowNull: true,
