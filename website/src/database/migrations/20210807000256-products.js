@@ -24,6 +24,7 @@ module.exports = {
         },
         category_id: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
             model: 'categories',
             key: 'id'
@@ -39,7 +40,8 @@ module.exports = {
         },
         discount: {
           type: Sequelize.INTEGER,
-          defaultValue: 0
+          allowNull: true,
+          defaultValue: null
         },
         warranty: {
           type: Sequelize.STRING,
