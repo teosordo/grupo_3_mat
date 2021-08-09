@@ -3,6 +3,7 @@ const brandFunctions = require('../models/brand')
 const categoryFunctions = require('../models/category')
 const colorFunctions = require('../models/color')
 const {validationResult} = require('express-validator')
+const db = require('../database/models')
 // pasar a middleware
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
@@ -10,13 +11,34 @@ const finalPrice = (price, discount) => {
 }
 
 const productController = {
-    listProduct: (req, res)=>{
-        res.render('products/productList', {products: productsFunctions.all(), category: categoryFunctions.all(), finalPrice: finalPrice})
+    listProduct: async (req, res)=>{
+        try {
+            /*Productos completos*/
+            let products = await db.Product.findAll({
+                include:['brand','category','images']
+            });
+            /*Categorias para el navbar*/
+            let category = await db.Category.findAll();
+            /*Calcula el descuento que tiene el producto*/
+            let finalPrice = (price, discount) => {
+                let restante = (price * discount) / 100;
+                return price - restante;
+            };
+            return res.render('products/productList', {products, category, finalPrice});
+        }catch (error) {
+            throw error;
+        }
     },
-    productDetail: (req, res) => {
-        let idProduct = req.params.id
-        let product = productsFunctions.search(idProduct);
-        return product ? res.render('products/productDetail', {product: product} ): res.redirect('/')
+    productDetail: async (req, res) => {
+        try {
+            let idProduct = req.params.id
+            let product = await db.Product.findByPk(idProduct,{
+                include:['colors','brand','category','images']
+            });
+            return product ? res.render('products/productDetail', {product}): res.redirect('/')
+        } catch (error) {
+            throw error
+        }
     },
     newProduct:(req,res) => {
         res.render('products/productCreate', {brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all()})

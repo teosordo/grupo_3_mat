@@ -19,7 +19,7 @@
         
             <figure>
                 <i id="i-left" class="fas fa-angle-left"></i>
-                <img src='/uploads/products/<%= product.image %>' alt="producto">
+                <img src='/uploads/products/<%= product.images[0].name %>' alt="producto">
                 <i id="i-right" class="fas fa-angle-right"></i>
             </figure>
 
@@ -44,9 +44,13 @@
                             <form action="/" method="POST" class='form-product-stock' required>
                                 <label for="color">Colores:
                                     <select name="color" id="color">
-                                        <%product.color.forEach(element=>{ %>
-                                            <option value="<%=element.id%>"><%= element.name %></option>
-                                        <% }) %> 
+                                        <% if (product.colors.constructor === Array) { %>
+                                            <% product.colors.forEach(color => { %>
+                                                <option value='<%=color.id%>'><%= color.name%></option>
+                                            <% }) %>
+                                        <% }else{ %>
+                                            <option value="<%= product.colors.id%>"><%= product.colors.name %> </option>
+                                        <% } %>
                                     </select>
                                 </label>
                                 <label for="cantidad">Cantidad:
@@ -85,12 +89,6 @@
                         <h3>Características</h3>
                         <section>
                             <p>Marca: <%= product.brand.name %></p>
-                            <p>
-                                Colores: 
-                                <% product.color.forEach(element=>{ %>
-                                    <%= element.name %>
-                                <% }) %>
-                            </p>
                             <p><%= product.caract %></p>
                         </section>
                     </article>
@@ -104,7 +102,7 @@
 
                     <article>
                         <h3>Videos</h3>
-                        <iframe id="video-player" src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="video-player" src="<%=product.video%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </article>
                 </section>
             </article>
@@ -123,7 +121,7 @@
             <article>
                 <h3>Videos <i class="fas fa-chevron-down"></i></h3>
                 
-                <iframe src="<%=product.videos%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="<%=product.video%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </article>
         </section>
     </main>
