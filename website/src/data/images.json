@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "componentCASE.jpg",
+    "product_id": 1
+  },
+  {
+    "id": 2,
+    "name": "componentGC.jpg",
+    "product_id": 2
+  },
+  {
+    "id": 3,
+    "name": "motherboard-png_8735396.png",
+    "product_id": 3
+  },
+  {
+    "id": 4,
+    "name": "image-1625333121814.png",
+    "product_id": 4
+  },
+  {
+    "id": 5,
+    "name": "image-1625334008921.png",
+    "product_id": 5
+  },
+  {
+    "id": 6,
+    "name": "image-1625335247184.png",
+    "product_id": 6
+  },
+  {
+    "id": 7,
+    "name": "image-1625335522010.png",
+    "product_id": 7
+  },
+  {
+    "id": 8,
+    "name": "image-1625336088103.jpg",
+    "product_id": 8
+  }
+]
