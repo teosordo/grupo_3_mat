@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
         cb(null, path.resolve(__dirname,'../../public/uploads/products'))
     },
     filename:(req,file,cb)=>{
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        cb(null, file.fieldname + '-' + Date.now() + file.originalname + path.extname(file.originalname))
     }
 })
 
@@ -22,11 +22,16 @@ const upload = multer({storage})
 
 //Product List
 router.get('/', productController.listProduct);
+// Product Admin Options 
+router.get('/options',[adminAccess], productController.adminOptions);
 // Product Detail
 router.get('/detail/:id', productController.productDetail);
 //Product Create
 router.get('/create', [adminAccess], productController.newProduct);
 router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct);
+router.post('/create/brand', [adminAccess, createValidations],productController.createBrand);
+router.post('/create/category', [adminAccess, createValidations],productController.createCategory);
+router.post('/create/color', [adminAccess, createValidations],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);

@@ -3,17 +3,27 @@ main{
 }
 
 /****** ESTILOS OPTIMIZADOS ******/
-label, #button-submit, #delete-button{
+label, #button-submit, #delete-button, .option-button,.link-button{
     font-family:'Barlow Semi Condensed', sans-serif;
 }
-h1, #button-submit{
+h1{
     color: #fff;
-    background-color: #6765D6;
+    background-color: #34373a;
+    text-shadow: 2px 2px 0px #6765d6;
 }
-legend, #content-container, #button-submit, .product-info{
+.link-button:hover,#button-submit,.light-up,.option-button:hover,a{
+    text-decoration: none;
+    color: white;
+}
+
+.link-button{
+    background-color: #646396;
+    
+}
+legend, #button-submit, .product-info{
     border: 1px solid black;
 }
-#button-submit, #delete-button, .product-info { 
+#button-submit, #delete-button, .product-info{ 
     border-radius: 5px;
 }
 #content-container, .product-info{
@@ -23,10 +33,37 @@ legend, #content-container, #button-submit, .product-info{
 .create-labels, .create-textarea{
     width: 80%;
 }
+#button-submit,.option-button:hover{
+    background-color: #6765d6;
+}
+/****** Opciones de Admin ******/
+#buttons-container{
+    display: flex;
+}
+
+.option-button{
+    border: 3px solid #00000042;
+    height: 65px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+}
+.link-button:hover{
+    cursor: pointer;
+    background-color: #6765d6;
+}
+.btn-a-link{
+    width: 50%;
+}
+.link-button{
+    width: 100%;
+    border: 3px solid #00000042;
+    height: 40px;
+}
 
 /****** Contenido de Main*********/
 h1, h2{
-    margin: 0 0 10px;
+    margin: 0 0;
     padding: 15px;
 }
 h2{
@@ -50,7 +87,7 @@ legend{
     padding: 6px;
 }
 
-#button-submit,#delete-button {
+#button-submit,#delete-button{
     display: block;
     margin: 25px auto 20px;
     font-size: 1.5rem;
@@ -98,10 +135,10 @@ label{
 .create-labels select{
     text-transform: capitalize;
 }
-.create-labels #colors{
+.create-labels #color{
     height: fit-content;
 }
-#colors option{
+#color option{
     border: 1px solid black;
 }
 /* EDIT ERRORS */
@@ -120,7 +157,8 @@ label{
         width: 90%;
         border-radius: 8px;
         margin: 20px auto 10px;
-        box-shadow: 1px 0 10px #666666
+        box-shadow: 1px 0 10px #666666;
+        border: 1px solid black;
     }
 
     /* CREATE */
@@ -173,6 +211,9 @@ label{
     .desktopList{
         display: initial;
     }
+    #links{
+        flex-wrap: initial;
+    }
 }
 @media(min-width: 965px){
     #fieldset-small .product-info{
@@ -189,4 +230,24 @@ label{
     .edit-labels{
         width: 60%;
     }
+}
+
+
+
+/**TEST**/
+.button-color-on{
+    background-color: #6765d6;
+    color: white;
+}
+.button-color-off{
+    background-color: #a5acc9;
+    color: black;
+}
+
+.show{
+    display: flex;
+    flex-wrap: wrap;
+}
+.hide{
+    display: none;
 }

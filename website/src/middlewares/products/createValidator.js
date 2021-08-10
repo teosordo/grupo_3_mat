@@ -11,20 +11,17 @@ module.exports = [
     body('stock')
         .notEmpty().withMessage('Ingrese la cantidad de stock del producto').bail()
         .isNumeric().withMessage('Ingrese un número valido'),
-    body('videos')
+    body('video')
         .custom(value =>{
-            if(value === ''){
+            if(value === '' || value.indexOf('youtube.com/embed/' ) >= 0 ){
                 return true
-            }else if(value.indexOf('youtube.com/embed/' ) >= 0){
-                return true 
-                
             }else{
                throw new Error('El link debe empezar con youtube.com/embed/')
             }
         }),
-    body('colors')
+    body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color'),
-    body('caract')
+    body('characteristics')
         .notEmpty().withMessage('Debe ingresar las caracteristicas'),
     body('specs')
         .notEmpty().withMessage('Debe ingresar las especificaciones')

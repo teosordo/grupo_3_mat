@@ -15,12 +15,10 @@
             <h1>Categorias y detalles de productos</h1>
             <form action="/products/create" method="POST" enctype="multipart/form-data">
                 <fieldset>
-                    <% categories.forEach(element =>{ %>
-                        <label for="detail" value="<%=element.id%>"><%=element.name%></label>
-                        <textarea name="detail" id='detail' class="product-info large-input" value="<%=element.id%>"><%=element.detail%></textarea> 
-                    <% }) %>
-                        <label for="detail" value="otra">Otra</label>
-                        <textarea name="detail" id='detail' class="product-info large-input" value=""></textarea>
+                    <label for="name">Nombre de la Categoria</label>
+                    <input type="text">
+                    <label for="detail">Ingrese Detalle de la Categoria</label>
+                    <textarea name="detail" id="detail" cols="30" rows="10"></textarea>
                     <button type="submit" id="button-submit">Crear</button>
                 </fieldset>
             </form>

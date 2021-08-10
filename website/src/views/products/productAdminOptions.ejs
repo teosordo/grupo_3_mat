@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Creando un Producto</title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Opciones</h1>
+            <section id="buttons-container">
+                <button class="option-button button-color-off" id="create-button">
+                    Agregar
+                </button>
+                <button class="option-button button-color-off" id="edit-button">
+                    Editar
+                </button>
+            </section>
+            <section class='hide' id="links">
+                <a href="/products/create" class="btn-a-link" id="btn-a-link-product">
+                    <button class="link-button">
+                    Producto
+                    </button>
+                </a>
+                <a href="" class="btn-a-link" id="btn-a-link-brand">
+                    <button class="link-button">
+                        Marca
+                    </button>
+                </a>
+                <a href="" class="btn-a-link" id="btn-a-link-category">
+                    <button class="link-button">
+                        Categoría
+                    </button>
+                </a>
+                <a href="" class="btn-a-link" id="btn-a-link-color">
+                    <button class="link-button">
+                        Color
+                    </button>
+                </a>
+            </section>
+        </section>
+    </main>
+        <%-include('../includes/footer') %>  
+    <script src="/js/adminOptions.js"></script>
+</body>
+</html>

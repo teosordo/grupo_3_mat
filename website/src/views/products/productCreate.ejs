@@ -28,7 +28,6 @@
 
                         <label for="category" class="create-labels">Categorias del Producto
                             <select name="category" id="category" class="product-info">
-                                <option selected disabled>Seleccione categoria</option>
                             <% categories.forEach(element =>{ %> 
                                 <option value="<%= element.id%>"><%=element.name%></option>
                             <% }) %> 
@@ -36,7 +35,6 @@
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
-                            <option selected disabled>Seleccione marca</option>
                             <select name="brand" id='brand' class="product-info">
                                 <% brands.forEach(element =>{ %> 
                                     <option value="<%= element.id%>"><%=element.name%></option>
@@ -60,19 +58,18 @@
                             <input type="text" name="stock" id="stock" class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.stock : null%>">
                         </label>
 
-                        <label for="videos" class="create-labels full-sized">Link a video del producto (opcional)
-                            <input type="text" name="videos" id="videos" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.videos : null%>">
+                        <label for="video" class="create-labels full-sized">Link a video del producto (opcional)
+                            <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.video ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.video : null%>">
                         </label>
 
-                        <label for="colors" class="create-labels full-sized">Colores 
-                            <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
-                                <option selected disabled>Seleccione color/es</option>
+                        <label for="color" class="create-labels full-sized">Colores 
+                            <select name="color" id="color" class="product-info <%= locals.errors && errors.color ? 'form-input-error': null%>" multiple>
                                 <% colors.forEach(color =>{ %>\
-                                    <%if(locals.errors && productInfo && productInfo.colors){%>
-                                        <% if (typeof productInfo.colors == 'string') { %>
-                                            <option value="<%= color.id%>" <%= productInfo.colors.indexOf(color.id) >= 0? 'selected' : ''%>><%=color.name%></option>
+                                    <%if(locals.errors && productInfo && productInfo.color){%>
+                                        <% if (typeof productInfo.color == 'string') { %>
+                                            <option value="<%= color.id%>" <%= productInfo.color.indexOf(color.id) >= 0? 'selected' : ''%>><%=color.name%></option>
                                         <% } else { %>
-                                            <option value="<%= color.id%>" <%= productInfo.colors.findIndex(productColor => {return productColor == color.id}) >= 0? 'selected' : ''%>><%=color.name%></option>
+                                            <option value="<%= color.id%>" <%= productInfo.color.findIndex(productColor => {return productColor == color.id}) >= 0? 'selected' : ''%>><%=color.name%></option>
                                         <% } %>
                                     <% }else{ %>
                                         <option value="<%= color.id%>"><%=color.name%></option>
@@ -81,18 +78,13 @@
                             </select>
                         </label>
 
-                        <label for="caract" class="create-textarea">Características del producto
-                            <textarea name="caract" id='caract' class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.caract : null%>" rows="4"></textarea>
+                        <label for="characteristics" class="create-textarea">Características del producto
+                            <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.caract : null%>" rows="4"></textarea>
                         </label>
                         
                         <label for="specs" class="create-textarea">Especificaciones del producto
                             <textarea name="specs" id='specs' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea>
                         </label>
-                        
-                        <label for="detail" class="create-textarea">Detalle del producto
-                            <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea> 
-                        </label>
-                        
                         <button type="submit" id="button-submit">Crear</button>
                     </fieldset>
                 </form>
