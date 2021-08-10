@@ -139,14 +139,26 @@ const productController = {
             throw error;
         }
     },
+    newBrand: (req, res) => {
+        res.render('products/productBrand')
+    },
     createBrand: async (req, res) => {
-        
+        let newBrand = await db.Brand.create(req.body)
+        return res.redirect('/')
+    },
+    newCategory: (req, res) => {
+        res.render('products/productCategory')
     },
     createCategory: async (req, res) => {
-        
+        let newCategory = await db.Category.create(req.body)
+        return res.redirect('/')
+    },
+    newColor:  (req, res) => {
+        res.render('products/productColor')
     },
     createColor: async (req, res) => {
-        
+        let newColor = await db.Color.create(req.body)
+        return res.redirect('/')
     }
 };
 

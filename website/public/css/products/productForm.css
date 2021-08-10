@@ -7,6 +7,7 @@ label, #button-submit, #delete-button, .option-button,.link-button{
     font-family:'Barlow Semi Condensed', sans-serif;
 }
 h1{
+    text-transform: capitalize;
     color: #fff;
     background-color: #34373a;
     text-shadow: 2px 2px 0px #6765d6;
@@ -139,7 +140,10 @@ label{
     height: fit-content;
 }
 #color option{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#color option:last-child{
+    border: none
 }
 /* EDIT ERRORS */
 .desktopList{

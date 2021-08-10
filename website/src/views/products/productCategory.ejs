@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Creando un Producto</title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Agrega una Categoria</h1>
+            <form action="/products/create/category" method="POST">
+                <% if (locals.errors) { %>
+                    <ul class="errorsList">
+                    <% for(let oneError in errors){ %>
+                        <li class="errors"><%= errors[oneError].msg %> </li>
+                    <% } %> 
+                    </ul>
+                <% } %>
+                <fieldset>
+                    <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Categoria
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.name : null%>">
+                    </label>
+                    <label for="detail" class="create-textarea">Ayuda informativa de la categoria
+                        <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.detail : null%>" rows="4"></textarea>
+                    </label>
+                    <button type="submit" id="button-submit">Crear</button>
+                </fieldset>
+            </form>
+    </section>
+    </main>
+        <%-include('../includes/footer') %>  
+</body>
+</html>
