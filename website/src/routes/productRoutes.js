@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
 
 //Product List
-router.get('/', productController.listProduct);
+router.get('/list/:id', productController.listProduct);
 // Product Admin Options 
 router.get('/options',[adminAccess], productController.adminOptions);
 // Product Detail
@@ -29,13 +29,17 @@ router.get('/detail/:id', productController.productDetail);
 //Product Create
 router.get('/create', [adminAccess], productController.newProduct);
 router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct);
-router.post('/create/brand', [adminAccess, createValidations],productController.createBrand);
-router.post('/create/category', [adminAccess, createValidations],productController.createCategory);
-router.post('/create/color', [adminAccess, createValidations],productController.createColor);
+//Brand Create
+router.get('/create/brand', [adminAccess],productController.newBrand);
+router.post('/create/brand', [adminAccess],productController.createBrand);
+//Category Create
+router.get('/create/category', [adminAccess],productController.newCategory);
+router.post('/create/category', [adminAccess],productController.createCategory);
+//Color Create
+router.get('/create/color', [adminAccess],productController.newColor);
+router.post('/create/color', [adminAccess],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
 router.delete("/:id", [adminAccess], productController.deleteAll);
-//Product Categories
-router.get('/categories', [adminAccess], productController.categories);
 module.exports = router;

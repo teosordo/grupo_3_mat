@@ -2,7 +2,7 @@ const productsFunctions = require('../models/product');
 const userFunctions = require('../models/user');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
-
+const db = require('../database/models')
 const userController = {
     login: (req, res) => {
         res.render('users/login');
@@ -30,13 +30,24 @@ const userController = {
     register: (req, res) => {
         res.render('users/register');
     },
-    createUser: (req, res) => {
+    createUser: async (req, res) => {
         const result = validationResult(req);
         if(result.errors.length > 0){
             return res.render('users/register',{errors: result.mapped(), userInfo: req.body})
         }else{
-            let create = userFunctions.create(req.body,req.file)
-            return create ? res.redirect('/users/login') : null
+            try {
+                let newUser = await db.User.create({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    avatar: req.file == undefined ? 'default-user.jpg' : req.file.filename
+                })
+                res.redirect('/')
+            } catch (error) {
+                throw error
+            }
         }
     },
     productCart: (req, res) => {

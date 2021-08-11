@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'User';
-    const cols = {
+    let alias = 'User'
+    let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -33,24 +33,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
           }
     };
-    const config = {
+    let config = {
         timestamps: false,
-        deletedAt: false
-    };
-
-    const User = sequelize.define(alias, cols, config);
-
-    User.associate = models => {
-        /* User.hasMany(models.Cart, {
-            as: 'carts',
-            foreignKey: 'user_id'
-        });
-
-        User.hasMany(models.Purchase, {
-            as: 'purchases',
-            foreignKey: 'user_id'
-        }); */
+        deletedAt: false,
     }
-
-    return User;
+    const User = sequelize.define(alias,cols,config)
+    
+    return User
 }

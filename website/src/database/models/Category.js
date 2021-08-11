@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             unique: true
         },
         detail: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(1500),
             allowNull: false
         }
     };

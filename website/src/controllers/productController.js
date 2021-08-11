@@ -13,18 +13,31 @@ const finalPrice = (price, discount) => {
 const productController = {
     listProduct: async (req, res)=>{
         try {
+            let idPage = parseInt(req.params.id);
+            if(idPage == 0){
+                res.redirect('/products/1')
+            }
             /*Productos completos*/
             let products = await db.Product.findAll({
-                include:['brand','category','images']
+                include:['brand','category','images'],
+                offset: (idPage-1) * 3,
+                limit: 3,
             });
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
+
             /*Calcula el descuento que tiene el producto*/
             let finalPrice = (price, discount) => {
                 let restante = (price * discount) / 100;
                 return price - restante;
             };
-            return res.render('products/productList', {products, category, finalPrice});
+
+            //Busca y cuenta el total de productos
+            let productsTotalCount = await db.Product.count();
+            //Redondea el numero para saber el total de paginas necesarias 
+            let totalNumPages = Math.ceil(productsTotalCount / 3);
+
+            return res.render('products/productList', {products, category, finalPrice, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
         }
@@ -139,14 +152,26 @@ const productController = {
             throw error;
         }
     },
+    newBrand: (req, res) => {
+        res.render('products/productBrand')
+    },
     createBrand: async (req, res) => {
-        
+        let newBrand = await db.Brand.create(req.body)
+        return res.redirect('/')
+    },
+    newCategory: (req, res) => {
+        res.render('products/productCategory')
     },
     createCategory: async (req, res) => {
-        
+        let newCategory = await db.Category.create(req.body)
+        return res.redirect('/')
+    },
+    newColor:  (req, res) => {
+        res.render('products/productColor')
     },
     createColor: async (req, res) => {
-        
+        let newColor = await db.Color.create(req.body)
+        return res.redirect('/')
     }
 };
 
