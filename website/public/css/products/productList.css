@@ -1,0 +1,23 @@
+section#page-navbar-cont{
+    width: 100%;
+    text-align: center;
+}
+nav#page-navbar{
+    height:100%
+}
+
+nav a.page-navbar-btn, nav a.page-navbar-arrows{
+    color: #6765D6;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px;
+}
+nav a.page-navbar-arrows{
+    font-size:20px;
+}
+nav a.page-navbar-btn{
+    font-size:18px;
+    padding: 10px 14px;
+    background-color: #E9E9E9;
+    border-radius: 20px
+}

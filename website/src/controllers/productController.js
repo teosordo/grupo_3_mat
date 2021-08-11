@@ -13,9 +13,13 @@ const finalPrice = (price, discount) => {
 const productController = {
     listProduct: async (req, res)=>{
         try {
+            let idPage = parseInt(req.params.id);
+            console.log(idPage);
             /*Productos completos*/
             let products = await db.Product.findAll({
-                include:['brand','category','images']
+                include:['brand','category','images'],
+                offset: idPage * 3,
+                limit: 3,
             });
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
@@ -24,7 +28,7 @@ const productController = {
                 let restante = (price * discount) / 100;
                 return price - restante;
             };
-            return res.render('products/productList', {products, category, finalPrice});
+            return res.render('products/productList', {products, category, finalPrice, idPage});
         }catch (error) {
             throw error;
         }
