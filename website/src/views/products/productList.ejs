@@ -52,12 +52,10 @@
                 <% } %>
                 <section id="page-navbar-cont">
                     <nav id="page-navbar">
-                        <a href="<%= idPage == 0 ? '#' : '/products/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous"><i class="fa fa-angle-left"></i></a>
-                        <a href="#" class="page-navbar-btn active">1</a>
-                        <a href="#" class="page-navbar-btn">2</a>
-                        <a href="#" class="page-navbar-btn">3</a>
-                        <a href="#" class="page-navbar-btn">4</a>
-                        <a href="#" class="page-navbar-btn">5</a>
+                        <a href="<%= idPage == 1 ? '#' : '/products/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous"><i class="fa fa-angle-left"></i></a>
+                        <% for(let i = 1; i <= pages; i++ ) { %>
+                            <a href="<%= "/products/"+ i %> " class="page-navbar-btn"><%= i %></a>
+                        <% } %>
                         <a href="<%="/products/"+ (idPage+1)%>" class= "page-navbar-arrows" id="next"><i class="fa fa-angle-right"></i></a>
                       </div>
                     </nav>

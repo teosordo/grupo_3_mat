@@ -14,21 +14,30 @@ const productController = {
     listProduct: async (req, res)=>{
         try {
             let idPage = parseInt(req.params.id);
-            console.log(idPage);
+            if(idPage == 0){
+                res.redirect('/products/1')
+            }
             /*Productos completos*/
             let products = await db.Product.findAll({
                 include:['brand','category','images'],
-                offset: idPage * 3,
+                offset: (idPage-1) * 3,
                 limit: 3,
             });
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
+
             /*Calcula el descuento que tiene el producto*/
             let finalPrice = (price, discount) => {
                 let restante = (price * discount) / 100;
                 return price - restante;
             };
-            return res.render('products/productList', {products, category, finalPrice, idPage});
+
+            //Busca y cuenta el total de productos
+            let productsTotalCount = await db.Product.count();
+            //Redondea el numero para saber el total de paginas necesarias 
+            let totalNumPages = Math.ceil(productsTotalCount / 3);
+
+            return res.render('products/productList', {products, category, finalPrice, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
         }
