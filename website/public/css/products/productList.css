@@ -3,7 +3,7 @@ section#page-navbar-cont{
     text-align: center;
 }
 nav#page-navbar{
-    height:100%
+    font-family: 'Barlow Semi Condensed';
 }
 
 nav a.page-navbar-btn, nav a.page-navbar-arrows{
@@ -17,7 +17,7 @@ nav a.page-navbar-arrows{
 }
 nav a.page-navbar-btn{
     font-size:18px;
-    padding: 10px 14px;
+    padding: 10px 18px;
     background-color: #E9E9E9;
     border-radius: 20px
 }
