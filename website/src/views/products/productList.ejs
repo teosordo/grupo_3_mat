@@ -54,7 +54,7 @@
                     <nav id="page-navbar">
                         <a href="<%= idPage == 1 ? '#' : '/products/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous"><i class="fa fa-angle-left"></i></a>
                         <% for(let i = 1; i <= pages; i++ ) { %>
-                            <a href="<%= "/products/"+ i %> " class="page-navbar-btn"><%= i %></a>
+                            <a href="<%= "/products/"+ i %> " class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
                         <% } %>
                         <a href="<%="/products/"+ (idPage+1)%>" class= "page-navbar-arrows" id="next"><i class="fa fa-angle-right"></i></a>
                       </div>

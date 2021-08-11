@@ -21,3 +21,8 @@ nav a.page-navbar-btn{
     background-color: #E9E9E9;
     border-radius: 20px
 }
+
+nav#page-navbar a.active{
+    background-color: #6765D6;
+    color: #fff;
+}
