@@ -26,11 +26,11 @@ module.exports = [
     body('image')
         .custom((value, {req}) => {
             if(req.file == null){
-                return false
+                throw new Error('Debe subir al menos una imagen')
             }else{
                 return true
             }
-        }).withMessage('Suba al menos una imagen'),
+        }),
     body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color'),
     body('characteristics')
