@@ -3,6 +3,9 @@ const userFunctions = require('../models/user');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models')
+
+const User = db.User;
+
 const userController = {
     login: (req, res) => {
         res.render('users/login');
@@ -57,12 +60,24 @@ const userController = {
 
         res.render('users/productCart', {product: productsFunctions.all()});
     },
-    userlist: (req,res) => {
-        let allUsers = userFunctions.all()
-        res.render('users/list', {users: allUsers})
+    userlist: async (req,res) => {
+        res.render('users/list',{users: await User.findAll()})
     },
     userProfile: (req,res) => {
         res.render('users/userProfile', {user: req.session.user});
+    },
+    userEdit: async (req,res) => res.render('users/userEdit',{
+        //Recupero datos de la base de datos (User)
+        user: await User.findByPk(req.params.id)
+    }),
+    userUpdate: async (req, res) => {
+        /*
+            let userToEdit = await User.update(req.body, {where : {id: req.params.id}})
+            return res.redirect('/users/list')
+        */
+    },
+    userDelete: (req,res) => {
+
     }
 };
 module.exports = userController;

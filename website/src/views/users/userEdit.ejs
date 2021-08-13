@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head')%>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/users/userList.css">
+    <title>Perfil de Usuarios</title>
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>
+        <section id="content-container">
+            <h1>Editá los datos de <%=user.firstName%>:</h1>
+            <form action="/users/update/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <fieldset id="fieldset-small">
+                    <legend>
+                        <img src="/uploads/users/<%=user.image%>" alt="" id="product-img">
+                    </legend>
+                    <label for="firstName" class="edit-labels">Nombre:
+                        <input type="text" name="firstName" id="firstName" class="product-info" value="<%=user.firstName%>">
+                    </label>
+                    <label for="lastName" class="edit-labels">Apellido:
+                        <input type="text" name="lastName" id="lastName" class="product-info" value="<%=user.lastName%>">
+                    </label>
+                    <label for="username" class="edit-labels">Nombre de usuario:
+                        <input type="text" name="username" id="username" class="product-info" value="<%=user.username%>">
+                    </label>
+                    <label for="email" class="edit-labels">Email:
+                        <input type="email" name="email" id="email" class="product-info" value="<%=user.email%>">
+                    </label>
+                    <label for="password" class="edit-labels">Contraseña:
+                        <input type="password" name="password" id="password" class="product-info" value="<%=user.password%>">
+                    </label>
+                    <label for="image" class="edit-labels">Avatar:
+                        <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
+                    </label>
+                </fieldset>
+                <button type="submit" id="button-submit">Editar</button>
+            </form>
+            <form action="/users/delete/<%= user.id %>?_method=DELETE" method="post">
+                <button type="submit" id="delete-button">Eliminar</button>
+            </form>
+        </section>
+    </main>
+    <%-include('../includes/footer') %> 
+</body>
+</html>

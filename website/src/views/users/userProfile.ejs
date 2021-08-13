@@ -24,7 +24,7 @@
                     <ul>
                         <li>Nombre de usuario: <%= user.username %></li>
                         <li>Email: <%= user.email %></li>
-                        <li><%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
+                        <li>Tipo de user: <%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
                     </ul>
 
                     <form action="/users/logout" method="post">
