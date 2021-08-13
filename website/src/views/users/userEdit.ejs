@@ -36,8 +36,8 @@
                     <label for="avatar" class="edit-labels">Avatar:
                         <input type="file" name="avatar" id="avatar" class="product-info" accept="image/jpeg, image/png, image/jpg">
                     </label>
+                    <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
-                <button type="submit" id="button-submit">Editar</button>
             </form>
             <form action="/users/delete/<%=user.id %>?_method=DELETE" method="post">
                 <button type="submit" id="delete-button">Eliminar</button>
