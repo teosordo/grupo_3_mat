@@ -24,6 +24,10 @@ module.exports = {
             model:'Products',
             key: 'id'
           }
+        },
+        products_price: {
+          type: Sequelize.DECIMAL,
+          allowNull: false
         }
       });
     } catch (error) {

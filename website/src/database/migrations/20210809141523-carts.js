@@ -17,10 +17,6 @@ module.exports = {
             key: 'id'
           }
         },
-        products_price: {
-          type: Sequelize.DECIMAL,
-          allowNull: false
-        },
         products_amount: {
           type: Sequelize.INTEGER,
           allowNull: false

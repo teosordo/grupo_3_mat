@@ -42,5 +42,4 @@ router.get('/edit/:id', [adminAccess], userController.userEdit);
 router.put('/update/:id', [adminAccess], userController.userUpdate);
 router.delete('/delete/:id', [adminAccess], userController.userDelete);
 
-
 module.exports = router;

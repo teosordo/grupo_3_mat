@@ -66,12 +66,15 @@ const userController = {
     userProfile: (req,res) => {
         res.render('users/userProfile', {user: req.session.user});
     },
-    userEdit: async (req,res) => res.render('users/userEdit',{
-        //Recupero datos de la base de datos (User)
-        user: await User.findByPk(req.params.id)
-    }),
+    userEdit: async (req,res) => {
+        res.render('users/userEdit',{
+            //Recupero datos de la base de datos (User)
+            user: await User.findByPk(req.params.id)
+        })
+    },
     userUpdate: async (req, res) => {
-            let userToEdit = await User.update(req.body, {where : {id: req.params.id}})
+            let user = await User.update(req.body, {where : {id: req.params.id}})
+            console.log(req.body)
             return res.redirect('/users/list')
     },
     userDelete: (req,res) => {
