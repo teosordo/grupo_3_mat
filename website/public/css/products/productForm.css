@@ -48,6 +48,7 @@ legend, #button-submit, .product-info{
     width: 100%;
     font-weight: 600;
     font-size: 18px;
+    cursor: pointer;
 }
 .link-button:hover{
     cursor: pointer;

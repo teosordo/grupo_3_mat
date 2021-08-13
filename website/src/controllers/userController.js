@@ -71,8 +71,8 @@ const userController = {
         user: await User.findByPk(req.params.id)
     }),
     userUpdate: async (req, res) => {
-            let userToEdit = await User.update(req.body, {where : {id: req.params.id}})
-            return res.redirect('/users/list')
+        let userToEdit = await User.update(req.body, {where : {id: req.params.id}})
+        return res.redirect('/');
     },
     userDelete: (req,res) => {
 

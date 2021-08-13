@@ -3,6 +3,10 @@ const {body} = require('express-validator')
 module.exports = [
     body('name')
         .notEmpty().withMessage('Ingrese el nombre del producto'),
+    body('category')
+        .notEmpty().withMessage('Ingrese una categoría para el producto'),
+    body('brand')
+        .notEmpty().withMessage('Ingrese una marca para el producto'),
     body('price')
         .notEmpty().withMessage('Ingrese el valor del producto').bail()
         .isNumeric().withMessage('Ingrese el valor del producto'),
@@ -16,9 +20,17 @@ module.exports = [
             if(value === '' || value.indexOf('youtube.com/embed/' ) >= 0 ){
                 return true
             }else{
-               throw new Error('El link debe empezar con youtube.com/embed/')
+               return false
             }
-        }),
+        }).withMessage('El link debe empezar con youtube.com/embed/'),
+    body('image')
+        .custom((value, {req}) => {
+            if(req.file == null){
+                return false
+            }else{
+                return true
+            }
+        }).withMessage('Suba al menos una imagen'),
     body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color'),
     body('characteristics')
