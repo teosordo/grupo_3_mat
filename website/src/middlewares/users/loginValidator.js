@@ -23,7 +23,6 @@ module.exports = [
             if(userToLogin == null){
                 return false
             }
-            console.log(userToLogin);
             let okPassword = bcrypt.compareSync(value, userToLogin.password);
             //Comparo contraseña hasheada
                 if(okPassword){
@@ -32,8 +31,6 @@ module.exports = [
                     delete value;
                     req.session.user = userToLogin;
                     //Permisos de administrador
-                    req.session.user.admin = req.body.email.indexOf('@matech.com') !== -1 ? true : false;
-
                     return true;
                 } else {
                     throw new Error('Los datos ingresados son incorrectos.')

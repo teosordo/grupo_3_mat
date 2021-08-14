@@ -8,6 +8,7 @@ const userController = require('../controllers/userController');
 const login = require('../middlewares/users/loginValidator');
 const userAccess = require('../middlewares/users/userAccess');
 const hostAccess = require('../middlewares/users/hostAccess');
+const adminCheck = require('../middlewares/users/adminCheck');
 const adminAccess = require('../middlewares/users/adminAccess');
 
 const registerMiddleware = require('../middlewares/users/registerValidator');
@@ -25,7 +26,7 @@ const upload = multer({storage})
 
 // Login
 router.get('/login',[hostAccess], userController.login);
-router.post('/login',[hostAccess, login], userController.loginProcess);
+router.post('/login',[hostAccess, login, adminCheck], userController.loginProcess);
 // Register
 router.get('/register',[hostAccess], userController.register);
 router.post('/register',[hostAccess, upload.single('avatar'), registerMiddleware], userController.createUser);
@@ -41,6 +42,5 @@ router.post('/logout', [userAccess], userController.logout);
 router.get('/edit/:id', [adminAccess], userController.userEdit);
 router.put('/update/:id', [adminAccess], userController.userUpdate);
 router.delete('/delete/:id', [adminAccess], userController.userDelete);
-
 
 module.exports = router;
