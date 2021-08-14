@@ -55,9 +55,11 @@ const userController = {
     },
     productCartAdd: async (req, res) => {
         try {
+            //Busca el producto que se quiere agregar
             let product = await db.Product.findOne({where:{id: req.params.id}})
+            //Busco si el usuario tiene un carrito
             let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
-            console.log(userCart);
+            //Crea el carrito si el usuario no tiene un carrito activo
             if(userCart == null){
                 userCart = await db.Cart.create({
                     user_id: req.session.user.id
@@ -68,6 +70,7 @@ const userController = {
                     products_price: product.price,
                     products_amount: product.id
                 })
+                //Actualiza el carrito con la informacion del cart_products
                 await db.Cart.update({
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})
@@ -75,16 +78,28 @@ const userController = {
 
                 return res.redirect('/')
             }else{
-                let cartItem = await db.CartProducts.create({
-                    cart_id: userCart.id,
-                    product_id: product.id,
-                    products_price: product.price,
-                    products_amount: 1
-                })
+                let checkItems = await db.CartProducts.findOne({where:{cart_id: userCart.id, product_id: product.id}})
+                console.log(checkItems);
+                if(checkItems){
+                    db.CartProducts.update({
+                        products_amount: checkItems.products_amount + 1
+                    },{where:{cart_id: userCart.id, product_id: product.id}})
+                }else{
+                    await db.CartProducts.create({
+                        cart_id: userCart.id,
+                        product_id: product.id,
+                        products_price: product.price,
+                        products_amount: 1
+                    });
+                }
+                
+                //Actualiza el carrito con la informacion del cart_products
                 await db.Cart.update({
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
-                    final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})
-                },{where:{id: userCart.id}})
+                    final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
+                    {where:{id: userCart.id}
+                })
+
                 return res.redirect('/')
             }
         } catch (error) {
@@ -96,12 +111,12 @@ const userController = {
             where:{user_id: req.session.user.id, purchase_date: null},
             include:[
                 {model: db.CartProducts, as:'cart_products', include: [{model: db.Product, as:'products', include: ['images']}]}
-            ]})
+            ]});
 
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
-        res.render('users/list',{users: await User.findAll()})
+        res.render('users/list',{users: await User.findAll()});
     },
     userProfile: (req,res) => {
         res.render('users/userProfile', {user: req.session.user});

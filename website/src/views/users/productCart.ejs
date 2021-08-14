@@ -28,12 +28,7 @@
                             <figure><img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto"></figure>
                             <h3><a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %> </a></h3>
                             <form action="/" method="POST" required>
-                                <label>Cantidad:</label>
-                                <select name="cantidad" id="cantidad">
-                                    <% for(let i = 1; i <= 6; i++){ %> 
-                                        <option value="<%= i %>"><%= i %></option>
-                                    <% } %> 
-                                </select>
+                                <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
                             </form>
                             <p>$<%= products.cart_products[i].products.price %></p>
                         </section>
