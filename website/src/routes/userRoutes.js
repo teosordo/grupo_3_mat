@@ -32,6 +32,8 @@ router.get('/register',[hostAccess], userController.register);
 router.post('/register',[hostAccess, upload.single('avatar'), registerMiddleware], userController.createUser);
 // Product Cart
 router.get('/cart',[userAccess], userController.productCart);
+//Add item Cart
+router.post('/cart/add/:id',[userAccess], userController.productCartAdd)
 //User List
 router.get('/list',[adminAccess], userController.userlist);
 // Profile

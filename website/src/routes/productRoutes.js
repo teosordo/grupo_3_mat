@@ -27,10 +27,6 @@ router.get('/options',[adminAccess], productController.adminOptions);
 // Product Detail
 router.get('/detail/:id', productController.productDetail);
 
-//Add item Cart
-router.get('/test', productController.productCartAdd)
-
-
 //Product Create
 router.get('/create', [adminAccess], productController.newProduct);
 router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct);

@@ -13,24 +13,21 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model:'Users',
+            model:'users',
             key: 'id'
           }
         },
-        products_price: {
-          type: Sequelize.DECIMAL,
-          allowNull: false
-        },
-        products_amount: {
+        total_products: {
           type: Sequelize.INTEGER,
-          allowNull: false
+          allowNull: true
         },
-        total: {
+        final_price: {
           type: Sequelize.DECIMAL,
-          allowNull: false
+          allowNull: true
         },
         purchase_date: {
           type: Sequelize.DATE,
+          allowNull: true
         }
       });
     } catch (error) {
