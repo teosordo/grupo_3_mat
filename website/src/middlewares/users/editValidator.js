@@ -42,7 +42,6 @@ module.exports = [
         .custom((value, {req}) =>{
             // Solo si la contraseña tiene valores entre 1 y 8 aparece un arror de caracteres minimos
             // Si se deja vacio se conserva la contraseña del usuario
-            console.log(value)
             if(value.length>0 && value.length <8){
                 throw new Error('El nombre de usuario se encuentra en uso')
             } else {

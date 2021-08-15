@@ -43,6 +43,6 @@ router.post('/logout', [userAccess], userController.logout);
 // Editar User
 router.get('/edit/:id', [adminAccess], userController.userEdit);
 router.put('/update/:id', [adminAccess, upload.single('avatar'), edit], userController.userUpdate);
-router.delete('/delete/:id', [adminAccess], userController.userDelete);
+router.post('/delete/:id', [adminAccess], userController.userDelete);
 
 module.exports = router;

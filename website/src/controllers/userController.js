@@ -45,7 +45,7 @@ const userController = {
                     password: bcrypt.hashSync(req.body.password, 10),
                     avatar: req.file == undefined ? 'default-user.jpg' : req.file.filename
                 })
-                res.redirect('/')
+                res.redirect('login')
             } catch (error) {
                 throw error
             }
@@ -77,7 +77,7 @@ const userController = {
                 return res.redirect('/')
             }else{
                 let checkItems = await db.CartProducts.findOne({where:{cart_id: userCart.id, product_id: product.id}})
-                console.log(checkItems);
+                //console.log(checkItems);
                 if(checkItems){
                     db.CartProducts.update({
                         products_amount: checkItems.products_amount + 1
@@ -128,10 +128,10 @@ const userController = {
     userUpdate: async (req, res) => {
         const result = validationResult(req);
         // Los datos escritos en body se agregan a la db de User segun su id
-        const user = await db.User.findByPk(req.params.id)
+        const users = await db.User.findByPk(req.params.id)
         
         if(result.errors.length > 0){
-            return res.render('users/userEdit' ,{errors: result.mapped(), user})
+            return res.render('users/userEdit' ,{errors: result.mapped(), users})
         }else{
             try {
                 let userToEdit = await db.User.update({
@@ -139,8 +139,8 @@ const userController = {
                     lastName: req.body.lastName,
                     username: req.body.username,
                     email: req.body.email,
-                    password: req.body.password == '' ? user.password : bcrypt.hashSync(req.body.password, 10),
-                    avatar: req.file == undefined ? user.avatar : req.file.filename
+                    password: req.body.password == '' ? users.password : bcrypt.hashSync(req.body.password, 10),
+                    avatar: req.file == undefined ? users.avatar : req.file.filename
                 },{
                     where : {id: req.params.id}
                 })
@@ -150,8 +150,9 @@ const userController = {
             }
         }
     },
-    userDelete: (req,res) => {
-
+    userDelete: async (req,res) => {
+        db.User.destroy({where : {id: req.params.id}})
+        res.redirect('/users/list');
     }
 };
 module.exports = userController;
