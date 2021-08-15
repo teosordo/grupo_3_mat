@@ -22,29 +22,24 @@
             </section>
 
             <article id="products-container">
-                <% for(let i = 0; i < product.length; i++){ %> 
+                <% for(let i = 0; i < products.cart_products.length; i++){ %> 
                     <section>
                         <section class="product"> 
-                            <figure><img src="/uploads/products/<%= product[i].image %> " alt="foto_producto"></figure>
-                            <h3><a href="/products/detail/<%= product[i].id %> "><%= product[i].name %> </a></h3>
+                            <figure><img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto"></figure>
+                            <h3><a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %> </a></h3>
                             <form action="/" method="POST" required>
-                                <label>Cantidad:</label>
-                                <select name="cantidad" id="cantidad">
-                                    <% for(let i = 1; i <= 6; i++){ %> 
-                                        <option value="<%= i %>"><%= i %></option>
-                                    <% } %> 
-                                </select>
+                                <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
                             </form>
-                            <p>$<%= product[i].price %></p>
+                            <p>$<%= products.cart_products[i].products.price %></p>
                         </section>
                     </section>
                 <% } %> 
             </article>
 
             <article id="units-total">
-                <h3>Unidades: X</h3>
+                <h3>Unidades: <%= products.amount%></h3>
 
-                <h3>Total: $<%= total %> </h3>
+                <h3>Total: $<%= products.final_price %> </h3>
             </article>
 
             <button id="buy-button">Realizar pedido</button>

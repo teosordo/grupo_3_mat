@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     try {
-      await queryInterface.createTable('carts_products', {
+      await queryInterface.createTable('cart_products', {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -13,7 +13,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model:'Carts',
+            model:'carts',
             key: 'id'
           }
         },
@@ -21,14 +21,18 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model:'Products',
+            model:'products',
             key: 'id'
           }
         },
         products_price: {
           type: Sequelize.DECIMAL,
           allowNull: false
-        }
+        },
+        products_amount: {
+          type: Sequelize.INTEGER,
+          allowNull: false
+        },
       });
     } catch (error) {
       throw error

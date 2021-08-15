@@ -12,15 +12,15 @@
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <% for(i = 0;i < user.length;i++) { %>
-            <a href="/users/edit/<%=user[i].id%>">
+            <% for(i = 0;i < users.length;i++) { %>
+            <a href="/users/edit/<%=users[i].id%>">
                 <article class="container-user">
                     <figure class="container-img-user">
-                        <img src="/uploads/users/<%= user[i].avatar%>" alt="" class="img-user">
+                        <img src="/uploads/users/<%= users[i].avatar%>" alt="" class="img-user">
                     </figure>
                     <section class="user-info">
-                        <h2><%= user[i].username%></h2>
-                        <h3>Nombre Completo: <%= user[i].firstName + ' ' + user[i].lastName %></h3>
+                        <h2><%= users[i].username%></h2>
+                        <h3>Nombre Completo: <%= users[i].firstName + ' ' + users[i].lastName %></h3>
                     </section>
                 </article>
             </a>
