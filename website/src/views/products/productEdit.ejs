@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/<%= style %> ">
     <% }) %>
     <link rel="stylesheet" href="/css/products/productForm.css">
-    <title>Editando <%=product.name%></title>
+    <title>Editando <%=product.prevName ? product.prevName : product.name%></title>
 </head>
 <body>
     <%- include('../includes/header') %>
@@ -23,8 +23,8 @@
             <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
-                        <img src="/uploads/products/<%=product.image%>" alt="" id="product-img">
-                        <h2><%=product.name%></h2>
+                        <img src="/uploads/products/<%=product.images[0].name%>" alt="" id="product-img">
+                        <h2><%=product.prevName ? product.prevName : product.name%></h2>
                     </legend>
                     <% if (locals.errors) { %>
                         <ul class="errorsList mobileList">
@@ -39,47 +39,41 @@
 
                     <label for="category" class="edit-labels">Categoría:
                         <select name="category" id="category" class="product-info">
-                        <% categories.forEach(element =>{ %>
-                            <% if(element.id == product.category.id){ %>
-                                <option value="<%= element.id%>" selected><%=element.name%></option>
-                            <% }else if(product.category == element.id){ %>
-                                <option value="<%= element.id%>" selected><%=element.name%></option>
+                        <% for(let category of categories){ %>
+                            <% if(category.id == product.category_id){ %> <!-- para la página original -->
+                                <option value="<%= category.id%>" selected><%=category.name%></option>
+                            <% }else if(product.category == category.id){ %> <!-- para la página de error -->
+                                <option value="<%= category.id%>" selected><%=category.name%></option>
                             <% }else{%>
-                                <option value="<%= element.id%>"><%=element.name%></option>
+                                <option value="<%= category.id%>"><%=category.name%></option>
                             <% } %>
-                        <% }) %> 
+                        <% } %> 
                         </select>
                     </label>
 
                     <label for="brand" class="edit-labels">Marca:
                         <select name="brand" id='brand' class="product-info">
-                            <% brands.forEach(element =>{ %> 
-                                <% if(element.id == product.category.id){ %>
-                                    <option value="<%= element.id%>" selected><%=element.name%></option>
-                                <% }else if(product.brand == element.id){ %>
-                                    <option value="<%= element.id%>" selected><%=element.name%></option>
+                            <% for(let brand of brands){ %> 
+                                <% if(brand.id == product.brand_id){ %> <!-- para la página original -->
+                                    <option value="<%= brand.id%>" selected><%=brand.name%></option>
+                                <% }else if(product.brand == brand.id){ %> <!-- para la página de error -->
+                                    <option value="<%= brand.id%>" selected><%=brand.name%></option>
                                 <% }else{%>
-                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                    <option value="<%= brand.id%>"><%=brand.name%></option>
                                 <% } %>
-                            <%  })  %>
+                            <%  }  %>
                         </select>
                     </label>
 
                     <label for="colors" class="edit-labels">Colores:
                         <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
-                            <% colors.forEach(element =>{ %>
-                                <% if(product.color) { %>
-                                    <option value="<%= element.id%>" <%= product.color.findIndex(productColor=> {return productColor.id == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
-                                <% } else if (product.colors) { %>
-                                    <% if (typeof product.colors == 'string') { %>
-                                        <option value="<%= element.id%>" <%= product.colors.indexOf(element.id) >= 0? 'selected' : ''%>><%=element.name%></option>
-                                    <% } else { %>
-                                        <option value="<%= element.id%>" <%= product.colors.findIndex(productColor => {return productColor == element.id}) >= 0? 'selected' : ''%>><%=element.name%></option>
-                                    <% } %>
-                                <% }else{ %>
-                                    <option value="<%= element.id%>"><%=element.name%></option>
+                            <% for(let color of colors){ %>
+                                <% if(product.prevColors){ %> <!-- para la página de error -->
+                                    <option value="<%= color.id %>" <%for(let productColor of product.prevColors){%><%=  productColor == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
+                                <% } else { %> <!-- para la página original -->
+                                    <option value="<%= color.id %>" <%for(let productColor of product.colors){%><%=  productColor.id == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
                                 <% } %>
-                            <%  })  %>
+                            <% } %>
                         </select>
                     </label>
                     
@@ -103,16 +97,13 @@
                         <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
                     </label>
 
-                    <label for="videos" class="edit-labels">Video:
-                        <input type="text" name="videos" id="videos" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.videos%>">
+                    <label for="video" class="edit-labels">Video:
+                        <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.video%>">
                     </label>
                 </fieldset>
                 <fieldset id="fielset-large">
-                    <label for="detail" class="edit-labels large-input-labels">Detalle:
-                            <textarea name="detail" id="detail" class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>"><%=product.detail%></textarea> 
-                    </label>
-                    <label for="caract" class="edit-labels large-input-labels">Características:
-                            <textarea name="caract" id="caract" class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>"><%=product.caract%></textarea> 
+                    <label for="characteristics" class="edit-labels large-input-labels">Características:
+                            <textarea name="characteristics" id="characteristics" class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>"><%=product.characteristics%></textarea> 
                     </label>
                     
                     <label for="specs" class="edit-labels large-input-labels">Especificaciones:

@@ -94,7 +94,7 @@ const product = {
                 producto.discount = parseInt(data.discount);
                 producto.stock = parseInt(data.stock);       
                 producto.warranty = data.warranty;
-                producto.image = file == undefined ? producto.image : file.filename; // hacer con express-validator
+                producto.image = file == undefined ? producto.image : file.filename;
                 producto.videos = data.videos;
                 producto.caract = data.caract;
                 producto.specs = data.specs;

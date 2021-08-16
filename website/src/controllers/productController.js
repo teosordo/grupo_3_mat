@@ -122,6 +122,7 @@ const productController = {
         const result = validationResult(req);
 
         if(result.errors.length > 0){
+            // data para usar en el view
             let origProduct = await db.Product.findByPk(req.params.id);
             let image = await db.Image.findOne({where: {product_id: origProduct.id}});
             let brands = await db.Brand.findAll();
@@ -180,58 +181,73 @@ const productController = {
 
                 if(newColors.length > colorsToEdit.length){
                     // si la cantidad de colores entrantes es mayor los existentes crea una nueva relación y luego edita las restantes
+
                     let newRows = newColors.length - colorsToEdit.length;
                     for(let i = 0; i < newRows; i++){
                         await db.ProductsColor.create({
                             product_id: req.params.id,
-                            color_id: colorsToEdit[i].color_id
+                            color_id: colorsToEdit[0].dataValues.color_id
                         });
                     }
 
-                    newColors.forEach(async (newColor) => {
+                    let rowsToEdit = await db.ProductsColor.findAll({
+                        where: {
+                            product_id: req.params.id
+                        }
+                    });
+
+                    for(let i = 0; i < newColors.length; i++){
                         await db.ProductsColor.update({
-                            color_id: newColor
+                            color_id: newColors[i]
                         }, {
                             where: {
-                                product_id: req.params.id
+                                product_id: req.params.id,
+                                id: rowsToEdit[i].dataValues.id
                             }
                         });
-                    });
+                    }
                 } else if(newColors.length < colorsToEdit.length){
                     // si la cantidad de colores entrantes es menor borra una relación y edita las restantes
+
                     let rowsToDelete = colorsToEdit.length - newColors.length;
                     
                     for(let i = 0; i < rowsToDelete; i++){
                         await db.ProductsColor.destroy({
                             where: {
                                 product_id: req.params.id,
-                                color_id: colorsToEdit[i].color_id
+                                color_id: colorsToEdit[i].dataValues.color_id,
+                                id: colorsToEdit[i].dataValues.id
                             }
                         });
                     }
 
-                    newColors.forEach(async (newColor) => {
-                        await db.ProductsColor.update({
-                            color_id: newColor
-                        }, {
-                            where: {
-                                product_id: req.params.id
-                            }
-                        });
+                    let rowsToEdit = await db.ProductsColor.findAll({
+                        where: {
+                            product_id: req.params.id
+                        }
                     });
 
-                    /* console.log(rowsToDelete);
-                    console.log(colorsToEdit); */
-                } else {
-                    newColors.forEach(async (newColor) => {
+                    for(let i = 0; i < newColors.length; i++){
                         await db.ProductsColor.update({
-                            color_id: newColor
+                            color_id: newColors[i]
                         }, {
                             where: {
-                                product_id: req.params.id
+                                product_id: req.params.id,
+                                id: rowsToEdit[i].dataValues.id
                             }
                         });
-                    });
+                    }
+                } else {
+                    for(let i = 0; i < newColors.length; i++){
+                        await db.ProductsColor.update({
+                            color_id: newColors[i]
+                        }, {
+                            where: {
+                                product_id: req.params.id,
+                                id: colorsToEdit[i].dataValues.id
+                            }
+                        });
+                    }
                 }
 
                 res.redirect('/products/detail/' + req.params.id);

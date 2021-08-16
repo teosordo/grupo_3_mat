@@ -15,7 +15,7 @@ module.exports = [
         .isNumeric().withMessage('Solo se permiten números para stock'),
     body('warranty')
         .notEmpty().withMessage('Ingrese la garantia del producto'),
-    body('videos')
+    body('video')
         .custom(value =>{
             if(value == '' || value.indexOf('youtube.com/embed/') >= 0){
                 return true
@@ -23,7 +23,7 @@ module.exports = [
                throw new Error('El link debe empezar con youtube.com/embed/')
             }
         }),
-    body('caract')
+    body('characteristics')
         .notEmpty().withMessage('Complete el campo con las características del producto'),
     body('specs')
         .notEmpty().withMessage('Complete el campo con las especificaciones del producto') 
