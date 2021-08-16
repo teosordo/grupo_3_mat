@@ -27,7 +27,8 @@
                         </label>
 
                         <label for="category" class="create-labels">Categorias del Producto
-                            <select name="category" id="category" class="product-info">
+                            <select name="category" id="category" class="product-info <%= locals.errors && errors.category ? 'form-input-error': null%>">
+                                <option value="" selected="true" disabled="disabled">Elija una categoria</option>
                             <% categories.forEach(element =>{ %> 
                                 <option value="<%= element.id%>"><%=element.name%></option>
                             <% }) %> 
@@ -35,7 +36,8 @@
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
-                            <select name="brand" id='brand' class="product-info">
+                            <select name="brand" id='brand' class="product-info <%= locals.errors && errors.brand ? 'form-input-error': null%>">
+                                <option value="" selected disabled>Elija una marca</option>
                                 <% brands.forEach(element =>{ %> 
                                     <option value="<%= element.id%>"><%=element.name%></option>
                                 <%  })  %>
@@ -47,7 +49,7 @@
                         </label>
 
                         <label for="image" class="create-labels">Imagen del producto
-                            <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
+                            <input type="file" name="image" id="image" class="product-info <%= locals.errors && errors.image ? 'form-input-error': null%>" accept="image/jpeg, image/png, image/jpg">
                         </label>
 
                         <label for="warranty" class="create-labels">Garantia del producto
@@ -64,6 +66,7 @@
 
                         <label for="color" class="create-labels full-sized">Colores 
                             <select name="color" id="color" class="product-info <%= locals.errors && errors.color ? 'form-input-error': null%>" multiple>
+                                <option value="" selected disabled>Seleccione un color</option>
                                 <% colors.forEach(color =>{ %>\
                                     <%if(locals.errors && productInfo && productInfo.color){%>
                                         <% if (typeof productInfo.color == 'string') { %>
@@ -79,7 +82,7 @@
                         </label>
 
                         <label for="characteristics" class="create-textarea">Características del producto
-                            <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.caract ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.caract : null%>" rows="4"></textarea>
+                            <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.characteristics : null%>" rows="4"></textarea>
                         </label>
                         
                         <label for="specs" class="create-textarea">Especificaciones del producto

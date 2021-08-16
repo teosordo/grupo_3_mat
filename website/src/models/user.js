@@ -44,6 +44,7 @@ const user = {
             email: newData.email,
             password: bcrypt.hashSync(newData.password, 10),
             avatar: imgFile == undefined ? 'default-user.jpg' : imgFile.filename
+            //avatar: imgFile.map(image => image.filename),
         }
         users.push(newUser);
         if(user.write(users) == true){

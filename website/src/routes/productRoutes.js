@@ -8,7 +8,7 @@ const productController = require('../controllers/productController');
 const createValidations = require('../middlewares/products/createValidator');
 const editValidations = require('../middlewares/products/editValidator');
 const adminAccess = require('../middlewares/users/adminAccess');
-
+const userAccess = require('../middlewares/users/userAccess')
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null, path.resolve(__dirname,'../../public/uploads/products'))
@@ -26,6 +26,7 @@ router.get('/list/:id', productController.listProduct);
 router.get('/options',[adminAccess], productController.adminOptions);
 // Product Detail
 router.get('/detail/:id', productController.productDetail);
+
 //Product Create
 router.get('/create', [adminAccess], productController.newProduct);
 router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct);

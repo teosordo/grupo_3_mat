@@ -1,5 +1,5 @@
-const createButton = document.getElementById('create-button');
-const editButton = document.getElementById('edit-button');
+const createButton = document.getElementById('create-btn');
+const editButton = document.getElementById('edit-btn');
 const redirectLinks = document.getElementsByClassName('btn-a-link');
 
 

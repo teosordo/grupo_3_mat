@@ -6,9 +6,12 @@ const multer = require('multer');
 const userController = require('../controllers/userController');
 
 const login = require('../middlewares/users/loginValidator');
+const register = require('../middlewares/users/registerValidator');
 const userAccess = require('../middlewares/users/userAccess');
 const hostAccess = require('../middlewares/users/hostAccess');
-const registerMiddleware = require('../middlewares/users/registerValidator');
+const adminCheck = require('../middlewares/users/adminCheck');
+const adminAccess = require('../middlewares/users/adminAccess');
+const edit = require('../middlewares/users/editValidator');
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -23,17 +26,23 @@ const upload = multer({storage})
 
 // Login
 router.get('/login',[hostAccess], userController.login);
-router.post('/login',[hostAccess, login], userController.loginProcess);
+router.post('/login',[hostAccess, login, adminCheck], userController.loginProcess);
 // Register
 router.get('/register',[hostAccess], userController.register);
-router.post('/register',[hostAccess, upload.single('avatar'), registerMiddleware], userController.createUser);
+router.post('/register',[hostAccess, upload.single('avatar'), register], userController.createUser);
 // Product Cart
 router.get('/cart',[userAccess], userController.productCart);
+//Add item Cart
+router.post('/cart/add/:id',[userAccess], userController.productCartAdd)
 //User List
-router.get('/list', userController.userlist);
+router.get('/list',[adminAccess], userController.userlist);
 // Profile
 router.get('/profile', [userAccess], userController.userProfile);
 // Logout
 router.post('/logout', [userAccess], userController.logout);
+// Editar User
+router.get('/edit/:id', [adminAccess], userController.userEdit);
+router.put('/update/:id', [adminAccess, upload.single('avatar'), edit], userController.userUpdate);
+router.post('/delete/:id', [adminAccess], userController.userDelete);
 
 module.exports = router;

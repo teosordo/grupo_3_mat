@@ -1,39 +1,50 @@
 const {body} = require('express-validator');
-const {findByField} = require('../../models/user');
-
+const db = require('../../database/models/')
 module.exports = [
     body('firstName').notEmpty().withMessage('Ingrese su nombre'),
     body('lastName').notEmpty().withMessage('Ingrese su apellido'),
     body('email')
         .notEmpty().withMessage('Ingrese su e-mail').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido').bail(),
-       /*  .custom(value =>{
+        .isEmail().withMessage('Ingrese un e-mail válido')
+        .custom(async value =>{
             /* Revisa si hay un usuario con el mismo email*/
-            /*if(findByField('email',value)){
-                throw new Error('El e-mail ya se encuentra en uso');
+            try {
+                let userEmail = await db.User.findOne({where:{email: value}})
+                if(userEmail){
+                    throw new Error('El e-mail se encuentra en uso')
+                }else{
+                    return true
+                }  
+            } catch (error) {
+                throw error
             }
-            return true
-        }), */
+        }), 
     body('username')
         .notEmpty().withMessage('Ingrese un usuario').bail()
-        .isLength({min: 5}).withMessage('El usuario debe tener al menos 5 caracteres').bail(),
-        /* .custom(value =>{ */
+        .isLength({min: 5}).withMessage('El usuario debe tener al menos 5 caracteres').bail()
+        .custom(async value =>{
             /* Revisa si hay un usuario con el username*/
-            /* if(findByField('username',value)){
-                throw new Error('El nombre de usuario ya esta en uso');
+            try {
+                let user = await db.User.findOne({where:{username: value}})
+                if(user != null){
+                    throw new Error('El nombre de usuario se encuentra en uso')
+                }else{
+                    return true
+                }
+            } catch (error) {
+                throw error
             }
-            return true
-        }), */
+        }),
     body('password')
         .notEmpty().withMessage('Ingrese una contraseña').bail()
-        .isLength({min:8}).withMessage('La contraseña  debe tener al menos 8 caracteres'),
+        .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
     body('passwordConfirm')
         .notEmpty().withMessage('Debe confirmar su contraseña').bail()
         .custom((value, {req}) => {
             /* Confirma si las contraseñas son iguales*/
             if (value !== req.body.password) {
-                throw new Error('Las contraseña no son iguales ');
+                return false;
             }
             return true;
-        }),
+        }).withMessage('Las contraseñas deben ser iguales'),
 ]
