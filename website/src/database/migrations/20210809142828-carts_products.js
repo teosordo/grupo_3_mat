@@ -41,7 +41,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     try {
-      await queryInterface.dropTable('carts_products');
+      await queryInterface.dropTable('cart_products');
     } catch (error) {
       throw error
     }

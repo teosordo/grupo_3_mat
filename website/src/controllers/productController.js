@@ -17,11 +17,13 @@ const productController = {
             if(idPage == 0){
                 res.redirect('/products/1')
             }
+            //Numero para limit/offset/math.ceil
+            let settingNumber = 3
             /*Productos completos*/
             let products = await db.Product.findAll({
                 include:['brand','category','images'],
-                offset: (idPage-1) * 3,
-                limit: 3,
+                offset: (idPage-1) * settingNumber,
+                limit: settingNumber,
             });
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
@@ -35,7 +37,7 @@ const productController = {
             //Busca y cuenta el total de productos
             let productsTotalCount = await db.Product.count();
             //Redondea el numero para saber el total de paginas necesarias 
-            let totalNumPages = Math.ceil(productsTotalCount / 3);
+            let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
             return res.render('products/productList', {products, category, finalPrice, idPage, pages: totalNumPages});
         }catch (error) {
@@ -54,12 +56,12 @@ const productController = {
         }
     },
     newProduct: async (req,res) => {
-        return res.render('products/productCreate', {brands: await db.Brand.findAll(),categories: await db.Category.findAll(), colors: await db.Color.findAll()})
+        return res.render('products/productCreate', {brands: await db.Brand.findAll(),categories: await db.Category.findAll(), colors: await db.Color.findAll()});
     },
     createProduct: async  (req,res)=>{
         const result = validationResult(req);
         if(result.errors.length > 0){
-            return res.render('products/productCreate', {brands: await db.Brand.findAll(),categories: await db.Category.findAll(), colors: await db.Color.findAll(),errors: result.mapped(), productInfo: req.body})
+            return res.render('products/productCreate', {brands: await db.Brand.findAll(),categories: await db.Category.findAll(), colors: await db.Color.findAll(),errors: result.mapped(), productInfo: req.body});
         }else{
             try {
                 //Crea el producto en la base de datos
@@ -100,14 +102,6 @@ const productController = {
                 throw error
                 }
         }
-        
-        /* const result = validationResult(req);
-        if(result.errors.length > 0){
-            return res.render('products/productCreate',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), productInfo: req.body})
-        }else{
-            let product = productsFunctions.create(req.body, req.file); 
-            return product == true ? res.redirect('/') : res.send("ERROR");
-        } */
     },
     productEdit:(req,res) => {
         let idProduct = req.params.id;

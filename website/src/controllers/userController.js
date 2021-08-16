@@ -14,15 +14,15 @@ const userController = {
         // Validación
         const results = validationResult(req);
         if(results.errors.length > 0){
-            return res.render('users/login',{errors: results.mapped(), userInfo: req.body})
+            return res.render('users/login',{errors: results.mapped(), userInfo: req.body});
         }
 
         // Cookie - Recuerda al usuario
         if(req.body.remember != undefined){
-            res.cookie('email', req.session.user.email,{maxAge: 9999999 })
+            res.cookie('email', req.session.user.email,{maxAge: 9999999 });
         }
 
-        return res.redirect('/')
+        return res.redirect('/');
         
     },
     logout: (req, res) => {
@@ -36,7 +36,7 @@ const userController = {
     createUser: async (req, res) => {
         const result = validationResult(req);
         if(result.errors.length > 0){
-            return res.render('users/register',{errors: result.mapped(), userInfo: req.body})
+            return res.render('users/register',{errors: result.mapped(), userInfo: req.body});
         }else{
             try {
                 let newUser = await db.User.create({
@@ -46,10 +46,10 @@ const userController = {
                     email: req.body.email,
                     password: bcrypt.hashSync(req.body.password, 10),
                     avatar: req.file == undefined ? 'default-user.jpg' : req.file.filename
-                })
-                res.redirect('/')
+                });
+                res.redirect('/');
             } catch (error) {
-                throw error
+                throw error;
             }
         }
     },
@@ -63,27 +63,27 @@ const userController = {
             if(userCart == null){
                 userCart = await db.Cart.create({
                     user_id: req.session.user.id
-                })
+                });
                 let cartItem = await db.CartProducts.create({
                     cart_id: userCart.id,
                     product_id: product.id,
                     products_price: product.price,
                     products_amount: product.id
-                })
+                });
                 //Actualiza el carrito con la informacion del cart_products
                 await db.Cart.update({
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})
-                },{where:{id: userCart.id}})
+                },{where:{id: userCart.id}});
 
-                return res.redirect('/')
+                return res.redirect('/');
             }else{
                 let checkItems = await db.CartProducts.findOne({where:{cart_id: userCart.id, product_id: product.id}})
-                console.log(checkItems);
+                //Valida si el producto ya fue agregado al carrito, si es asi le suma 1 a su cantidad
                 if(checkItems){
                     db.CartProducts.update({
-                        products_amount: checkItems.products_amount + 1
-                    },{where:{cart_id: userCart.id, product_id: product.id}})
+                        products_amount: checkItems.products_amount + 1},
+                        {where:{cart_id: userCart.id, product_id: product.id}});
                 }else{
                     await db.CartProducts.create({
                         cart_id: userCart.id,
@@ -98,12 +98,12 @@ const userController = {
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
                     {where:{id: userCart.id}
-                })
+                });
 
-                return res.redirect('/')
+                return res.redirect('/');
             }
         } catch (error) {
-            throw error
+            throw error;
         }
     },
     productCart: async (req, res) => {

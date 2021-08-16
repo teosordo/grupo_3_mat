@@ -12,7 +12,6 @@
 <body>
     <!-- HEADER -->
     <%- include('../includes/header')  %> 
-
     <main>
         <!-- CUERPO -->
         <section id="contenido">
@@ -22,30 +21,35 @@
             </section>
 
             <article id="products-container">
-                <% for(let i = 0; i < products.cart_products.length; i++){ %> 
-                    <section>
-                        <section class="product"> 
-                            <figure><img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto"></figure>
-                            <h3><a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %> </a></h3>
-                            <form action="/" method="POST" required>
-                                <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
-                            </form>
-                            <p>$<%= products.cart_products[i].products.price %></p>
+                <% if (products) { %>
+                    <% for(let i = 0; i < products.cart_products.length; i++){ %> 
+                        <section>
+                            <section class="product"> 
+                                <figure><img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto"></figure>
+                                <h3><a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %> </a></h3>
+                                <form action="/" method="POST" required>
+                                    <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
+                                </form>
+                                <p>$<%= products.cart_products[i].products.price %></p>
+                            </section>
                         </section>
-                    </section>
-                <% } %> 
+                    <% } %> 
+                <% }else{ %>
+                    <h2>Carrito Vacio!</h2>
+                <% } %>
             </article>
 
             <article id="units-total">
-                <h3>Unidades: <%= products.amount%></h3>
+                    <h3>Unidades: <%= products? products.amount : 0%></h3>
 
-                <h3>Total: $<%= products.final_price %> </h3>
+                    <h3>Total: $<%= products? products.final_price : 0 %> </h3>
+                
             </article>
 
             <button id="buy-button">Realizar pedido</button>
         </section>
     </main>
     <!-- FOOTER -->
-    <%- include('../includes/footer')  %> 
+    <%- include('../includes/footer')  %>
 </body>
 </html>
