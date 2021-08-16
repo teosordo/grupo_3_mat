@@ -3,8 +3,9 @@ const brandFunctions = require('../models/brand')
 const categoryFunctions = require('../models/category')
 const colorFunctions = require('../models/color')
 const {validationResult} = require('express-validator')
-const db = require('../database/models')
-// pasar a middleware
+const db = require('../database/models');
+const product = require('../models/product');
+// pasar a middleware?
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
     return price - restante;
@@ -109,22 +110,140 @@ const productController = {
             return product == true ? res.redirect('/') : res.send("ERROR");
         } */
     },
-    productEdit:(req,res) => {
-        let idProduct = req.params.id;
-        let product = productsFunctions.search(idProduct);
-        return product == false ? res.redirect('/') : res.render('products/productEdit',{product: product, brands: brandFunctions.all(),categories: categoryFunctions.all(), colors: colorFunctions.all()})
+    productEdit: async (req,res) => {
+        try {
+        // data para usar en el view
+        let product = await db.Product.findByPk(req.params.id, {include: ['images', 'colors']});
+        let brands = await db.Brand.findAll();
+        let categories = await db.Category.findAll();
+        let colors = await db.Color.findAll();
+
+        return product == false ? res.redirect('/') : res.render('products/productEdit',{product, brands, categories, colors});
+        } catch (error) {
+            throw error;
+        }
+        
     },
-    update: (req, res) => {
+    update: async (req, res) => {
         const result = validationResult(req);
-        let origProduct = productsFunctions.search(req.params.id);
-        let editedProduct = req.body
-        editedProduct.id = req.params.id
-        editedProduct.image = origProduct.image
+
         if(result.errors.length > 0){
-            return res.render('products/productEdit',{brands: brandFunctions.all(),categories: categoryFunctions.all(), colors:colorFunctions.all(),errors: result.mapped(), product: editedProduct})
+            let origProduct = await db.Product.findByPk(req.params.id);
+            let image = await db.Image.findOne({where: {product_id: origProduct.id}});
+            let brands = await db.Brand.findAll();
+            let categories = await db.Category.findAll();
+            let colors = await db.Color.findAll();
+            let editedProduct = req.body;
+            editedProduct.id = origProduct.id;
+            editedProduct.images = Array.of(image);
+            editedProduct.prevColors = editedProduct.colors;
+            editedProduct.prevName = origProduct.name;
+
+            return res.render('products/productEdit',{brands, categories, colors, errors: result.mapped(), image, product: editedProduct});
         }else{
-            let product = productsFunctions.edit(req.body, req.file, req.params.id);
-            return product == true ? res.redirect("/") : res.send("Ocurrió un error. No se pudo editar el producto");
+            try {
+                // Edita la tabla de products
+                let editProduct = await db.Product.update({
+                    name: req.body.name,
+                    brand_id: req.body.brand,
+                    category_id: req.body.category,
+                    price: req.body.price,
+                    stock: req.body.stock,
+                    discount: req.body.discount,
+                    warranty: req.body.warranty,
+                    video: req.body.video,
+                    characteristics: req.body.characteristics,
+                    specs: req.body.specs
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+
+                // Edita la tabla de images
+                if(req.file != undefined){
+                    await db.Image.update({
+                        name: req.file.filename
+                    }, {
+                        where: {
+                            product_id: req.params.id
+                        }
+                    });
+                }
+
+                // Edita la tabla intermedia que conecta con colors 
+                let newColors = req.body.colors;
+                let colorsToEdit = await db.ProductsColor.findAll({
+                    where: {
+                        product_id: req.params.id
+                    }
+                });
+
+                // convierte en array los colores entrantes
+                if(!Array.isArray(newColors)){
+                    newColors = Array.of(newColors);
+                }
+
+                if(newColors.length > colorsToEdit.length){
+                    // si la cantidad de colores entrantes es mayor los existentes crea una nueva relación y luego edita las restantes
+                    let newRows = newColors.length - colorsToEdit.length;
+                    for(let i = 0; i < newRows; i++){
+                        await db.ProductsColor.create({
+                            product_id: req.params.id,
+                            color_id: colorsToEdit[i].color_id
+                        });
+                    }
+
+                    newColors.forEach(async (newColor) => {
+                        await db.ProductsColor.update({
+                            color_id: newColor
+                        }, {
+                            where: {
+                                product_id: req.params.id
+                            }
+                        });
+                    });
+                } else if(newColors.length < colorsToEdit.length){
+                    // si la cantidad de colores entrantes es menor borra una relación y edita las restantes
+                    let rowsToDelete = colorsToEdit.length - newColors.length;
+                    
+                    for(let i = 0; i < rowsToDelete; i++){
+                        await db.ProductsColor.destroy({
+                            where: {
+                                product_id: req.params.id,
+                                color_id: colorsToEdit[i].color_id
+                            }
+                        });
+                    }
+
+                    newColors.forEach(async (newColor) => {
+                        await db.ProductsColor.update({
+                            color_id: newColor
+                        }, {
+                            where: {
+                                product_id: req.params.id
+                            }
+                        });
+                    });
+
+                    /* console.log(rowsToDelete);
+                    console.log(colorsToEdit); */
+                } else {
+                    newColors.forEach(async (newColor) => {
+                        await db.ProductsColor.update({
+                            color_id: newColor
+                        }, {
+                            where: {
+                                product_id: req.params.id
+                            }
+                        });
+                    });
+                }
+
+                res.redirect('/products/detail/' + req.params.id);
+            } catch (error) {
+                throw error;
+            }
         }
     },
     deleteAll: (req,res) => {

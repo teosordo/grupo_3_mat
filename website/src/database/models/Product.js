@@ -40,6 +40,14 @@ module.exports = (sequelize, dataTypes) => {
         specs: {
             type: dataTypes.STRING(),
             allowNull: false
+        },
+        brand_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        category_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     };
     let config = {
