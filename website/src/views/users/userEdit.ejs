@@ -11,35 +11,57 @@
 <body>
     <%- include('../includes/header') %>
     <main>
-        <section id="content-container">
-            <h1>Editá los datos de <%=user.firstName%>:</h1>
-            <form action="/users/update/<%=user.id%>?_method=PUT" method="POST">
+        <section id="contenido">
+            <h1>Editá los datos de <%=users.firstName%>:</h1>
+            <form action="/users/update/<%=users.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
-                        <img src="/uploads/users/<%=user.image%>" alt="" id="product-img">
+                        <img src="/uploads/users/<%=users.avatar%>" alt="" id="avatar-user">
                     </legend>
                     <label for="firstName" class="edit-labels">Nombre:
-                        <input type="text" name="firstName" id="firstName" class="product-info" value="<%=user.firstName%>">
+                        <% if (locals.errors && errors.firstName) { %>
+                            <p class="errors"><%= errors.firstName.msg%></p>
+                        <% } %>
+                        <input type="text" name="firstName" id="firstName" class="container-user" value="<%=users.firstName%>">
                     </label>
                     <label for="lastName" class="edit-labels">Apellido:
-                        <input type="text" name="lastName" id="lastName" class="product-info" value="<%=user.lastName%>">
+                        <% if (locals.errors && errors.lastName) { %>
+                            <p class="errors"><%= errors.lastName.msg%></p>
+                        <% } %>
+                        <input type="text" name="lastName" id="lastName" class="container-user" value="<%=users.lastName%>">
                     </label>
                     <label for="username" class="edit-labels">Nombre de usuario:
-                        <input type="text" name="username" id="username" class="product-info" value="<%=user.username%>">
+                        <% if (locals.errors && errors.username) { %>
+                            <p class="errors"><%= errors.username.msg%></p>
+                        <% } %>
+                        <input type="text" name="username" id="username" class="container-user" value="<%=users.username%>">
                     </label>
                     <label for="email" class="edit-labels">Email:
-                        <input type="email" name="email" id="email" class="product-info" value="<%=user.email%>">
+                        <% if (locals.errors && errors.email) { %>
+                            <p class="errors"><%= errors.email.msg%></p>
+                        <% } %>
+                        <input type="email" name="email" id="email" class="container-user" value="<%=users.email%>">
                     </label>
-                    <label for="password" class="edit-labels">Contraseña:
-                        <input type="password" name="password" id="password" class="product-info" value="<%=user.password%>">
+                    <label for="password">Contraseña:
+                        <% if (locals.errors && errors.password) { %>
+                            <p class="errors"><%= errors.password.msg%></p>
+                        <% } %>
+                        <input type="password" id="password" name="password" class="container-user">
                     </label>
-                    <label for="avatar" class="edit-labels">Avatar:
-                        <input type="file" name="avatar" id="avatar" class="product-info" accept="image/jpeg, image/png, image/jpg">
+                    <label for="passwordConfirm">Confirme su contraseña:
+                        <% if (locals.errors && errors.passwordConfirm) { %>
+                            <p class="errors"><%= errors.passwordConfirm.msg%></p>
+                        <% } %>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" class="container-user">
                     </label>
+                    <label for="avatar" id='avatar-upload'>Foto de perfil:
+                        <input type="file" name="avatar" id="avatar" class="container-user" accept="image/jpeg, image/png, image/jpg">
+                    </label>
+                    <!-- AGREGAR BOTON DE CANCELAR -->
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
             </form>
-            <form action="/users/delete/<%= user.id %>?_method=DELETE" method="post">
+            <form action="/users/delete/<%=users.id%>" method="POST">
                 <button type="submit" id="delete-button">Eliminar</button>
             </form>
         </section>

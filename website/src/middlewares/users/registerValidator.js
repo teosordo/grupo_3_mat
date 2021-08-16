@@ -26,7 +26,6 @@ module.exports = [
             /* Revisa si hay un usuario con el username*/
             try {
                 let user = await db.User.findOne({where:{username: value}})
-                console.log(user);
                 if(user != null){
                     throw new Error('El nombre de usuario se encuentra en uso')
                 }else{
@@ -38,7 +37,7 @@ module.exports = [
         }),
     body('password')
         .notEmpty().withMessage('Ingrese una contraseña').bail()
-        .isLength({min:8}).withMessage('La contraseña  debe tener al menos 8 caracteres'),
+        .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
     body('passwordConfirm')
         .notEmpty().withMessage('Debe confirmar su contraseña').bail()
         .custom((value, {req}) => {

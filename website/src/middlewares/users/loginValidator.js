@@ -30,7 +30,6 @@ module.exports = [
                     delete userToLogin.password;
                     delete value;
                     req.session.user = userToLogin;
-                    //Permisos de administrador
                     return true;
                 } else {
                     throw new Error('Los datos ingresados son incorrectos.')
