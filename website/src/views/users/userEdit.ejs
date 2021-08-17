@@ -12,35 +12,35 @@
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <h1>Editá los datos de <%=users.firstName%>:</h1>
-            <form action="/users/update/<%=users.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <h1>Editá los datos de <%=user.firstName%>:</h1>
+            <form action="/users/update/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <fieldset id="fieldset-small">
                     <legend>
-                        <img src="/uploads/users/<%=users.avatar%>" alt="" id="avatar-user">
+                        <img src="/uploads/users/<%=user.avatar%>" alt="" id="avatar-user">
                     </legend>
                     <label for="firstName" class="edit-labels">Nombre:
                         <% if (locals.errors && errors.firstName) { %>
                             <p class="errors"><%= errors.firstName.msg%></p>
                         <% } %>
-                        <input type="text" name="firstName" id="firstName" class="container-user" value="<%=users.firstName%>">
+                        <input type="text" name="firstName" id="firstName" class="container-user" value="<%=user.firstName%>">
                     </label>
                     <label for="lastName" class="edit-labels">Apellido:
                         <% if (locals.errors && errors.lastName) { %>
                             <p class="errors"><%= errors.lastName.msg%></p>
                         <% } %>
-                        <input type="text" name="lastName" id="lastName" class="container-user" value="<%=users.lastName%>">
+                        <input type="text" name="lastName" id="lastName" class="container-user" value="<%=user.lastName%>">
                     </label>
                     <label for="username" class="edit-labels">Nombre de usuario:
                         <% if (locals.errors && errors.username) { %>
                             <p class="errors"><%= errors.username.msg%></p>
                         <% } %>
-                        <input type="text" name="username" id="username" class="container-user" value="<%=users.username%>">
+                        <input type="text" name="username" id="username" class="container-user" value="<%=user.username%>">
                     </label>
                     <label for="email" class="edit-labels">Email:
                         <% if (locals.errors && errors.email) { %>
                             <p class="errors"><%= errors.email.msg%></p>
                         <% } %>
-                        <input type="email" name="email" id="email" class="container-user" value="<%=users.email%>">
+                        <input type="email" name="email" id="email" class="container-user" value="<%=user.email%>">
                     </label>
                     <label for="password">Contraseña:
                         <% if (locals.errors && errors.password) { %>

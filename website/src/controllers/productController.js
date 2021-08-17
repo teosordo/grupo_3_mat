@@ -123,6 +123,8 @@ const productController = {
 
         if(result.errors.length > 0){
             // data para usar en el view
+            // Podes usar include del producto para las imágenes
+            // Revisar el array por un find all
             let origProduct = await db.Product.findByPk(req.params.id);
             let image = await db.Image.findOne({where: {product_id: origProduct.id}});
             let brands = await db.Brand.findAll();

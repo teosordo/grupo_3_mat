@@ -26,8 +26,10 @@
                         <li>Email: <%= user.email %></li>
                         <li>Tipo de user: <%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
                     </ul>
-
-                    <form action="/users/logout" method="post">
+                    <form action="/users/edit/<%=user.id%>" method="GET">
+                        <button type="submit" id="logout-button">Editar perfil</button>
+                    </form>
+                    <form action="/users/logout" method="POST">
                         <button type="submit" id="logout-button">Cerrar Sesión</button>
                     </form>
                 </section>

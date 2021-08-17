@@ -131,7 +131,7 @@ const userController = {
         const users = await db.User.findByPk(req.params.id)
         
         if(result.errors.length > 0){
-            return res.render('users/userEdit' ,{errors: result.mapped(), users})
+            return res.render('users/userEdit' ,{errors: result.mapped(), user: req.session.user})
         }else{
             try {
                 let userToEdit = await db.User.update({
@@ -142,17 +142,22 @@ const userController = {
                     password: req.body.password == '' ? users.password : bcrypt.hashSync(req.body.password, 10),
                     avatar: req.file == undefined ? users.avatar : req.file.filename
                 },{
-                    where : {id: req.params.id}
+                    where : {id: req.session.user.id}
                 })
-                res.redirect('/users/list');
+                res.redirect('/users/profile');
             } catch (error) {
                 throw error
             }
         }
     },
     userDelete: async (req,res) => {
-        db.User.destroy({where : {id: req.params.id}})
-        res.redirect('/users/list');
+        try {
+            await db.User.destroy({where : {id: req.session.user.id}})
+            res.redirect('/');
+            
+        } catch (error) {
+            throw error
+        }
     }
 };
 module.exports = userController;
