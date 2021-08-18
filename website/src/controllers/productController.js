@@ -277,9 +277,37 @@ const productController = {
             }
         }
     },
-    deleteAll: (req,res) => {
-        let result = productsFunctions.deleteAll(req.params.id);
-        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se borró el producto") 
+    deleteProduct: async (req,res) => {
+        try {
+            // Borra la fila relacionada al producto de la tabla images
+            await db.Image.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products_colors
+            await db.ProductsColor.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla cart_products
+            await db.CartProducts.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products
+            await db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            return res.redirect("/");
+        } catch (error) {
+            throw error;
+        }
     },
     categories: (req, res) => {
         res.render('products/productCategories', {categories: categoryFunctions.all()});

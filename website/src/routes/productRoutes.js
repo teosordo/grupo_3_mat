@@ -42,5 +42,5 @@ router.post('/create/color', [adminAccess],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
-router.delete("/:id", [adminAccess], productController.deleteAll);
+router.delete("/:id", [adminAccess], productController.deleteProduct);
 module.exports = router;
