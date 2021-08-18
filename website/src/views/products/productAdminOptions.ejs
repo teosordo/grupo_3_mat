@@ -24,7 +24,7 @@
                     Borrar
                 </button>
             </section>
-            <section class='hide' id="links">
+            <section id="create-links">
                 <a href="/products/create" class="btn-a-link" id="btn-a-link-product">
                     <button class="link-button">
                     Producto
@@ -45,6 +45,31 @@
                         Color
                     </button>
                 </a>
+            </section>
+            <section id="edit-links">
+                <button class="link-button">
+                    Producto
+                </button>
+                <button class="link-button">
+                        Marca
+                </button>
+                <button class="link-button">
+                        Categoría
+                </button>
+
+                <button class="link-button">
+                        Color
+                </button>
+            </section>
+            <section class="form-container">
+                <form action="/products/options/edit/product" method="POST">
+                    <select name="product" id="product" class='product-info'>
+                        <% for(i = 0; i < products.length; i++ ) { %>
+                            <option value="<%=products[i].id%>"><%=products[i].name%></option>
+                        <% } %>
+                    </select>
+                    <button type="submit" class="btn-submit">Editar</button>
+                </form>
             </section>
         </section>
     </main>

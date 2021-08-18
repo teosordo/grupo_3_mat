@@ -35,6 +35,10 @@ const productController = {
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
+            if(req.params.id > totalNumPages){
+                res.redirect('/products/list/1')
+            };
+
             return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
