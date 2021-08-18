@@ -22,16 +22,36 @@ const productController = {
             //Numero para limit/offset/math.ceil
             let settingNumber = 3
             /*Productos completos*/
-            let products = await db.Product.findAll({
-                include:['brand','category','images'],
-                offset: (idPage-1) * settingNumber,
-                limit: settingNumber,
-            });
+            let products;
+            // Total de productos
+            let productsTotalCount;
+
+            if(req.query.searchbar == undefined){
+                // Si se accede a la lista sin haber buscado con el searchbar
+                products = await db.Product.findAll({
+                    include:['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
+                
+                //Busca y cuenta el total de productos
+                productsTotalCount = await db.Product.count();
+            } else {
+                // Si se accede a la lista buscando con el searchbar
+                products = await db.Product.findAll({
+                    where: {
+                        name: {[db.Sequelize.Op.like]: `%${req.query.searchbar}%`}
+                    },
+                    include: ['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
+
+                productsTotalCount = products.length
+            }
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
 
-            //Busca y cuenta el total de productos
-            let productsTotalCount = await db.Product.count();
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
@@ -136,7 +156,7 @@ const productController = {
             editedProduct.prevColors = editedProduct.colors;
             editedProduct.prevName = origProduct.name;
 
-            return res.render('products/productEdit',{brands, categories, colors, errors: result.mapped(), image, product: editedProduct});
+            return res.render('products/productEdit',{brands, categories, colors, errors: result.mapped(), product: editedProduct});
         }else{
             try {
                 // Edita la tabla de products
@@ -168,6 +188,8 @@ const productController = {
                         }
                     });
                 }
+
+                //req.file == undefined ? producto.image : req.file.filename
 
                 // Edita la tabla intermedia que conecta con colors 
                 let newColors = req.body.colors;

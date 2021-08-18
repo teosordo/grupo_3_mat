@@ -41,6 +41,6 @@ router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
-router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update); // si cambio el orden se rompe :(
+router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
 router.delete("/:id", [adminAccess], productController.deleteAll);
 module.exports = router;
