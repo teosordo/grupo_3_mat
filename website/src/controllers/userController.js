@@ -73,8 +73,6 @@ const userController = {
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})
                 },{where:{id: userCart.id}});
-
-                return res.redirect('/');
             }else{
                 let checkItems = await db.CartProducts.findOne({where:{cart_id: userCart.id, product_id: product.id}})
                 //Valida si el producto ya fue agregado al carrito, si es asi le suma 1 a su cantidad
@@ -97,9 +95,8 @@ const userController = {
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
                     {where:{id: userCart.id}
                 });
-
-                return res.redirect('/users/cart');
             }
+            return res.redirect('/users/cart');
         } catch (error) {
             throw error;
         }

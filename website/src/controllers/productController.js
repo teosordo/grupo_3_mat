@@ -8,6 +8,7 @@ const product = require('../models/product');
 // pasar a middleware?
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
+    console.log(price);
     return price - restante;
 }
 
@@ -70,14 +71,15 @@ const productController = {
                     name: req.body.name,
                     brand_id: req.body.brand,
                     category_id: req.body.category,
-                    price: req.body.price,
+                    originalPrice: req.body.price,
+                    discount: req.body.discount != null? parseInt(req.body.discount): 0,
+                    price: finalPrice(parseInt(req.body.price), parseInt(req.body.discount)),
                     stock: req.body.stock,
-                    discount: req.body.discount,
                     warranty: req.body.warranty,
                     video: req.body.video,
                     characteristics: req.body.characteristics,
                     specs: req.body.specs
-                })
+                });
                 //Crea la imagen del producto en la base de datos
                 let newImage = await db.Image.create({
                     name: req.file.filename,
@@ -144,9 +146,10 @@ const productController = {
                     name: req.body.name,
                     brand_id: req.body.brand,
                     category_id: req.body.category,
-                    price: req.body.price,
+                    originalPrice: req.body.price,
+                    discount: req.body.discount != null? req.body.discount: 0,
+                    price: finalPrice(parseInt(req.body.price), parseInt(req.body.discount)),
                     stock: req.body.stock,
-                    discount: req.body.discount,
                     warranty: req.body.warranty,
                     video: req.body.video,
                     characteristics: req.body.characteristics,
