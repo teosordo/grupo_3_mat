@@ -98,8 +98,24 @@ const userController = {
                     {where:{id: userCart.id}
                 });
 
-                return res.redirect('/');
+                return res.redirect('/users/cart');
             }
+        } catch (error) {
+            throw error;
+        }
+    },
+    productCartDelete: async (req,res)=>{
+        try {
+            let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
+            console.log(userCart);
+            await db.CartProducts.destroy({where:{cart_id: userCart.id, product_id: req.params.id}});
+
+            await db.Cart.update({
+                total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
+                final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
+                {where:{id: userCart.id}
+            });
+            return res.redirect('/users/cart');
         } catch (error) {
             throw error;
         }
@@ -110,7 +126,7 @@ const userController = {
             include:[
                 {model: db.CartProducts, as:'cart_products', include: [{model: db.Product, as:'products', include: ['images']}]}
             ]});
-
+            console.log(userCart);
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
