@@ -12,7 +12,18 @@
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <% for(i = 0;i < users.length;i++) { %>
+            <article>
+                <h2>Usuarios:</h2>
+                <section>
+                    <select name="filters" id="filters">
+                        <option value="" selected disabled>Ordenar de:</option>
+                        <option value="">A - Z</option>
+                        <option value="">Z - A</option>
+                    </select>
+                </section>
+            </article>
+        <% for(i = 0;i < users.length;i++) { %>
+            <a href="/users/profile/<%= users[i].id%>">
                 <article class="container-user">
                     <figure class="container-img-user">
                         <img src="/uploads/users/<%= users[i].avatar%>" alt="" class="img-user">
@@ -22,7 +33,8 @@
                         <h3>Nombre Completo: <%= users[i].firstName + ' ' + users[i].lastName %></h3>
                     </section>
                 </article>
-            <% } %>
+            </a>
+        <% } %>
         </section>
     </main>
     <%-include('../includes/footer') %> 

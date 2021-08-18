@@ -40,9 +40,12 @@ router.get('/list',[adminAccess], userController.userlist);
 router.get('/profile', [userAccess], userController.userProfile);
 // Logout
 router.post('/logout', [userAccess], userController.logout);
-// Editar User
+// Usuarios editan su info
 router.get('/edit/:id', [userAccess], userController.userEdit);
 router.put('/update/:id', [userAccess, upload.single('avatar'), edit], userController.userUpdate);
 router.post('/delete/:id', [userAccess], userController.userDelete);
+// Admin elimina usuario
+router.get('/profile/:id', [adminAccess], userController.profile);
+router.post('/destroy/:id', [adminAccess], userController.delete);
 
 module.exports = router;
