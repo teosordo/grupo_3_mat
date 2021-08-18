@@ -3,6 +3,21 @@ main{
     display: flex;
     justify-content: center;
 }
+h2{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+form{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    width: 85%;
+}
+label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 #contenido{
     background-color: #ffff;
     padding: 15px;
@@ -13,12 +28,11 @@ main{
 #avatar-user{
     width: 30%;
 }
-.container-user{
-    width: 40%;
+.container-user, legend{
     border-radius: 10px;
-    min-width: 240px;
-    max-width: 320px;
+    width:100%;
     margin: 15px 5px;
+    text-align: center;
     border: 2px solid #E3E3E3;
 }
 .container-img-user{
@@ -35,10 +49,39 @@ main{
 .user-info{
     text-align: center;
 }
+/* TABLET */
+@media (min-width: 481px){
+    label {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .container-user{
+        width: 100%;
+    }
+}
 
+/* DESKTOP */
 @media(min-width: 769px){
+    main button{
+        width: 50%;
+        margin: 5px;
+    }
+    label{
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+    }
     #contenido{
         border-radius: 10px;
         margin-bottom: 20px;
+    }
+    .container-user, legend{
+        width: 50%;
+    }
+    .fieldset-small{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-evenly;
     }
 }

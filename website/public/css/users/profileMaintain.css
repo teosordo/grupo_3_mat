@@ -5,16 +5,15 @@ figure {
     border-radius: 10px;
     box-shadow: 1px 1px 10px 1px rgb(187, 185, 185) inset;
     width: 90%;
+    height:50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 figure img {
-    width: 60%;
+    height:80%;
 }
-h2 {
-    margin-top: 0;
-}
+/* hace falta tener links en la página de mantenimiento?? */
 a {
     text-decoration: none;
     color: #6765D6;
@@ -53,7 +52,30 @@ a:hover {
 #user-info li {
     margin-bottom: 10px;
 }
-#logout-button {
+#option-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#option-one {
+    background-color: #CACADC;
+    color: #6765D6;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 45%;
+    max-height: 45px;
+    min-width: 150px;
+    transition: 0.5s all;
+    margin: 5px 0px;
+}
+#option-one:hover {
+    background-color: #6765D6;
+    color: #CACADC;
+}
+#option-two {
     background-color: #6765D6;
     color: #fff;
     font-family: 'Barlow Semi Condensed', sans-serif;
@@ -61,35 +83,68 @@ a:hover {
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
-    width: 40%;
-    max-height: 42px;
-    min-width: 140px;
+    width: 45%;
+    max-height: 45px;
+    min-width: 150px;
     transition: 0.5s all;
+    margin: 5px 0px;
 }
-#logout-button:hover {
+#option-two:hover {
     background-color: #CACADC;
     color: #6765D6;
 }
 
 /**************** MEDIA QUERIES ****************/
+/* Tablet */
+@media(min-width:481px){
+    figure {
+        height: auto;
+    }
+    figure img {
+        width: 60%;
+        height: auto;
+    }
+    #option-buttons{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 /* Desktop */
 @media (min-width: 769px){
+    /*** ETIQUETAS ***/
+    figure {
+        width: 40%;
+        margin: 0;
+    }
+    h2{
+        display: flex;
+        justify-content: center;
+    }
+    /***** ID *****/
     #contenido {
         height: initial;
         margin: 1rem auto;
         border-radius: 10px;
         display: flex;
-        justify-content: space-between;
-    }
-    figure {
-        width: 50%;
-        margin: 0;
+        justify-content: space-around;
     }
     #user-info {
-        width: 45%;
+        width: 50%;
         margin: 0;
+        display: flex;
+        flex-direction:column;
+        align-items:center;
     }
     #user-info > a {
         display: block;
+    }
+    #option-buttons {
+        width: 100%;
+    }
+    #line-a{
+        border-left: #7372a5 5px dotted;
+    }
+    #line-b{
+        border-left: #6765D6 5px dotted;
     }
 }
