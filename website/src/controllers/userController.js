@@ -66,15 +66,13 @@ const userController = {
                     cart_id: userCart.id,
                     product_id: product.id,
                     products_price: product.price,
-                    products_amount: product.id
+                    products_amount: 1
                 });
                 //Actualiza el carrito con la informacion del cart_products
                 await db.Cart.update({
                     total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})
                 },{where:{id: userCart.id}});
-
-                return res.redirect('/');
             }else{
                 let checkItems = await db.CartProducts.findOne({where:{cart_id: userCart.id, product_id: product.id}})
                 //Valida si el producto ya fue agregado al carrito, si es asi le suma 1 a su cantidad
@@ -97,9 +95,24 @@ const userController = {
                     final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
                     {where:{id: userCart.id}
                 });
-
-                return res.redirect('/');
             }
+            return res.redirect('/users/cart');
+        } catch (error) {
+            throw error;
+        }
+    },
+    productCartDelete: async (req,res)=>{
+        try {
+            let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
+            console.log(userCart);
+            await db.CartProducts.destroy({where:{cart_id: userCart.id, product_id: req.params.id}});
+
+            await db.Cart.update({
+                total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
+                final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
+                {where:{id: userCart.id}
+            });
+            return res.redirect('/users/cart');
         } catch (error) {
             throw error;
         }
@@ -110,7 +123,7 @@ const userController = {
             include:[
                 {model: db.CartProducts, as:'cart_products', include: [{model: db.Product, as:'products', include: ['images']}]}
             ]});
-
+            console.log(userCart);
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {

@@ -96,9 +96,20 @@ ul {
 #units-total h3 {
     margin: 8px 0px;
 }
+/* Mensaje default*/
+#emptyMsg{
+    text-align: center;
+    padding: 20px;
+}
 
 /* Botón */
-
+#itemDelete{
+    background-color: white;
+    color: red;
+}
+#itemDelete i{
+    font-size: 20px;
+}
 #buy-button {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 1.2rem;

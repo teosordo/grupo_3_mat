@@ -10,12 +10,7 @@ const mainController = {
             });
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
-            /*Calcula el descuento que tiene el producto*/
-            let finalPrice = (price, discount) => {
-                let restante = (price * discount) / 100;
-                return price - restante;
-            };
-            return res.render('index', {products, category, finalPrice});
+            return res.render('index', {products, category});
         }catch (error) {
             throw error;
         }

@@ -8,6 +8,7 @@ const product = require('../models/product');
 // pasar a middleware?
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
+    console.log(price);
     return price - restante;
 }
 
@@ -21,26 +22,40 @@ const productController = {
             //Numero para limit/offset/math.ceil
             let settingNumber = 3
             /*Productos completos*/
-            let products = await db.Product.findAll({
-                include:['brand','category','images'],
-                offset: (idPage-1) * settingNumber,
-                limit: settingNumber,
-            });
+            let products;
+            // Total de productos
+            let productsTotalCount;
+
+            if(req.query.searchbar == undefined){
+                // Si se accede a la lista sin haber buscado con el searchbar
+                products = await db.Product.findAll({
+                    include:['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
+                
+                //Busca y cuenta el total de productos
+                productsTotalCount = await db.Product.count();
+            } else {
+                // Si se accede a la lista buscando con el searchbar
+                products = await db.Product.findAll({
+                    where: {
+                        name: {[db.Sequelize.Op.like]: `%${req.query.searchbar}%`}
+                    },
+                    include: ['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
+
+                productsTotalCount = products.length
+            }
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
 
-            /*Calcula el descuento que tiene el producto*/
-            let finalPrice = (price, discount) => {
-                let restante = (price * discount) / 100;
-                return price - restante;
-            };
-
-            //Busca y cuenta el total de productos
-            let productsTotalCount = await db.Product.count();
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
-            return res.render('products/productList', {products, category, finalPrice, idPage, pages: totalNumPages});
+            return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
         }
@@ -70,14 +85,15 @@ const productController = {
                     name: req.body.name,
                     brand_id: req.body.brand,
                     category_id: req.body.category,
+                    originalPrice: req.body.price,
+                    discount: 0,
                     price: req.body.price,
                     stock: req.body.stock,
-                    discount: req.body.discount,
                     warranty: req.body.warranty,
                     video: req.body.video,
                     characteristics: req.body.characteristics,
                     specs: req.body.specs
-                })
+                });
                 //Crea la imagen del producto en la base de datos
                 let newImage = await db.Image.create({
                     name: req.file.filename,
@@ -136,7 +152,7 @@ const productController = {
             editedProduct.prevColors = editedProduct.colors;
             editedProduct.prevName = origProduct.name;
 
-            return res.render('products/productEdit',{brands, categories, colors, errors: result.mapped(), image, product: editedProduct});
+            return res.render('products/productEdit',{brands, categories, colors, errors: result.mapped(), product: editedProduct});
         }else{
             try {
                 // Edita la tabla de products
@@ -144,9 +160,10 @@ const productController = {
                     name: req.body.name,
                     brand_id: req.body.brand,
                     category_id: req.body.category,
-                    price: req.body.price,
+                    originalPrice: req.body.price,
+                    discount: req.body.discount != null? req.body.discount: 0,
+                    price: finalPrice(parseInt(req.body.price), parseInt(req.body.discount)),
                     stock: req.body.stock,
-                    discount: req.body.discount,
                     warranty: req.body.warranty,
                     video: req.body.video,
                     characteristics: req.body.characteristics,
@@ -167,6 +184,8 @@ const productController = {
                         }
                     });
                 }
+
+                //req.file == undefined ? producto.image : req.file.filename
 
                 // Edita la tabla intermedia que conecta con colors 
                 let newColors = req.body.colors;
@@ -258,9 +277,37 @@ const productController = {
             }
         }
     },
-    deleteAll: (req,res) => {
-        let result = productsFunctions.deleteAll(req.params.id);
-        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se borró el producto") 
+    deleteProduct: async (req,res) => {
+        try {
+            // Borra la fila relacionada al producto de la tabla images
+            await db.Image.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products_colors
+            await db.ProductsColor.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla cart_products
+            await db.CartProducts.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products
+            await db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            return res.redirect("/");
+        } catch (error) {
+            throw error;
+        }
     },
     categories: (req, res) => {
         res.render('products/productCategories', {categories: categoryFunctions.all()});

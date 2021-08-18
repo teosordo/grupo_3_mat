@@ -78,7 +78,7 @@
                     </label>
                     
                     <label for="price" class="edit-labels">Precio ($):
-                        <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.price%>">
+                        <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.originalPrice%>">
                     </label>
 
                     <label for="discount" class="edit-labels">Descuento (%):

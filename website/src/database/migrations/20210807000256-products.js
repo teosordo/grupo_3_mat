@@ -30,6 +30,15 @@ module.exports = {
             key: 'id'
           } 
         },
+        originalPrice: {
+          type: Sequelize.DECIMAL,
+          allowNull: false
+        },
+        discount: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+          defaultValue: null
+        },
         price: {
           type: Sequelize.DECIMAL,
           allowNull: false
@@ -37,11 +46,6 @@ module.exports = {
         stock: {
           type: Sequelize.INTEGER,
           defaultValue: 0
-        },
-        discount: {
-          type: Sequelize.INTEGER,
-          allowNull: true,
-          defaultValue: null
         },
         warranty: {
           type: Sequelize.STRING,
