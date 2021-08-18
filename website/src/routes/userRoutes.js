@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
         cb(null, path.resolve(__dirname,'../../public/uploads/users'));
     },
     filename:(req,file,cb)=>{
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        cb(null, file.fieldname + '-' + Date.now() + file.originalname + path.extname(file.originalname));
     }
 });
 
@@ -40,9 +40,12 @@ router.get('/list',[adminAccess], userController.userlist);
 router.get('/profile', [userAccess], userController.userProfile);
 // Logout
 router.post('/logout', [userAccess], userController.logout);
-// Editar User
-router.get('/edit/:id', [adminAccess], userController.userEdit);
-router.put('/update/:id', [adminAccess, upload.single('avatar'), edit], userController.userUpdate);
-router.post('/delete/:id', [adminAccess], userController.userDelete);
+// Usuarios editan su info
+router.get('/edit/:id', [userAccess], userController.userEdit);
+router.put('/update/:id', [userAccess, upload.single('avatar'), edit], userController.userUpdate);
+router.post('/delete/:id', [userAccess], userController.userDelete);
+// Admin elimina usuario
+router.get('/profile/:id', [adminAccess], userController.profile);
+router.post('/destroy/:id', [adminAccess], userController.delete);
 
 module.exports = router;

@@ -121,17 +121,21 @@ const userController = {
     },
     userEdit: async (req,res) => {
         res.render('users/userEdit',{
-            //Recupero datos de la base de datos (User)
-            users: await db.User.findByPk(req.params.id)
+            //Recupero datos de la base de datos (User) segun el usuario logueado
+            users: await db.User.findByPk(req.session.user.id)
         })
     },
     userUpdate: async (req, res) => {
+        // Carga de validaciones
         const result = validationResult(req);
-        // Los datos escritos en body se agregan a la db de User segun su id
-        const users = await db.User.findByPk(req.params.id)
+
+        // Se utiliza al user de la db segun el usuario en session
+        const users = await db.User.findByPk(req.session.user.id)
         
+        // Si hay errores se cargan en la vista de edit 
+        // Si no hay errores se sobreescriben los datos a partir de los datos en body
         if(result.errors.length > 0){
-            return res.render('users/userEdit' ,{errors: result.mapped(), users})
+            return res.render('users/userEdit' ,{errors: result.mapped(), user: req.session.user})
         }else{
             try {
                 let userToEdit = await db.User.update({
@@ -139,20 +143,45 @@ const userController = {
                     lastName: req.body.lastName,
                     username: req.body.username,
                     email: req.body.email,
+                    // Si no se carga nada en el input de contraseña se deja a original
+                    // De lo contrario se carga la nueva
                     password: req.body.password == '' ? users.password : bcrypt.hashSync(req.body.password, 10),
+                    // Si no se selecciona una imagen se deja el avatar anterior
+                    // De lo contrario se carga la nueva imagen
                     avatar: req.file == undefined ? users.avatar : req.file.filename
                 },{
-                    where : {id: req.params.id}
+                    // Segun el user en session
+                    where : {id: req.session.user.id}
                 })
-                res.redirect('/users/list');
+                res.redirect('/users/profile');
             } catch (error) {
                 throw error
             }
         }
     },
     userDelete: async (req,res) => {
-        db.User.destroy({where : {id: req.params.id}})
-        res.redirect('/users/list');
+        try {
+            //Elimina al usuario logueado y lo redirige al home
+            await db.User.destroy({where : {id: req.session.user.id}})
+            res.redirect('/');
+        } catch (error) {
+            throw error
+        }
+    },
+    profile: async (req, res) => {
+        res.render('users/deleteUser', {
+            // Se utiliza al user de la db segun el usuario en session
+            user: await db.User.findByPk(req.params.id)
+        })
+    },
+    delete: async (req, res) => {
+        try {
+            //Elimina al usuario seleccionado y redirige a la lista de usuarios
+            await db.User.destroy({where : {id: req.params.id}})
+            res.redirect('/users/list');
+        } catch (error) {
+            throw error
+        }
     }
 };
 module.exports = userController;
