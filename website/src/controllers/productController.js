@@ -30,18 +30,12 @@ const productController = {
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
 
-            /*Calcula el descuento que tiene el producto*/
-            let finalPrice = (price, discount) => {
-                let restante = (price * discount) / 100;
-                return price - restante;
-            };
-
             //Busca y cuenta el total de productos
             let productsTotalCount = await db.Product.count();
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
-            return res.render('products/productList', {products, category, finalPrice, idPage, pages: totalNumPages});
+            return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
         }
