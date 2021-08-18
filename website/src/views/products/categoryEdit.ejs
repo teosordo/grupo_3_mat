@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Editando: <%=category.prevName ? category.prevName : category.name%> </title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Editar categoría: <%=category.prevName ? category.prevName : category.name%></h1>
+            <form action="/products/edit/category/<%= category.id %> " method="POST">
+                <% if (locals.errors) { %>
+                    <ul class="errorsList">
+                    <% for(let oneError in errors){ %>
+                        <li class="errors"><%= errors[oneError].msg %> </li>
+                    <% } %> 
+                    </ul>
+                <% } %>
+                <fieldset>
+                    <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Categoría
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= category.name %>">
+                    </label>
+                    <label for="detail" class="create-textarea">Ayuda informativa de la categoría
+                        <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>" rows="4"><%= category.detail %></textarea>
+                    </label>
+                    <button type="submit" id="button-submit">Editar</button>
+                </fieldset>
+            </form>
+    </section>
+    </main>
+        <%-include('../includes/footer') %>  
+</body>
+</html>

@@ -134,7 +134,7 @@ const productController = {
         }
         
     },
-    update: async (req, res) => {
+    updateProduct: async (req, res) => {
         const result = validationResult(req);
 
         if(result.errors.length > 0){
@@ -343,6 +343,42 @@ const productController = {
     createCategory: async (req, res) => {
         let newCategory = await db.Category.create(req.body)
         return res.redirect('/')
+    },
+    editCategory: async (req, res) => {
+        try {
+            // Busca la categoría a editar
+            let category = await db.Category.findByPk(req.params.id);
+
+            return res.render('products/categoryEdit', {category}); 
+        } catch (error) {
+            throw error;
+        }
+    },
+    updateCategory: async (req, res) => {
+        try {
+            const result = validationResult(req);
+
+            if(result.errors.length > 0){
+                // Busca la categoría a editar
+                let origCategory = await db.Category.findByPk(req.params.id);
+                // Recupera la información del form
+                let editedCategory = req.body;
+                editedCategory.id = origCategory.id;
+                editedCategory.prevName = origCategory.name;
+
+                return res.render('products/categoryEdit', {category: editedCategory, errors: result.mapped()});
+            } else {
+                let editedCategory = await db.Category.update(req.body, {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+                
+                return res.redirect('/');
+            }           
+        } catch (error) {
+            throw error;
+        }
     },
     newColor:  (req, res) => {
         res.render('products/productColor')
