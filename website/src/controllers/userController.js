@@ -66,7 +66,7 @@ const userController = {
                     cart_id: userCart.id,
                     product_id: product.id,
                     products_price: product.price,
-                    products_amount: product.id
+                    products_amount: 1
                 });
                 //Actualiza el carrito con la informacion del cart_products
                 await db.Cart.update({
