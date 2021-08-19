@@ -35,9 +35,10 @@ router.post('/create', [adminAccess, upload.single('image'), createValidations],
 router.get('/create/brand', [adminAccess],productController.newBrand);
 router.post('/create/brand', [adminAccess],productController.createBrand);
 //Brand Edit
-router.get('/edit/brandList',[adminAccess], productController.brandList)
-router.get('/edit/brand/:id', [adminAccess], productController.editBrand)
-router.put('/edit/brand/:id', [adminAccess], productController.updateBrand)
+router.get('/edit/brandList',[adminAccess], productController.brandList);
+router.get('/edit/brand/:id', [adminAccess], productController.editBrand);
+router.put('/edit/brand/:id', [adminAccess], productController.updateBrand);
+router.delete('/brand/delete/:id', [adminAccess], productController.deleteBrand)
 //Category Create
 router.get('/create/category', [adminAccess],productController.newCategory);
 router.post('/create/category', [adminAccess],productController.createCategory);
@@ -45,13 +46,15 @@ router.post('/create/category', [adminAccess],productController.createCategory);
 router.get('/edit/categoryList', [adminAccess], productController.categoryList);
 router.get('/edit/category/:id', [adminAccess], productController.editCategory);
 router.post('/edit/category/:id', [adminAccess, categoryEditValidator], productController.updateCategory);
+router.delete('/category/delete/:id',[adminAccess], productController.deleteCategory)
 //Color Create
 router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
 //Color Edit 
-router.get('/edit/colorList', [adminAccess], productController.colorList)
-router.get('/edit/color/:id', [adminAccess], productController.editColor)
-router.put('/edit/color/:id', [adminAccess], productController.updateColor)
+router.get('/edit/colorList', [adminAccess], productController.colorList);
+router.get('/edit/color/:id', [adminAccess], productController.editColor);
+router.put('/edit/color/:id', [adminAccess], productController.updateColor);
+router.delete('/color/delete/:id',[adminAccess], productController.deleteColor)
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.get('/edit', productController.editProductList)

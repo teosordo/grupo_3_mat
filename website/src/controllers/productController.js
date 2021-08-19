@@ -403,6 +403,14 @@ const productController = {
             res.redirect('/')
         }
     },
+    deleteBrand: async (req, res) => {
+        try {
+            await db.Brand.destroy({where:{id: req.params.id}})
+            res.redirect('/products/edit/brandList')
+        } catch (error) {
+            throw error
+        }
+    },
     newCategory: (req, res) => {
         res.render('products/productCategory')
     },
@@ -454,6 +462,14 @@ const productController = {
             throw error;
         }
     },
+    deleteCategory: async (req, res) => {
+        try {
+            await db.Category.destroy({where:{id: req.params.id}})
+            res.redirect('/products/edit/categoryList')
+        } catch (error) {
+            throw error
+        }
+    },
     newColor:  (req, res) => {
         res.render('products/productColor')
     },
@@ -485,6 +501,14 @@ const productController = {
             res.redirect('/')
         }
     },
+    deleteColor: async (req, res) => {
+        try {
+            await db.Color.destroy({where:{id: req.params.id}})
+            res.redirect('/products/edit/colorList')
+        } catch (error) {
+            throw error
+        }
+    }
 };
 
 module.exports = productController;
