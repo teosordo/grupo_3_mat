@@ -12,7 +12,7 @@
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <article>
+            <article id="title">
                 <h2>Usuarios:</h2>
                 <section>
                     <select name="filters" id="filters">
@@ -30,7 +30,7 @@
                     </figure>
                     <section class="user-info">
                         <h2><%= users[i].username%></h2>
-                        <h3>Nombre Completo: <%= users[i].firstName + ' ' + users[i].lastName %></h3>
+                        <h3><%= users[i].firstName + ' ' + users[i].lastName%></h3>
                     </section>
                 </article>
             </a>
