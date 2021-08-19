@@ -28,6 +28,11 @@
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
             </form>
+            <form action="/products/brand/delete/<%= brand.id%>?_method=DELETE" method="POST">
+                <button type="submit" id="delete-button">
+                    Borrar
+                </button>
+            </form>
     </section>
     </main>
         <%-include('../includes/footer') %>  
