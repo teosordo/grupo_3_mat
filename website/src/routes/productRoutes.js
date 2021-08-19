@@ -35,9 +35,9 @@ router.post('/create', [adminAccess, upload.single('image'), createValidations],
 router.get('/create/brand', [adminAccess],productController.newBrand);
 router.post('/create/brand', [adminAccess],productController.createBrand);
 //Brand Edit
-router.get('/edit/brandList', productController.brandList)
-router.get('/edit/brand/:id', productController.editBrand)
-router.put('/edit/brand/:id', productController.updateBrand)
+router.get('/edit/brandList',[adminAccess], productController.brandList)
+router.get('/edit/brand/:id', [adminAccess], productController.editBrand)
+router.put('/edit/brand/:id', [adminAccess], productController.updateBrand)
 //Category Create
 router.get('/create/category', [adminAccess],productController.newCategory);
 router.post('/create/category', [adminAccess],productController.createCategory);
@@ -49,9 +49,9 @@ router.post('/edit/category/:id', [adminAccess, categoryEditValidator], productC
 router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
 //Color Edit 
-router.get('/edit/colorList', productController.colorList)
-router.get('/edit/color/:id', productController.editColor)
-router.put('/edit/color/:id', productController.updateColor)
+router.get('/edit/colorList', [adminAccess], productController.colorList)
+router.get('/edit/color/:id', [adminAccess], productController.editColor)
+router.put('/edit/color/:id', [adminAccess], productController.updateColor)
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.get('/edit', productController.editProductList)
