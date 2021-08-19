@@ -41,6 +41,11 @@ router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
+router.get('/edit', productController.editList)
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
+router.post('/edit', productController.editRedirect);
 router.delete("/:id", [adminAccess], productController.deleteAll);
+
+
+
 module.exports = router;

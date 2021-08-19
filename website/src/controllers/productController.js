@@ -138,6 +138,30 @@ const productController = {
         }
         
     },
+    editList: async (req, res) => {
+        try {
+            let products = await db.Product.findAll();
+            return res.render('products/productEditList', {products})
+        } catch (error) {
+            throw error
+        }
+    },
+    editRedirect: (req, res) => {
+        try {
+            console.log(req.body.product? true: false);
+            if (req.body.product){
+                res.redirect(`/products/${req.body.product}/edit`)
+            }else if(req.body.brand){
+                res.redirect(`/products/brand/${req.body.brand}`)
+            }else if(req.body.category){
+                res.redirect(`/products/category/${req.body.brand}`)
+            }else{
+                res.redirect(`/products/color/${req.body.brand}`)
+            }
+        } catch (error) {
+            throw error;
+        }
+    },
     update: async (req, res) => {
         const result = validationResult(req);
 

@@ -63,6 +63,7 @@
             </section>
             <section class="form-container">
                 <form action="/products/options/edit/product" method="POST">
+                    <h2>Productos</h2>
                     <select name="product" id="product" class='product-info'>
                         <% for(i = 0; i < products.length; i++ ) { %>
                             <option value="<%=products[i].id%>"><%=products[i].name%></option>
