@@ -47,30 +47,26 @@
                 </a>
             </section>
             <section id="edit-links">
-                <button class="link-button">
+                <a href="/products/edit" class="btn-a-link" id="btn-a-link-product">
+                    <button class="link-button">
                     Producto
-                </button>
-                <button class="link-button">
+                    </button>
+                </a>
+                <a href="/products/edit/brandList" class="btn-a-link" id="btn-a-link-brand">
+                    <button class="link-button">
                         Marca
-                </button>
-                <button class="link-button">
+                    </button>
+                </a>
+                <a href="/products/edit/categoryList" class="btn-a-link" id="btn-a-link-category">
+                    <button class="link-button">
                         Categoría
-                </button>
-
-                <button class="link-button">
+                    </button>
+                </a>
+                <a href="/products/edit/colorList" class="btn-a-link" id="btn-a-link-color">
+                    <button class="link-button">
                         Color
-                </button>
-            </section>
-            <section class="form-container">
-                <form action="/products/options/edit/product" method="POST">
-                    <h2>Productos</h2>
-                    <select name="product" id="product" class='product-info'>
-                        <% for(i = 0; i < products.length; i++ ) { %>
-                            <option value="<%=products[i].id%>"><%=products[i].name%></option>
-                        <% } %>
-                    </select>
-                    <button type="submit" class="btn-submit">Editar</button>
-                </form>
+                    </button>
+                </a>
             </section>
         </section>
     </main>

@@ -12,12 +12,12 @@
     <%- include('../includes/header') %> 
     <main>
         <section id="content-container">
-            <h1>Seleccione el producto a editar</h1>
+            <h1>Seleccione la marca a editar</h1>
             <form action="/products/redirect" method="POST">
                 <fieldset>
-                    <select name="product" id="product" class = "product-info">
-                        <% for( let i = 0; i < products.length; i++ ) { %>
-                            <option value="<%=products[i].id%>"><%=products[i].name%></option>
+                    <select name="brand" id="brand" class = "product-info">
+                        <% for( let i = 0; i < brands.length; i++ ) { %>
+                            <option value="<%=brands[i].id%>"><%=brands[i].name%></option>
                         <% } %>
                     </select>
                     <button type="submit" id="button-submit">Editar</button>

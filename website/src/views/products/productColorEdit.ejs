@@ -12,8 +12,8 @@
     <%- include('../includes/header') %> 
     <main>
         <section id="content-container">
-            <h1>Editando <%=brand.name%></h1>
-            <form action="/products/edit/brand/<%=brand.id%>?_method=PUT" method="POST">
+            <h1>Editando <%=color.name%></h1>
+            <form action="/products/edit/color/<%=color.id%>?_method=PUT" method="POST">
                 <% if (locals.errors) { %>
                     <ul class="errorsList">
                     <% for(let oneError in errors){ %>
@@ -23,7 +23,7 @@
                 <% } %>
                 <fieldset>
                     <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Marca
-                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= brand.name %>">
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= color.name %>">
                     </label>
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>

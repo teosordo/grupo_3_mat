@@ -54,7 +54,7 @@ legend, #button-submit, .product-info{
     cursor: pointer;
     background-color: #6765d6;
 }
-.btn-a-link, #edit-links button{
+.btn-a-link{
     width: 50%;
 }
 .link-button{
@@ -64,6 +64,7 @@ legend, #button-submit, .product-info{
 }
 #create-links, #edit-links{
     display: none;
+    flex-wrap: wrap;
     opacity: 0;
     transition: all 1s ease-out;
 }
@@ -256,6 +257,5 @@ label{
 
 #create-links.show, #edit-links.show{
     display: flex;
-    flex-wrap: wrap;
     opacity: 1;
 }
