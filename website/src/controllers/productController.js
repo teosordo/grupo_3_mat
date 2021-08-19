@@ -180,16 +180,13 @@ const productController = {
 
         if(result.errors.length > 0){
             // data para usar en el view
-            // Podes usar include del producto para las imágenes
-            // Revisar el array por un find all
-            let origProduct = await db.Product.findByPk(req.params.id);
-            let image = await db.Image.findOne({where: {product_id: origProduct.id}});
+            let origProduct = await db.Product.findByPk(req.params.id, {include:['images']});
             let brands = await db.Brand.findAll();
             let categories = await db.Category.findAll();
             let colors = await db.Color.findAll();
             let editedProduct = req.body;
             editedProduct.id = origProduct.id;
-            editedProduct.images = Array.of(image);
+            editedProduct.images = origProduct.images;
             editedProduct.prevColors = editedProduct.colors;
             editedProduct.prevName = origProduct.name;
 
@@ -225,8 +222,6 @@ const productController = {
                         }
                     });
                 }
-
-                //req.file == undefined ? producto.image : req.file.filename
 
                 // Edita la tabla intermedia que conecta con colors 
                 let newColors = req.body.colors;
