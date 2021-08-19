@@ -162,7 +162,7 @@ const productController = {
             throw error;
         }
     },
-    update: async (req, res) => {
+    updateProduct: async (req, res) => {
         const result = validationResult(req);
 
         if(result.errors.length > 0){
@@ -305,9 +305,37 @@ const productController = {
             }
         }
     },
-    deleteAll: (req,res) => {
-        let result = productsFunctions.deleteAll(req.params.id);
-        return result == true ? res.redirect("/") : res.send("Ocurrió un error. No se borró el producto") 
+    deleteProduct: async (req,res) => {
+        try {
+            // Borra la fila relacionada al producto de la tabla images
+            await db.Image.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products_colors
+            await db.ProductsColor.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla cart_products
+            await db.CartProducts.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            });
+            // Borra la fila relacionada al producto de la tabla products
+            await db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            return res.redirect("/");
+        } catch (error) {
+            throw error;
+        }
     },
     categories: (req, res) => {
         res.render('products/productCategories', {categories: categoryFunctions.all()});
@@ -343,6 +371,42 @@ const productController = {
     createCategory: async (req, res) => {
         let newCategory = await db.Category.create(req.body)
         return res.redirect('/')
+    },
+    editCategory: async (req, res) => {
+        try {
+            // Busca la categoría a editar
+            let category = await db.Category.findByPk(req.params.id);
+
+            return res.render('products/categoryEdit', {category}); 
+        } catch (error) {
+            throw error;
+        }
+    },
+    updateCategory: async (req, res) => {
+        try {
+            const result = validationResult(req);
+
+            if(result.errors.length > 0){
+                // Busca la categoría a editar
+                let origCategory = await db.Category.findByPk(req.params.id);
+                // Recupera la información del form
+                let editedCategory = req.body;
+                editedCategory.id = origCategory.id;
+                editedCategory.prevName = origCategory.name;
+
+                return res.render('products/categoryEdit', {category: editedCategory, errors: result.mapped()});
+            } else {
+                let editedCategory = await db.Category.update(req.body, {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+                
+                return res.redirect('/');
+            }           
+        } catch (error) {
+            throw error;
+        }
     },
     newColor:  (req, res) => {
         res.render('products/productColor')

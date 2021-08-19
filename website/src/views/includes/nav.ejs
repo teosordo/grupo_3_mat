@@ -2,7 +2,7 @@
     <h2>Categorías</h2>
     <ul>
         <% category.forEach(element =>{ %>
-            <li><a href="#"><%=element.name%></a></li>
+            <li><a href="/products/list/1"><%=element.name%></a></li>
         <% }) %>
         <% if (user && user.admin) { %>
             <li id="productCreate"><a href="/products/options">Opciones de Administrador</a></li>

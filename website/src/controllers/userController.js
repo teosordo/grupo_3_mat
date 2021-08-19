@@ -184,7 +184,7 @@ const userController = {
     profile: async (req, res) => {
         res.render('users/deleteUser', {
             // Se utiliza al user de la db segun el usuario en session
-            user: await db.User.findByPk(req.params.id)
+            users: await db.User.findByPk(req.params.id)
         })
     },
     delete: async (req, res) => {

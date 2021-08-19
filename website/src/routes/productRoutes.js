@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 
 const productController = require('../controllers/productController');
+const categoryEditValidator = require('../middlewares/products/categoryEditValidator');
 
 const createValidations = require('../middlewares/products/createValidator');
 const editValidations = require('../middlewares/products/editValidator');
@@ -36,11 +37,15 @@ router.post('/create/brand', [adminAccess],productController.createBrand);
 //Category Create
 router.get('/create/category', [adminAccess],productController.newCategory);
 router.post('/create/category', [adminAccess],productController.createCategory);
+//Category Edit
+router.get('/edit/category/:id', [adminAccess], productController.editCategory);
+router.post('/edit/category/:id', [adminAccess, categoryEditValidator], productController.updateCategory);
 //Color Create
 router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
+<<<<<<< HEAD
 router.get('/edit', productController.editList)
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.update);
 router.post('/edit', productController.editRedirect);
@@ -48,4 +53,8 @@ router.delete("/:id", [adminAccess], productController.deleteAll);
 
 
 
+=======
+router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.updateProduct);
+router.delete("/:id", [adminAccess], productController.deleteProduct);
+>>>>>>> a6fb52fc780611cff7825f9fb8498ed1d53234ce
 module.exports = router;

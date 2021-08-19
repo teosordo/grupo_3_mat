@@ -183,9 +183,11 @@ li.errors{
 /**************** MEDIA QUERIES ****************/
 /* Tablet */
 @media (min-width: 481px) {
+    /***** ETIQUETAS *****/
     form{
         border-radius: 5px;
     }
+    /******** ID *********/
     #header-right {
         display: flex;
         justify-content: space-around;
@@ -206,15 +208,6 @@ li.errors{
         width: 95%;
         margin-top:1rem;
     }
-    /******** CLASES *********/
-    /* Encabezado*/
-    .logo{
-        width:20%;
-        display: block;
-    }
-    .burger{
-        display: none;
-    }
     #header-right{
         text-align:left;
     }
@@ -231,5 +224,14 @@ li.errors{
         display: flex;
         align-items:center;
         justify-content: space-between;
+    }
+    /******** CLASES *********/
+    /* Encabezado*/
+    .logo{
+        width:20%;
+        display: block;
+    }
+    .burger{
+        display: none;
     }
 }

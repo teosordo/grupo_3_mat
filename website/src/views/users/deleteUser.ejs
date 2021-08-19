@@ -14,24 +14,28 @@
     <main >
         <section id="contenido">
             <figure>
-                <img src="/uploads/users/<%=user.avatar%>" alt="profile-image">
+                <img src="/uploads/users/<%=users.avatar%>" alt="profile-image">
             </figure>
+            <section id="line-a"></section>
             <section id="user-info">
-                <h2><%= user.firstName + ' ' + user.lastName %></h2>
+                <h2><%= users.firstName + ' ' + users.lastName %></h2>
                 <article>
                     <ul>
-                        <li>Nombre de usuario: <%= user.username %></li>
-                        <li>Email: <%= user.email %></li>
-                        <li>Tipo de user: <%= user.admin == 0 ? 'Usuario' : 'Admin' %></li>
+                        <li>Nombre de usuario: <%= users.username %></li>
+                        <li>Email: <%= users.email %></li>
+                        <li>Tipo de user: <%= users.admin == 0 ? 'Usuario' : 'Admin' %></li>
                     </ul>
-                    <form action="/users/list" method="GET">
-                        <button type="submit" id="logout-button">Listado de usuarios</button>
-                    </form>
-                    <form action="/users/destroy/<%=user.id%>" method="POST">
-                        <button type="submit" id="logout-button">Borrar perfil</button>
-                    </form>
                 </article>
+                <section id="option-buttons">
+                    <form action="/users/list" method="GET">
+                        <button type="submit" id="option-one">Volver</button>
+                    </form>
+                    <form action="/users/destroy/<%=users.id%>" method="POST">
+                        <button type="submit" id="option-two">Borrar usuario</button>
+                    </form>
+                </section>
             </section>
+            <section id="line-b"></section>
         </section>    
     </main>
     <!-- FOOTER -->

@@ -6,37 +6,34 @@
         <link rel="stylesheet" href="/css/<%= style %> ">
     <% }) %>
     <link rel="stylesheet" href="/css/users/userList.css">
-    <title>Perfil de Usuarios</title>
+    <title>Editar datos</title>
 </head>
 <body>
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <h1>Editá los datos de <%=user.firstName%>:</h1>
+            <h2><%=user.firstName%>, editá tus datos:</h2>
             <form action="/users/update/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <fieldset id="fieldset-small">
-                    <legend>
-                        <img src="/uploads/users/<%=user.avatar%>" alt="" id="avatar-user">
-                    </legend>
-                    <label for="firstName" class="edit-labels">Nombre:
+                <fieldset class="fieldset-small">
+                    <label for="firstName">Nombre:
                         <% if (locals.errors && errors.firstName) { %>
                             <p class="errors"><%= errors.firstName.msg%></p>
                         <% } %>
                         <input type="text" name="firstName" id="firstName" class="container-user" value="<%=user.firstName%>">
                     </label>
-                    <label for="lastName" class="edit-labels">Apellido:
+                    <label for="lastName">Apellido:
                         <% if (locals.errors && errors.lastName) { %>
                             <p class="errors"><%= errors.lastName.msg%></p>
                         <% } %>
                         <input type="text" name="lastName" id="lastName" class="container-user" value="<%=user.lastName%>">
                     </label>
-                    <label for="username" class="edit-labels">Nombre de usuario:
+                    <label for="username">Nombre de usuario:
                         <% if (locals.errors && errors.username) { %>
                             <p class="errors"><%= errors.username.msg%></p>
                         <% } %>
                         <input type="text" name="username" id="username" class="container-user" value="<%=user.username%>">
                     </label>
-                    <label for="email" class="edit-labels">Email:
+                    <label for="email">Email:
                         <% if (locals.errors && errors.email) { %>
                             <p class="errors"><%= errors.email.msg%></p>
                         <% } %>
@@ -54,7 +51,12 @@
                         <% } %>
                         <input type="password" id="passwordConfirm" name="passwordConfirm" class="container-user">
                     </label>
-                    <label for="avatar" id='avatar-upload'>Foto de perfil:
+                    <label>Avatar: 
+                        <legend>
+                            <img src="/uploads/users/<%=user.avatar%>" alt="" id="avatar-user">
+                        </legend>
+                    </label>
+                    <label for="avatar"> Nuevo avatar: 
                         <input type="file" name="avatar" id="avatar" class="container-user" accept="image/jpeg, image/png, image/jpg">
                     </label>
                     <!-- AGREGAR BOTON DE CANCELAR -->
@@ -62,7 +64,9 @@
                 </fieldset>
             </form>
             <form action="/users/delete/<%=users.id%>" method="POST">
-                <button type="submit" id="delete-button">Eliminar</button>
+                <fieldset class="fieldset-small">
+                    <button type="submit" id="delete-button">Eliminar</button>
+                </fieldset>
             </form>
         </section>
     </main>
