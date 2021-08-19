@@ -25,19 +25,9 @@ const productController = {
             let products;
             // Total de productos
             let productsTotalCount;
-
-            if(req.query.searchbar == undefined){
-                // Si se accede a la lista sin haber buscado con el searchbar
-                products = await db.Product.findAll({
-                    include:['brand','category','images'],
-                    offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
-                });
-                
-                //Busca y cuenta el total de productos
-                productsTotalCount = await db.Product.count();
-            } else {
+            if(req.query.searchbar){
                 // Si se accede a la lista buscando con el searchbar
+                // Devuelve todos los productos cuyo nombre coincida con lo buscado
                 products = await db.Product.findAll({
                     where: {
                         name: {[db.Sequelize.Op.like]: `%${req.query.searchbar}%`}
@@ -46,9 +36,33 @@ const productController = {
                     offset: (idPage-1) * settingNumber,
                     limit: settingNumber
                 });
+                
+                productsTotalCount = products.length
+            } else if(req.params.categoryId) {
+                // Si accede a través del nav de categorías
+                // Devuelve todos los productos de cierta categoría
+                products = await db.Product.findAll({
+                    where: {
+                        category_id: req.params.categoryId
+                    },
+                    include: ['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
 
                 productsTotalCount = products.length
+            } else {
+                // Devuelve TODOS los productos
+                products = await db.Product.findAll({
+                    include:['brand','category','images'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
+                
+                //Busca y cuenta el total de productos
+                productsTotalCount = await db.Product.count();
             }
+
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
 
@@ -58,7 +72,6 @@ const productController = {
             if(req.params.id > totalNumPages){
                 res.redirect('/products/list/1')
             };
-
             return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
