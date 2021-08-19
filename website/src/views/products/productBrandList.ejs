@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Creando un Producto</title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Seleccione la marca a editar</h1>
+            <form action="/products/redirect" method="POST">
+                <fieldset>
+                    <select name="brand" id="brand" class = "product-info">
+                        <% for( let i = 0; i < brands.length; i++ ) { %>
+                            <option value="<%=brands[i].id%>"><%=brands[i].name%></option>
+                        <% } %>
+                    </select>
+                    <button type="submit" id="button-submit">Editar</button>
+                </fieldset>
+            </form>
+    </section>
+    </main>
+        <%-include('../includes/footer') %>  
+</body>
+</html>

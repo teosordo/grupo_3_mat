@@ -68,7 +68,10 @@ const productController = {
 
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
-            // console.log(req.params.categoryId);
+
+            if(req.params.id > totalNumPages){
+                res.redirect('/products/list/1')
+            };
             return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
         }catch (error) {
             throw error;
@@ -147,6 +150,30 @@ const productController = {
             throw error;
         }
         
+    },
+    editProductList: async (req, res) => {
+        try {
+            let products = await db.Product.findAll();
+            return res.render('products/productEditList', {products})
+        } catch (error) {
+            throw error
+        }
+    },
+    editRedirect: (req, res) => {
+        try {
+            console.log(req.body.product? true: false);
+            if (req.body.product){
+                res.redirect(`/products/${req.body.product}/edit`)
+            }else if(req.body.brand){
+                res.redirect(`/products/edit/brand/${req.body.brand}`)
+            }else if(req.body.category){
+                res.redirect(`/products/edit/category/${req.body.category}`)
+            }else{
+                res.redirect(`/products/edit/color/${req.body.color}`)
+            }
+        } catch (error) {
+            throw error;
+        }
     },
     updateProduct: async (req, res) => {
         const result = validationResult(req);
@@ -342,12 +369,45 @@ const productController = {
     newBrand: (req, res) => {
         res.render('products/productBrand')
     },
+    brandList: async (req, res) => {
+        try {
+            let brands = await db.Brand.findAll();
+            res.render('products/productBrandList', {brands})
+        } catch (error) {
+            throw error
+        }
+    },
     createBrand: async (req, res) => {
         let newBrand = await db.Brand.create(req.body)
         return res.redirect('/')
     },
+    editBrand: async (req, res) => {
+        res.render('products/productBrandEdit', {brand: await db.Brand.findOne({where: {id: req.params.id}})})
+    }
+    ,
+    updateBrand: async (req, res) => {
+        let result = validationResult(req);
+        if (result.errors.length > 0) {
+            res.render('products/productBrandEdit', {brand: req.params});
+        }else{
+            await db.Brand.update(req.body,{
+                where:{
+                    id: req.params.id
+                }
+            });
+            res.redirect('/')
+        }
+    },
     newCategory: (req, res) => {
         res.render('products/productCategory')
+    },
+    categoryList: async (req, res) => {
+        try {
+            let categories = await db.Category.findAll();
+            res.render('products/productCategoryList', {categories})
+        } catch (error) {
+            throw error
+        }
     },
     createCategory: async (req, res) => {
         let newCategory = await db.Category.create(req.body)
@@ -392,10 +452,34 @@ const productController = {
     newColor:  (req, res) => {
         res.render('products/productColor')
     },
+    colorList: async (req, res) => {
+        try {
+            let colors = await db.Color.findAll();
+            res.render('products/productColorList', {colors})
+        } catch (error) {
+            throw error
+        }
+    },
     createColor: async (req, res) => {
         let newColor = await db.Color.create(req.body)
         return res.redirect('/')
-    }
+    },
+    editColor: async (req, res) => {
+        res.render('products/productColorEdit', {color: await db.Color.findOne({where:{id: req.params.id}})})
+    },
+    updateColor: async (req, res) => {
+        let result = validationResult(req);
+        if (result.errors.length > 0) {
+            res.render('products/productBrandEdit', {color: req.body});
+        }else{
+            await db.Color.update(req.body,{
+                where:{
+                    id: req.params.id
+                }
+            });
+            res.redirect('/')
+        }
+    },
 };
 
 module.exports = productController;

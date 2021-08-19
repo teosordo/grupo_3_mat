@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../includes/head') %>
+    <title>Creando un Producto</title>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="/css/<%= style %> ">
+    <% }) %>
+    <link rel="stylesheet" href="/css/products/productForm.css">
+</head>
+<body>
+    <%- include('../includes/header') %> 
+    <main>
+        <section id="content-container">
+            <h1>Editando <%=color.name%></h1>
+            <form action="/products/edit/color/<%=color.id%>?_method=PUT" method="POST">
+                <% if (locals.errors) { %>
+                    <ul class="errorsList">
+                    <% for(let oneError in errors){ %>
+                        <li class="errors"><%= errors[oneError].msg %> </li>
+                    <% } %> 
+                    </ul>
+                <% } %>
+                <fieldset>
+                    <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Marca
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= color.name %>">
+                    </label>
+                    <button type="submit" id="button-submit">Editar</button>
+                </fieldset>
+            </form>
+    </section>
+    </main>
+        <%-include('../includes/footer') %>  
+</body>
+</html>

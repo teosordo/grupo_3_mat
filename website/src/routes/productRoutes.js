@@ -34,17 +34,29 @@ router.post('/create', [adminAccess, upload.single('image'), createValidations],
 //Brand Create
 router.get('/create/brand', [adminAccess],productController.newBrand);
 router.post('/create/brand', [adminAccess],productController.createBrand);
+//Brand Edit
+router.get('/edit/brandList',[adminAccess], productController.brandList)
+router.get('/edit/brand/:id', [adminAccess], productController.editBrand)
+router.put('/edit/brand/:id', [adminAccess], productController.updateBrand)
 //Category Create
 router.get('/create/category', [adminAccess],productController.newCategory);
 router.post('/create/category', [adminAccess],productController.createCategory);
 //Category Edit
+router.get('/edit/categoryList', [adminAccess], productController.categoryList);
 router.get('/edit/category/:id', [adminAccess], productController.editCategory);
 router.post('/edit/category/:id', [adminAccess, categoryEditValidator], productController.updateCategory);
 //Color Create
 router.get('/create/color', [adminAccess],productController.newColor);
 router.post('/create/color', [adminAccess],productController.createColor);
+//Color Edit 
+router.get('/edit/colorList', [adminAccess], productController.colorList)
+router.get('/edit/color/:id', [adminAccess], productController.editColor)
+router.put('/edit/color/:id', [adminAccess], productController.updateColor)
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
+router.get('/edit', productController.editProductList)
 router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.updateProduct);
+router.post('/redirect', productController.editRedirect);
 router.delete("/:id", [adminAccess], productController.deleteProduct);
+
 module.exports = router;
