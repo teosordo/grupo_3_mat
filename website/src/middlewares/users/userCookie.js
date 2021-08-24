@@ -1,8 +1,8 @@
-const {findByField} = require('../../models/user')
+const db = require("../../database/models");
 module.exports = (req,res,next) =>{
     if(req.cookies.email){
         //Busca el usuario segun el email de la cookie
-        let user = findByField('email', req.cookies.email)
+        let user = db.User.findByField('email', req.cookies.email)
         delete user.password
         //"Inicia" la sesion
         req.session.user = user

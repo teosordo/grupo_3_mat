@@ -123,13 +123,16 @@ const userController = {
             include:[
                 {model: db.CartProducts, as:'cart_products', include: [{model: db.Product, as:'products', include: ['images']}]}
             ]});
-            console.log(userCart);
+            //console.log(userCart);
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
         try {
             let users;
             let usersTotalCount;
+            //Numero para limit/offset/math.ceil
+            let settingNumber = 3
+
             if(req.query.search){
                 users = await db.User.findAll({
                     where: {
@@ -142,27 +145,44 @@ const userController = {
                         lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
                     }
                 });
-                usersTotalCount = users.length;
+                usersTotalCount = await db.User.count({
+                    where: {
+                        username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    },
+                    or: {
+                        firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    },
+                    or: {
+                        lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    }
+                });
             }else{
                 users = await db.User.findAll();
-                usersTotalCount = await db.Product.count();
+                usersTotalCount = await db.User.count();
             }
+            //Redondea el numero para saber el total de paginas necesarias 
+            let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
+            console.log(totalNumPages);
+
+            if(req.params.id > totalNumPages){
+                res.redirect('/users/list/')
+            };
             // Filtros de busqueda (falta poner bien la condicion)
-            if (req.body.desc){
+            /*if (req.body.desc){
                 users = await db.User.findAll({
                     order:[
                         ['username', 'DESC']
                     ]
                 })
             }else {
-                console.log(req.body.desc);
+                //console.log(req.body.desc);
                 users = await db.User.findAll({
                     order:[
                         ['username', 'ASC']
                     ]
                 })
-            }
-            return res.render('users/list',{users, user: req.session.user, usersTotalCount})                    
+            }*/
+            return res.render('users/list',{users, user: req.session.user, usersTotalCount, pages: totalNumPages})                    
         } catch (error) {
             throw error
         }

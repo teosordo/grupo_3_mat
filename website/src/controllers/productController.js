@@ -8,7 +8,7 @@ const product = require('../models/product');
 // pasar a middleware?
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
-    console.log(price);
+    //console.log(price);
     return price - restante;
 }
 
