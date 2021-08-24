@@ -9,12 +9,12 @@ ___
 
 ## Hacer más
 
-  - Comentar mas el código para mejor comprensión.
   - Consultar con los profesores mas seguido.
 ___
 
 ## Continuar haciendo
 
+  - Comentar mas el código para mejor comprensión.
   - Revisar que el codigo escrito sea el necesario y eliminar lo que no.
   - Usar Trello más seguido.
   - Ser mas concisos en las videollamadas.
