@@ -35,7 +35,7 @@ router.get('/cart',[userAccess], userController.productCart);
 router.post('/cart/add/:id',[userAccess], userController.productCartAdd)
 router.delete('/cart/:id',[userAccess], userController.productCartDelete)
 //User List
-router.get('/list',[adminAccess], userController.userlist);
+router.get('/list/:id?',[adminAccess], userController.userlist);
 // Profile
 router.get('/profile', [userAccess], userController.userProfile);
 // Logout

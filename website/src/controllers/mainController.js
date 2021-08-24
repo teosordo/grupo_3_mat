@@ -1,5 +1,5 @@
-const productsFunctions = require('../models/product')
-const categoryFunctions = require('../models/category')
+//const productsFunctions = require('../models/product')
+//const categoryFunctions = require('../models/category')
 const db = require('../database/models')
 const mainController = {
     index: async (req, res) => {

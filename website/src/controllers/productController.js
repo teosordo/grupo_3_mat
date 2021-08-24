@@ -161,7 +161,7 @@ const productController = {
     },
     editRedirect: (req, res) => {
         try {
-            console.log(req.body.product? true: false);
+            //console.log(req.body.product? true: false);
             if (req.body.product){
                 res.redirect(`/products/${req.body.product}/edit`)
             }else if(req.body.brand){

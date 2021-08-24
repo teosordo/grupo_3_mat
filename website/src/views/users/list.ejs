@@ -15,11 +15,21 @@
             <article id="title">
                 <h2>Usuarios:</h2>
                 <section>
+                    <!--Filtros-->
                     <select name="filters" id="filters">
                         <option value="" selected disabled>Ordenar de:</option>
-                        <option value="">A - Z</option>
-                        <option value="">Z - A</option>
+                        <option value="asc">A - Z</option>
+                        <option value="desc">Z - A</option>
                     </select>
+                    <!--Buscador-->
+                    <form id="buscador" method="GET" action="/users/list/1">
+                        <input type="search" name="search" placeholder="Buscar..." id="search">
+                        <button type="submit" name="buscar" class="buscar"><i class="fas fa-search"></i></button>
+                    </form>
+                    <!--Errores al buscar-->
+                    <%if(usersTotalCount==0){%>
+                        <p>No se encuentra ningun usuario asociado a ese nombre</p>
+                    <% } %>
                 </section>
             </article>
         <% for(i = 0;i < users.length;i++) { %>

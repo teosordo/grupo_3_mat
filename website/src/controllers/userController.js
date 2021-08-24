@@ -127,7 +127,45 @@ const userController = {
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
-        res.render('users/list',{users: await db.User.findAll(), user: req.session.user})
+        try {
+            let users;
+            let usersTotalCount;
+            if(req.query.search){
+                users = await db.User.findAll({
+                    where: {
+                        username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    },
+                    or: {
+                        firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    },
+                    or: {
+                        lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                    }
+                });
+                usersTotalCount = users.length;
+            }else{
+                users = await db.User.findAll();
+                usersTotalCount = await db.Product.count();
+            }
+            // Filtros de busqueda (falta poner bien la condicion)
+            if (req.body.desc){
+                users = await db.User.findAll({
+                    order:[
+                        ['username', 'DESC']
+                    ]
+                })
+            }else {
+                console.log(req.body.desc);
+                users = await db.User.findAll({
+                    order:[
+                        ['username', 'ASC']
+                    ]
+                })
+            }
+            return res.render('users/list',{users, user: req.session.user, usersTotalCount})                    
+        } catch (error) {
+            throw error
+        }
     },
     userProfile: (req,res) => {
         res.render('users/userProfile', {user: req.session.user});
