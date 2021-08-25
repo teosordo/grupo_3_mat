@@ -52,11 +52,33 @@
                 <% } %>
                 <section id="page-navbar-cont">
                     <nav id="page-navbar">
-                        <a href="<%= idPage == 1 ? '#' : '/products/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous"><i class="fa fa-angle-left"></i></a>
+                        <% if(search){ %>
+                            <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
+                        <% } else if(categoryId){ %>
+                            <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
+                        <% } else { %>
+                            <a href="<%= idPage == 1 ? '#' : '/products/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous">
+                        <% } %>  
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         <% for(let i = 1; i <= pages; i++ ) { %>
-                            <a href="<%= "/products/list/"+ i %> " class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                            <% if(search){ %>
+                                <a href="<%=`/products/list/${i}?searchbar=${search}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                            <% } else if(categoryId){ %>
+                                <a href="<%=`/products/list/${i}/${categoryId}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                            <% } else { %>
+                                <a href="<%=`/products/list/${i}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                            <% } %> 
                         <% } %>
-                        <a href="<%= idPage == pages ? '#' : '/products/list/'+ (idPage + 1)%>" class= "page-navbar-arrows" id="next"><i class="fa fa-angle-right"></i></a>
+                        <% if(search){ %>
+                            <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
+                        <% } else if(categoryId){ %>
+                            <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
+                        <% } else { %>
+                            <a href="<%= idPage == pages ? '#' : '/products/list/'+ (idPage+1)%>" class= "page-navbar-arrows" id="previous">
+                        <% } %>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                       </div>
                     </nav>
                 </section>         

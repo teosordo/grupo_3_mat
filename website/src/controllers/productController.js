@@ -25,6 +25,10 @@ const productController = {
             let products;
             // Total de productos
             let productsTotalCount;
+            // Guarda el query
+            let search;
+            // Guarda el id de la categoría
+            let categoryId;
             if(req.query.searchbar){
                 // Si se accede a la lista buscando con el searchbar
                 // Devuelve todos los productos cuyo nombre coincida con lo buscado
@@ -37,7 +41,15 @@ const productController = {
                     limit: settingNumber
                 });
                 
-                productsTotalCount = products.length
+                productsTotalCount = await db.Product.count({
+                    where: {
+                        name: {[db.Sequelize.Op.like]: `%${req.query.searchbar}%`}
+                    }
+                });
+
+                search = req.query.searchbar;
+
+                console.log(search);
             } else if(req.params.categoryId) {
                 // Si accede a través del nav de categorías
                 // Devuelve todos los productos de cierta categoría
@@ -50,7 +62,13 @@ const productController = {
                     limit: settingNumber
                 });
 
-                productsTotalCount = products.length
+                productsTotalCount = await db.Product.count({
+                    where: {
+                        category_id: req.params.categoryId
+                    }
+                });
+
+                categoryId = req.params.categoryId;
             } else {
                 // Devuelve TODOS los productos
                 products = await db.Product.findAll({
@@ -72,7 +90,7 @@ const productController = {
             if(req.params.id > totalNumPages){
                 res.redirect('/products/list/1')
             };
-            return res.render('products/productList', {products, category, idPage, pages: totalNumPages});
+            return res.render('products/productList', {products, category, idPage, pages: totalNumPages, search, categoryId});
         }catch (error) {
             throw error;
         }
