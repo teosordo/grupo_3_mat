@@ -44,7 +44,36 @@
                     </section>
                 </article>
             </a>
-        <% } %> 
+        <% } %>
+            <section id="page-navbar-cont">
+                <nav id="page-navbar">
+                    <!-- Flecha izquierda -->
+                    <% if(search){ %>
+                        <a href="<%= idPage == 1 ? '#' : `/users/list/${(idPage-1)}?search=${search}`%>" class= "page-navbar-arrows" id="previous">
+                    <% } else { %>
+                        <a href="<%= idPage == 1 ? '#' : '/users/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous">
+                    <% } %>  
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    <!-- Numeros de paginas -->
+                    <% for(let i = 1; i <= pages; i++ ) { %>
+                        <% if(search){ %>
+                            <a href="<%=`/users/list/${i}?search=${search}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                        <% } else { %>
+                            <a href="<%=`/users/list/${i}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                        <% } %> 
+                    <% } %>
+                    <!-- Flecha derecha -->
+                    <% if(search){ %>
+                        <a href="<%= idPage == pages ? '#' : `/users/list/${(idPage+1)}?search=${search}`%>" class= "page-navbar-arrows" id="previous">
+                    <% } else { %>
+                        <a href="<%= idPage == pages ? '#' : '/users/list/'+ (idPage+1)%>" class= "page-navbar-arrows" id="previous">
+                    <% } %>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                </nav>
+            </section>   
         </section>
     </main>
     <%-include('../includes/footer') %> 

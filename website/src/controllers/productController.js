@@ -48,8 +48,7 @@ const productController = {
                 });
 
                 search = req.query.searchbar;
-
-                console.log(search);
+                
             } else if(req.params.categoryId) {
                 // Si accede a través del nav de categorías
                 // Devuelve todos los productos de cierta categoría

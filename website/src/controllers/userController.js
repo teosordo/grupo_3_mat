@@ -123,49 +123,58 @@ const userController = {
             include:[
                 {model: db.CartProducts, as:'cart_products', include: [{model: db.Product, as:'products', include: ['images']}]}
             ]});
-            //console.log(userCart);
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
         try {
+            let idPage = parseInt(req.params.id);
+            if(idPage == 0){
+                res.redirect('/users/list/1')
+            }
             let users;
             let usersTotalCount;
+            // Guarda el query
+            let search;
             //Numero para limit/offset/math.ceil
             let settingNumber = 3
 
             if(req.query.search){
                 users = await db.User.findAll({
                     where: {
-                        username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        [db.Sequelize.Op.or] : [{
+                            username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        },{
+                            firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        },{
+                            lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        }]
                     },
-                    or: {
-                        firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    },
-                    or: {
-                        lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    }
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
                 });
                 usersTotalCount = await db.User.count({
                     where: {
+                    [db.Sequelize.Op.or] : [{
                         username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    },
-                    or: {
+                    },{
                         firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    },
-                    or: {
+                    },{
                         lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    }
-                });
+                    }]
+                }});
+                
+                search = req.query.search;
             }else{
-                users = await db.User.findAll();
+                users = await db.User.findAll({
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber
+                });
                 usersTotalCount = await db.User.count();
             }
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
-            console.log(totalNumPages);
-
             if(req.params.id > totalNumPages){
-                res.redirect('/users/list/')
+                res.redirect('/users/list/1')
             };
             // Filtros de busqueda (falta poner bien la condicion)
             /*if (req.body.desc){
@@ -182,7 +191,7 @@ const userController = {
                     ]
                 })
             }*/
-            return res.render('users/list',{users, user: req.session.user, usersTotalCount, pages: totalNumPages})                    
+            return res.render('users/list',{users, user: req.session.user, usersTotalCount, idPage, pages: totalNumPages, search})                    
         } catch (error) {
             throw error
         }
