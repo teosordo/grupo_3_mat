@@ -131,7 +131,9 @@ const userController = {
             if(idPage == 0){
                 res.redirect('/users/list/1')
             }
+            // Todos los usuarios
             let users;
+            // Cantidad numerica de usuarios
             let usersTotalCount;
             // Guarda el query
             let search;
@@ -183,14 +185,14 @@ const userController = {
                         ['username', 'DESC']
                     ]
                 })
-            }else {
+            }else {*/
                 //console.log(req.body.desc);
                 users = await db.User.findAll({
                     order:[
                         ['username', 'ASC']
                     ]
                 })
-            }*/
+            //}
             return res.render('users/list',{users, user: req.session.user, usersTotalCount, idPage, pages: totalNumPages, search})                    
         } catch (error) {
             throw error

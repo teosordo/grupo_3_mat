@@ -89,7 +89,7 @@ const productController = {
             if(req.params.id > totalNumPages){
                 res.redirect('/products/list/1')
             };
-            return res.render('products/productList', {products, category, idPage, pages: totalNumPages, search, categoryId});
+            return res.render('products/productList', {products, category, idPage, productsTotalCount, pages: totalNumPages, search, categoryId});
         }catch (error) {
             throw error;
         }

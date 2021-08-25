@@ -29,6 +29,10 @@
                         </select>
                     </section>
                 </article>
+                <!--Errores al buscar-->
+                <%if(productsTotalCount==0){%>
+                    <p>No se encuentra ningun producto asociado a ese nombre</p>
+                <% } %>
                 <% for(i = 0; i < products.length; i++) { %>
                     <article class="content-box">
                         <a href="/products/detail/<%=products[i].id%>" class="product-box">
@@ -51,6 +55,7 @@
                 <% } %>
                 <section id="page-navbar-cont">
                     <nav id="page-navbar">
+                    <!-- Flecha izquierda -->
                         <% if(search){ %>
                             <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
                         <% } else if(categoryId){ %>
@@ -60,6 +65,7 @@
                         <% } %>  
                                 <i class="fa fa-angle-left"></i>
                             </a>
+                        <!-- Numeros de paginas -->
                         <% for(let i = 1; i <= pages; i++ ) { %>
                             <% if(search){ %>
                                 <a href="<%=`/products/list/${i}?searchbar=${search}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
@@ -69,6 +75,7 @@
                                 <a href="<%=`/products/list/${i}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
                             <% } %> 
                         <% } %>
+                        <!-- Flecha derecha -->
                         <% if(search){ %>
                             <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
                         <% } else if(categoryId){ %>
