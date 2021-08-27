@@ -12,7 +12,7 @@
     <%- include('../includes/header') %> 
     <main>
         <section id="content-container">
-            <h1>Editando <%=brand.name%></h1>
+            <h1>Editando: <%=brand.prevName ? brand.prevName : brand.name%></h1>
             <form action="/products/edit/brand/<%=brand.id%>?_method=PUT" method="POST">
                 <% if (locals.errors) { %>
                     <ul class="errorsList">

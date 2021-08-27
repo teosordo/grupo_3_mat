@@ -23,7 +23,7 @@
                 <% } %>
                 <fieldset>
                     <label for="name" class="create-labels full-sized" id="product-name">Nombre del Color 
-                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.name : null%>">
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.color? color.name : null%>">
                     </label>
                     <button type="submit" id="button-submit">Crear</button>
                 </fieldset>
