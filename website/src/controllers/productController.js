@@ -317,24 +317,44 @@ const productController = {
         }
     },
     createBrand: async (req, res) => {
-        let newBrand = await db.Brand.create(req.body)
-        return res.redirect('/')
+        try {
+            let result = validationResult(req);
+            if(result.errors.length > 0){
+                res.render('products/productBrand', {brand: req.body, errors: result.mapped()})
+            }else{
+                let newBrand = await db.Brand.create(req.body);
+                return res.redirect('/');  
+            }
+        } catch (error) {
+            throw error;
+        }
     },
     editBrand: async (req, res) => {
         res.render('products/productBrandEdit', {brand: await db.Brand.findOne({where: {id: req.params.id}})})
     }
     ,
     updateBrand: async (req, res) => {
-        let result = validationResult(req);
-        if (result.errors.length > 0) {
-            res.render('products/productBrandEdit', {brand: req.params});
-        }else{
-            await db.Brand.update(req.body,{
-                where:{
-                    id: req.params.id
-                }
-            });
-            res.redirect('/')
+        try {
+            let result = validationResult(req);
+            if (result.errors.length > 0) {
+                // Busca la categoría a editar
+                let origBrand = await db.Brand.findByPk(req.params.id);
+                // Recupera la información del form
+                let editedBrand = req.body;
+                editedBrand.id = origBrand.id;
+                editedBrand.prevName = origBrand.name;
+
+                res.render('products/productBrandEdit', {brand: editedBrand, errors: result.mapped()});
+            }else{
+                await db.Brand.update(req.body,{
+                    where:{
+                        id: req.params.id
+                    }
+                });
+                res.redirect('/')
+            }  
+        } catch (error) {
+            throw error;
         }
     },
     deleteBrand: async (req, res) => {
@@ -357,8 +377,13 @@ const productController = {
         }
     },
     createCategory: async (req, res) => {
-        let newCategory = await db.Category.create(req.body)
-        return res.redirect('/')
+        let result = validationResult(req);
+        if(result.errors.length > 0 ){
+           res.render('products/productCategory', {category: req.body, errors: result.mapped()})
+        }else{
+            let newCategory = await db.Category.create(req.body)
+            return res.redirect('/')  
+        }
     },
     editCategory: async (req, res) => {
         try {
@@ -416,8 +441,18 @@ const productController = {
         }
     },
     createColor: async (req, res) => {
-        let newColor = await db.Color.create(req.body)
-        return res.redirect('/')
+        try {
+            let result = validationResult(req);
+            if (result.errors.length > 0){
+                res.render('products/productColor', {color: req.body, errors: result.mapped()});
+            }else{
+                let newColor = await db.Color.create(req.body);
+                return res.redirect('/');
+            } 
+        } catch (error) {
+            throw error;
+        }
+        
     },
     editColor: async (req, res) => {
         res.render('products/productColorEdit', {color: await db.Color.findOne({where:{id: req.params.id}})})
@@ -425,7 +460,13 @@ const productController = {
     updateColor: async (req, res) => {
         let result = validationResult(req);
         if (result.errors.length > 0) {
-            res.render('products/productBrandEdit', {color: req.body});
+            let origColor = await db.Color.findByPk(req.params.id);
+            console.log(origColor.id);
+            let editedColor = req.body;
+            editedColor.id = origColor.id;
+            console.log(editedColor.id);
+            editedColor.prevName = origColor.name;
+            res.render('products/productColorEdit', {color: editedColor, errors: result.mapped()});
         }else{
             await db.Color.update(req.body,{
                 where:{
