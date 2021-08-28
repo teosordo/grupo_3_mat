@@ -1,5 +1,3 @@
-const productsFunctions = require('../models/product');
-const userFunctions = require('../models/user');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models')
@@ -126,76 +124,86 @@ const userController = {
         res.render('users/productCart', {products: userCart});
     },
     userlist: async (req,res) => {
-        try {
-            let idPage = parseInt(req.params.id);
-            if(idPage == 0){
-                res.redirect('/users/list/1')
-            }
-            // Todos los usuarios
-            let users;
-            // Cantidad numerica de usuarios
-            let usersTotalCount;
-            // Guarda el query
-            let search;
-            //Numero para limit/offset/math.ceil
-            let settingNumber = 3
+        // Carga de validaciones
+        const result = validationResult(req);
+        // Si hay errores se cargan en la vista de edit 
+        // Si no hay errores se sobreescriben los datos a partir de los datos en body
+        if(result.errors.length > 0){
+            return res.render('users/userEdit' ,{errors: result.mapped(), user: req.session.user})
+        }else{
+            try {
+                let idPage = parseInt(req.params.id);
+                if(idPage == 0){
+                    res.redirect('/users/list/1')
+                }
+                // Todos los usuarios
+                let users;
+                // Cantidad numerica de usuarios
+                let usersTotalCount;
+                // Guarda el query
+                let search;
+                //Numero para limit/offset/math.ceil
+                let settingNumber = 3
 
-            if(req.query.search){
-                users = await db.User.findAll({
-                    where: {
-                        [db.Sequelize.Op.or] : [{
+                if(req.query.search){
+                    users = await db.User.findAll({
+                        where: {
+                            [db.Sequelize.Op.or]: [{
                             username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
                         },{
                             firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
                         },{
                             lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
                         }]
-                    },
-                    offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
-                });
-                usersTotalCount = await db.User.count({
-                    where: {
-                    [db.Sequelize.Op.or] : [{
-                        username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    },{
-                        firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    },{
-                        lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
-                    }]
-                }});
-                
-                search = req.query.search;
-            }else{
-                users = await db.User.findAll({
-                    offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
-                });
-                usersTotalCount = await db.User.count();
+                        },
+                        offset: (idPage-1) * settingNumber,
+                        limit: settingNumber,
+                        order:[
+                            ['username', 'ASC']
+                        ]
+                    });
+                    usersTotalCount = await db.User.count({
+                        where: {
+                            [db.Sequelize.Op.or]: [{
+                            username: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        },{
+                            firstName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        },{
+                            lastName: {[db.Sequelize.Op.like]: `%${req.query.search}%`}
+                        }]
+                        }
+                    });
+                    search = req.query.search;
+                }else{
+                    users = await db.User.findAll({
+                        offset: (idPage-1) * settingNumber,
+                        limit: settingNumber,
+                        order:[
+                            ['username', 'ASC']
+                        ]
+                    });
+                    usersTotalCount = await db.User.count();
+                }
+                //Redondea el numero para saber el total de paginas necesarias 
+                let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
+                /*if(req.params.id > totalNumPages){
+                    res.redirect('/users/list/1')
+                };*/
+                /*
+                // Filtros de busqueda (falta poner bien la condicion)
+                if (req.body.desc){
+                    users = await db.User.findAll({
+                        order:[
+                            ['username', 'DESC']
+                        ]
+                    })
+                }else {
+                */
+                //}
+                return res.render('users/list',{users, user: req.session.user, idPage, usersTotalCount, pages: totalNumPages, search})                    
+            } catch (error) {
+                throw error
             }
-            //Redondea el numero para saber el total de paginas necesarias 
-            let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
-            if(req.params.id > totalNumPages){
-                res.redirect('/users/list/1')
-            };
-            // Filtros de busqueda (falta poner bien la condicion)
-            /*if (req.body.desc){
-                users = await db.User.findAll({
-                    order:[
-                        ['username', 'DESC']
-                    ]
-                })
-            }else {*/
-                //console.log(req.body.desc);
-                users = await db.User.findAll({
-                    order:[
-                        ['username', 'ASC']
-                    ]
-                })
-            //}
-            return res.render('users/list',{users, user: req.session.user, usersTotalCount, idPage, pages: totalNumPages, search})                    
-        } catch (error) {
-            throw error
         }
     },
     userProfile: (req,res) => {
@@ -217,7 +225,7 @@ const userController = {
         // Si hay errores se cargan en la vista de edit 
         // Si no hay errores se sobreescriben los datos a partir de los datos en body
         if(result.errors.length > 0){
-            return res.render('users/userEdit' ,{errors: result.mapped(), user: req.session.user})
+            return res.render('users/userEdit' ,{errors: result.mapped(), users, user: req.session.user})
         }else{
             try {
                 let userToEdit = await db.User.update({

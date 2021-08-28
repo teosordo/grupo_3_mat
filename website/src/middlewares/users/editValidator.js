@@ -5,8 +5,9 @@ module.exports = [
     body('firstName').notEmpty().withMessage('Ingrese un nuevo nombre'),
     body('lastName').notEmpty().withMessage('Ingrese un nuevo apellido'),
     body('email')
+        .trim()
         .notEmpty().withMessage('Ingrese su nuevo e-mail').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido')
+        .isEmail().withMessage('Ingrese un e-mail válido').bail()
         .custom(async (value, {req}) =>{
             try {
                 let user = await db.User.findByPk(req.params.id)
@@ -24,6 +25,7 @@ module.exports = [
             }
         }), 
     body('username')
+        .trim()
         .notEmpty().withMessage('Ingrese un nuevo nombre de usuario').bail()
         .isLength({min: 5}).withMessage('El nombre de usuario debe tener al menos 5 caracteres').bail()
         .custom(async (value, {req}) =>{
@@ -44,6 +46,12 @@ module.exports = [
             }
         }),
     body('password')
+        //.trim()
+        .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+        .not()
+        .isLowercase().withMessage('Tu contraseña  debe contener al menos una minúscula')
+        .not()
+        .isUppercase().withMessage('Tu contraseña  debe contener al menos una mayúscula').bail()
         .custom((value, {req}) =>{
             // Solo si la contraseña tiene valores entre 1 y 8 aparece un arror de caracteres minimos
             // Si se deja vacio se conserva la contraseña del usuario
@@ -54,8 +62,9 @@ module.exports = [
             }
         }),
     body('passwordConfirm')
+        .trim()
         .custom((value, {req}) => {
-            /* Confirma si las contraseñas son iguales*/
+            // Confirma si las contraseñas son iguales
             if (value !== req.body.password) {
                 return false;
             }
