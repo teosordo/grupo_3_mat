@@ -48,15 +48,18 @@ module.exports = [
     body('password')
         //.trim()
         .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
+        // No es necesario hacer esto pero permite personalizar el mensaje de error para dejar en claro al user que elemento le falta
         .not()
-        .isLowercase().withMessage('Tu contraseña  debe contener al menos una minúscula')
+        .isLowercase().withMessage('Tu contraseña debe contener al menos una minúscula')
         .not()
-        .isUppercase().withMessage('Tu contraseña  debe contener al menos una mayúscula').bail()
+        .isUppercase().withMessage('Tu contraseña debe contener al menos una mayúscula').bail()
+        // Requiere que la contraseña contenga mayúsculas, minúsculas y numeros.
+        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z\d@$.!%*#?&]{8,}$/, "i").withMessage('Tu contraseña debe contener al menos un número').bail()
+        // Solo si la contraseña tiene valores entre 1 y 8 aparece un arror de caracteres minimos
+        // Si se deja vacio se conserva la contraseña del usuario
         .custom((value, {req}) =>{
-            // Solo si la contraseña tiene valores entre 1 y 8 aparece un arror de caracteres minimos
-            // Si se deja vacio se conserva la contraseña del usuario
             if(value.length>0 && value.length <8){
-                throw new Error('La contraseña debe tener al menos 8 caracteres')
+                throw new Error('La contraseña debe tener al menos 8 caracteres!!')
             } else {
                 return true
             }

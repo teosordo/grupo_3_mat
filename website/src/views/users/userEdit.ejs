@@ -63,11 +63,14 @@
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
             </form>
+
             <form action="/users/delete/<%=users.id%>" method="POST">
                 <fieldset class="fieldset-small">
                     <button type="submit" id="delete-button">Eliminar</button>
                 </fieldset>
             </form>
+            
+            <a href="../profile"><p>Cancelar</p></a>
         </section>
     </main>
     <%-include('../includes/footer') %> 
