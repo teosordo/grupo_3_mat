@@ -1,6 +1,5 @@
 window.addEventListener('load', ()=>{
     const inputs = Array.from(document.querySelectorAll('.product-info'));
-    console.log(inputs);
     inputs.forEach(input => {
         input.addEventListener('input', ()=>{
             if(input.value == ''){
@@ -68,25 +67,29 @@ window.addEventListener('load', ()=>{
             };
         });
     });
-    const form = document.querySelector('#main-form')
+    const form = document.querySelector('#main-form');
     form.addEventListener('submit', (e)=>{
+        //Creando un evento de input vacio
         var event = new Event('input', {
             'bubbles': true,
             'cancelable': true
         });
-        const errorList = document.querySelector('.errorsList')
-        errorList.innerHTML = ''
+        const errorList = document.querySelector('.errorsList');
+        //Vaciando lista de errores
+        errorList.innerHTML = '';
         let errors = [];
         inputs.forEach(input=>{
+            //Utiliza el evento de input para confirmar si hay errores
             input.dispatchEvent(event);
+            //Si hay errores se pushea el texto que tiene la etiqueta siguiente al input
             if(input.classList.contains('form-input-error')){
-                errors.push(input.nextElementSibling.innerText)
-            }
+                errors.push(input.nextElementSibling.innerText);
+            };
         });
         if(errors.length > 0){
             e.preventDefault();
             errors.forEach(error =>{
-                errorList.innerHTML += `<li class="errors">${error}</li>`
+                errorList.innerHTML += `<li class="errors">${error}</li>`;
             });
         };
     });
