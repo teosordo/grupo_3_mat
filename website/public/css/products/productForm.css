@@ -259,3 +259,9 @@ label{
     display: flex;
     opacity: 1;
 }
+
+.form-input-errorMsg{
+    color: red;
+    font-size: 14px;
+    margin: 5px;
+}

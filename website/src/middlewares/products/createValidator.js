@@ -30,6 +30,16 @@ module.exports = [
             }else{
                 return true
             }
+        }).bail()
+        .custom((value, {req}) =>{
+            let authExt = ['jpg','png','jpeg'];
+            let ext = req.file.filename.split('.').pop();
+            if(authExt.includes(ext)){
+                return true 
+            }else{
+                let extStr = authExt.toString()
+                throw new Error(`Las extensiones permitidas son ${extStr}`)
+            }
         }),
     body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color'),

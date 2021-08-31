@@ -17,7 +17,6 @@ module.exports = [
         }),
     body('password')
         .notEmpty().withMessage('Ingrese su contraseña').bail()
-        .isLength({min:8}).withMessage('La contraseña  debe tener al menos 8 caracteres').bail()
         .custom(async (value, {req})=>{
             let userToLogin = await db.User.findOne({where:{email: req.body.email}});
             if(userToLogin == null){
