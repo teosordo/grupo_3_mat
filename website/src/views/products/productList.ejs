@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/<%= style %> ">
     <% }) %>
     <link rel="stylesheet" href="/css/index.css">
-    <title>Home</title>
+    <title>Products List</title>
 </head>
 <body>
     <!-- HEADER -->
@@ -30,29 +30,30 @@
                     </section>
                 </article>
                 <!--Errores al buscar-->
-                <%if(productsTotalCount==0){%>
+                <%if(productsTotalCount == 0){%>
                     <p>No se encuentra ningun producto asociado a ese nombre</p>
-                <% } %>
-                <% for(i = 0; i < products.length; i++) { %>
-                    <article class="content-box">
-                        <a href="/products/detail/<%=products[i].id%>" class="product-box">
-                            <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].images[0].name%>" alt="producto"></figure>
-                            <section>
-                                <h3 class="product-title"><%= products[i].name %></h3>
-                                <p class="detalle"><%= products[i].detail %></p>
-                            </section>
-                            <p class="price">$<%= products[i].price %> </p>
-                            <section class="precio-anterior-desc">
-                                <% if(products[i].discount > 0) {%>
-                                    <p class="precio-anterior">$<%= products[i].originalPrice %></p>
-                                    <p class="off"><%= products[i].discount %>% OFF</p>
-                                <% } else {%>
-                                    <p class="hidden-stuff"><%= products[i].discount %>%</p>
-                                <% } %>
-                            </section>
-                        </a>
-                    </article>
-                <% } %>
+                <% } else {%>
+                    <% for(i = 0; i < products.length; i++) { %>
+                        <article class="content-box">
+                            <a href="/products/detail/<%=products[i].id%>" class="product-box">
+                                <figure class="figure-product-img"><img src="/uploads/products/<%=products[i].images[0].name%>" alt="producto"></figure>
+                                <section>
+                                    <h3 class="product-title"><%= products[i].name %></h3>
+                                    <p class="detalle"><%= products[i].detail %></p>
+                                </section>
+                                <p class="price">$<%= products[i].price %> </p>
+                                <section class="precio-anterior-desc">
+                                    <% if(products[i].discount > 0) {%>
+                                        <p class="precio-anterior">$<%= products[i].originalPrice %></p>
+                                        <p class="off"><%= products[i].discount %>% OFF</p>
+                                    <% } else {%>
+                                        <p class="hidden-stuff"><%= products[i].discount %>%</p>
+                                    <% } %>
+                                </section>
+                            </a>
+                        </article>
+                    <% } %>
+                <% } %> 
                 <section id="page-navbar-cont">
                     <nav id="page-navbar">
                     <!-- Flecha izquierda -->

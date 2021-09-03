@@ -2,16 +2,17 @@ const {body} = require('express-validator')
 
 module.exports = [
     body('name')
-        .notEmpty().withMessage('Ingrese el nombre del producto'),
+        .notEmpty().withMessage('Ingrese el nombre del producto').bail()
+        .isLength({min: 5}).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
     body('category')
-        .notEmpty().withMessage('Ingrese una categoría para el producto'),
+        .notEmpty().withMessage('Ingrese una categoría para el producto').bail(),
     body('brand')
-        .notEmpty().withMessage('Ingrese una marca para el producto'),
+        .notEmpty().withMessage('Ingrese una marca para el producto').bail(),
     body('price')
         .notEmpty().withMessage('Ingrese el valor del producto').bail()
-        .isNumeric().withMessage('Ingrese el valor del producto'),
+        .isNumeric().withMessage('El valor del producto debe ser un número'),
     body('warranty')
-        .notEmpty().withMessage('Ingrese la duración de la garantía'),
+        .notEmpty().withMessage('Ingrese la duración de la garantía').bail(),
     body('stock')
         .notEmpty().withMessage('Ingrese la cantidad de stock del producto').bail()
         .isNumeric().withMessage('Ingrese un número valido'),
@@ -23,7 +24,7 @@ module.exports = [
                return false
             }
         }).withMessage('El link debe empezar con youtube.com/embed/'),
-    body('image')
+    body('image') // ------------------------------------------------------- Mati >:(
         .custom((value, {req}) => {
             if(req.file == null){
                 throw new Error('Debe subir al menos una imagen')
@@ -42,9 +43,19 @@ module.exports = [
             }
         }),
     body('color')
-        .notEmpty().withMessage('Debe elegir al menos 1 color'),
+        .notEmpty().withMessage('Debe elegir al menos 1 color').bail(),
     body('characteristics')
-        .notEmpty().withMessage('Debe ingresar las caracteristicas'),
+        .notEmpty().withMessage('Debe ingresar las caracteristicas').bail()
+        .isLength({min: 20}).withMessage('Las caracteísticas del producto deben superar los 20 caracteres'),
     body('specs')
-        .notEmpty().withMessage('Debe ingresar las especificaciones')
+        .notEmpty().withMessage('Debe ingresar las especificaciones').bail()
+        .isLength({min: 20}).withMessage('Las especificacionses del producto deben superar los 20 caracteres'),
+    body('image') // --------------------------------------------------------- Teo
+        .custom((value, {req}) =>{
+            if(req.file == undefined){
+                throw new Error('Debes subir al menos una imagen')
+            } else if(req.file.originalname != /(?:.jpg|.jpeg|.png)$/){
+                throw new Error('El archivo debe ser del tipo JPG, JPEG o PNG')
+            }
+        })
 ]

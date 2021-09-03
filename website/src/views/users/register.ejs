@@ -44,34 +44,44 @@
                         <p class="errors"><%= errors.firstName.msg%></p>
                     <% } %>
                     <input type="text" id="firstName" name="firstName" class="info <%= locals.errors && errors.firstName ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.firstName : null%>"> 
+
                     <label for="lastName">Apellido</label>
                     <% if (locals.errors && errors.lastName) { %>
                         <p class="errors"><%= errors.lastName.msg%></p>
                     <% } %>
                     <input type="text" id="lastName" name="lastName" class="info <%= locals.errors && errors.lastName ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.lastName : null%>">
+
                     <label for="email">E-Mail</label>
                     <% if (locals.errors && errors.email) { %>
                         <p class="errors"><%= errors.email.msg%></p>
                     <% } %>
                     <input type="email" id="email" name="email" class="info <%= locals.errors && errors.email ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.email : null%>">
+
                     <label for="username">Nombre de Usuario</label>
                     <% if (locals.errors && errors.username) { %>
                         <p class="errors"><%= errors.username.msg%></p>
                     <% } %>
                     <input type="text" id="username" name="username" class="info <%= locals.errors && errors.username ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.username : null%>">
+
                     <label for="password">Contraseña</label>
                     <% if (locals.errors && errors.password) { %>
                         <p class="errors"><%= errors.password.msg%></p>
                     <% } %>
                     <input type="password" id="password" name="password" class="info <%= locals.errors && errors.password ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.password : null%>">
+
                     <label for="passwordConfirm">Confirme su Contraseña</label>
                     <% if (locals.errors && errors.passwordConfirm) { %>
                         <p class="errors"><%= errors.passwordConfirm.msg%></p>
                     <% } %>
                     <input type="password" id="passwordConfirm" name="passwordConfirm" class="info <%= locals.errors && errors.passwordConfirm ? 'form-input-error': null%>">
+
                     <label for="avatar" id='avatar-upload'>Imagen de Perfil
                         <input type="file" name="avatar" id="avatar" class="info" accept="image/jpeg, image/png, image/jpg">
                     </label>
+                    <% if (locals.errors && errors.avatar) { %>
+                        <p class="errors"><%= errors.avatar.msg%></p>
+                    <% } %>
+                    
                     <button type="submit" id="button-submit">
                         Crear cuenta
                     </button>
