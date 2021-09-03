@@ -186,9 +186,6 @@ const userController = {
                 }
                 //Redondea el numero para saber el total de paginas necesarias 
                 let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
-                /*if(req.params.id > totalNumPages){
-                    res.redirect('/users/list/1')
-                };*/
                 /*
                 // Filtros de busqueda (falta poner bien la condicion)
                 if (req.body.desc){

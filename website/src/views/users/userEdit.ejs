@@ -13,24 +13,30 @@
     <main>
         <section id="contenido">
             <h2><%=user.firstName%>, editá tus datos:</h2>
-            <form action="/users/update/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/users/update/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="useredit">
                 <fieldset class="fieldset-small">
                     <label for="firstName">Nombre:
+                        <section id="errorFirstName">
                         <% if (locals.errors && errors.firstName) { %>
                             <p class="errors"><%= errors.firstName.msg%></p>
                         <% } %>
+                        </section>
                         <input type="text" name="firstName" id="firstName" class="container-user" value="<%=user.firstName%>">
                     </label>
                     <label for="lastName">Apellido:
+                        <section id="errorLastName">
                         <% if (locals.errors && errors.lastName) { %>
                             <p class="errors"><%= errors.lastName.msg%></p>
                         <% } %>
+                        </section>
                         <input type="text" name="lastName" id="lastName" class="container-user" value="<%=user.lastName%>">
                     </label>
                     <label for="username">Nombre de usuario:
+                        <section id="errorUsername">
                         <% if (locals.errors && errors.username) { %>
                             <p class="errors"><%= errors.username.msg%></p>
                         <% } %>
+                        </section>
                         <input type="text" name="username" id="username" class="container-user" value="<%=user.username%>">
                     </label>
                     <label for="email">Email:
@@ -40,15 +46,19 @@
                         <input type="email" name="email" id="email" class="container-user" value="<%=user.email%>">
                     </label>
                     <label for="password">Contraseña:
+                        <section id="errorPassword">
                         <% if (locals.errors && errors.password) { %>
                             <p class="errors"><%= errors.password.msg%></p>
                         <% } %>
+                        </section>
                         <input type="password" id="password" name="password" class="container-user">
                     </label>
                     <label for="passwordConfirm">Confirme su contraseña:
+                        <section id="errorPasswordCeck">
                         <% if (locals.errors && errors.passwordConfirm) { %>
                             <p class="errors"><%= errors.passwordConfirm.msg%></p>
                         <% } %>
+                        </section>
                         <input type="password" id="passwordConfirm" name="passwordConfirm" class="container-user">
                     </label>
                     <label>Avatar: 
@@ -57,7 +67,12 @@
                         </legend>
                     </label>
                     <label for="avatar"> Nuevo avatar: 
-                        <input type="file" name="avatar" id="avatar" class="container-user" accept="image/jpeg, image/png, image/jpg">
+                        <section id="errorAvatar">
+                        <% if (locals.errors && errors.avatar) { %>
+                            <p class="errors"><%= errors.avatar.msg%></p>
+                        <% } %>
+                        </section>
+                        <input type="file" name="avatar" id="avatar" class="container-user" onChange="return avatar.value"> <!--accept="image/jpeg, image/png, image/jpg"-->
                     </label>
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
@@ -73,5 +88,6 @@
         </section>
     </main>
     <%-include('../includes/footer') %> 
+    <script src="/js/formValidators/userEdit.js"></script>
 </body>
 </html>

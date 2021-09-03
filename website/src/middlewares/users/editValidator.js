@@ -1,11 +1,36 @@
 const {body} = require('express-validator');
 const db = require('../../database/models/');
+const bcrypt = require('bcryptjs');
 
 module.exports = [
-    body('firstName').notEmpty().withMessage('Ingrese un nuevo nombre'),
-    body('lastName').notEmpty().withMessage('Ingrese un nuevo apellido'),
-    body('email')
+    body('firstName')
+        .notEmpty().withMessage('Ingrese un nuevo nombre').bail()
+        .isLength({min: 2}).withMessage('El nombre de usuario debe tener al menos 5 caracteres'),
+    body('lastName')
+        .notEmpty().withMessage('Ingrese un nuevo apellido').bail()
+        .isLength({min: 2}).withMessage('El nombre de usuario debe tener al menos 5 caracteres'),
+    body('username')
         .trim()
+        .notEmpty().withMessage('Ingrese un nuevo nombre de usuario').bail()
+        .isLength({min: 5}).withMessage('El nombre de usuario debe tener al menos 5 caracteres').bail()
+        .custom(async (value, {req}) =>{
+            //Revisa si hay un usuario con el username
+            try {
+                let user = await db.User.findByPk(req.params.id)
+                let userName = await db.User.findOne({where:{username: value}})
+                // Si hay un usuario con ese nombre de usuario
+                // Y si el que figura excistente no pertenece al user que se está editando
+                // Devuelve error
+                if(userName != null && userName.id != user.id){
+                    throw new Error('Ese nombre de usuario no se encuentra disponible')
+                }else{
+                    return true
+                }
+            } catch (error) {
+                throw error
+            }
+        }),
+    body('email')
         .notEmpty().withMessage('Ingrese su nuevo e-mail').bail()
         .isEmail().withMessage('Ingrese un e-mail válido').bail()
         .custom(async (value, {req}) =>{
@@ -24,48 +49,26 @@ module.exports = [
                 throw error
             }
         }), 
-    body('username')
-        .trim()
-        .notEmpty().withMessage('Ingrese un nuevo nombre de usuario').bail()
-        .isLength({min: 5}).withMessage('El nombre de usuario debe tener al menos 5 caracteres').bail()
-        .custom(async (value, {req}) =>{
-            /* Revisa si hay un usuario con el username*/
-            try {
-                let user = await db.User.findByPk(req.params.id)
-                let userName = await db.User.findOne({where:{username: value}})
-                // Si hay un usuario con ese nombre de usuario
-                // Y si el que figura excistente no pertenece al user que se está editando
-                // Devuelve error
-                if(userName != null && userName.id != user.id){
-                    throw new Error('Ese nombre de usuario no se encuentra disponible')
-                }else{
-                    return true
+    body('password')    
+        //Solo puede editar el perfil con la contraseña correcta
+        .custom(async (value, {req})=>{
+            let userToLogin = await db.User.findByPk(req.params.id);
+            if(userToLogin == null){
+                return false
+            }
+            let okPassword = bcrypt.compareSync(value, userToLogin.password);
+            //Comparo contraseña hasheada
+                if(okPassword){
+                    //por seguridad borro la visibilización del password en session
+                    delete userToLogin.password;
+                    delete value;
+                    return true;
+                } else {
+                    throw new Error('Para editar tus datos necesitas tu contraseña actual.')
                 }
-            } catch (error) {
-                throw error
-            }
-        }),
-    body('password')
-        //.trim()
-        .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
-        // No es necesario hacer esto pero permite personalizar el mensaje de error para dejar en claro al user que elemento le falta
-        .not()
-        .isLowercase().withMessage('Tu contraseña debe contener al menos una minúscula')
-        .not()
-        .isUppercase().withMessage('Tu contraseña debe contener al menos una mayúscula').bail()
-        // Requiere que la contraseña contenga mayúsculas, minúsculas y numeros.
-        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z\d@$.!%*#?&]{8,}$/, "i").withMessage('Tu contraseña debe contener al menos un número').bail()
-        // Solo si la contraseña tiene valores entre 1 y 8 aparece un arror de caracteres minimos
-        // Si se deja vacio se conserva la contraseña del usuario
-        .custom((value, {req}) =>{
-            if(value.length>0 && value.length <8){
-                throw new Error('La contraseña debe tener al menos 8 caracteres!!')
-            } else {
-                return true
-            }
-        }),
+        })
+        ,
     body('passwordConfirm')
-        .trim()
         .custom((value, {req}) => {
             // Confirma si las contraseñas son iguales
             if (value !== req.body.password) {
