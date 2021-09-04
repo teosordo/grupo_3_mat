@@ -10,7 +10,6 @@ module.exports = [
         .notEmpty().withMessage('Ingrese un nuevo apellido').bail()
         .isLength({min: 2}).withMessage('El nombre de usuario debe tener al menos 5 caracteres'),
     body('username')
-        .trim()
         .notEmpty().withMessage('Ingrese un nuevo nombre de usuario').bail()
         .isLength({min: 5}).withMessage('El nombre de usuario debe tener al menos 5 caracteres').bail()
         .custom(async (value, {req}) =>{
@@ -76,4 +75,12 @@ module.exports = [
             }
             return true;
         }).withMessage('Las contraseñas deben ser iguales'),
+    body('avatar')
+        .custom((value, {req}) =>{
+            if(req.file == undefined){
+                return true
+            } else if(req.file.originalname != /(?:.jpg|.jpeg|.png)$/){
+                throw new Error('El archivo debe ser del tipo JPG, JPEG o PNG')
+            }
+        })
 ]

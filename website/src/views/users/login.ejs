@@ -12,7 +12,7 @@
     </header>
     <main>
         <section id="main-section-container">
-            <form action="/users/login" method="POST">
+            <form action="/users/login" method="POST" id="loginForm">
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
                     <label for="email"></label>
@@ -49,6 +49,7 @@
         </section>
     </main>
     <!-- FOOTER -->
-    <%- include('../includes/footer')  %> 
+    <%- include('../includes/footer')  %>
+    <script src="/js/formValidators/loginValidator.js"></script>
 </body>
 </html>

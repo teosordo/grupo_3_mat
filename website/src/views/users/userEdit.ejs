@@ -54,7 +54,7 @@
                         <input type="password" id="password" name="password" class="container-user">
                     </label>
                     <label for="passwordConfirm">Confirme su contraseña:
-                        <section id="errorPasswordCeck">
+                        <section id="errorPasswordCheck">
                         <% if (locals.errors && errors.passwordConfirm) { %>
                             <p class="errors"><%= errors.passwordConfirm.msg%></p>
                         <% } %>
@@ -83,7 +83,6 @@
                     <button type="submit" id="delete-button">Eliminar</button>
                 </fieldset>
             </form>
-            <!--Hacer un bonton que resetee la info del form-->
             <a href="../profile"><p>Cancelar</p></a>
         </section>
     </main>
