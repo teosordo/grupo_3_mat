@@ -10,6 +10,7 @@ window.addEventListener('load', ()=>{
         let firstName = document.querySelector('#firstName');
         if(firstName.value == ''){
             errorFirstName='Completá con tu nombre.'
+            errors = true;
         } else if(firstName.value.length <= 1){
             errorFirstName='Tu nombre debe tener al menos 2 letras.'
             errors = true;
@@ -20,6 +21,7 @@ window.addEventListener('load', ()=>{
         let lastName = document.querySelector('#lastName');
         if(lastName.value == ''){
             errorLastName='Completá con tu apellido.'
+            errors = true;
         } else if(lastName.value.length <= 1){
             errorLastName='Tu apellido debe tener al menos 2 letras.'
             errors = true;
@@ -30,6 +32,7 @@ window.addEventListener('load', ()=>{
         let username = document.querySelector('#username');
         if(username.value == ''){
             errorUsername='Completá con tu nombre de usuario.'
+            errors = true;
         } else if(username.value.length < 5){
             errorUsername='Tu nombre de usuario debe tener al menos 5 letras.'
             errors = true;
@@ -65,13 +68,15 @@ window.addEventListener('load', ()=>{
         if(avatar.value != ''){
             if(!extValidation()){
                 errorAvatar='Extensión de archivo inválido'
+                errors = true;
             } else {errorAvatar='';}
         } else {errorAvatar='';}
         
         //Si hay errores evito el envio del form
+        console.log(errors)
         if(errors){e.preventDefault();}
         
-        //Muestro errores
+        //Muestro errores en el section
         //Nombre
         let errorFN = document.querySelector('#errorFirstName');
         errorFN.innerHTML = `<p class="errors">${errorFirstName}</p>`;
