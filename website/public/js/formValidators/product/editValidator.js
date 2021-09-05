@@ -44,10 +44,8 @@ window.addEventListener('load', ()=>{
                     let fileExtension = name.split(".").pop();
                     return !authExt.includes(fileExtension) ? true : false;
                 } 
-                if(input.value == ''){
-                    input.classList.add('form-input-error');
-                    input.nextElementSibling.innerHTML = 'Debe completar el campo';
-                }else if(extValidation()){
+                if(input.value != ''){
+                    let result = extValidation()
                     input.classList.add('form-input-error');
                     input.nextElementSibling.innerHTML = 'Extension de archivo invalido';
                 }else{
@@ -65,6 +63,18 @@ window.addEventListener('load', ()=>{
                     input.nextElementSibling.innerHTML = 'El link debe empezar con youtube.com/embed/';
                 }
             };
+            if(input.name == 'characteristics' || input.name == 'specs'){
+                if(input.value == ''){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe completar el campo';
+                }else if(input.value.length < 20){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe tener al menos 20 caracteres';
+                }else{
+                    input.classList.remove('form-input-error');
+                    input.nextElementSibling.innerHTML = '';
+                }
+            };
         });
     });
     const form = document.querySelector('#main-form');
@@ -74,9 +84,7 @@ window.addEventListener('load', ()=>{
             'bubbles': true,
             'cancelable': true
         });
-        const errorList = document.querySelector('.errorsList');
         //Vaciando lista de errores
-        errorList.innerHTML = '';
         let errors = [];
         inputs.forEach(input=>{
             //Utiliza el evento de input para confirmar si hay errores
@@ -88,9 +96,7 @@ window.addEventListener('load', ()=>{
         });
         if(errors.length > 0){
             e.preventDefault();
-            errors.forEach(error =>{
-                errorList.innerHTML += `<li class="errors">${error}</li>`;
-            });
+            document.querySelector('.form-input-error').focus();
         };
     });
 });

@@ -1,115 +1,113 @@
-window.addEventListener('load', function(){
-    let form = document.querySelector('#useredit');
-    form.addEventListener("submit", function(e){
+window.addEventListener('load', ()=>{
+    //Inputs dentro del form
+    const inputs = document.querySelectorAll('#useredit input')
+    const validacionEdit = (e)=>{
+        //Todos los errores
+        let errors = false;
+
         //VALIDACIÓN DE NOMBRE - el campo debe estar completo por al menos dos caracteres
-        let errorNombre = [];
+        let errorFirstName;
         let firstName = document.querySelector('#firstName');
         if(firstName.value == ''){
-            errorNombre.push('Completá con tu nombre.')
+            errorFirstName='Completá con tu nombre.'
+            errors = true;
         } else if(firstName.value.length <= 1){
-            errorNombre.push('Tu nombre debe tener al menos 2 letras.')
-        }
-        //Si hay errores los muestra
-        if(errorNombre.length > 0){
-            e.preventDefault()
-            let error = document.querySelector('#errorFirstName');
-            for(let i = 0; i < errorNombre.length; i++){
-                error.innerHTML = `<p class="errors">${errorNombre[i]}</p>`;
-            }
-        }
-
+            errorFirstName='Tu nombre debe tener al menos 2 letras.'
+            errors = true;
+        } else {errorFirstName='';}
+        
         //VALIDACIÓN DE APELLIDO - el campo debe estar completo por al menos dos caracteres
-        let errorApellido = [];
+        let errorLastName;
         let lastName = document.querySelector('#lastName');
         if(lastName.value == ''){
-            errorApellido.push('Completá con tu apellido.')
+            errorLastName='Completá con tu apellido.'
+            errors = true;
         } else if(lastName.value.length <= 1){
-            errorApellido.push('Tu apellido debe tener al menos 2 letras.')
-        }
-        //Si hay errores los muestra
-        if(errorApellido.length > 0){
-            e.preventDefault()
-            //Selecciono la sección de errores y agrego una nueva linea de texto
-            let error = document.querySelector('#errorLastName');
-            for(let i = 0; i < errorApellido.length; i++){
-                error.innerHTML = `<p class="errors">${errorApellido[i]}</p>`;
-            }
-        }
-        
+            errorLastName='Tu apellido debe tener al menos 2 letras.'
+            errors = true;
+        } else {errorLastName='';}
+
         //VALIDACIÓN DE USERNAME - El campo debe completarse con al menos 5 caracteres
-        let errorUsername = [];
+        let errorUsername;
         let username = document.querySelector('#username');
         if(username.value == ''){
-            errorUsername.push('Completá con tu nombre de usuario.')
+            errorUsername='Completá con tu nombre de usuario.'
+            errors = true;
         } else if(username.value.length < 5){
-            errorUsername.push('Tu nombre de usuario debe tener al menos 5 letras.')
-        }
-        //Si hay errores los muestra
-        if(errorUsername.length > 0){
-            e.preventDefault()
-            //Selecciono la sección de errores y agrego una nueva linea de texto
-            let error = document.querySelector('#errorUsername');
-            for(let i = 0; i < errorUsername.length; i++){
-                error.innerHTML = `<p class="errors">${errorUsername[i]}</p>`;
-            }
-        }
+            errorUsername='Tu nombre de usuario debe tener al menos 5 letras.'
+            errors = true;
+        } else {errorUsername='';}
         
         //VALIDACIÓN DE CONTRASEÑA - el campo debe completarse
-        let errorPassword = [];
+        let errorPassword;
         let password = document.querySelector('#password');
         if(password.value == ''){
-            errorPassword.push('Ingresa tu contraseña actual.')
-        }
-        //Si hay errores los muestra
-        if(errorPassword.length > 0){
-            e.preventDefault()
-            //Selecciono la sección de errores y agrego una nueva linea de texto
-            let error = document.querySelector('#errorPassword');
-            for(let i = 0; i < errorPassword.length; i++){
-                error.innerHTML = `<p class="errors">${errorPassword[i]}</p>`;
-            }
-        }
-
+            errorPassword='Ingresa tu contraseña actual.'
+            errors = true;
+        } else {errorPassword='';}
+        
         //VALIDACIÓN DE CONFIRMACIÓN DE CONTRASEÑA - el campo debe completarse con la misma contraseña que el anterior
-        let errorPasswordCeck = [];
+        let errorPasswordCheck;
         let passwordCeck = document.querySelector('#passwordConfirm');
         if(passwordCeck.value == ''){
-            errorPasswordCeck.push('Ingresa tu contraseña actual.')
+            errorPasswordCheck='Ingresa tu contraseña actual.'
         }else if(passwordCeck.value != password.value){
-            errorPasswordCeck.push('Debes repetir tu contraseña actual.')
-        }
-        //Si hay errores los muestra
-        if(errorPasswordCeck.length > 0){
-            e.preventDefault()
-            //Selecciono la sección de errores y agrego una nueva linea de texto
-            let error = document.querySelector('#errorPasswordCeck');
-            for(let i = 0; i < errorPasswordCeck.length; i++){
-                error.innerHTML = `<p class="errors">${errorPasswordCeck[i]}</p>`;
-            }
-        }
+            errorPasswordCheck='Debes repetir tu contraseña actual.'
+            errors = true;
+        } else {errorPasswordCheck='';}
         
         //VALIDACIONES DE AVATAR - si se completa el campo debe ser con una imagen
-        let errorAvatar = [];
+        let errorAvatar;
         const avatar = document.querySelector('input#avatar');
         function extValidation(){
             let allowExt = /(\.jpg|\.jpeg|\.png)$/i;
             return allowExt.exec(avatar.value) ? true : false;
         }
-        //Si se llena el campo debe ser una imagen
-        //Si el campo esta lleno desde el back esta seteado que se recargue el avatar preexistente de cada user
+        //Si el campo está vacio desde el back esta seteado que se recargue el avatar preexistente de cada user
+        //Si el campo NO está vacio se valida su extension
         if(avatar.value != ''){
             if(!extValidation()){
-                errorAvatar.push('Extensión de archivo inválido')
-            }
-        }
-        //Si hay errores los muestra
-        if(errorAvatar.length > 0){
-            e.preventDefault()
-            //Selecciono la sección de errores y agrego una nueva linea de texto
-            let error = document.querySelector('#errorAvatar');
-            for(let i = 0; i < errorAvatar.length; i++){
-                error.innerHTML = `<p class="errors">${errorAvatar[i]}</p>`;
-            }
-        }
+                errorAvatar='Extensión de archivo inválido'
+                errors = true;
+            } else {errorAvatar='';}
+        } else {errorAvatar='';}
+        
+        //Si hay errores evito el envio del form
+        console.log(errors)
+        if(errors){e.preventDefault();}
+        
+        //Muestro errores en el section
+        //Nombre
+        let errorFN = document.querySelector('#errorFirstName');
+        errorFN.innerHTML = `<p class="errors">${errorFirstName}</p>`;
+        
+        //Apellido
+        let errorLN = document.querySelector('#errorLastName');
+        errorLN.innerHTML = `<p class="errors">${errorLastName}</p>`;
+        
+        //Username
+        let errorUN = document.querySelector('#errorUsername');
+        errorUN.innerHTML = `<p class="errors">${errorUsername}</p>`;
+        
+        //Contraseña
+        let errorP = document.querySelector('#errorPassword');
+        errorP.innerHTML = `<p class="errors">${errorPassword}</p>`;
+        
+        //Contraseña confirm
+        let errorPC = document.querySelector('#errorPasswordCheck');
+        errorPC.innerHTML = `<p class="errors">${errorPasswordCheck}</p>`;
+        
+        //Avatar
+        let errorA = document.querySelector('#errorAvatar');
+        errorA.innerHTML = `<p class="errors">${errorAvatar}</p>`;
+        
+    }
+    //Momentos en donde se corroboran las validaciones
+    inputs.forEach((input)=> {
+        input.addEventListener('keyup',validacionEdit);
+        input.addEventListener('blur',validacionEdit);
     })
+    //Corroboración de validación al enviar el form
+    let form = document.querySelector('#useredit');
+    form.addEventListener("submit", validacionEdit)
 })

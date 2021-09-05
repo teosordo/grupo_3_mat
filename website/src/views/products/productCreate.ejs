@@ -14,17 +14,11 @@
             <section id="content-container">
                 <h1>Creá un Producto</h1>
                 <form action="/products/create" method="POST" enctype="multipart/form-data" id="main-form">
-                        <ul class="errorsList">
-                        <% if (locals.errors) { %>
-                            <% for(let oneError in errors){ %>
-                                <li class="errors"><%= errors[oneError].msg %> </li>
-                            <% } %>
-                        <% } %> 
-                        </ul>
+                        <ul class="errorsList"></ul>
                     <fieldset>
                         <label for="name" class="create-labels full-sized" id="product-name">Nombre del Producto 
                             <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.name : null%>">
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.name ? errors.name.msg: null%></p>
                         </label>
 
                         <label for="category" class="create-labels">Categorias del Producto
@@ -34,7 +28,7 @@
                                 <option value="<%= element.id%>"><%=element.name%></option>
                             <% }) %> 
                             </select>
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.category.msg: null%></p>
                         </label>
                     
                         <label for="brand" class="create-labels">Marca del producto
@@ -44,12 +38,12 @@
                                     <option value="<%= element.id%>"><%=element.name%></option>
                                 <%  })  %>
                             </select>
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.brand ? errors.brand.msg: null%></p>
                         </label>
                         
                         <label for="price" class="create-labels">Precio del producto
                             <input type="text" name="price"  id='price' class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.price : null%>">
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.price.msg: null%></p>
                         </label>
 
                         <label for="image" class="create-labels">Imagen del producto
@@ -59,17 +53,17 @@
 
                         <label for="warranty" class="create-labels">Garantia del producto
                             <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.warranty : null%>">
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.warranty ? errors.warranty.msg: null%></p>
                         </label>
 
                         <label for="stock" class="create-labels">Stock del producto
                             <input type="text" name="stock" id="stock" class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.stock : null%>">
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.stock ? errors.stock.msg: null%></p>
                         </label>
 
                         <label for="video" class="create-labels full-sized">Link a video del producto (opcional)
                             <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.video ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.video : null%>">
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.video ? errors.video.msg: null%></p>
                         </label>
 
                         <label for="color" class="create-labels full-sized">Colores 
@@ -87,17 +81,17 @@
                                     <% } %>
                                 <%  })  %>
                             </select>
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.color ? errors.color.msg: null%></p>
                         </label>
 
                         <label for="characteristics" class="create-textarea">Características del producto
                             <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.characteristics : null%>" rows="4"></textarea>
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.characteristics ? errors.characteristics.msg: null%></p>
                         </label>
                         
                         <label for="specs" class="create-textarea">Especificaciones del producto
                             <textarea name="specs" id='specs' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea>
-                            <p class='form-input-errorMsg'></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.specs ? errors.specs.msg: null%></p>
                         </label>
                         <button type="submit" id="button-submit">Crear</button>
                     </fieldset>
@@ -105,6 +99,6 @@
         </section>
         </main>
             <%-include('../includes/footer') %>
-    <script src="/js/formValidators/createValidator.js"></script>  
+    <script src="/js/formValidators/product/createValidator.js"></script>  
     </body>
     </html>
