@@ -24,7 +24,7 @@ module.exports = [
                return false
             }
         }).withMessage('El link debe empezar con youtube.com/embed/'),
-    body('image') // ------------------------------------------------------- Mati >:(
+    /* body('image') // ------------------------------------------------------- Mati
         .custom((value, {req}) => {
             if(req.file == null){
                 throw new Error('Debe subir al menos una imagen')
@@ -41,7 +41,7 @@ module.exports = [
                 let extStr = authExt.toString()
                 throw new Error(`Las extensiones permitidas son ${extStr}`)
             }
-        }),
+        }), */
     body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color').bail(),
     body('characteristics')
