@@ -23,9 +23,7 @@
                         <label for="name" class="edit-labels">Nombre:
                             <section class="input-err-container">
                                 <input type="text" name="name" id="name" class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%=product.name%>">
-                                <% if (locals.errors && errors.name) { %>
-                                    <p class='form-input-errorMsg'><%=errors.name.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.name ? errors.name.msg: null%></p>
                             </section>
                         </label>
                         <label for="category" class="edit-labels">Categoría:
@@ -41,9 +39,7 @@
                                     <% } %>
                                 <% } %> 
                                 </select>
-                                <% if (locals.errors && errors.category) { %>
-                                    <p class='form-input-errorMsg'><%=errors.category.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.category.msg: null%></p>
                             </section>
                         </label>
 
@@ -60,9 +56,7 @@
                                         <% } %>
                                     <%  }  %>
                                 </select>
-                                <% if (locals.errors && errors.brand) { %>
-                                    <p class='form-input-errorMsg'><%=errors.brand.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.brand ? errors.brand.msg: null%></p>
                             </section>
                         </label>
 
@@ -77,79 +71,61 @@
                                         <% } %>
                                     <% } %>
                                 </select>
-                                <% if (locals.errors && errors.colors) { %>
-                                    <p class='form-input-errorMsg'><%=errors.colors.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.colors ? errors.colors.msg: null%></p>
                             </section>
                         </label>
                         
                         <label for="price" class="edit-labels">Precio ($):
                             <section class="input-err-container">
                                 <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.originalPrice ? product.originalPrice : product.price%>">
-                                <% if (locals.errors && errors.price) { %>
-                                    <p class='form-input-errorMsg'><%=errors.price.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.price ? errors.price.msg: null%></p>
                             </section>   
                         </label>
 
                         <label for="discount" class="edit-labels">Descuento (%):
                             <section class="input-err-container">
                                 <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>">
-                                <% if (locals.errors && errors.discount) { %>
-                                    <p class='form-input-errorMsg'><%=errors.discount.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.discount ? errors.discount.msg: null%></p>
                             </section>
                         </label>
                         
                         <label for="stock" class="edit-labels">Stock (unidad):
                             <section class="input-err-container">
                                 <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>">
-                                <% if (locals.errors && errors.stock) { %>
-                                    <p class='form-input-errorMsg'><%=errors.stock.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.stock ? errors.stock.msg: null%></p>
                             </section>
                         </label>
 
                         <label for="warranty" class="edit-labels">Garantía:
                             <section class="input-err-container">
                                 <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%=product.warranty%>">
-                                <% if (locals.errors && errors.warranty) { %>
-                                    <p class='form-input-errorMsg'><%=errors.warranty.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.warranty ? errors.warranty.msg: null%></p>
                             </section>
                         </label>
                         
                         <label for="image" class="edit-labels">Imágenes:
                             <section class="input-err-container">
                                 <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
-                                <% if (locals.errors && errors.image) { %>
-                                    <p class='form-input-errorMsg'><%=errors.image.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.image ? errors.image.msg: null%></p>
                             </section>
                         </label>
 
                         <label for="video" class="edit-labels">Video:
                             <section class="input-err-container">
                                 <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.video%>">
-                                <% if (locals.errors && errors.video) { %>
-                                    <p class='form-input-errorMsg'><%=errors.video.msg%></p>
-                                <% } %>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.video ? errors.video.msg: null%></p>
                             </section>
                         </label>
                     </fieldset>
                     <fieldset id="fielset-large">
                         <label for="characteristics" class="edit-labels large-input-labels">Características:
                             <textarea name="characteristics" id="characteristics" class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>"><%=product.characteristics%></textarea>
-                            <% if (locals.errors && errors.characteristics) { %>
-                                <p class='form-input-errorMsg'><%=errors.characteristics.msg%></p>
-                            <% } %>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.characteristics ? errors.characteristics.msg: null%></p>
                         </label>
                         
                         <label for="specs" class="edit-labels large-input-labels">Especificaciones:
                             <textarea name="specs" id="specs" class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>"><%=product.specs%></textarea>
-                            <% if (locals.errors && errors.specs) { %>
-                                <p class='form-input-errorMsg'><%=errors.specs.msg%></p>
-                            <% } %>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.specs ? errors.specs.msg: null%></p>
                         </label>
                     </fieldset>
                     <button type="submit" id="button-submit">Editar</button>
@@ -160,6 +136,7 @@
             </section>
         </section>
     </main>
-    <%- include('../includes/footer')  %>   
-</body>
+    <%- include('../includes/footer')  %>
+    <script src="/js/formValidators/product/editValidator.js"></script>  
+    </body>
 </html>
