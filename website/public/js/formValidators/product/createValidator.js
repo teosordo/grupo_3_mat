@@ -98,6 +98,7 @@ window.addEventListener('load', ()=>{
         });
         if(errors.length > 0){
             e.preventDefault();
+            document.querySelector('.form-input-error').focus();
         };
     });
 });
