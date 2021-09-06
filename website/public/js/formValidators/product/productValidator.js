@@ -1,5 +1,7 @@
 window.addEventListener('load', ()=>{
     const inputs = Array.from(document.querySelectorAll('.product-info'));
+    const url = window.location.href
+    console.log(url);
     inputs.forEach(input => {
         input.addEventListener('input', ()=>{
             if(input.value == ''){
@@ -43,15 +45,29 @@ window.addEventListener('load', ()=>{
                     let {name} = input.files[0];
                     let fileExtension = name.split(".").pop();
                     return !authExt.includes(fileExtension) ? true : false;
-                } 
-                if(input.value != ''){
-                    let result = extValidation()
-                    input.classList.add('form-input-error');
-                    input.nextElementSibling.innerHTML = 'Extension de archivo invalido';
-                }else{
-                    input.classList.remove('form-input-error');
-                    input.nextElementSibling.innerHTML = '';
                 }
+                if(url.includes('edit')){
+                    if(input.value != ''){
+                        if(extValidation() == false){
+                            input.classList.add('form-input-error');
+                            input.nextElementSibling.innerHTML = 'Extension de archivo invalido'; 
+                        };
+                    }else{
+                        input.classList.remove('form-input-error');
+                        input.nextElementSibling.innerHTML = '';
+                    };
+                }else{
+                    if(input.value == ''){
+                        input.classList.add('form-input-error');
+                        input.nextElementSibling.innerHTML = 'Debe completar el campo';
+                    }else if(extValidation()){
+                        input.classList.add('form-input-error');
+                        input.nextElementSibling.innerHTML = 'Extension de archivo invalido';
+                    }else{
+                        input.classList.remove('form-input-error');
+                        input.nextElementSibling.innerHTML = '';
+                    };
+                };
             };
             //Validaciones para video del producto
             if(input.name == 'video'){
@@ -70,6 +86,15 @@ window.addEventListener('load', ()=>{
                 }else if(input.value.length < 20){
                     input.classList.add('form-input-error');
                     input.nextElementSibling.innerHTML = 'Debe tener al menos 20 caracteres';
+                }else{
+                    input.classList.remove('form-input-error');
+                    input.nextElementSibling.innerHTML = '';
+                }
+            };
+            if(input.name == 'discount'){
+                if(input.value == '' || input.value >  99 || input.value < 0){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe completar el campo con un numero del 0 al 99';
                 }else{
                     input.classList.remove('form-input-error');
                     input.nextElementSibling.innerHTML = '';

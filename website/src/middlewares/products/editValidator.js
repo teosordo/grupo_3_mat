@@ -9,8 +9,13 @@ module.exports = [
         .notEmpty().withMessage('Ingrese el precio del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para precios'),
     body('discount')
-        .notEmpty().withMessage('Ingrese el descuento del producto, si no tiene ingrese 0').bail()
-        .isNumeric().withMessage('Solo se permiten números para descuentos'),
+        .custom(value =>{
+            if(value != '' && isNaN(value)){
+                throw new Error('El valor debe ser un número')
+            }else{
+                return true
+            }
+        }),
     body('stock')
         .notEmpty().withMessage('Complete el stock del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para stock'),
