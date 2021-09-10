@@ -185,28 +185,24 @@ label{
     /* EDIT */
     #fieldset-small, #fielset-large{
         padding: 0px;
-        flex-direction: column;
         justify-content: center;
     }
     #main-form #fieldset-small{
-        margin-left:20px
+        display: flex;
+        flex-wrap: wrap;
     }
     #fieldset-small .edit-labels{
         text-align: start;
-        display: flex;
-        justify-content: space-between;
+        width: 47%;
+        margin: auto;
     }
     #fielset-large label{
         width:97%;
     }
     section.input-err-container {
-        width: 84%;
         display: flex;
         flex-wrap: wrap;
         margin-right: 5px;
-    }
-    .edit-labels{
-        width: 100%;
     }
     .edit-labels .product-info{
         margin-top: 0;
