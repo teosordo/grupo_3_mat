@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('../includes/head') %>
-    <title>Creando un Producto</title>
+    <title>Creando un Color</title>
     <% styles.forEach(style => { %>
         <link rel="stylesheet" href="/css/<%= style %> ">
     <% }) %>
@@ -22,7 +22,12 @@
                     </ul>
                 <% } %>
                 <fieldset>
-                    <label for="name" class="create-labels full-sized" id="product-name">Nombre del Color 
+                    <label for="name" class="create-labels full-sized" id="product-name">Nombre del Color
+                        <section id="nameError">
+                            <% if (locals.errors && errors.name) { %>
+                                <p class="errors"><%= errors.name.msg%></p>
+                            <% } %>
+                        </section>
                         <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.color? color.name : null%>">
                     </label>
                     <button type="submit" id="button-submit">Crear</button>
@@ -30,6 +35,7 @@
             </form>
     </section>
     </main>
-        <%-include('../includes/footer') %>  
+        <%-include('../includes/footer') %>
+        <script src='/js/formValidators/product/productElementValidator.js'></script>
 </body>
 </html>

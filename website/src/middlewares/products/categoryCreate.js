@@ -6,7 +6,7 @@ module.exports = [
         // se fija si la categoría ya existe
         .custom(async value =>{
             try {
-                let categoryName = db.Category.findOne({where:{name: value}})
+                let categoryName = await db.Category.findOne({where:{name: value}})
                 if(categoryName) {
                     throw new Error('Nombre en uso')
                 }

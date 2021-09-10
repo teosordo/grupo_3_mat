@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('../includes/head') %>
-    <title>Creando un Producto</title>
+    <title>Creando un Categoría</title>
     <% styles.forEach(style => { %>
         <link rel="stylesheet" href="/css/<%= style %> ">
     <% }) %>
@@ -13,7 +13,7 @@
     <main>
         <section id="content-container">
             <h1>Agrega una Categoria</h1>
-            <form action="/products/create/category" method="POST" id="createCategory">
+            <form action="/products/create/category" method="POST" >
                 <fieldset>
                     <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Categoria
                         <section id="nameError">
@@ -37,6 +37,6 @@
     </section>
     </main>
     <%-include('../includes/footer') %>
-    <script src='/js/formValidators/product/createCategoryValidator.js'></script>
+    <script src='/js/formValidators/product/productElementValidator.js'></script>
 </body>
 </html>

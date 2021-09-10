@@ -2,7 +2,7 @@ const {body} = require('express-validator');
 const db = require('../../database/models');
 module.exports = [
     body('name')
-        .notEmpty().withMessage('Ingrese el nombre del color')
+        .notEmpty().withMessage('Ingrese el nombre de la marca')
         .custom(async value =>{
             try {
                 let brandName = await db.Brand.findOne({where:{name: value}})

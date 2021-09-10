@@ -1,13 +1,13 @@
 window.onload = () => {
     // selecciono los campos
-    const form = document.querySelector('form#createCategory');
+    const form = document.querySelector('main form');
     const inputs = document.querySelectorAll('.product-info');
     const [name, detail] = inputs;
 
     // objeto de errores
     const errors = {
         nameError: true,
-        detailError: true
+        detailError: false // nosesitabienpreguntarpormisdudososmetodos
     };
     
     // variables para contener mensajes de error
@@ -51,17 +51,27 @@ window.onload = () => {
     // eventos generales
     name.addEventListener('blur', nameValidation);
     name.addEventListener('keyup', nameValidation);
-    detail.addEventListener('blur', detailValidation);
-    detail.addEventListener('keyup', detailValidation);
+
+    // solo se ejecutan en la página de crear/editar categorías
+    if(window.location.pathname.includes('category')){
+        errors.detailError = true;
+        detail.addEventListener('blur', detailValidation);
+        detail.addEventListener('keyup', detailValidation);
+    }
 
     // validación al hacer submit del formulario
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
+        
         nameValidation();
-        detailValidation();
+        // solo se ejecuta en la página de crear/editar categorías
+        if(window.location.pathname.includes('category')){
+            errors.detailError = true;
+            detailValidation();
+        }
 
         if(errors.nameError == false && errors.detailError == false){
+            
             form.submit();
         }
     })
