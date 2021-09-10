@@ -3,11 +3,12 @@ window.onload = () => {
     const form = document.querySelector('main form');
     const inputs = document.querySelectorAll('.product-info');
     const [name, detail] = inputs;
+    const cancelButton = document.querySelector('.link-button');
 
     // objeto de errores
     const errors = {
         nameError: true,
-        detailError: false // nosesitabienpreguntarpormisdudososmetodos
+        detailError: false
     };
     
     // variables para contener mensajes de error
@@ -50,13 +51,13 @@ window.onload = () => {
 
     // eventos generales
     name.addEventListener('blur', nameValidation);
-    name.addEventListener('keyup', nameValidation);
+    name.addEventListener('input', nameValidation);
 
     // solo se ejecutan en la página de crear/editar categorías
     if(window.location.pathname.includes('category')){
         errors.detailError = true;
         detail.addEventListener('blur', detailValidation);
-        detail.addEventListener('keyup', detailValidation);
+        detail.addEventListener('input', detailValidation);
     }
 
     // validación al hacer submit del formulario
@@ -71,8 +72,12 @@ window.onload = () => {
         }
 
         if(errors.nameError == false && errors.detailError == false){
-            
             form.submit();
         }
+    })
+
+    // viaja a la página previa
+    cancelButton.addEventListener("click", () => {
+        window.history.back();
     })
 }

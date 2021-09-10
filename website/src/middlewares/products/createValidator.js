@@ -54,8 +54,15 @@ module.exports = [
         .custom((value, {req}) =>{
             if(req.file == undefined){
                 throw new Error('Debes subir al menos una imagen')
-            } else if(req.file.originalname != /(?:.jpg|.jpeg|.png)$/){
-                throw new Error('El archivo debe ser del tipo JPG, JPEG o PNG')
+            } else {
+                let authExt = ['jpg','png','jpeg'];
+                let ext = req.file.filename.split('.').pop();
+                if(authExt.includes(ext)){
+                    return true
+                }else{
+                    let extStr = authExt.toString()
+                    throw new Error(`Las extensiones permitidas son ${extStr}`)
+                }
             }
         })
 ]

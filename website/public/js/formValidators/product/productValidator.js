@@ -1,7 +1,6 @@
 window.addEventListener('load', ()=>{
     const inputs = Array.from(document.querySelectorAll('.product-info'));
     const url = window.location.href
-    console.log(url);
     inputs.forEach(input => {
         input.addEventListener('input', ()=>{
             if(input.value == ''){
@@ -92,7 +91,7 @@ window.addEventListener('load', ()=>{
                 }
             };
             if(input.name == 'discount'){
-                if(input.value == '' || input.value >  99 || input.value < 0){
+                if(isNaN(input.value) || input.value == '' || input.value >  99 || input.value < 0){
                     input.classList.add('form-input-error');
                     input.nextElementSibling.innerHTML = 'Debe completar el campo con un numero del 0 al 99';
                 }else{
