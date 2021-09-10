@@ -13,19 +13,22 @@
     <main>
         <section id="content-container">
             <h1>Agrega una Categoria</h1>
-            <form action="/products/create/category" method="POST">
-                <% if (locals.errors) { %>
-                    <ul class="errorsList">
-                    <% for(let oneError in errors){ %>
-                        <li class="errors"><%= errors[oneError].msg %> </li>
-                    <% } %> 
-                    </ul>
-                <% } %>
+            <form action="/products/create/category" method="POST" id="createCategory">
                 <fieldset>
                     <label for="name" class="create-labels full-sized" id="product-name">Nombre de la Categoria
+                        <section id="nameError">
+                            <% if (locals.errors && errors.name) { %>
+                                <p class="errors"><%= errors.name.msg%></p>
+                            <% } %>
+                        </section>
                         <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= locals.category? category.name : null%>">
                     </label>
                     <label for="detail" class="create-textarea">Ayuda informativa de la categoria
+                        <section id="detailError">
+                            <% if (locals.errors && errors.detail) { %>
+                                <p class="errors"><%= errors.detail.msg%></p>
+                            <% } %>
+                        </section>
                         <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>" value="<%= locals.category? category.detail : null%>" rows="4"></textarea>
                     </label>
                     <button type="submit" id="button-submit">Crear</button>
@@ -33,6 +36,7 @@
             </form>
     </section>
     </main>
-        <%-include('../includes/footer') %>  
+    <%-include('../includes/footer') %>
+    <script src='/js/formValidators/product/createCategoryValidator.js'></script>
 </body>
 </html>
