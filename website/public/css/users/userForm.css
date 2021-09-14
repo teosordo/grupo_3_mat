@@ -43,11 +43,6 @@ legend, #button-submit,#redirect-section h2{
 main{
     padding-bottom: 126px;
 }
-/***Errores***/
-.errors{
-    color:red;
-    font-size: 15px;
-}
 /***Contenedor del formulario***/
 #main-section-container{
     background-color: #E9E9E9;
@@ -84,8 +79,8 @@ a{
     border: 1px solid #6765D6;
     box-shadow: 0px 0px 0px 1px #6765D6 inset;  
 }
-.form-input-error{
-    box-shadow: 0px 0px 5px red;
+.input-error{
+    box-shadow: 0px 0px 2px 1px #693cca inset;
 }
 #button-submit{
     background-color: #6765D6;
@@ -107,6 +102,20 @@ a{
     border-radius: 8px;
     text-transform: uppercase;
 }
+/***Errores***/
+/* RESERVAR ESPACIO PARA P Y QUE EUEDE LINDO PARA QUE A MATI Y TEO LES GUSTE */
+.errors{
+    visibility: hidden;
+    margin: 0;
+}
+.viewErrors{
+    visibility:initial;
+    display: inline-block;
+    margin: 0;
+    color:red;
+    font-size: 15px;
+}
+
 /***Seccion redireccion***/
 #redirect-section{
     margin-top: 20px;
@@ -133,7 +142,6 @@ a{
 #button-link-redirect:hover > a{
     color: white;
 }
-
 /***********   FOOTER   ************/
 footer p{
     font-size: 15px;

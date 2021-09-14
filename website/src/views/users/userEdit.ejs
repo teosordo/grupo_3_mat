@@ -12,11 +12,13 @@
     <%- include('../includes/header') %>
     <main>
         <section id="contenido">
-            <h2><%=user.firstName%>, editá tus datos:</h2>
+            <h2>Hola <%=user.firstName%>! Editá tus datos:</h2>
+            <p>Necesitarás ingresar tu contraseña actual y repetirla para poder efectuar cualquier cambio.</p>
             <form action="/users/update/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="useredit">
                 <fieldset class="fieldset-small">
                     <label for="firstName">Nombre:
                         <section id="errorFirstName">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.firstName) { %>
                             <p class="errors"><%= errors.firstName.msg%></p>
                         <% } %>
@@ -25,6 +27,7 @@
                     </label>
                     <label for="lastName">Apellido:
                         <section id="errorLastName">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.lastName) { %>
                             <p class="errors"><%= errors.lastName.msg%></p>
                         <% } %>
@@ -33,6 +36,7 @@
                     </label>
                     <label for="username">Nombre de usuario:
                         <section id="errorUsername">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.username) { %>
                             <p class="errors"><%= errors.username.msg%></p>
                         <% } %>
@@ -40,21 +44,26 @@
                         <input type="text" name="username" id="username" class="container-user" value="<%=user.username%>">
                     </label>
                     <label for="email">Email:
+                        <section id="errorEmail">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.email) { %>
                             <p class="errors"><%= errors.email.msg%></p>
                         <% } %>
+                        </section>
                         <input type="email" name="email" id="email" class="container-user" value="<%=user.email%>">
                     </label>
                     <label for="password">Contraseña:
                         <section id="errorPassword">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.password) { %>
                             <p class="errors"><%= errors.password.msg%></p>
                         <% } %>
                         </section>
                         <input type="password" id="password" name="password" class="container-user">
                     </label>
-                    <label for="passwordConfirm">Confirme su contraseña:
+                    <label for="passwordConfirm">Vuelva a ingresar su contraseña:
                         <section id="errorPasswordCheck">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.passwordConfirm) { %>
                             <p class="errors"><%= errors.passwordConfirm.msg%></p>
                         <% } %>
@@ -68,6 +77,7 @@
                     </label>
                     <label for="avatar"> Nuevo avatar: 
                         <section id="errorAvatar">
+                            <p class="errors"></p>
                         <% if (locals.errors && errors.avatar) { %>
                             <p class="errors"><%= errors.avatar.msg%></p>
                         <% } %>
@@ -83,7 +93,9 @@
                     <button type="submit" id="delete-button">Eliminar</button>
                 </fieldset>
             </form>
-            <a href="../profile"><p>Cancelar</p></a>
+            <button type="button" id="button-link-redirect">
+                <a href="../profile">Cancelar</a>
+            </button>
         </section>
     </main>
     <%-include('../includes/footer') %> 

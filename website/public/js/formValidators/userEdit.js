@@ -5,22 +5,31 @@ window.addEventListener('load', ()=>{
         //Todos los errores
         let errors = false;
 
+        //El nombre y el apellido solo deben tener letras
+        const leters = /^[a-zA-Z]+$/
+
         //VALIDACIÓN DE NOMBRE - el campo debe estar completo por al menos dos caracteres
         let errorFirstName;
         let firstName = document.querySelector('#firstName');
         if(firstName.value == ''){
             errorFirstName='Completá con tu nombre.'
             errors = true;
+        } else if(!leters.test(firstName.value)){
+            errorFirstName='Tu nombre sólo debe tener letras.'
+            errors = true;
         } else if(firstName.value.length <= 1){
             errorFirstName='Tu nombre debe tener al menos 2 letras.'
             errors = true;
         } else {errorFirstName='';}
-        
+
         //VALIDACIÓN DE APELLIDO - el campo debe estar completo por al menos dos caracteres
         let errorLastName;
         let lastName = document.querySelector('#lastName');
         if(lastName.value == ''){
             errorLastName='Completá con tu apellido.'
+            errors = true;
+        } else if(!leters.test(lastName.value)){
+            errorLastName='Tu apellido sólo debe tener letras.'
             errors = true;
         } else if(lastName.value.length <= 1){
             errorLastName='Tu apellido debe tener al menos 2 letras.'
@@ -38,6 +47,18 @@ window.addEventListener('load', ()=>{
             errors = true;
         } else {errorUsername='';}
         
+        //VALIDACIÓN DE EMAIL - el campo debe completarse
+        let errorEmail;
+        let email = document.querySelector('#email');
+        const exprEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+        if(email.value == ''){
+            errorEmail='Ingresa tu email.'
+            errors = true;
+        } else if(!exprEmail.test(email.value)){
+            errorEmail = 'Debes ingresar un e-mail válido.'
+            errors = true;
+        }else{errorEmail='';}
+        
         //VALIDACIÓN DE CONTRASEÑA - el campo debe completarse
         let errorPassword;
         let password = document.querySelector('#password');
@@ -48,10 +69,11 @@ window.addEventListener('load', ()=>{
         
         //VALIDACIÓN DE CONFIRMACIÓN DE CONTRASEÑA - el campo debe completarse con la misma contraseña que el anterior
         let errorPasswordCheck;
-        let passwordCeck = document.querySelector('#passwordConfirm');
-        if(passwordCeck.value == ''){
+        let passwordCheck = document.querySelector('#passwordConfirm');
+        if(passwordCheck.value == ''){
             errorPasswordCheck='Ingresa tu contraseña actual.'
-        }else if(passwordCeck.value != password.value){
+            errors = true;
+        } else if(passwordCheck.value != password.value){
             errorPasswordCheck='Debes repetir tu contraseña actual.'
             errors = true;
         } else {errorPasswordCheck='';}
@@ -67,40 +89,30 @@ window.addEventListener('load', ()=>{
         //Si el campo NO está vacio se valida su extension
         if(avatar.value != ''){
             if(!extValidation()){
-                errorAvatar='Extensión de archivo inválido'
+                errorAvatar='Extensión de archivo inválido.'
                 errors = true;
             } else {errorAvatar='';}
         } else {errorAvatar='';}
         
-        //Si hay errores evito el envio del form
         console.log(errors)
+        //Si hay errores evito el envio del form
         if(errors){e.preventDefault();}
         
-        //Muestro errores en el section
+        //Muestro errores en el section del ejs
         //Nombre
-        let errorFN = document.querySelector('#errorFirstName');
-        errorFN.innerHTML = `<p class="errors">${errorFirstName}</p>`;
-        
+        document.querySelector('#errorFirstName p').innerHTML = `${errorFirstName}`;
         //Apellido
-        let errorLN = document.querySelector('#errorLastName');
-        errorLN.innerHTML = `<p class="errors">${errorLastName}</p>`;
-        
+        document.querySelector('#errorLastName p').innerHTML = `${errorLastName}`;
         //Username
-        let errorUN = document.querySelector('#errorUsername');
-        errorUN.innerHTML = `<p class="errors">${errorUsername}</p>`;
-        
+        document.querySelector('#errorUsername p').innerHTML = `${errorUsername}`;
+        //Email
+        document.querySelector('#errorEmail p').innerHTML = `${errorEmail}`;
         //Contraseña
-        let errorP = document.querySelector('#errorPassword');
-        errorP.innerHTML = `<p class="errors">${errorPassword}</p>`;
-        
+        document.querySelector('#errorPassword p').innerHTML = `${errorPassword}`;
         //Contraseña confirm
-        let errorPC = document.querySelector('#errorPasswordCheck');
-        errorPC.innerHTML = `<p class="errors">${errorPasswordCheck}</p>`;
-        
+        document.querySelector('#errorPasswordCheck p').innerHTML = `${errorPasswordCheck}`;
         //Avatar
-        let errorA = document.querySelector('#errorAvatar');
-        errorA.innerHTML = `<p class="errors">${errorAvatar}</p>`;
-        
+        document.querySelector('#errorAvatar p').innerHTML = `${errorAvatar}`;
     }
     //Momentos en donde se corroboran las validaciones
     inputs.forEach((input)=> {
@@ -108,6 +120,5 @@ window.addEventListener('load', ()=>{
         input.addEventListener('blur',validacionEdit);
     })
     //Corroboración de validación al enviar el form
-    let form = document.querySelector('#useredit');
-    form.addEventListener("submit", validacionEdit)
+    document.querySelector('#useredit').addEventListener("submit", validacionEdit)
 })

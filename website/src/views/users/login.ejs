@@ -15,27 +15,28 @@
             <form action="/users/login" method="POST" id="loginForm">
                 <fieldset>
                     <legend>Iniciar Sesión</legend>
-                    <label for="email"></label>
-                    <input type="email" name="email" id="email" 
-                    placeholder="Email" class="info <%= locals.errors && errors.email ? 'form-input-error': null%>" value="<%= locals.userInfo? userInfo.email : null%>">
-                    <!--Si hay errores de logeo del usuario, aparece el primero-->
-                    <%if(locals.errors && errors.email){%>
-                        <p><%= errors.email.msg %></p>
-                    <% } %>
-                    <%if(locals.errors && errors.password){%>
-                        <p><%= errors.password.msg %></p>
-                    <% } %>
-                    <label for="password"></label>
-                    <input type="password" name="password" id="password" 
-                    placeholder="Contraseña" class="info" >
+                    <label for="email">
+                        <input type="email" name="email" id="email" placeholder="Email" class="info <%= locals.errors && errors.email ? 'input-error': null%>" value="<%= locals.userInfo? userInfo.email : null%>">
+                        <p class="err errors">H</p>
+                        <!--Si hay errores de logeo del usuario, aparece el primero-->
+                        <%if(locals.errors && errors.email){%>
+                            <p class="err viewErrors"><%= errors.email.msg %></p>
+                        <% } %>
+                        <%if(locals.errors && errors.password){%>
+                            <p class="err viewErrors"><%= errors.password.msg %></p>
+                        <% } %>
+                    </label>
+
+                    <label for="password">
+                    <input type="password" name="password" id="password" placeholder="Contraseña" class="info" >
                     <a href="#" class="forget-link">¿Olvidaste tu contraseña?</a>
+                    </label>
+
                     <label for="remember" class="remember-me-box">
                         <input type="checkbox" name="remember" id="remember">
                         Recordarme
                     </label>
-                    <button type="submit" id="button-submit">
-                        Ingresar
-                    </button>
+                    <button type="submit" id="button-submit">Ingresar</button>
                 </fieldset>    
             </form>
             <section id="redirect-section">

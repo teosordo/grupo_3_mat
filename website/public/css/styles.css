@@ -113,6 +113,8 @@ li.errors{
 .errors{
     color:red;
     font-size: 15px;
+    display: inline-block;
+    margin: 5px auto;
 }
 /****** Encabezado *******/
 .burger{
