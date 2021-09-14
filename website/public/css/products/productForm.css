@@ -21,7 +21,7 @@ h1{
     background-color: #646396;
     
 }
-legend, #button-submit, .product-info{
+#image-container, #button-submit, .product-info{
     border: 1px solid black;
 }
 #button-submit, #delete-button, .product-info, .btn-submit{ 
@@ -77,11 +77,11 @@ h1, h2{
 h2{
     border-top: 1px solid black;
 }
-legend{   
+#image-container{   
     width: fit-content;
     background-color: #CACADC;
     box-shadow: 0 0 4px 3px #8c8bc7;
-    margin-top: 25px;
+    margin: 25px auto;
 }
 #product-img{
     width: 100%;
@@ -170,6 +170,7 @@ label{
         margin: 20px auto 10px;
         box-shadow: 1px 0 10px #666666;
         border: 1px solid black;
+        max-width: 1200px;
     }
 
     /* CREATE */
@@ -182,36 +183,26 @@ label{
     }
     
     /* EDIT */
-    legend{
-        margin-left: 4vw;
-        float:left;
-        margin-bottom: 170px;
-    }
     #fieldset-small, #fielset-large{
         padding: 0px;
-        flex-direction: column;
         justify-content: center;
     }
-    #fieldset-small{
-        height: 540px;
+    #main-form #fieldset-small{
+        display: flex;
+        flex-wrap: wrap;
     }
     #fieldset-small .edit-labels{
-        display: flex;
-        align-items:center;
-        justify-content: space-between;
-    }
-    #fieldset-small .product-info{
-        width: 55%;
+        text-align: start;
+        width: 47%;
+        margin: auto;
     }
     #fielset-large label{
         width:97%;
     }
-    #fieldset-small .edit-labels{
-        text-align: start;
-    }
-    .edit-labels{
-        width: 45%;
-        margin: 0px auto 10px;
+    section.input-err-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 5px;
     }
     .edit-labels .product-info{
         margin-top: 0;
@@ -226,24 +217,6 @@ label{
         flex-wrap: initial;
     }
 }
-@media(min-width: 965px){
-    #fieldset-small .product-info{
-        width: 65%;
-    }
-    .edit-labels{
-        width: 50%;
-    }
-}
-@media(min-width: 1280px){
-    #fieldset-small .product-info{
-        width: 80%;
-    }
-    .edit-labels{
-        width: 60%;
-    }
-}
-
-
 
 /**TEST**/
 .button-color-on{
@@ -263,5 +236,7 @@ label{
 .form-input-errorMsg{
     color: red;
     font-size: 14px;
-    margin: 5px;
+    margin: 5px auto;
 }
+
+

@@ -6,11 +6,11 @@ module.exports = [
     body('colors')
         .notEmpty().withMessage('Debe elegir al menos 1 color'),
     body('price')
-        .notEmpty().withMessage('Ingrese el Precio del producto').bail()
+        .notEmpty().withMessage('Ingrese el precio del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para precios'),
     body('discount')
-        .notEmpty().withMessage('Ingrese el descuento del producto, si no tiene ingrese 0').bail()
-        .isNumeric().withMessage('Solo se permiten números para descuentos'),
+        .notEmpty().withMessage('Debe ingresar un valor entre 0 al 99')
+        .isNumeric().withMessage('Debe ingresar un número valido'),
     body('stock')
         .notEmpty().withMessage('Complete el stock del producto').bail()
         .isNumeric().withMessage('Solo se permiten números para stock'),

@@ -49,7 +49,7 @@ router.post('/create/category', [adminAccess, categoryCreateValidator],productCo
 //Category Edit
 router.get('/edit/categoryList', [adminAccess], productController.categoryList);
 router.get('/edit/category/:id', [adminAccess], productController.editCategory);
-router.put('/edit/category/:id', [adminAccess, categoryEditValidator], productController.updateCategory);
+router.post('/edit/category/:id', [adminAccess, categoryEditValidator], productController.updateCategory);
 router.delete('/category/delete/:id',[adminAccess], productController.deleteCategory)
 //Color Create
 router.get('/create/color', [adminAccess],productController.newColor);

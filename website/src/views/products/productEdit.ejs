@@ -13,110 +13,130 @@
     <main>
         <section id="content-container">
             <h1>Editá tu producto:</h1>
-            <% if (locals.errors) { %>
-                <ul class="errorsList desktopList">
-                <% for(let oneError in errors){ %>
-                    <li class="errors"><%= errors[oneError].msg %> </li>
-                <% } %> 
-                </ul>
-            <% } %>
-            <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="main-form">
-                <fieldset id="fieldset-small">
-                    <legend>
-                        <img src="/uploads/products/<%=product.images[0].name%>" alt="" id="product-img">
-                        <h2><%=product.prevName ? product.prevName : product.name%></h2>
-                    </legend>
-                    <% if (locals.errors) { %>
-                        <ul class="errorsList mobileList">
-                        <% for(let oneError in errors){ %>
-                            <li class="errors"><%= errors[oneError].msg %> </li>
-                        <% } %> 
-                        </ul>
-                    <% } %>
-                    <label for="name" class="edit-labels">Nombre:
-                        <input type="text" name="name" id="name" class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%=product.name%>">
-                    </label>
+            <section id="edit-form-container">
+                <section id="image-container">
+                    <img src="/uploads/products/<%=product.images[0].name%>" alt="" id="product-img">
+                    <h2><%=product.prevName ? product.prevName : product.name%></h2>
+                </section>
+                <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="main-form">
+                    <fieldset id="fieldset-small">
+                        <label for="name" class="edit-labels">Nombre:
+                            <section class="input-err-container">
+                                <input type="text" name="name" id="name" class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%=product.name%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.name ? errors.name.msg: null%></p>
+                            </section>
+                        </label>
+                        <label for="category" class="edit-labels">Categoría:
+                            <section class="input-err-container">
+                                <select name="category" id="category" class="product-info">
+                                <% for(let category of categories){ %>
+                                    <% if(category.id == product.category_id){ %> <!-- para la página original -->
+                                        <option value="<%= category.id%>" selected><%=category.name%></option>
+                                    <% }else if(product.category == category.id){ %> <!-- para la página de error -->
+                                        <option value="<%= category.id%>" selected><%=category.name%></option>
+                                    <% }else{%>
+                                        <option value="<%= category.id%>"><%=category.name%></option>
+                                    <% } %>
+                                <% } %> 
+                                </select>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.category.msg: null%></p>
+                            </section>
+                        </label>
 
-                    <label for="category" class="edit-labels">Categoría:
-                        <select name="category" id="category" class="product-info">
-                        <% for(let category of categories){ %>
-                            <% if(category.id == product.category_id){ %> <!-- para la página original -->
-                                <option value="<%= category.id%>" selected><%=category.name%></option>
-                            <% }else if(product.category == category.id){ %> <!-- para la página de error -->
-                                <option value="<%= category.id%>" selected><%=category.name%></option>
-                            <% }else{%>
-                                <option value="<%= category.id%>"><%=category.name%></option>
-                            <% } %>
-                        <% } %> 
-                        </select>
-                    </label>
+                        <label for="brand" class="edit-labels">Marca:
+                            <section class="input-err-container">
+                                <select name="brand" id='brand' class="product-info">
+                                    <% for(let brand of brands){ %> 
+                                        <% if(brand.id == product.brand_id){ %> <!-- para la página original -->
+                                            <option value="<%= brand.id%>" selected><%=brand.name%></option>
+                                        <% }else if(product.brand == brand.id){ %> <!-- para la página de error -->
+                                            <option value="<%= brand.id%>" selected><%=brand.name%></option>
+                                        <% }else{%>
+                                            <option value="<%= brand.id%>"><%=brand.name%></option>
+                                        <% } %>
+                                    <%  }  %>
+                                </select>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.brand ? errors.brand.msg: null%></p>
+                            </section>
+                        </label>
 
-                    <label for="brand" class="edit-labels">Marca:
-                        <select name="brand" id='brand' class="product-info">
-                            <% for(let brand of brands){ %> 
-                                <% if(brand.id == product.brand_id){ %> <!-- para la página original -->
-                                    <option value="<%= brand.id%>" selected><%=brand.name%></option>
-                                <% }else if(product.brand == brand.id){ %> <!-- para la página de error -->
-                                    <option value="<%= brand.id%>" selected><%=brand.name%></option>
-                                <% }else{%>
-                                    <option value="<%= brand.id%>"><%=brand.name%></option>
-                                <% } %>
-                            <%  }  %>
-                        </select>
-                    </label>
+                        <label for="colors" class="edit-labels">Colores:
+                            <section class="input-err-container">
+                                <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
+                                    <% for(let color of colors){ %>
+                                        <% if(product.prevColors){ %> <!-- para la página de error -->
+                                            <option value="<%= color.id %>" <%for(let productColor of product.prevColors){%><%=  productColor == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
+                                        <% } else { %> <!-- para la página original -->
+                                            <option value="<%= color.id %>" <%for(let productColor of product.colors){%><%=  productColor.id == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
+                                        <% } %>
+                                    <% } %>
+                                </select>
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.colors ? errors.colors.msg: null%></p>
+                            </section>
+                        </label>
+                        
+                        <label for="price" class="edit-labels">Precio ($):
+                            <section class="input-err-container">
+                                <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.originalPrice ? product.originalPrice : product.price%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.price ? errors.price.msg: null%></p>
+                            </section>   
+                        </label>
 
-                    <label for="colors" class="edit-labels">Colores:
-                        <select name="colors" id="colors" class="product-info <%= locals.errors && errors.colors ? 'form-input-error': null%>" multiple>
-                            <% for(let color of colors){ %>
-                                <% if(product.prevColors){ %> <!-- para la página de error -->
-                                    <option value="<%= color.id %>" <%for(let productColor of product.prevColors){%><%=  productColor == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
-                                <% } else { %> <!-- para la página original -->
-                                    <option value="<%= color.id %>" <%for(let productColor of product.colors){%><%=  productColor.id == color.id ? 'selected' : ''%><% } %> ><%= color.name %> </option>
-                                <% } %>
-                            <% } %>
-                        </select>
-                    </label>
-                    
-                    <label for="price" class="edit-labels">Precio ($):
-                        <input type="text" name="price" id="price" class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%=product.originalPrice ? product.originalPrice : product.price%>">
-                    </label>
+                        <label for="discount" class="edit-labels">Descuento (%):
+                            <section class="input-err-container">
+                                <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.discount ? errors.discount.msg: null%></p>
+                            </section>
+                        </label>
+                        
+                        <label for="stock" class="edit-labels">Stock (unidad):
+                            <section class="input-err-container">
+                                <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.stock ? errors.stock.msg: null%></p>
+                            </section>
+                        </label>
 
-                    <label for="discount" class="edit-labels">Descuento (%):
-                        <input type="text" name="discount"  id='discount' class="product-info <%= locals.errors && errors.discount ? 'form-input-error': null%>" value="<%=product.discount%>">
-                    </label>
-                    
-                    <label for="stock" class="edit-labels">Stock (x unidad):
-                        <input type="text" name="stock"  id='stock' class="product-info <%= locals.errors && errors.stock ? 'form-input-error': null%>" value="<%=product.stock%>">
-                    </label>
+                        <label for="warranty" class="edit-labels">Garantía:
+                            <section class="input-err-container">
+                                <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%=product.warranty%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.warranty ? errors.warranty.msg: null%></p>
+                            </section>
+                        </label>
+                        
+                        <label for="image" class="edit-labels">Imágenes:
+                            <section class="input-err-container">
+                                <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.image ? errors.image.msg: null%></p>
+                            </section>
+                        </label>
 
-                    <label for="warranty" class="edit-labels">Garantía:
-                            <input type="text" name="warranty" id="warranty" class="product-info <%= locals.errors && errors.warranty ? 'form-input-error': null%>" value="<%=product.warranty%>">
-                    </label>
-                    
-                    <label for="image" class="edit-labels">Imágenes:
-                        <input type="file" name="image" id="image" class="product-info" accept="image/jpeg, image/png, image/jpg">
-                    </label>
-
-                    <label for="video" class="edit-labels">Video:
-                        <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.video%>">
-                    </label>
-                </fieldset>
-                <fieldset id="fielset-large">
-                    <label for="characteristics" class="edit-labels large-input-labels">Características:
-                            <textarea name="characteristics" id="characteristics" class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>"><%=product.characteristics%></textarea> 
-                    </label>
-                    
-                    <label for="specs" class="edit-labels large-input-labels">Especificaciones:
-                        <textarea name="specs" id="specs" class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>"><%=product.specs%></textarea> 
-                    </label>
-                </fieldset>
-                <button type="submit" id="button-submit">Editar</button>
-            </form>
-            <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-                <button type="submit" id="delete-button">Eliminar</button>
-            </form>
+                        <label for="video" class="edit-labels">Video:
+                            <section class="input-err-container">
+                                <input type="text" name="video" id="video" class="product-info <%= locals.errors && errors.videos ? 'form-input-error': null%>" value="<%=product.video%>">
+                                <p class='form-input-errorMsg'><%= locals.errors && errors.video ? errors.video.msg: null%></p>
+                            </section>
+                        </label>
+                    </fieldset>
+                    <fieldset id="fielset-large">
+                        <label for="characteristics" class="edit-labels large-input-labels">Características:
+                            <textarea name="characteristics" id="characteristics" class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>"><%=product.characteristics%></textarea>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.characteristics ? errors.characteristics.msg: null%></p>
+                        </label>
+                        
+                        <label for="specs" class="edit-labels large-input-labels">Especificaciones:
+                            <textarea name="specs" id="specs" class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>"><%=product.specs%></textarea>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.specs ? errors.specs.msg: null%></p>
+                        </label>
+                    </fieldset>
+                    <button type="submit" id="button-submit">Editar</button>
+                </form>
+                <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+                    <button type="submit" id="delete-button">Eliminar</button>
+                </form>
+            </section>
         </section>
     </main>
-    <%- include('../includes/footer')  %>   
-</body>
+    <%- include('../includes/footer')  %>
+    <script src="/js/formValidators/product/productValidator.js"></script>  
+    </body>
 </html>

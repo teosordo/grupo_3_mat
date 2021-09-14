@@ -1,5 +1,6 @@
 window.addEventListener('load', ()=>{
     const inputs = Array.from(document.querySelectorAll('.product-info'));
+    const url = window.location.href
     inputs.forEach(input => {
         input.addEventListener('input', ()=>{
             if(input.value == ''){
@@ -43,17 +44,29 @@ window.addEventListener('load', ()=>{
                     let {name} = input.files[0];
                     let fileExtension = name.split(".").pop();
                     return !authExt.includes(fileExtension) ? true : false;
-                } 
-                if(input.value == ''){
-                    input.classList.add('form-input-error');
-                    input.nextElementSibling.innerHTML = 'Debe completar el campo';
-                }else if(extValidation()){
-                    input.classList.add('form-input-error');
-                    input.nextElementSibling.innerHTML = 'Extension de archivo invalido';
-                }else{
-                    input.classList.remove('form-input-error');
-                    input.nextElementSibling.innerHTML = '';
                 }
+                if(url.includes('edit')){
+                    if(input.value != ''){
+                        if(extValidation() == false){
+                            input.classList.add('form-input-error');
+                            input.nextElementSibling.innerHTML = 'Extension de archivo invalido'; 
+                        };
+                    }else{
+                        input.classList.remove('form-input-error');
+                        input.nextElementSibling.innerHTML = '';
+                    };
+                }else{
+                    if(input.value == ''){
+                        input.classList.add('form-input-error');
+                        input.nextElementSibling.innerHTML = 'Debe completar el campo';
+                    }else if(extValidation()){
+                        input.classList.add('form-input-error');
+                        input.nextElementSibling.innerHTML = 'Extension de archivo invalido';
+                    }else{
+                        input.classList.remove('form-input-error');
+                        input.nextElementSibling.innerHTML = '';
+                    };
+                };
             };
             //Validaciones para video del producto
             if(input.name == 'video'){
@@ -65,6 +78,27 @@ window.addEventListener('load', ()=>{
                     input.nextElementSibling.innerHTML = 'El link debe empezar con youtube.com/embed/';
                 }
             };
+            if(input.name == 'characteristics' || input.name == 'specs'){
+                if(input.value == ''){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe completar el campo';
+                }else if(input.value.length < 20){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe tener al menos 20 caracteres';
+                }else{
+                    input.classList.remove('form-input-error');
+                    input.nextElementSibling.innerHTML = '';
+                }
+            };
+            if(input.name == 'discount'){
+                if(isNaN(input.value) || input.value == '' || input.value >  99 || input.value < 0){
+                    input.classList.add('form-input-error');
+                    input.nextElementSibling.innerHTML = 'Debe completar el campo con un numero del 0 al 99';
+                }else{
+                    input.classList.remove('form-input-error');
+                    input.nextElementSibling.innerHTML = '';
+                }
+            };
         });
     });
     const form = document.querySelector('#main-form');
@@ -74,9 +108,7 @@ window.addEventListener('load', ()=>{
             'bubbles': true,
             'cancelable': true
         });
-        const errorList = document.querySelector('.errorsList');
         //Vaciando lista de errores
-        errorList.innerHTML = '';
         let errors = [];
         inputs.forEach(input=>{
             //Utiliza el evento de input para confirmar si hay errores
@@ -88,9 +120,7 @@ window.addEventListener('load', ()=>{
         });
         if(errors.length > 0){
             e.preventDefault();
-            errors.forEach(error =>{
-                errorList.innerHTML += `<li class="errors">${error}</li>`;
-            });
+            document.querySelector('.form-input-error').focus();
         };
     });
 });
