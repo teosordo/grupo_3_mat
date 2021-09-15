@@ -6,6 +6,7 @@ window.addEventListener('load', ()=>{
         if(emailCharacts.test(email.value)){
             // estilo del input
             document.querySelector('#email').classList.remove('input-error')
+            emailError = true;
         }else{
             document.querySelector('.errors').innerHTML = "Debes ingresar un mail válido";
             // estilo del input
