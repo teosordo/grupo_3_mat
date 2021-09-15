@@ -79,8 +79,15 @@ a{
     border: 1px solid #6765D6;
     box-shadow: 0px 0px 0px 1px #6765D6 inset;  
 }
+/* ERRORS */
 .input-error{
     box-shadow: 0px 0px 2px 1px #693cca inset;
+}
+.errors{
+    color:red;
+    font-size: 15px;
+    display: inline-block;
+    margin: 5px auto;
 }
 #button-submit{
     background-color: #6765D6;
@@ -102,20 +109,6 @@ a{
     border-radius: 8px;
     text-transform: uppercase;
 }
-/***Errores***/
-/* RESERVAR ESPACIO PARA P Y QUE EUEDE LINDO PARA QUE A MATI Y TEO LES GUSTE */
-.errors{
-    visibility: hidden;
-    margin: 0;
-}
-.viewErrors{
-    visibility:initial;
-    display: inline-block;
-    margin: 0;
-    color:red;
-    font-size: 15px;
-}
-
 /***Seccion redireccion***/
 #redirect-section{
     margin-top: 20px;

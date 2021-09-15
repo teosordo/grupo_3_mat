@@ -17,13 +17,13 @@
                     <legend>Iniciar Sesión</legend>
                     <label for="email">
                         <input type="email" name="email" id="email" placeholder="Email" class="info <%= locals.errors && errors.email ? 'input-error': null%>" value="<%= locals.userInfo? userInfo.email : null%>">
-                        <p class="err errors">H</p>
+                        <p class="errors"></p>
                         <!--Si hay errores de logeo del usuario, aparece el primero-->
                         <%if(locals.errors && errors.email){%>
-                            <p class="err viewErrors"><%= errors.email.msg %></p>
+                            <p class="errors"><%= errors.email.msg %></p>
                         <% } %>
                         <%if(locals.errors && errors.password){%>
-                            <p class="err viewErrors"><%= errors.password.msg %></p>
+                            <p class="errors"><%= errors.password.msg %></p>
                         <% } %>
                     </label>
 
