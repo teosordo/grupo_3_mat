@@ -43,7 +43,7 @@ header{
     justify-content:space-between;
     align-items:center;
     position: absolute;
-    z-index: 2;
+    z-index: 5;
 }
 header a{
     color: transparent;
@@ -141,7 +141,7 @@ li.errors{
     display:none;
 }
 #login{
-    display:none;
+    display: block;
     color: #fff;
     text-decoration: none;
     font-size:1.5rem;
@@ -156,6 +156,9 @@ li.errors{
     /*Fix para paginas con etiquetas figure*/
     padding: 0;
     min-width: 0;
+}
+#avatar-cont{
+    display: block;
 }
 #avatar{
     display: block;
@@ -194,12 +197,6 @@ li.errors{
         display: flex;
         justify-content: space-around;
         align-items: center;
-    }
-    #login{
-        display: block;
-    }
-    #avatar-cont{
-        display: block;
     }
 }
 /* Desktop */
