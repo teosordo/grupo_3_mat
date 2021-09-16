@@ -40,3 +40,6 @@ app.use('/products', productRouter);
     // User
 const userRouter = require('./routes/userRoutes');
 app.use('/users', userRouter);
+    // API
+const API = require('./routes/API');
+app.use('/api', API);
