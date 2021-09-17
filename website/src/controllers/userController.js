@@ -43,6 +43,9 @@ const userController = {
                     password: bcrypt.hashSync(req.body.password, 10),
                     avatar: req.file == undefined ? 'default-user.jpg' : req.file.filename
                 });
+                userCart = await db.Cart.create({
+                    user_id: newUser.id
+                });
                 res.redirect('/');
             } catch (error) {
                 throw error;
@@ -102,7 +105,6 @@ const userController = {
     productCartDelete: async (req,res)=>{
         try {
             let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
-            console.log(userCart);
             await db.CartProducts.destroy({where:{cart_id: userCart.id, product_id: req.params.id}});
 
             await db.Cart.update({
