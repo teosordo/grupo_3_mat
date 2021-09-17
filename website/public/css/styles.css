@@ -40,7 +40,7 @@ header{
     width: 100vw;
     background-color:#1A2028;
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
     position: absolute;
     z-index: 5;
@@ -125,17 +125,57 @@ li.errors{
     text-align: center;
     font-size:1.5rem;
 }
+/* Navegación */
+#navbar{
+    width: 100vw;
+    background-color: #F6F6F6;
+    box-shadow: 1px 0 10px #666666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    transition: font-weight 0.5s ease-in-out;
+    position: absolute;
+    z-index: 2;
+    transition: visibility 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+#navbar a:hover{
+    color:#6765D6;
+    font-weight: bold;
+}
+#navbar h2{
+    font-size:1.5rem;
+    margin: 0 auto;
+}
+#navbar ul{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+#navbar a{
+    text-decoration: none;
+    color: #47525E;
+}
+#navbar li{
+    padding:1rem 0;
+}
+#cartNav{
+    color: #6765D6;
+    font-size:1.5rem;
+}
+.activeMenu{
+    visibility:hidden;
+    transform: translate(0, -700px);
+}
 .logo{
     display:none;
     margin: 5px 0 0 1rem;
 }
 #header-right{
     width:20%;
-    text-align: center;
-}
-#cart{
-    color: white;
-    font-size:1.5rem;
+    display:flex;
+    align-items:center;
 }
 #usuario{
     display:none;
@@ -193,10 +233,18 @@ li.errors{
         border-radius: 5px;
     }
     /******** ID *********/
-    #header-right {
-        display: flex;
+    #header-right{
         justify-content: space-around;
-        align-items: center;
+    }
+    #cart{
+        color: white;
+        font-size:1.5rem;
+    }
+    #cartNav{
+        visibility:hidden;
+        overflow:hidden;
+        position: absolute;
+        z-index: -1;
     }
 }
 /* Desktop */
@@ -223,6 +271,10 @@ li.errors{
         display: flex;
         align-items:center;
         justify-content: space-between;
+    }
+    #navbar{
+        overflow: hidden;
+        visibility: hidden;
     }
     /******** CLASES *********/
     /* Encabezado*/

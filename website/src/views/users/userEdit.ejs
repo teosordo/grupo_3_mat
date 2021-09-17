@@ -9,8 +9,13 @@
     <title>Editar datos</title>
 </head>
 <body>
+    <!-- HEADER -->
     <%- include('../includes/header') %>
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
+
+        <!-- CUERPO -->
         <section id="contenido">
             <h2>Hola <%=user.firstName%>! Editá tus datos:</h2>
             <p>Necesitarás ingresar tu contraseña actual y repetirla para poder efectuar cualquier cambio.</p>
@@ -100,5 +105,7 @@
     </main>
     <%-include('../includes/footer') %> 
     <script src="/js/formValidators/validatorRegisterEdit.js"></script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/home.js"></script>
 </body>
 </html>

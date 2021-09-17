@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="/css/products/productForm.css">
 </head>
 <body>
+    <!-- HEADER -->
     <%- include('../includes/header') %> 
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
+
+        <!-- CUERPO -->
         <section id="content-container">
             <h1>Agrega una Color</h1>
             <form action="/products/create/color" method="POST">
@@ -36,7 +41,9 @@
             <button class="link-button">Cancelar</button>
     </section>
     </main>
-        <%-include('../includes/footer') %>
-        <script src='/js/formValidators/product/productElementValidator.js'></script>
+    <%-include('../includes/footer') %>
+    <script src='/js/formValidators/product/productElementValidator.js'></script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/home.js"></script>
 </body>
 </html>
