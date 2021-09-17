@@ -160,6 +160,9 @@ li.errors{
 #navbar li{
     padding:1rem 0;
 }
+#cart{
+    display: none;
+}
 #cartNav{
     color: #6765D6;
     font-size:1.5rem;
@@ -173,9 +176,9 @@ li.errors{
     margin: 5px 0 0 1rem;
 }
 #header-right{
-    width:20%;
     display:flex;
     align-items:center;
+    justify-content: space-around;
 }
 #usuario{
     display:none;
@@ -234,9 +237,10 @@ li.errors{
     }
     /******** ID *********/
     #header-right{
-        justify-content: space-around;
+        width:20%;
     }
     #cart{
+        display: initial;
         color: white;
         font-size:1.5rem;
     }
@@ -244,7 +248,7 @@ li.errors{
         visibility:hidden;
         overflow:hidden;
         position: absolute;
-        z-index: -1;
+        z-index: -100;
     }
 }
 /* Desktop */
@@ -255,9 +259,6 @@ li.errors{
         width: 95%;
         margin-top:1rem;
     }
-    #header-right{
-        text-align:left;
-    }
     #user-login p{
         display: block;
         margin: 0 5px;
@@ -267,7 +268,6 @@ li.errors{
         color: #fff;
     }
     #user-login{
-        margin: 20px;
         display: flex;
         align-items:center;
         justify-content: space-between;

@@ -11,6 +11,8 @@
 <body>
     <%- include('../includes/header') %> 
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
         <section id="content-container">
             <h1>Agrega una Categoria</h1>
             <form action="/products/create/category" method="POST" >
@@ -39,6 +41,6 @@
     </main>
     <%-include('../includes/footer') %>
     <script src='/js/formValidators/product/productElementValidator.js'></script> 
-    <script src="/js/home.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>

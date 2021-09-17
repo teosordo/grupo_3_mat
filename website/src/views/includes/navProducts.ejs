@@ -5,7 +5,7 @@
             <li><a href="/products/list/1/<%= element.id %> "><%=element.name%></a></li>
         <% }) %>
         <% if(user){ %> 
-            <a href="/users/cart" id="cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/users/cart" id="cartNav"><i class="fas fa-shopping-cart"></i></a>
         <% } %>
         <% if (user && user.admin) { %>
             <li id="productCreate"><a href="/products/options">Opciones para productos</a></li>

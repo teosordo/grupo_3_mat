@@ -11,6 +11,8 @@
 <body>
     <%- include('../includes/header') %> 
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
         <section id="content-container">
             <h1>Editar categoría: <%=category.prevName ? category.prevName : category.name%></h1>
             <form action="/products/edit/category/<%= category.id %>" method="POST">
@@ -51,6 +53,6 @@
     </main>
         <%-include('../includes/footer') %>
         <script src='/js/formValidators/product/productElementValidator.js'></script>
-        <script src="/js/home.js"></script>
+        <script src="/js/nav.js"></script>
 </body>
 </html>
