@@ -14,7 +14,7 @@ const productController = {
 
             //Cosas para Productos
             const products = await db.Product.findAll({include: ['brand','category'], attributes: ['id','name','characteristics']})
-            const totalProducts = await db.Product.count();
+            const totalProducts = products.length;
             
             //Agregando link para detalle producto
             products.forEach(product =>{

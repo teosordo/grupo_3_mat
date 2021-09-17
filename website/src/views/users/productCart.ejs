@@ -23,7 +23,7 @@
             </section>
 
             <article id="products-container">
-                <% if (products.total_products != 0) { %>
+                <% if (products.total_products != null && products.total_products != 0) { %>
                     <% for(let i = 0; i < products.cart_products.length; i++){ %> 
                         <section>
                             <section class="product"> 
@@ -45,9 +45,9 @@
             </article>
 
             <article id="units-total">
-                    <h3>Unidades: <%= products? products.total_products : 0%></h3>
+                    <h3>Unidades: <%= products.total_products? products.total_products : 0%></h3>
 
-                    <h3>Total: $<%= products? products.final_price : 0 %> </h3>
+                    <h3>Total: $<%= products.final_price? products.final_price : 0 %> </h3>
                 
             </article>
 
