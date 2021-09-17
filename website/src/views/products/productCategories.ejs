@@ -11,6 +11,8 @@
 <body>
     <%- include('../includes/header') %> 
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
         <section id="content-container">
             <h1>Categorias y detalles de productos</h1>
             <form action="/products/create" method="POST" enctype="multipart/form-data">
@@ -25,6 +27,6 @@
     </section>
     </main>
         <%-include('../includes/footer') %>
-        <script src="/js/home.js"></script>
+        <script src="/js/nav.js"></script>
 </body>
 </html>
