@@ -157,7 +157,7 @@ window.addEventListener('load', ()=>{
             errorPassword='Tu contraseña debe contener al menos 8 caracteres.'
             errors.passwordError = true;
         } else if(!passwordCharacts.test(password.value)){
-            errorPassword='Debes ingresar letras, numeros y carácteres especiales como: <em>!,._-</em>'
+            errorPassword='Debes ingresar al menos una letra mayúscula y una minúscula, numeros y carácteres especiales como: <em>!,._-</em>'
             errors.passwordError = true;
         } else {
             errorPassword='';

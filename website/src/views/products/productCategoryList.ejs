@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="/css/products/productForm.css">
 </head>
 <body>
+    <!-- HEADER -->
     <%- include('../includes/header') %> 
     <main>
+        <!-- MENU DE NAVEGACIÓN -->
+        <%- include('../includes/nav') %> 
+
+        <!-- CUERPO -->
         <section id="content-container">
             <h1>Seleccione la categoria a editar</h1>
             <form action="/products/redirect" method="POST">
@@ -25,6 +30,8 @@
             </form>
     </section>
     </main>
-        <%-include('../includes/footer') %>  
+    <%-include('../includes/footer') %>  
+    <script src="/js/nav.js"></script>
+    <script src="/js/home.js"></script>
 </body>
 </html>
