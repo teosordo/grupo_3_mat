@@ -145,7 +145,7 @@ const userController = {
                 // Guarda el query
                 let search;
                 //Numero para limit/offset/math.ceil
-                let settingNumber = 3
+                let settingNumber = 5
 
                 if(req.query.search){
                     users = await db.User.findAll({
