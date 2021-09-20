@@ -5,6 +5,8 @@ function TotalCountRow(){
 
     let [products, setProducts] = useState([])
 
+    let [users, setUsers] = useState([])
+
     useEffect(() =>{
         console.log('Objeto montado');
     },[])
@@ -13,7 +15,14 @@ function TotalCountRow(){
     useEffect(() =>{
         fetch('http://localhost:3000/api/products')
                 .then(response => response.json())
-                .then(data => setProducts(data.products))
+                .then(data => setProducts(data))
+                .catch(err => console.error(err))
+    },[])
+
+    useEffect(() =>{
+        fetch('http://localhost:3000/api/users')
+                .then(response => response.json())
+                .then(data => setUsers(data))
                 .catch(err => console.error(err))
     },[])
 
@@ -24,19 +33,19 @@ function TotalCountRow(){
                 <article className="card-container">
                     <div className="info-container">
                         <h3 className="info-text">Productos</h3>
-                        <p className="info-text">8</p>
+                        <p className="info-text">{products.count}</p>
                     </div> 
                 </article>
                 <article className="card-container">
                     <div className="info-container">
                         <h3 className="info-text">Usuarios</h3>
-                        <p className="info-text">20</p>
+                        <p className="info-text">{users.count}</p>
                     </div> 
                 </article>
                 <article className="card-container">
                     <div className="info-container">
                         <h3 className="info-text">Categorias</h3>
-                        <p className="info-text">8</p>
+                        <p className="info-text">{products.count}</p>
                     </div> 
                 </article>
             </section>
