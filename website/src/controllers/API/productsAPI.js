@@ -8,7 +8,7 @@ const productController = {
             let newArray = [];
             categories.forEach(async category =>{
                 let categoryProductTotal = await db.Product.count({where:{category_id: category.id}})
-                var categoryCount = {name: category.name, total: categoryProductTotal}
+                let categoryCount = {name: category.name, total: categoryProductTotal}
                 newArray.push(categoryCount);
             });
 

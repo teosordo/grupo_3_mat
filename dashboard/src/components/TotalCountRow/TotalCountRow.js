@@ -9,12 +9,12 @@ function TotalCountRow(){
         console.log('Objeto montado');
     },[])
 
-    const apiKey = '4380618c';
 
     useEffect(() =>{
-        fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=action`)
+        fetch('http://localhost:3000/api/products')
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => setProducts(data.products))
+                .catch(err => console.error(err))
     },[])
 
     console.log(products);
