@@ -20,7 +20,7 @@ const productController = {
                 res.redirect('/products/1')
             }
             //Numero para limit/offset/math.ceil
-            let settingNumber = 3
+            let settingNumber = 8
             /*Productos completos*/
             let products;
             // Total de productos
