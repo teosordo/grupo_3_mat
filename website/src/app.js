@@ -15,7 +15,11 @@ app.use(express.urlencoded({extended:false}))
 app.use(method("_method"))
 app.use(cookie())
 app.use(session({resave:false,saveUninitialized:false,secret:'matech'}))
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+  
 // View Engine
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"));
