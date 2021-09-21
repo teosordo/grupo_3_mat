@@ -9,7 +9,7 @@ function TotalCountRow(){
 
     useEffect(() =>{
         console.log('Objeto montado');
-    },[])
+    })
 
 
     useEffect(() =>{

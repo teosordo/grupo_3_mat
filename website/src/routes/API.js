@@ -4,7 +4,7 @@ const productController = require('../controllers/API/productsAPI');
 const usersController = require('../controllers/API/usersAPI');
 
 // Products List
-router.get('/products', productController.index);
+router.get('/products/:id', productController.index);
 // Product Detail
 
 // Users List

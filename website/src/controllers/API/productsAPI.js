@@ -3,6 +3,14 @@ const db = require('../../database/models')
 const productController = {
     index: async (req, res) => {
         try {
+
+            let idPage = parseInt(req.params.id);
+            if(idPage == 0){
+                res.redirect('/api/products/1')
+            };
+            let settingNumber = 10
+
+
             //Cosas para contar productos por categorias 
             const categories = await db.Category.findAll();
             let newArray = [];
@@ -13,8 +21,13 @@ const productController = {
             });
 
             //Cosas para Productos
-            const products = await db.Product.findAll({include: ['brand','category'], attributes: ['id','name','characteristics']})
-            const totalProducts = products.length;
+            const products = await db.Product.findAll({
+                include: ['brand','category'], 
+                attributes: ['id','name','characteristics'],
+                offset: (idPage-1) * settingNumber,
+                limit: settingNumber});
+            
+            const totalProducts = await db.Product.count();
             
             //Agregando link para detalle producto
             products.forEach(product =>{
