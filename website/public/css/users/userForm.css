@@ -104,6 +104,7 @@ a{
 }
 
 #button-submit ,#button-link-redirect{
+    font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 22px;
     width: 97%;
     border-radius: 8px;

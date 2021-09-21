@@ -46,10 +46,10 @@ window.addEventListener('load', ()=>{
                     return !authExt.includes(fileExtension) ? true : false;
                 }
                 if(url.includes('edit')){
-                    if(input.value != ''){
+                    if(input.value != '' && extValidation()){
                         if(extValidation() == false){
                             input.classList.add('form-input-error');
-                            input.nextElementSibling.innerHTML = 'Extension de archivo invalido'; 
+                            input.nextElementSibling.innerHTML = 'Lol'; 
                         };
                     }else{
                         input.classList.remove('form-input-error');
