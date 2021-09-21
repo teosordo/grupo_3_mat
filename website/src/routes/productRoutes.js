@@ -19,7 +19,9 @@ const storage = multer.diskStorage({
         cb(null, path.resolve(__dirname,'../../public/uploads/products'))
     },
     filename:(req,file,cb)=>{
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        let oldName = file.originalname.split('.')
+        oldName = oldName[0]
+        cb(null, file.fieldname + '-' + Date.now() + oldName + path.extname(file.originalname))
     }
 })
 

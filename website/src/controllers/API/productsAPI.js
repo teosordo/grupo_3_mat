@@ -31,7 +31,7 @@ const productController = {
             
             //Agregando link para detalle producto
             products.forEach(product =>{
-                product.dataValues.detail = `http://localhost:3000/api/products/${product.id}`
+                product.dataValues.detail = `http://localhost:3000/api/products/detail/${product.id}`
             });
 
             res.status(200).json({status:200, count: totalProducts, countByCategory:newArray, products: products})
