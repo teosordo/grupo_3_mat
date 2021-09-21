@@ -5,10 +5,9 @@ const colorFunctions = require('../models/color')
 const {validationResult} = require('express-validator')
 const db = require('../database/models');
 const product = require('../models/product');
-// pasar a middleware?
+
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
-    //console.log(price);
     return price - restante;
 }
 

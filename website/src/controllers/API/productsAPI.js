@@ -31,7 +31,7 @@ const productController = {
         try {
             //No se asocia con brands
             const product = await db.Product.findByPk(req.params.id, {
-                include:['category', 'images', 'colors']
+                include:['category', 'images', 'colors'] //faltan atributes
             });            
             // Array de images
             let imagesArray = []
