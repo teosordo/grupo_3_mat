@@ -6,7 +6,7 @@ const path = require('path');
 const method = require('method-override');
 
 // Servidor
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT || 3000);
 app.listen(app.get('port'), ()=> console.log('Server en http://localhost:' + app.get('port')));
 
 // Configuración

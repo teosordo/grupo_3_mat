@@ -4,24 +4,30 @@ import {useState, useEffect} from 'react';
 function CategoriesList() {
     let [categories, setCategories] = useState([])
 
-    // Fetch
+    // Montaje
     useEffect(() =>{
-        fetch('http://localhost:3001/api/products')
+        console.log('Montaje del componente')
+        fetch('http://localhost:3000/api/products/1')
             .then(response => response.json())
-            .then(data => setCategories(data))
+            .then(data => setCategories(data.countByCategory))
             .catch(err => console.error(err))
     },[])
 
-    // Update
+    // Updates
     useEffect(() =>{
-        console.log(categories.countByCategory)
+        console.log('Actualización del componente')
+    },[categories])
+
+    // Desmontaje
+    useEffect(() =>{
+        return ()=>{console.log('Desmontaje del componente')}
     },[categories])
     
     return(
         <div>
             <h3 className="info-text">Categorias</h3>
-            <h4 className="info-text">Categoria:</h4>
-            <p className="info-text">Numero</p>
+            <p className="info-text">Cantidad de categorias: {categories === undefined? 'Cargando...' : categories.length}</p>
+            {categories.map(((category, idx) => <p key={idx+category.name}>{category.name} : {category.total}</p>))}
         </div>
     )
 }
