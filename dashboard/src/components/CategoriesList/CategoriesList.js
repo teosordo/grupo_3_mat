@@ -4,16 +4,19 @@ import {useState, useEffect} from 'react';
 function CategoriesList() {
     let [categories, setCategories] = useState([])
 
+    // Fetch
     useEffect(() =>{
-            fetch('https://swapi.dev/api/people') // 'http://localhost:3000/api/products'
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    setCategories(data)
-                })
-                .catch(err => console.error(err))
-        },[]
-    )
+        fetch('http://localhost:3001/api/products')
+            .then(response => response.json())
+            .then(data => setCategories(data))
+            .catch(err => console.error(err))
+    },[])
+
+    // Update
+    useEffect(() =>{
+        console.log(categories.countByCategory)
+    },[categories])
+    
     return(
         <div>
             <h3 className="info-text">Categorias</h3>
