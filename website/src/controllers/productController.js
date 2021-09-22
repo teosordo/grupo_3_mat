@@ -358,8 +358,20 @@ const productController = {
     },
     deleteBrand: async (req, res) => {
         try {
-            await db.Brand.destroy({where:{id: req.params.id}})
-            res.redirect('/products/edit/brandList')
+            let findBrand = await db.Product.findAll({where: {brand_id: req.params.id}})
+            if(findBrand.length > 0){
+                // Busca la categoría a editar
+                let origBrand = await db.Brand.findByPk(req.params.id);
+                // Recupera la información del form
+                let editedBrand = req.body;
+                editedBrand.id = origBrand.id;
+                editedBrand.prevName = origBrand.name;
+
+                res.render('products/productBrandEdit', {brand: editedBrand, brandError: editedBrand});
+            }else{
+                await db.Brand.destroy({where:{id: req.params.id}})
+                res.redirect('/products/edit/brandList')  
+            }
         } catch (error) {
             throw error
         }
@@ -422,8 +434,21 @@ const productController = {
     },
     deleteCategory: async (req, res) => {
         try {
-            await db.Category.destroy({where:{id: req.params.id}})
-            res.redirect('/products/edit/categoryList')
+            let findProduct = await db.Product.findAll({where: {category_id: req.params.id}})
+            if(findProduct.length > 0){
+                // Busca la categoría a editar
+                let origCategory = await db.Category.findByPk(req.params.id);
+                // Recupera la información del form
+                let editedCategory = req.body;
+                editedCategory.id = origCategory.id;
+                editedCategory.prevName = origCategory.name;
+                editedCategory.prevDetail = origCategory.detail
+                let result = new Error('Borre o Actualize la categoria de los productos')
+                return res.render('products/categoryEdit', {category: editedCategory, categoryError: result});
+            }else{
+                await db.Category.destroy({where:{id: req.params.id}})
+                res.redirect('/products/edit/categoryList')
+            }
         } catch (error) {
             throw error
         }
@@ -477,6 +502,11 @@ const productController = {
     },
     deleteColor: async (req, res) => {
         try {
+            await db.ProductsColor.destroy({
+                where: {
+                    color_id: req.params.id
+                }
+            });
             await db.Color.destroy({where:{id: req.params.id}})
             res.redirect('/products/edit/colorList')
         } catch (error) {

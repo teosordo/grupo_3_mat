@@ -19,13 +19,6 @@
         <section id="content-container">
             <h1>Editando <%=color.prevName ? color.prevName : color.name%></h1>
             <form action="/products/edit/color/<%=color.id%>?_method=PUT" method="POST">
-                <% if (locals.errors) { %>
-                    <ul class="errorsList">
-                    <% for(let oneError in errors){ %>
-                        <li class="errors"><%= errors[oneError].msg %> </li>
-                    <% } %> 
-                    </ul>
-                <% } %>
                 <fieldset>
                     <label for="name" class="create-labels full-sized" id="product-name">Nombre del Color
                         <section id="nameError">
