@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import TotalCountRow from './components/TotalCountRow/TotalCountRow';
 import LastUserCreated from './components/LastUserCreated/LastUserCreated';
 import CategoriesList from './components/CategoriesList/CategoriesList';
+import ProductList from './components/ProductList/ProductList';
 
 function App() {
   return (
@@ -26,9 +27,8 @@ function App() {
         <Route path='/total-count-row' component={TotalCountRow}/>
         <Route path='/last-user-created' component={LastUserCreated}/>
         <Route path='/categories' component={CategoriesList}/>
-        
-        {/* <Route path='/last-product-created' component={LastProductCreated}/>
-        <Route path='/products-list' component={}/> */}
+        <Route path='/products-list' component={ProductList}/>
+        {/* <Route path='/last-product-created' component={LastProductCreated}/> */}
       </Switch>
     </div>
   );

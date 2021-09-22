@@ -1,22 +1,22 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-function CategoriesList() {
-    let [categories, setCategories] = useState([])
+function ProductList() {
+    let [products, setCategories] = useState([])
 
     // Montaje
     useEffect(() =>{
         console.log('Montaje del componente')
         fetch('http://localhost:3000/api/products/1')
             .then(response => response.json())
-            .then(data => setCategories(data.countByCategory))
+            .then(data => setCategories(data.products))
             .catch(err => console.error(err))
     },[])
 
     // Updates
     useEffect(() =>{
         console.log('Actualización del componente')
-    },[categories])
+    },[products])
 
     // Desmontaje
     useEffect(() =>{
@@ -25,10 +25,9 @@ function CategoriesList() {
     
     return(
         <div>
-            <h3 className="info-text">Categorias</h3>
-            <p className="info-text">Cantidad de categorias: {categories === undefined? 'Cargando...' : categories.length}</p>
-            {categories.map(((category, idx) => <p key={idx+category.name}>{category.name} : {category.total}</p>))}
+            <h3 className="info-text">Listado de roductos</h3>
+            {products.map(((product, idx) => <p key={idx+product.name}>{product.name}</p>))}
         </div>
     )
 }
-export default CategoriesList;
+export default ProductList;
