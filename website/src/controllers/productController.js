@@ -80,7 +80,39 @@ const productController = {
                     }
                 });
 
+                //Si ingresa desde el nav de Categorias
+                // y filtra por marca
+                // devuelve por categoria, los productos de esa marca
+                if(req.query.brands && req.params.categoryId){
+                    products = await db.Product.findAll({
+                        where: {
+                            [db.Sequelize.Op.and]: [{
+                                brand_id: req.query.brands
+                            },{
+                                category_id: req.params.categoryId
+                            }],
+                        },
+                        include:['brand','category','images'],
+                        offset: (idPage-1) * settingNumber,
+                        limit: settingNumber,
+                        order:[
+                            ['price', orden]
+                        ]
+                    })
+                    //Busca y cuenta el total de productos
+                    productsTotalCount = await db.Product.count({
+                        where: {
+                            [db.Sequelize.Op.and]: [{
+                                brand_id: req.query.brands
+                            },{
+                                category_id: req.params.categoryId
+                            }],
+                        }
+                    });
+                }
+
                 categoryId = req.params.categoryId;
+
             } else {
                 // Devuelve TODOS los productos
                 products = await db.Product.findAll({
@@ -94,11 +126,35 @@ const productController = {
                 
                 //Busca y cuenta el total de productos
                 productsTotalCount = await db.Product.count();
+
+                //Si filtra por marca
+                // devuelve todos los productos de esa marca
+                if(req.query.brands){
+                    products = await db.Product.findAll({
+                        where: {
+                            brand_id: req.query.brands
+                        },
+                        include:['brand','category','images'],
+                        offset: (idPage-1) * settingNumber,
+                        limit: settingNumber,
+                        order:[
+                            ['price', orden]
+                        ]
+                    })
+                    //Busca y cuenta el total de productos
+                    productsTotalCount = await db.Product.count({
+                        where: {
+                            brand_id: req.query.brands
+                        }
+                    });
+                }
             }
             
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
             
+            // Marcas para el filtro
+            let brands = await db.Brand.findAll()
 
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
@@ -109,7 +165,7 @@ const productController = {
 
             // Me aseguro que se haya cargado lo que necesito para visualizar la página sin errores
             if(products != undefined && productsTotalCount != undefined && category){
-                return res.render('products/productList', {products, category, idPage, productsTotalCount, pages: totalNumPages, search, categoryId});
+                return res.render('products/productList', {products, category, brands, idPage, productsTotalCount, pages: totalNumPages, search, categoryId});
             }
         }catch (error) {
             throw error;

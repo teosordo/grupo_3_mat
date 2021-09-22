@@ -4,6 +4,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 //Componentes
+import Index from '../Index/Index';
 import TotalCountRow from '../TotalCountRow/TotalCountRow';
 import LastUserCreated from '../LastUserCreated/LastUserCreated';
 import CategoriesList from '../CategoriesList/CategoriesList';
@@ -16,12 +17,7 @@ function Content(){
         <div className="Content">
             <h1>Información de MATech</h1>
             <Switch>
-                <Route exact path='/'>
-                    <TotalCountRow/>
-                    <LastUserCreated/>
-                    <CategoriesList/>
-                    <ProductList/>
-                </Route>
+                <Route exact path='/' component={Index}/>
                 <Route path='/total-count-row' component={TotalCountRow}/>
                 <Route path='/last-user-created' component={LastUserCreated}/>
                 <Route path='/categories' component={CategoriesList}/>
