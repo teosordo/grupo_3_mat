@@ -20,11 +20,11 @@
                 <h2>Usuarios:</h2>
                 <section>
                     <form id="buscador" method="GET" action="/users/list/1">
-                        <!--Filtros-->
-                        <select name="filters" id="filters">
+                        <!--Selección de orden-->
+                        <select name="orders" id="orders">
                             <option value="" selected disabled>Ordenar de:</option>
-                            <option value="asc" <% 'filters' == 'asc'? 'selected' : '' %> >A - Z</option>
-                            <option value="desc" <% 'filters' == 'desc'? 'selected' : '' %> >Z - A</option>
+                            <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >A - Z</option>
+                            <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Z - A</option>
                         </select>
                         <!--Buscador-->
                         <input type="search" name="search" placeholder="Buscar..." id="search">

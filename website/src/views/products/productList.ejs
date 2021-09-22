@@ -23,11 +23,28 @@
                 <article id="section-titles">
                     <h2>Todos los productos</h2>
                     <section>
-                        <select name="filters" id="filters">
-                            <option value="" selected disabled>Ordenar por</option>
-                            <option value="">Menor a mayor precio</option>
-                            <option value="">Mayor a menor precio</option>
-                        </select>
+                        <!---Selección de orden por precio-->
+                        <% if(categoryId){ %>
+                            <!---Por categoria-->
+                            <form id="buscador" method="GET" action="/products/list/1/<%=categoryId%>">
+                                <select name="orders" id="orders">
+                                    <option value="" selected disabled>Ordenar por</option>
+                                    <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
+                                    <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
+                                </select>
+                                <button type="submit" name="buscar" class="buscar">Ordenar</button>
+                            </form>
+                        <% } else if(!search){ %>
+                            <!---Default-->
+                            <form id="buscador" method="GET" action="/products/list/1">
+                                <select name="orders" id="orders">
+                                    <option value="" selected disabled>Ordenar por</option>
+                                    <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
+                                    <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
+                                </select>
+                                <button type="submit" name="buscar" class="buscar">Ordenar</button>
+                            </form>
+                        <% } %>
                     </section>
                 </article>
                 <!--Errores al buscar-->

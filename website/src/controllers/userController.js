@@ -150,9 +150,9 @@ const userController = {
                 let search;
                 //Numero para limit/offset/math.ceil
                 let settingNumber = 5
-
-                console.log(req.query.filters)
-                if(req.query.filters == 'desc'){
+                
+                // Si se activa el selector de orden se modifica la variable
+                if(req.query.orders == 'desc'){
                     orden = 'DESC'
                 }else{
                     orden = 'ASC'

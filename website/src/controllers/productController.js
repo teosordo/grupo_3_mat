@@ -22,12 +22,21 @@ const productController = {
             let settingNumber = 8
             /*Productos completos*/
             let products;
+            let orden;
             // Total de productos
             let productsTotalCount;
             // Guarda el query
             let search;
             // Guarda el id de la categoría
             let categoryId;
+
+            // Si se activa el selector de orden se modifica la variable
+            if(req.query.orders == 'desc'){
+                orden = 'DESC'
+            }else{
+                orden = 'ASC'
+            }
+            
             if(req.query.searchbar){
                 // Si se accede a la lista buscando con el searchbar
                 // Devuelve todos los productos cuyo nombre coincida con lo buscado
@@ -37,9 +46,11 @@ const productController = {
                     },
                     include: ['brand','category','images'],
                     offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
+                    limit: settingNumber,
+                    order:[
+                        ['price', orden]
+                    ]
                 });
-                
                 productsTotalCount = await db.Product.count({
                     where: {
                         name: {[db.Sequelize.Op.like]: `%${req.query.searchbar}%`}
@@ -47,7 +58,7 @@ const productController = {
                 });
 
                 search = req.query.searchbar;
-                
+
             } else if(req.params.categoryId) {
                 // Si accede a través del nav de categorías
                 // Devuelve todos los productos de cierta categoría
@@ -57,7 +68,10 @@ const productController = {
                     },
                     include: ['brand','category','images'],
                     offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
+                    limit: settingNumber,
+                    order:[
+                        ['price', orden]
+                    ]
                 });
 
                 productsTotalCount = await db.Product.count({
@@ -72,13 +86,16 @@ const productController = {
                 products = await db.Product.findAll({
                     include:['brand','category','images'],
                     offset: (idPage-1) * settingNumber,
-                    limit: settingNumber
+                    limit: settingNumber,
+                    order:[
+                        ['price', orden]
+                    ]
                 });
                 
                 //Busca y cuenta el total de productos
                 productsTotalCount = await db.Product.count();
             }
-
+            
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
 
