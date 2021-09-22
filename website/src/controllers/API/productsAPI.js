@@ -23,7 +23,7 @@ const productController = {
             //Cosas para Productos
             const products = await db.Product.findAll({
                 include: ['brand','category'], 
-                attributes: ['id','name','characteristics'],
+                attributes: ['id','name','characteristics','stock'],
                 offset: (idPage-1) * settingNumber,
                 limit: settingNumber});
             
