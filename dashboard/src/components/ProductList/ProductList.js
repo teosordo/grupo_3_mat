@@ -13,7 +13,7 @@ function ProductList() {
     };
 
     function prevPage(){
-        if(id >= 1){
+        if(id > 1){
             setId(id - 1);
             console.log(id);
         }
