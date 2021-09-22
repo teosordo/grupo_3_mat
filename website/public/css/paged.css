@@ -12,6 +12,7 @@ nav a.page-navbar-btn, nav a.page-navbar-arrows{
     display: inline-block;
     text-decoration: none;
     margin: 5px;
+    width: fit-content;
 }
 nav a.page-navbar-arrows{
     font-size:20px;

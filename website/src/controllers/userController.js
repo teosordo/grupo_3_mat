@@ -143,12 +143,20 @@ const userController = {
                 }
                 // Todos los usuarios
                 let users;
+                let orden;
                 // Cantidad numerica de usuarios
                 let usersTotalCount;
                 // Guarda el query
                 let search;
                 //Numero para limit/offset/math.ceil
                 let settingNumber = 5
+
+                console.log(req.query.filters)
+                if(req.query.filters == 'desc'){
+                    orden = 'DESC'
+                }else{
+                    orden = 'ASC'
+                }
 
                 if(req.query.search){
                     users = await db.User.findAll({
@@ -164,7 +172,7 @@ const userController = {
                         offset: (idPage-1) * settingNumber,
                         limit: settingNumber,
                         order:[
-                            ['username', 'ASC']
+                            ['username', orden]
                         ]
                     });
                     usersTotalCount = await db.User.count({
@@ -184,24 +192,14 @@ const userController = {
                         offset: (idPage-1) * settingNumber,
                         limit: settingNumber,
                         order:[
-                            ['username', 'ASC']
+                            ['username', orden]
                         ]
                     });
                     usersTotalCount = await db.User.count();
                 }
                 //Redondea el numero para saber el total de paginas necesarias 
                 let totalNumPages = Math.ceil(usersTotalCount / settingNumber);
-                /*
-                // Filtros de busqueda (falta poner bien la condicion)
-                if (req.body.desc){
-                    users = await db.User.findAll({
-                        order:[
-                            ['username', 'DESC']
-                        ]
-                    })
-                }else {
-                */
-                //}
+
                 return res.render('users/list',{users, user: req.session.user, idPage, usersTotalCount, pages: totalNumPages, search})                    
             } catch (error) {
                 throw error
