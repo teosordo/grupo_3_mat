@@ -28,10 +28,12 @@ const productController = {
             //Redireccion a primera pagina si el ID de la url es mayor a la cantidad de paginas o si es 0
             let totalNumPages = Math.ceil(totalProducts / settingNumber);
 
-            if(idPage == 0 || idPage > totalNumPages){
+            if(idPage == 0){
                 res.redirect('/api/products/1')
             };
-
+            if(idPage > totalNumPages){
+                res.redirect(`/api/products/${totalNumPages}`)
+            }
             //Agregando link para detalle producto
             products.forEach(product =>{
                 product.dataValues.detail = `http://localhost:3000/api/products/detail/${product.id}`
