@@ -19,14 +19,14 @@
             <article id="title">
                 <h2>Usuarios:</h2>
                 <section>
-                    <!--Filtros-->
-                    <select name="filters" id="filters">
-                        <option value="" selected disabled>Ordenar de:</option>
-                        <option value="asc">A - Z</option>
-                        <option value="desc">Z - A</option>
-                    </select>
-                    <!--Buscador-->
                     <form id="buscador" method="GET" action="/users/list/1">
+                        <!--Filtros-->
+                        <select name="filters" id="filters">
+                            <option value="" selected disabled>Ordenar de:</option>
+                            <option value="asc" <% 'filters' == 'asc'? 'selected' : '' %> >A - Z</option>
+                            <option value="desc" <% 'filters' == 'desc'? 'selected' : '' %> >Z - A</option>
+                        </select>
+                        <!--Buscador-->
                         <input type="search" name="search" placeholder="Buscar..." id="search">
                         <button type="submit" name="buscar" class="buscar"><i class="fas fa-search"></i></button>
                     </form>
@@ -81,6 +81,7 @@
         </section>
     </main>
     <%-include('../includes/footer') %> 
+    <script src="/js/usersFilters.js"></script>
     <script src="/js/nav.js"></script>
 </body>
 </html>
