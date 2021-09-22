@@ -3,6 +3,7 @@ import {Link, Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import TotalCountRow from './components/TotalCountRow/TotalCountRow';
 import LastUserCreated from './components/LastUserCreated/LastUserCreated';
+import LastProductCreated from './components/LastProductCreated/LastProductCreated';
 import CategoriesList from './components/CategoriesList/CategoriesList';
 import ProductList from './components/ProductList/ProductList';
 
@@ -28,7 +29,7 @@ function App() {
         <Route path='/last-user-created' component={LastUserCreated}/>
         <Route path='/categories' component={CategoriesList}/>
         <Route path='/products-list' component={ProductList}/>
-        {/* <Route path='/last-product-created' component={LastProductCreated}/> */}
+        <Route path='/last-product-created' component={LastProductCreated}/>
       </Switch>
     </div>
   );
