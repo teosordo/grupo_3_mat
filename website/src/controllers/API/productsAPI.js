@@ -49,19 +49,25 @@ const productController = {
         try {
             //No se asocia con brands
             const product = await db.Product.findByPk(req.params.id, {
-                include:['category', 'images', 'colors'] //faltan atributes
+                include:['category', 'images', 'colors', 'brand']
             });            
             // Array de images
             let imagesArray = []
             for(const image of product.images){
                 imagesArray.push(`http://localhost:3000/uploads/products/${image.name}`)
             }
+            // Array de colores
+            let colorsArray = []
+            for(const color of product.colors){
+                colorsArray.push({
+                    id: color.dataValues.id,
+                    name: color.dataValues.name
+                })
+            }
             res.status(200).json({
                 status:200,
                 id: product.id,
                 name: product.name,
-                brand_id: product.brand_id,
-                category_id: product.category_id,
                 originalPrice: product.originalPrice,
                 price: product.price,
                 stock: product.stock,
@@ -70,7 +76,10 @@ const productController = {
                 images: imagesArray,
                 video: product.video,
                 characteristics: product.characteristics,
-                specs: product.specs
+                specs: product.specs,
+                category: product.category,
+                brand: product.brand,
+                colors: colorsArray
             })
         } catch (error) {
             throw error;
