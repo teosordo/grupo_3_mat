@@ -6,10 +6,7 @@ function TotalCountRow(){
     let [products, setProducts] = useState([])
 
     let [users, setUsers] = useState([])
-
-    useEffect(() =>{},[])
-
-
+    
     useEffect(() =>{
         fetch('http://localhost:3000/api/products/1')
                 .then(response => response.json())
