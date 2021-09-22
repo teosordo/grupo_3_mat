@@ -36,7 +36,7 @@ router.get('/detail/:id', productController.productDetail);
 
 //Product Create
 router.get('/create', [adminAccess], productController.newProduct);
-router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct);
+router.post('/create', [adminAccess, upload.single('image'), createValidations],productController.createProduct); // upload.array('image')
 //Brand Create
 router.get('/create/brand', [adminAccess],productController.newBrand);
 router.post('/create/brand', [adminAccess, brandCreateValidator],productController.createBrand);
@@ -64,7 +64,7 @@ router.delete('/color/delete/:id',[adminAccess], productController.deleteColor)
 //Product Edit
 router.get('/:id/edit', [adminAccess], productController.productEdit);
 router.get('/edit', productController.editProductList)
-router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.updateProduct);
+router.put('/:id', [adminAccess, upload.single('image'),editValidations], productController.updateProduct); // upload.array('image')
 router.post('/redirect', productController.editRedirect);
 router.delete("/:id", [adminAccess], productController.deleteProduct);
 
