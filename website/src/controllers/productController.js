@@ -20,7 +20,7 @@ const productController = {
             }
             //Numero para limit/offset/math.ceil
             let settingNumber = 8
-            /*Productos completos*/
+            // Productos completos
             let products;
             // Total de productos
             let productsTotalCount;
@@ -78,17 +78,22 @@ const productController = {
                 //Busca y cuenta el total de productos
                 productsTotalCount = await db.Product.count();
             }
-
+            
             /*Categorias para el navbar*/
             let category = await db.Category.findAll();
+            
 
             //Redondea el numero para saber el total de paginas necesarias 
             let totalNumPages = Math.ceil(productsTotalCount / settingNumber);
 
-            if(req.params.id > totalNumPages){
+            if(req.params.id > totalNumPages && !categoryId && !search){
                 res.redirect('/products/list/1')
             };
-            return res.render('products/productList', {products, category, idPage, productsTotalCount, pages: totalNumPages, search, categoryId});
+
+            // Me aseguro que se haya cargado lo que necesito para visualizar la página sin errores
+            if(products != undefined && productsTotalCount != undefined && category){
+                return res.render('products/productList', {products, category, idPage, productsTotalCount, pages: totalNumPages, search, categoryId});
+            }
         }catch (error) {
             throw error;
         }
