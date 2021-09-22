@@ -3,7 +3,7 @@ window.onload = () => {
     const form = document.querySelector('main form');
     const inputs = document.querySelectorAll('.product-info');
     const [name, detail] = inputs;
-    const cancelButton = document.querySelector('.link-button');
+
 
     // objeto de errores
     const errors = {
@@ -76,8 +76,5 @@ window.onload = () => {
         }
     })
 
-    // viaja a la página previa
-    cancelButton.addEventListener("click", () => {
-        window.history.back();
-    })
+
 }

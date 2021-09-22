@@ -15,6 +15,9 @@
         <%- include('../includes/nav') %> 
         <section id="content-container">
             <h1>Editar categoría: <%=category.prevName ? category.prevName : category.name%></h1>
+            <% if (locals.categoryError != undefined) { %>
+                <p class="errors">Borre o actualize los productos asociados a la categoria</p>
+            <% } %>
             <form action="/products/edit/category/<%= category.id %>" method="POST">
                 <% if (locals.errors) { %>
                     <ul class="errorsList">
@@ -30,7 +33,7 @@
                                 <p class="errors"><%= errors.name.msg%></p>
                             <% } %>
                         </section>
-                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= category.name %>">
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= category.name ? category.name : category.prevName %>">
                     </label>
                     <label for="detail" class="create-textarea">Ayuda informativa de la categoría
                         <section id="detailError">
@@ -38,7 +41,7 @@
                                 <p class="errors"><%= errors.detail.msg%></p>
                             <% } %>
                         </section>
-                        <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>" rows="4"><%= category.detail %></textarea>
+                        <textarea name="detail" id='detail' class="product-info large-input <%= locals.errors && errors.detail ? 'form-input-error': null%>" rows="4"><%= category.detail ? category.detail : category.prevDetail %></textarea>
                     </label>
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
@@ -48,11 +51,12 @@
                     Borrar
                 </button>
             </form>
-            <button class="link-button">Cancelar</button>
+            <button id="cancel-button">Cancelar</button>
     </section>
     </main>
         <%-include('../includes/footer') %>
         <script src='/js/formValidators/product/productElementValidator.js'></script>
+        <script src='/js/formValidators/cancel.js'></script>
         <script src="/js/nav.js"></script>
 </body>
 </html>

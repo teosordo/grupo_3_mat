@@ -18,6 +18,9 @@
         <!-- CUERPO -->
         <section id="content-container">
             <h1>Editando: <%=brand.prevName ? brand.prevName : brand.name%></h1>
+            <% if (locals.brandError != undefined) { %>
+                <p class="errors">Borre o actualize los productos asociados a la marca</p>
+            <% } %>
             <form action="/products/edit/brand/<%=brand.id%>?_method=PUT" method="POST">
                 <% if (locals.errors) { %>
                     <ul class="errorsList">
@@ -33,7 +36,7 @@
                                 <p class="errors"><%= errors.name.msg%></p>
                             <% } %>
                         </section>
-                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= brand.name %>">
+                        <input type="text" name="name" id='name' class="product-info <%= locals.errors && errors.name ? 'form-input-error': null%>" value="<%= brand.name ? brand.name : brand.prevName%>">
                     </label>
                     <button type="submit" id="button-submit">Editar</button>
                 </fieldset>
@@ -43,11 +46,12 @@
                     Borrar
                 </button>
             </form>
-            <button class="link-button">Cancelar</button>
+            <button id="cancel-button">Cancelar</button>
     </section>
     </main>
         <%-include('../includes/footer') %>
         <script src='/js/formValidators/product/productElementValidator.js'></script>
+        <script src='/js/formValidators/cancel.js'></script>
         <script src="/js/nav.js"></script>
 </body>
 </html>
