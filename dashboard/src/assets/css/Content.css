@@ -1,0 +1,13 @@
+.Content{
+    background-color: #fff;
+    width: 100%;
+}
+
+
+/**************** MEDIA QUERIES ****************/
+/* Desktop */
+@media (min-width: 769px){
+    .Content{
+        margin: 25px;
+    }
+}

@@ -30,21 +30,22 @@ function TotalCountRow(){
     return(
         <div>
             <section className="section-container">
+                <h3>Cantidades totales</h3>
                 <article className="card-container">
                     <div className="info-container">
-                        <h3 className="info-text">Productos</h3>
+                        <h4 className="info-text">Productos</h4>
                         <p className="info-text">{products.count === undefined? 'Cargando...' : products.count}</p>
                     </div> 
                 </article>
                 <article className="card-container">
                     <div className="info-container">
-                        <h3 className="info-text">Usuarios</h3>
+                        <h4 className="info-text">Usuarios</h4>
                         <p className="info-text">{users.count === undefined? 'Cargando...' : users.count}</p>
                     </div> 
                 </article>
                 <article className="card-container">
                     <div className="info-container">
-                        <h3 className="info-text">Categorias</h3>
+                        <h4 className="info-text">Categorias</h4>
                         <p className="info-text">{products.countByCategory === undefined? 'Cargando...' : products.countByCategory.length}</p>
                     </div> 
                 </article>

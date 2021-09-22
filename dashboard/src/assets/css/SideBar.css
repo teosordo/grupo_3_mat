@@ -1,0 +1,34 @@
+.SideBar nav{
+    background-color: #F6F6F6;
+    box-shadow: 1px 0 10px #666666;
+}
+.SideBar ul{
+    list-style: none;
+    margin: 0;
+    padding:10px;
+    display: flex;
+    justify-content:space-between;
+}
+.SideBar a{
+    text-decoration: none;
+    color: #47525E;
+}
+
+.Logo figure{
+    margin: 0;
+    padding: 0 25px;
+}
+
+/**************** MEDIA QUERIES ****************/
+/* Desktop */
+@media (min-width: 769px){
+    .SideBar{
+        width:40%;
+    }
+    .SideBar ul{
+        flex-direction: column;
+    }
+    .SideBar li{
+        padding: 10px;
+    }
+}

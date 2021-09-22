@@ -6,8 +6,6 @@ function ProductList() {
 
     let [id, setId] = useState(1)
     
-    
-    
     // Montaje
     useEffect(() =>{
         console.log('Montaje del componente')
@@ -22,11 +20,11 @@ function ProductList() {
         console.log('Actualización del componente')
         fetch(`http://localhost:3000/api/products/${id}`)
             .then(response => response.json())
-            .then(data => setProducts(data))
+            .then(data => {
+                console.log(data);
+                setProducts(data)})
             .catch(err => console.error(err))
     },[id])
-
-    
 
     function nextPage(){
         let totalNumPages = Math.ceil(products.count / products.products.length)
@@ -51,7 +49,7 @@ function ProductList() {
         <div>
             <section>
                 <h3 className="info-text">Listado de roductos</h3>
-                {products.products === undefined ? 'Cargando...' : products.products.map(((product, idx) => <p key={idx+product.name}>{product.name}</p>)) }
+                {products.products === undefined ? 'Cargando...' : products.products.map(((product, idx) => <p key={idx+product.name}>{product.name} - {product.stock} unidades</p>)) }
             </section>
             <button onClick={prevPage}>Prev</button>
             <button onClick={nextPage}>Next</button>

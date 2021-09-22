@@ -153,12 +153,12 @@ li.errors{
     padding: 0;
     margin:0;
 }
+#navbar li{
+    padding:1rem 0;
+}
 #navbar a{
     text-decoration: none;
     color: #47525E;
-}
-#navbar li{
-    padding:1rem 0;
 }
 #cart{
     display: none;

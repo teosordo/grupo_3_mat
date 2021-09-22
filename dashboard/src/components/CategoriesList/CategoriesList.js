@@ -26,7 +26,6 @@ function CategoriesList() {
     return(
         <div>
             <h3 className="info-text">Categorias</h3>
-            <p className="info-text">Cantidad de categorias: {categories === undefined? 'Cargando...' : categories.length}</p>
             {categories.map(((category, idx) => <p key={idx+category.name}>{category.name} : {category.total}</p>))}
         </div>
     )
