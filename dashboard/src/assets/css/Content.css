@@ -7,7 +7,5 @@
 /**************** MEDIA QUERIES ****************/
 /* Desktop */
 @media (min-width: 769px){
-    .Content{
-        margin: 25px;
-    }
+
 }
