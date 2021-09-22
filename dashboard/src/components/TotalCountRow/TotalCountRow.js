@@ -24,6 +24,12 @@ function TotalCountRow(){
                 .catch(err => console.error(err))
     },[])
 
+
+    // Desmontaje
+    useEffect(() =>{
+        return ()=>{console.log('Desmontaje del componente')}
+    },[])
+
     return(
         <div>
             <section className="section-container">

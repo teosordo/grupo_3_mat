@@ -43,6 +43,7 @@ const userController = {
                     password: bcrypt.hashSync(req.body.password, 10),
                     avatar: req.file == undefined ? 'default-user.jpg' : req.file.filename
                 });
+                //Creando carrito para el usuario
                 userCart = await db.Cart.create({
                     user_id: newUser.id
                 });
@@ -56,7 +57,7 @@ const userController = {
         try {
             //Busca el producto que se quiere agregar
             let product = await db.Product.findOne({where:{id: req.params.id}})
-            //Busco si el usuario tiene un carrito
+            //Busca si el usuario tiene un carrito
             let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
             //Crea el carrito si el usuario no tiene un carrito activo
             if(userCart == null){
@@ -104,9 +105,10 @@ const userController = {
     },
     productCartDelete: async (req,res)=>{
         try {
+            //Busca el carrito y lo borra sus productos
             let userCart  = await db.Cart.findOne({where:{user_id: req.session.user.id, purchase_date: null}})
             await db.CartProducts.destroy({where:{cart_id: userCart.id, product_id: req.params.id}});
-
+            //Actualiza el precio y el total de productos del carrito
             await db.Cart.update({
                 total_products: await db.CartProducts.sum('products_amount',{where:{cart_id: userCart.id}}),
                 final_price: await db.CartProducts.sum('products_price',{where:{cart_id: userCart.id}})},
@@ -118,6 +120,7 @@ const userController = {
         }
     },
     productCart: async (req, res) => {
+        //Busca el carrito e incluye sus productos con sus imagenes
         let userCart = await db.Cart.findOne({
             where:{user_id: req.session.user.id, purchase_date: null},
             include:[

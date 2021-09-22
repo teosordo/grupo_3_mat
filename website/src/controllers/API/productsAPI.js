@@ -3,38 +3,41 @@ const db = require('../../database/models')
 const productController = {
     index: async (req, res) => {
         try {
-
-            let idPage = parseInt(req.params.id);
-            if(idPage == 0){
-                res.redirect('/api/products/1')
-            };
+            //Numero para setear el limit 
             let settingNumber = 10
-
-
-            //Cosas para contar productos por categorias 
+            //Buscando categorias
             const categories = await db.Category.findAll();
-            let newArray = [];
+            //Buscando la cantidad de productos en cada categoria y pusheandola al array
+            let categoryArray = [];
             categories.forEach(async category =>{
                 let categoryProductTotal = await db.Product.count({where:{category_id: category.id}})
                 let categoryCount = {name: category.name, total: categoryProductTotal}
-                newArray.push(categoryCount);
+                categoryArray.push(categoryCount);
             });
 
-            //Cosas para Productos
+            //Buscando los productos
             const products = await db.Product.findAll({
                 include: ['brand','category'], 
                 attributes: ['id','name','characteristics','stock'],
                 offset: (idPage-1) * settingNumber,
                 limit: settingNumber});
-            
+            //Numero total de productos
             const totalProducts = await db.Product.count();
             
+            //Redireccion a primera pagina si el ID de la url es mayor a la cantidad de paginas o si es 0
+            let totalNumPages = Math.ceil(totalProducts / settingNumber);
+
+            let idPage = parseInt(req.params.id);
+            if(idPage == 0 || idPage > totalNumPages){
+                res.redirect('/api/products/1')
+            };
+
             //Agregando link para detalle producto
             products.forEach(product =>{
                 product.dataValues.detail = `http://localhost:3000/api/products/detail/${product.id}`
             });
 
-            res.status(200).json({status:200, count: totalProducts, countByCategory:newArray, products: products})
+            res.status(200).json({status:200, count: totalProducts, countByCategory:categoryArray, products: products})
 
         }catch (error) {
             throw error;
