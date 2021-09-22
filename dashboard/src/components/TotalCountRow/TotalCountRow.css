@@ -1,0 +1,25 @@
+.article-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-container{
+    background-color: #fff;
+    width: 25%;
+    min-width: 250px;
+    margin: 10px;
+}
+.info-container{
+    border: 2px solid black;
+    border-radius: 4px;
+}
+h4.info-text {
+    margin: 0;
+    padding: 10px;
+    background-color: #6765D6;
+}
+
+p.info-text{
+    font-weight: 700;
+}
