@@ -3,7 +3,7 @@ main{
 }
 
 /****** ESTILOS OPTIMIZADOS ******/
-label, #button-submit, #delete-button, .option-button,.link-button{
+label, #button-submit, #delete-button, .option-button,.link-button,#cancel-button{
     font-family:'Barlow Semi Condensed', sans-serif;
 }
 h1{
@@ -12,19 +12,18 @@ h1{
     background-color: #34373a;
     text-shadow: 2px 2px 0px #6765d6;
 }
-.link-button:hover,#button-submit,.light-up,.option-button:hover,a, .btn-submit{
+.link-button:hover,#button-submit,.light-up,.option-button:hover,a, .btn-submit,#cancel-button{
     text-decoration: none;
     color: white;
 }
 
-.link-button{
+.link-button, #cancel-button{
     background-color: #646396;
-    
 }
-#image-container, #button-submit, .product-info{
+#image-container, #button-submit, .product-info,#cancel-button{
     border: 1px solid black;
 }
-#button-submit, #delete-button, .product-info, .btn-submit{ 
+#button-submit, #delete-button, .product-info, .btn-submit, #cancel-button{ 
     border-radius: 5px;
 }
 #content-container, .product-info{
@@ -50,7 +49,7 @@ h1{
     font-size: 18px;
     cursor: pointer;
 }
-.link-button:hover{
+.link-button:hover, #cancel-button:hover{
     cursor: pointer;
     background-color: #6765d6;
 }
@@ -90,12 +89,15 @@ h2{
     margin: auto;
     display: block;
 }
+#content-container{
+    position: relative;
+}
 /** Centra el contenido dentro del input "img" **/
 #image{
     padding: 6px;
 }
 
-#button-submit,#delete-button, .btn-submit{
+#button-submit,#delete-button, .btn-submit, #cancel-button{
     display: block;
     margin: 25px auto 20px;
     font-size: 1.5rem;
