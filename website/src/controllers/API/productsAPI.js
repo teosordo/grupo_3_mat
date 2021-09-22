@@ -3,16 +3,17 @@ const db = require('../../database/models')
 const productController = {
     index: async (req, res) => {
         try {
+            let idPage = parseInt(req.params.id);
             //Numero para setear el limit 
             let settingNumber = 10
             //Buscando categorias
             const categories = await db.Category.findAll();
             //Buscando la cantidad de productos en cada categoria y pusheandola al array
-            let categoryArray = [];
+            let newArray = [];
             categories.forEach(async category =>{
                 let categoryProductTotal = await db.Product.count({where:{category_id: category.id}})
                 let categoryCount = {name: category.name, total: categoryProductTotal}
-                categoryArray.push(categoryCount);
+                newArray.push(categoryCount);
             });
 
             //Buscando los productos
@@ -27,7 +28,6 @@ const productController = {
             //Redireccion a primera pagina si el ID de la url es mayor a la cantidad de paginas o si es 0
             let totalNumPages = Math.ceil(totalProducts / settingNumber);
 
-            let idPage = parseInt(req.params.id);
             if(idPage == 0 || idPage > totalNumPages){
                 res.redirect('/api/products/1')
             };
@@ -37,7 +37,7 @@ const productController = {
                 product.dataValues.detail = `http://localhost:3000/api/products/detail/${product.id}`
             });
 
-            res.status(200).json({status:200, count: totalProducts, countByCategory:categoryArray, products: products})
+            res.status(200).json({status:200, count: totalProducts, countByCategory:newArray, products: products})
 
         }catch (error) {
             throw error;
