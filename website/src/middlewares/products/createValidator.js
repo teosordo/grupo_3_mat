@@ -64,5 +64,24 @@ module.exports = [
                     throw new Error(`Las extensiones permitidas son ${extStr}`)
                 }
             }
+
+            /*
+                if(req.files == undefined){
+                    throw new Error('Debes subir al menos una imagen')
+                } else {
+                    let authExt = ['jpg','png','jpeg'];
+                    req.files.forEach(file => {
+                        let ext = file.filename.split('.').pop();
+                        console.log(file.filename);
+                        if(authExt.includes(ext)){
+                            console.log(authExt.includes(ext));
+                            return true
+                        }else{
+                            let extStr = authExt.toString()
+                            throw new Error(`Las extensiones permitidas son ${extStr}`)
+                        } 
+                    });
+                }
+            */
         })
 ]
