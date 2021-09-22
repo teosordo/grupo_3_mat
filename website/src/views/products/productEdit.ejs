@@ -135,11 +135,13 @@
                 <form action="/products/<%= product.id %>?_method=DELETE" method="post">
                     <button type="submit" id="delete-button">Eliminar</button>
                 </form>
+                <button id="cancel-button">Cancelar</button>
             </section>
         </section>
     </main>
     <%- include('../includes/footer')  %>
     <script src="/js/formValidators/product/productValidator.js"></script>
+    <script src='/js/formValidators/cancel.js'></script>
     <script src="/js/nav.js"></script>
     </body>
 </html>

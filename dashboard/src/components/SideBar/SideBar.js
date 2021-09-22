@@ -11,11 +11,11 @@ function SideBar(){
         <div className="SideBar">
             <nav>
                 {/*<!-- Sidebar - Brand -->*/}
-                <a className="Logo" href="/">
+                <Link className="Logo" to="/">
                     <figure>
                         <img src={image} alt="matech-logo"/>
                     </figure>
-                </a>
+                </Link>
                 <ul>
                     <li><Link to='/total-count-row'>Totales</Link></li>
                     <li><Link to='/last-user-created'>Último usuario creado</Link></li>
