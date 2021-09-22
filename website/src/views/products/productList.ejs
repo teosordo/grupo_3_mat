@@ -23,12 +23,19 @@
                 <article id="section-titles">
                     <h2>Todos los productos</h2>
                     <section>
-                        <!---Selección de orden por precio-->
                         <% if(categoryId){ %>
                             <!---Por categoria-->
                             <form id="buscador" method="GET" action="/products/list/1/<%=categoryId%>">
+                                <!---Selección de productos por marca-->
+                                <select name="brands" id="brands">
+                                    <option value="" selected disabled>Filtrar por marca</option>
+                                    <% brands.forEach(element =>{ %> 
+                                        <option value="<%= element.id%>"><%=element.name%></option>
+                                    <%  })  %>
+                                </select>
+                                <!---Selección de orden por precio-->
                                 <select name="orders" id="orders">
-                                    <option value="" selected disabled>Ordenar por</option>
+                                    <option value="" selected disabled>Ordenar de</option>
                                     <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
                                     <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
                                 </select>
@@ -37,8 +44,16 @@
                         <% } else if(!search){ %>
                             <!---Default-->
                             <form id="buscador" method="GET" action="/products/list/1">
+                                <!---Selección de productos por marca-->
+                                <select name="brands" id="brands">
+                                    <option value="" selected disabled>Filtrar por marca</option>
+                                    <% brands.forEach(element =>{ %> 
+                                        <option value="<%= element.id%>"><%=element.name%></option>
+                                    <%  })  %>
+                                </select>
+                                <!---Selección de orden por precio-->
                                 <select name="orders" id="orders">
-                                    <option value="" selected disabled>Ordenar por</option>
+                                    <option value="" selected disabled>Ordenar de</option>
                                     <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
                                     <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
                                 </select>
@@ -49,7 +64,7 @@
                 </article>
                 <!--Errores al buscar-->
                 <%if(productsTotalCount == 0){%>
-                    <h2>No se encontró ningún producto asociado con tu búsqueda</h2>
+                    <h3>No se encontró ningún producto asociado a tu búsqueda.</h3>
                 <% } else {%>
                     <% for(i = 0; i < products.length; i++) { %>
                         <article class="content-box">
