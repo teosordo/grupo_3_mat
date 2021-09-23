@@ -1,0 +1,40 @@
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item-container {
+    width: 70%;
+    margin-bottom: 1.5rem;
+}
+.item {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.item h3 {
+    border-bottom: 1px solid black;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: #6765D6;
+}
+.item p {
+    margin: 0;
+    padding: 1rem;
+}
+
+/**************** MEDIA QUERIES ****************/
+/* Tablet */
+@media (min-width: 481px) {
+    .info {
+        justify-content: space-around;
+    }
+    .item-container {
+        width: 45%;
+    }
+}
+/* Desktop */
+@media (min-width: 769px) {
+    .item-container {
+        width: 30%;
+    }
+}

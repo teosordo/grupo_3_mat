@@ -23,7 +23,7 @@ function Content(){
                 <Route path='/categories' component={CategoriesList}/>
                 <Route path='/products-list' component={ProductList}/>
                 <Route path='/last-product-created' component={LastProductCreated}/>
-                {/* <Route component={NotFound} /> */}
+                <Route component={NotFound} />
             </Switch>
         </div>
     )

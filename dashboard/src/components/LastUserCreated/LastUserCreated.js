@@ -1,6 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
+// estilos
+import '../../assets/css/LastCreated.css';
+
 function LastUserCreated(){
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
@@ -34,15 +37,32 @@ function LastUserCreated(){
 
     // return
     return(
-        <section>
+        <section className="LastCreated">
             <h2>Último usuario creado</h2>
-            <article>
+
+            <article className="info">
                 {users.length === 0 && <p>Cargando...</p>}
-                <ul>
-                    <li>Nombre Completo: {user.firstName} {user.lastName}</li>
-                    <li>Nombre de usuario: {user.username}</li>
-                    <li>Email: {user.email}</li>
-                </ul>
+
+                <section className="item-container">
+                    <section className="item">
+                        <h3>Nombre:</h3>
+                        <p>{user.firstName} {user.lastName}</p>
+                    </section>
+                </section>
+
+                <section className="item-container">
+                    <section className="item">
+                        <h3>Username:</h3>
+                        <p>{user.username}</p>
+                    </section>
+                </section>
+
+                <section className="item-container">
+                    <section className="item">
+                        <h3>Email:</h3>
+                        <p>{user.email}</p>
+                    </section>
+                </section>
             </article>
         </section>
     )
