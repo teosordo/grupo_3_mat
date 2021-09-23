@@ -20,7 +20,7 @@ const productController = {
             });
 
             //Buscando los productos
-            if(req.params.id == undefined || isNaN(req.params.id)){
+            if(req.params.id == undefined){
                 var products = await db.Product.findAll({
                     include: ['brand','category'], 
                     attributes: ['id','name','characteristics','stock'],
@@ -58,7 +58,14 @@ const productController = {
             //No se asocia con brands
             const product = await db.Product.findByPk(req.params.id, {
                 include:['category', 'images', 'colors', 'brand']
-            });            
+            });
+            //Envia error si no se encuentra el producto
+            if(product == null){
+                res.status(404).json({
+                    status:404,
+                    error: 'No se encontró el producto'
+                })
+            };
             // Array de images
             let imagesArray = []
             for(const image of product.images){
