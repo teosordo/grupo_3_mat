@@ -103,14 +103,14 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `detail`) VALUES
-(1, 'Motherboards', 'a'),
-(2, 'CPUs', 'b'),
-(3, 'Placas de Video', 'c'),
-(4, 'Almacenamiento', 'c'),
-(5, 'Gabinetes', 'd'),
-(6, 'Fuentes', 'e'),
-(7, 'Coolers', 'f'),
-(8, 'Memorias RAM', 'f');
+(1, 'Motherboards', '¿Qué son las motherboards? Una placa base, o tarjeta madre, sirve para conectar multitud de componentes entre sí y formar un dispositivo electrónico útil. En el ámbito de los ordenadores, el resto de componentes internos van conectados a la placa base mediante varios puertos.'),
+(2, 'CPUs', '¿Qué son las CPUs? Unidad central de procesamiento (CPU) interpreta las instrucciones y procesa los datos de los programas de computadora.'),
+(3, 'Placas de Video', '¿Qué es una placa de video? Viene integrado en la placa base del PC o se instala a parte para ampliar sus capacidades. Se dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.'),
+(4, 'Almacenamiento', '¿Qué es el amacenamiento?El almacenamiento (ya sea una unidad de disco duro o una unidad de estado sólido) almacena los datos a largo plazo para un acceso permanente. Es el componente que accede y almacena sus archivos, aplicaciones y sistema operativo.'),
+(5, 'Gabinetes', '¿Qué son los gabinetes? Su principal tarea es la de alojar y mantener en su interior los diversos dispositivos que la componen. Atencion: no cualquier gabinete sirve para cualquier computadora, y esto es porque cada una de las motherboards y sus procesadores necesitan de requerimientos específicos para un buen funcionamiento.'),
+(6, 'Fuentes', '¿Qué es una fuente de alimentación? Sencillamente es la pieza de hardware que se utiliza para convertir la energía suministrada desde la toma de corriente en energía utilizable para las muchas partes dentro de la carcasa del ordenador.'),
+(7, 'Coolers', '¿Qué es un cooler? Este elemento se encarga de mantener la temperatura del equipo en el estado ideal, con el objetivo de que el extremo calor que se produce en los ordenadores no acabe con la estabilidad de los mismos. '),
+(8, 'Memorias RAM', '¿Qué es la memoria RAM? La memoria RAM tiene dos características que la diferencian del resto de tipos de almacenamiento. Por una parte tiene una enorme velocidad, y por otra los datos sólo se almacenan de forma temporal.Cuanta más RAM tengas más aplicaciones podrás gestionar a la vez.');
 
 -- --------------------------------------------------------
 
