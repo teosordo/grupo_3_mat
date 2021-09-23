@@ -6,7 +6,7 @@
             <li class="detail detailCat"><%= element.detail%></li>
         <% }) %>
         <% if(user){ %> 
-            <li><a href="/users/cart" id="cartNav"><i class="fas fa-shopping-cart"></i></a></li>
+            <li id="cartNav"><a href="/users/cart"><i class="fas fa-shopping-cart"></i></a></li>
         <% } %>
         <% if (user && user.admin) { %>
             <li id="productCreate"><a href="/products/options">Opciones para productos</a></li>

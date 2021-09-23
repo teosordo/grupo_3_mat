@@ -173,6 +173,9 @@ li.errors{
     text-decoration: none;
     color: #47525E;
 }
+#productCreate {
+    border-top: 1px solid #c4c3c3;
+}
 #cart{
     display: none;
 }
@@ -260,6 +263,8 @@ li.errors{
     #cartNav{
         visibility:hidden;
         overflow:hidden;
+        display: none;
+        padding:0 auto;
         position: absolute;
         z-index: -100;
     }
