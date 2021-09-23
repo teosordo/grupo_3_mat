@@ -20,52 +20,53 @@
         <section id="contenido">
             <!--Oferta de productos-->
             <section>
-                <article id="section-titles">
-                    <h2>Todos los productos</h2>
-                    <section>
-                        <% if(categoryId){ %>
-                            <!---Por categoria-->
-                            <form id="buscador" method="GET" action="/products/list/1/<%=categoryId%>">
-                                <!---Selección de productos por marca-->
-                                <select name="brands" id="brands">
-                                    <option value="" selected disabled>Filtrar por marca</option>
-                                    <% brands.forEach(element =>{ %> 
-                                        <option value="<%= element.id%>"><%=element.name%></option>
-                                    <%  })  %>
-                                </select>
-                                <!---Selección de orden por precio-->
-                                <select name="orders" id="orders">
-                                    <option value="" selected disabled>Ordenar de</option>
-                                    <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
-                                    <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
-                                </select>
-                                <button type="submit" name="buscar" class="buscar">Ordenar</button>
-                            </form>
-                        <% } else if(!search){ %>
-                            <!---Default-->
-                            <form id="buscador" method="GET" action="/products/list/1">
-                                <!---Selección de productos por marca-->
-                                <select name="brands" id="brands">
-                                    <option value="" selected disabled>Filtrar por marca</option>
-                                    <% brands.forEach(element =>{ %> 
-                                        <option value="<%= element.id%>"><%=element.name%></option>
-                                    <%  })  %>
-                                </select>
-                                <!---Selección de orden por precio-->
-                                <select name="orders" id="orders">
-                                    <option value="" selected disabled>Ordenar de</option>
-                                    <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
-                                    <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
-                                </select>
-                                <button type="submit" name="buscar" class="buscar">Ordenar</button>
-                            </form>
-                        <% } %>
-                    </section>
-                </article>
                 <!--Errores al buscar-->
                 <%if(productsTotalCount == 0){%>
                     <h3>No se encontró ningún producto asociado a tu búsqueda.</h3>
                 <% } else {%>
+                    <article id="section-titles">
+                        <h2>Todos los productos</h2>
+                        <section>
+                            <% if(categoryId){ %>
+                                <!---Por categoria-->
+                                <form id="buscador" method="GET" action="/products/list/1/<%=categoryId%>">
+                                    <!---Selección de productos por marca-->
+                                    <select name="brands" id="brands">
+                                        <option value="" selected disabled>Filtrar por marca</option>
+                                        <% brands.forEach(element =>{ %> 
+                                            <option value="<%= element.id%>"><%=element.name%></option>
+                                        <%  })  %>
+                                    </select>
+                                    <!---Selección de orden por precio-->
+                                    <select name="orders" id="orders">
+                                        <option value="" selected disabled>Ordenar de</option>
+                                        <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
+                                        <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
+                                    </select>
+                                    <button type="submit" name="buscar" class="buscar">Ordenar</button>
+                                </form>
+                            <% } else if(!search){ %>
+                                <!---Default-->
+                                <form id="buscador" method="GET" action="/products/list/1">
+                                    <!---Selección de productos por marca-->
+                                    <select name="brands" id="brands">
+                                        <option value="" selected disabled>Filtrar por marca</option>
+                                        <% brands.forEach(element =>{ %> 
+                                            <option value="<%= element.id%>"><%=element.name%></option>
+                                        <%  })  %>
+                                    </select>
+                                    <!---Selección de orden por precio-->
+                                    <select name="orders" id="orders">
+                                        <option value="" selected disabled>Ordenar de</option>
+                                        <option value="asc" <% 'orders' == 'asc'? 'selected' : '' %> >Menor a mayor precio</option>
+                                        <option value="desc" <% 'orders' == 'desc'? 'selected' : '' %> >Mayor a menor precio</option>
+                                    </select>
+                                    <button type="submit" name="buscar" class="buscar">Ordenar</button>
+                                </form>
+                            <% } %>
+                        </section>
+                    </article>
+                    
                     <% for(i = 0; i < products.length; i++) { %>
                         <article class="content-box">
                             <a href="/products/detail/<%=products[i].id%>" class="product-box">
@@ -86,42 +87,42 @@
                             </a>
                         </article>
                     <% } %>
-                <% } %> 
-                <section id="page-navbar-cont">
-                    <nav id="page-navbar">
-                    <!-- Flecha izquierda -->
-                        <% if(search){ %>
-                            <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
-                        <% } else if(categoryId){ %>
-                            <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
-                        <% } else { %>
-                            <a href="<%= idPage == 1 ? '#' : '/products/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous">
-                        <% } %>  
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        <!-- Numeros de paginas -->
-                        <% for(let i = 1; i <= pages; i++ ) { %>
+
+                    <section id="page-navbar-cont">
+                        <nav id="page-navbar">
+                        <!-- Flecha izquierda -->
                             <% if(search){ %>
-                                <a href="<%=`/products/list/${i}?searchbar=${search}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                                <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
                             <% } else if(categoryId){ %>
-                                <a href="<%=`/products/list/${i}/${categoryId}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                                <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
                             <% } else { %>
-                                <a href="<%=`/products/list/${i}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
-                            <% } %> 
-                        <% } %>
-                        <!-- Flecha derecha -->
-                        <% if(search){ %>
-                            <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
-                        <% } else if(categoryId){ %>
-                            <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
-                        <% } else { %>
-                            <a href="<%= idPage == pages ? '#' : '/products/list/'+ (idPage+1)%>" class= "page-navbar-arrows" id="previous">
-                        <% } %>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </nav>
-                </section>         
+                                <a href="<%= idPage == 1 ? '#' : '/products/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous">
+                            <% } %>  
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            <!-- Numeros de paginas -->
+                            <% for(let i = 1; i <= pages; i++ ) { %>
+                                <% if(search){ %>
+                                    <a href="<%=`/products/list/${i}?searchbar=${search}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                                <% } else if(categoryId){ %>
+                                    <a href="<%=`/products/list/${i}/${categoryId}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                                <% } else { %>
+                                    <a href="<%=`/products/list/${i}`%>" class="page-navbar-btn <%= i == idPage? 'active': null%>"><%= i %></a>
+                                <% } %> 
+                            <% } %>
+                            <!-- Flecha derecha -->
+                            <% if(search){ %>
+                                <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}?searchbar=${search}`%>" class= "page-navbar-arrows" id="previous">
+                            <% } else if(categoryId){ %>
+                                <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
+                            <% } else { %>
+                                <a href="<%= idPage == pages ? '#' : '/products/list/'+ (idPage+1)%>" class= "page-navbar-arrows" id="previous">
+                            <% } %>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </nav>
+                    </section>
+                <% } %>        
             </section>
         </section>
     </main>
