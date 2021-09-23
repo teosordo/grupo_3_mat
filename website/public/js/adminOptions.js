@@ -6,7 +6,11 @@ buttons = Array.from(buttons)
 
 const buttonToggle = (numBtn) => {
 
-    buttons.forEach(btn => btn.classList.remove('button-color-on'));
+    buttons.forEach(btn => {
+        btn.classList.remove('button-color-on')
+        btn.classList.add('button-color-off');
+    });
+    buttons.find(btn => btn.dataset.number == numBtn.number).classList.remove('button-color-off');
     buttons.find(btn => btn.dataset.number == numBtn.number).classList.add('button-color-on');
 
     if (numBtn.number == 1) {
