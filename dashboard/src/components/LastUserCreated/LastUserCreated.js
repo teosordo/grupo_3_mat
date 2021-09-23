@@ -40,11 +40,9 @@ function LastUserCreated(){
 
             <article className="info">
                 {users.length === 0 && <p>Cargando...</p>}
-
                 <figure className="image">
                     <img src={user.avatar} alt="user-avatar"></img>
                 </figure>
-
                 <section className="item-container">
                     <section className="item">
                         <h3>Nombre:</h3>

@@ -20,9 +20,9 @@ function Content(){
                 <Route exact path='/'>
                     <TotalCountRow/>
                     <LastUserCreated/>
+                    <LastProductCreated/>
                     <CategoriesList/>
                     <ProductList/>
-                    <LastProductCreated/>
                 </Route>
                 <Route path='/total-count-row' component={TotalCountRow}/>
                 <Route path='/last-user-created' component={LastUserCreated}/>

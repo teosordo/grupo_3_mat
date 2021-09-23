@@ -45,7 +45,6 @@ function LastProductCreated(){
                             <img src={image} alt="product-image"></img>
                         </figure>
                     )}
-                     
                     <section className="item-container">
                         <section className="item">
                             <h3>Nombre:</h3>

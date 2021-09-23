@@ -47,7 +47,7 @@ const userController = {
                 userCart = await db.Cart.create({
                     user_id: newUser.id
                 });
-                res.redirect('users/login');
+                res.redirect('login');
             } catch (error) {
                 throw error;
             }
