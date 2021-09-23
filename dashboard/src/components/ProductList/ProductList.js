@@ -13,7 +13,7 @@ function ProductList() {
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(err => console.error(err))
-    },[])
+    }, [])
 
     // Updates
     useEffect(() =>{

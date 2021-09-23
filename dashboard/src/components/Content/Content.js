@@ -17,13 +17,19 @@ function Content(){
         <div className="Content">
             <h1>Información de MATech</h1>
             <Switch>
-                <Route exact path='/' component={Index}/>
+                <Route exact path='/'>
+                    <TotalCountRow/>
+                    <LastUserCreated/>
+                    <CategoriesList/>
+                    <ProductList/>
+                    <LastProductCreated/>
+                </Route>
                 <Route path='/total-count-row' component={TotalCountRow}/>
                 <Route path='/last-user-created' component={LastUserCreated}/>
                 <Route path='/categories' component={CategoriesList}/>
                 <Route path='/products-list' component={ProductList}/>
                 <Route path='/last-product-created' component={LastProductCreated}/>
-                {/* <Route component={NotFound} /> */}
+                <Route component={NotFound} />
             </Switch>
         </div>
     )

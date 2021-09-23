@@ -4,6 +4,9 @@ const productController = {
     index: async (req, res) => {
         try {
             let idPage = parseInt(req.params.id);
+            if(idPage == 0){
+                res.redirect('/api/products/1')
+            };
             //Numero para setear el limit 
             let settingNumber = 10
             //Buscando categorias
@@ -17,20 +20,25 @@ const productController = {
             });
 
             //Buscando los productos
-            const products = await db.Product.findAll({
-                include: ['brand','category'], 
-                attributes: ['id','name','characteristics','stock'],
-                offset: (idPage-1) * settingNumber,
-                limit: settingNumber});
+            if(req.params.id == undefined){
+                var products = await db.Product.findAll({
+                    include: ['brand','category'], 
+                    attributes: ['id','name','characteristics','stock'],
+                });
+            }else{
+                var products = await db.Product.findAll({
+                    include: ['brand','category'], 
+                    attributes: ['id','name','characteristics','stock'],
+                    offset: (idPage-1) * settingNumber,
+                    limit: settingNumber});
+            }
             //Numero total de productos
             const totalProducts = await db.Product.count();
             
             //Redireccion a primera pagina si el ID de la url es mayor a la cantidad de paginas o si es 0
             let totalNumPages = Math.ceil(totalProducts / settingNumber);
 
-            if(idPage == 0){
-                res.redirect('/api/products/1')
-            };
+
             if(idPage > totalNumPages){
                 res.redirect(`/api/products/${totalNumPages}`)
             }
@@ -39,7 +47,7 @@ const productController = {
                 product.dataValues.detail = `http://localhost:3000/api/products/detail/${product.id}`
             });
 
-            res.status(200).json({status:200, count: totalProducts, countByCategory:newArray, products: products})
+            res.status(200).json({status:200, count: totalProducts, countByCategory:newArray, products})
 
         }catch (error) {
             throw error;
@@ -50,7 +58,14 @@ const productController = {
             //No se asocia con brands
             const product = await db.Product.findByPk(req.params.id, {
                 include:['category', 'images', 'colors', 'brand']
-            });            
+            });
+            //Envia error si no se encuentra el producto
+            if(product == null){
+                res.status(404).json({
+                    status:404,
+                    error: 'No se encontró el producto'
+                })
+            };
             // Array de images
             let imagesArray = []
             for(const image of product.images){

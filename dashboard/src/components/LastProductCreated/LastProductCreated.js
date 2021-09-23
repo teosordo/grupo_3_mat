@@ -1,6 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
+// esitlos
+import '../../assets/css/LastCreated.css';
+
 function LastProductCreated(){
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState({});
@@ -34,19 +37,35 @@ function LastProductCreated(){
 
     // return
     return(
-        <section>
+        <section className="LastCreated">
             <h2>Último producto creado</h2>
-            <article>
+            <article className="info">
                 {products.length === 0 && <p>Cargando...</p>}
-                <ul>
+
                     {product && product.brand && product.category ?
                     <>
-                        <li>Nombre: {product.name}</li>
-                        <li>Marca: {product.brand.name}</li>
-                        <li>Categoría: {product.category.name}</li>
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Nombre:</h3>
+                            <p>{product.name}</p>
+                        </section>
+                    </section>
+                        
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Marca:</h3>
+                            <p>{product.brand.name}</p>
+                        </section>
+                    </section>
+                        
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Categoría:</h3>
+                            <p>{product.category.name}</p>
+                        </section>
+                    </section>
                     </> : 
                     <p>Cargando...</p>}
-                </ul>
             </article>
         </section>
     )
