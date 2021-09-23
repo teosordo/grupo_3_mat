@@ -30,7 +30,7 @@
                             <select name="category" id="category" class="product-info <%= locals.errors && errors.category ? 'form-input-error': null%>">
                                 <option value="" selected="true" disabled="disabled">Elija una categoria</option>
                             <% categories.forEach(element =>{ %> 
-                                <option value="<%= element.id%>"><%=element.name%></option>
+                                <option value="<%= element.id%>" <%= locals.productInfo && productInfo.category == element.id? 'selected' : null%>><%=element.name%></option>
                             <% }) %> 
                             </select>
                             <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.category.msg: null%></p>
@@ -39,8 +39,8 @@
                         <label for="brand" class="create-labels">Marca del producto
                             <select name="brand" id='brand' class="product-info <%= locals.errors && errors.brand ? 'form-input-error': null%>">
                                 <option value="" selected disabled>Elija una marca</option>
-                                <% brands.forEach(element =>{ %> 
-                                    <option value="<%= element.id%>"><%=element.name%></option>
+                                <% brands.forEach(element =>{ %>
+                                    <option value="<%= element.id%>" <%= locals.productInfo && productInfo.brand == element.id? 'selected' : null%>><%=element.name%></option>
                                 <%  })  %>
                             </select>
                             <p class='form-input-errorMsg'><%= locals.errors && errors.brand ? errors.brand.msg: null%></p>
@@ -48,7 +48,7 @@
                         
                         <label for="price" class="create-labels">Precio del producto
                             <input type="text" name="price"  id='price' class="product-info <%= locals.errors && errors.price ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.price : null%>">
-                            <p class='form-input-errorMsg'><%= locals.errors && errors.category ? errors.price.msg: null%></p>
+                            <p class='form-input-errorMsg'><%= locals.errors && errors.price ? errors.price.msg: null%></p>
                         </label>
 
                         <label for="image" class="create-labels">Imagen del producto
@@ -73,7 +73,7 @@
 
                         <label for="color" class="create-labels full-sized">Colores 
                             <select name="color" id="color" class="product-info <%= locals.errors && errors.color ? 'form-input-error': null%>" multiple>
-                                <option value="" selected disabled>Seleccione un color</option>
+                                <option value="" <%= locals.productInfo && productInfo.color? null : 'selected'%> disabled>Seleccione un color</option>
                                 <% colors.forEach(color =>{ %>\
                                     <%if(locals.errors && productInfo && productInfo.color){%>
                                         <% if (typeof productInfo.color == 'string') { %>
@@ -90,12 +90,12 @@
                         </label>
 
                         <label for="characteristics" class="create-textarea">Características del producto
-                            <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.characteristics : null%>" rows="4"></textarea>
+                            <textarea name="characteristics" id='characteristics' class="product-info large-input <%= locals.errors && errors.characteristics ? 'form-input-error': null%>" rows="4"><%= locals.productInfo? productInfo.characteristics : null%></textarea>
                             <p class='form-input-errorMsg'><%= locals.errors && errors.characteristics ? errors.characteristics.msg: null%></p>
                         </label>
                         
                         <label for="specs" class="create-textarea">Especificaciones del producto
-                            <textarea name="specs" id='specs' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" value="<%= locals.productInfo? productInfo.specs : null%>" rows="4"></textarea>
+                            <textarea name="specs" id='specs' class="product-info large-input <%= locals.errors && errors.specs ? 'form-input-error': null%>" rows="4"><%= locals.productInfo? productInfo.specs : null%></textarea>
                             <p class='form-input-errorMsg'><%= locals.errors && errors.specs ? errors.specs.msg: null%></p>
                         </label>
                         <button type="submit" id="button-submit">Crear</button>

@@ -55,6 +55,7 @@ main a{
     justify-content: center;
 }
 .img-user{
+    min-width: 70px;
     width: 100%;
 }
 .user-info{
@@ -83,10 +84,6 @@ main a{
     .container-img-user{
         width: 80%;
         height: 50%;
-    }
-    .img-user{
-        width:auto;
-        height:100%
     }
     .user-info{
         width:90%;
