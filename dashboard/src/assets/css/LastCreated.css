@@ -3,9 +3,17 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.image {
+    margin: 1rem 0;
+}
+.image img{
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
 .item-container {
     width: 70%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .item {
     border: 2px solid black;
@@ -31,10 +39,16 @@
     .item-container {
         width: 45%;
     }
+    .image img{
+        width: 60%;
+    }
 }
 /* Desktop */
 @media (min-width: 769px) {
     .item-container {
         width: 30%;
+    }
+    .image img{
+        width: 50%;
     }
 }

@@ -27,12 +27,18 @@
                     <% for(let i = 0; i < products.cart_products.length; i++){ %> 
                         <section>
                             <section class="product"> 
-                                <figure><img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto"></figure>
-                                <h3><a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %> </a></h3>
-                                <form action="/" method="POST">
-                                    <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
-                                </form>
-                                <p>$<%= products.cart_products[i].products.price %></p>
+                                <figure>
+                                    <img src="/uploads/products/<%= products.cart_products[i].products.images[0].name %> " alt="foto_producto">
+                                </figure>
+
+                                <h3>
+                                    <a href="/products/detail/<%= products.cart_products[i].products.id %> "><%= products.cart_products[i].products.name %></a>
+                                </h3>
+
+                                <p>Cantidad: <%= products.cart_products[i].products_amount%></p>
+
+                                <p id="price">$<%= products.cart_products[i].products.price %></p>
+
                                 <form action="/users/cart/<%=products.cart_products[i].products.id %>?_method=DELETE" method="POST">
                                     <button type="submit" id="itemDelete"><i class="far fa-times-circle"></i></button>
                                 </form>

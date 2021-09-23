@@ -1,47 +1,49 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-// estilos
+// Estilos
 import '../../assets/css/LastCreated.css';
 
 function LastUserCreated(){
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
 
-    // al montar
+    // Al montar
     useEffect(() => {
         console.log('%cse montó el componente', 'color: green');
+        // Trae todos los usuarios
         fetch('http://localhost:3000/api/users')
             .then(response => response.json())
-            .then(data => setUsers(data.users))
-        
-        
+            .then(data => setUsers(data.users))       
     }, [])
     
-    // al actualizar
+    // Al actualizar
     useEffect(() => {
         console.log('%cse actualizó el componente', 'color: yellow');
         if(users.length !== 0){
+            // Trae el detalle del último usuario en la lista
             fetch(`http://localhost:3000/api/users/${users[users.length - 1].id}`)
                 .then(response => response.json())
-                .then(data => {
-                    setUser(data);
-                })
+                .then(data => setUser(data.user))
         }
     }, [users])
 
-    // al desmontar
+    // Al desmontar
     useEffect(() => {
         return () => console.log('%cse desmontó el componente', 'color: red');
     }, [])
 
-    // return
+    // Return
     return(
         <section className="LastCreated">
             <h2>Último usuario creado</h2>
 
             <article className="info">
                 {users.length === 0 && <p>Cargando...</p>}
+
+                <figure className="image">
+                    <img src={user.avatar} alt="user-avatar"></img>
+                </figure>
 
                 <section className="item-container">
                     <section className="item">
