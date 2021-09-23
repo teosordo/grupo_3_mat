@@ -18,8 +18,9 @@ const storage = multer.diskStorage({
         cb(null, path.resolve(__dirname,'../../public/uploads/users'));
     },
     filename:(req,file,cb)=>{
-        // ESTA LINEA ESTA CREANDO ARCHIVOS CON LA EXTENSIÓN DUPLICADA
-        cb(null, file.fieldname + '-' + Date.now() + file.originalname + path.extname(file.originalname));
+        let oldName = file.originalname.split('.')
+        oldName = oldName[0]
+        cb(null, file.fieldname + '-' + Date.now() + oldName + path.extname(file.originalname));
     }
 });
 
