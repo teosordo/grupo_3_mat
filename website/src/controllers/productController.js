@@ -1,10 +1,10 @@
-const productsFunctions = require('../models/product');
-const brandFunctions = require('../models/brand')
+/* const productsFunctions = require('../models/product');
+const brandFunctions = require('../models/brand') */
 const categoryFunctions = require('../models/category')
-const colorFunctions = require('../models/color')
+// const colorFunctions = require('../models/color')
 const {validationResult} = require('express-validator')
 const db = require('../database/models');
-const product = require('../models/product');
+// const product = require('../models/product');
 
 const finalPrice = (price, discount) => {
     let restante = (price * discount) / 100;
@@ -16,12 +16,13 @@ const productController = {
         try {
             let idPage = parseInt(req.params.id);
             if(idPage == 0){
-                res.redirect('/products/1')
+                res.redirect('/products/list/1')
             }
             //Numero para limit/offset/math.ceil
             let settingNumber = 8
             // Productos completos
             let products;
+            // Orden en que se muestran los productos
             let orden;
             // Total de productos
             let productsTotalCount;
@@ -314,7 +315,7 @@ const productController = {
                     });
                 }
 
-                // convierte en array los colores entrantes
+                // Convierte en array los colores entrantes
                 let newColors = req.body.colors;
                 if(!Array.isArray(newColors)){
                     newColors = Array.of(newColors);

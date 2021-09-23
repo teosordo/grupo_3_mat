@@ -55,7 +55,6 @@ ul {
 #products-container {
     border-top: 1px solid black;
     border-bottom: 2px solid black;
-    padding: 8px 10px 8px;
 }
 
 #products-container > section {
@@ -69,17 +68,15 @@ ul {
 }
 
 .product h3 {
-    width: 18%;
+    width: 40%;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.product form {
-    width: fit-content;
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.product p {
-    width: 12%;
+.product #price {
+    width: 60px;
+    text-align: center;
 }
 
 /* Total */

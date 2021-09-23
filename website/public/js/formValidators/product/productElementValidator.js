@@ -1,27 +1,26 @@
-window.onload = () => {
-    // selecciono los campos
+window.addEventListener('load', () => {
+    // Selecciono los campos
     const form = document.querySelector('main form');
     const inputs = document.querySelectorAll('.product-info');
     const [name, detail] = inputs;
 
+    name.focus();
 
-    // objeto de errores
+    // Objeto de errores
     const errors = {
         nameError: true,
         detailError: false
     };
     
-    // variables para contener mensajes de error
+    // Variables para contener mensajes de error
     let nameMsg = '';
     let detailMsg = '';
 
     const campoVacio = 'Debes llenar este campo';
     
-    name.focus();
-
-    // validación del nombre de la categoría
+    // Validación del campo nombre
     const nameValidation = () => {
-        // si el campo esa vacío da error
+        // Si el campo esa vacío da error
         if(name.value == ''){
             errors.nameError = true;
             nameMsg = campoVacio;
@@ -30,13 +29,14 @@ window.onload = () => {
             nameMsg = '';
         }
 
+        // Muestra el error en la vista
         let nameErrorHolder = document.querySelector('#nameError');
         nameErrorHolder.innerHTML = `<p class="errors">${nameMsg}</p>`;
     }
 
-    // validación del detalle de la categoría
+    // Validación del campo detalle
     const detailValidation = () => {
-        // si el campo esa vacío da error
+        // Si el campo esa vacío da error
         if(detail.value == ''){
             errors.detailError = true;
             detailMsg = campoVacio;
@@ -45,27 +45,28 @@ window.onload = () => {
             detailMsg = '';
         }
 
+        // Muestra el error en la vista
         let detailErrorHolder = document.querySelector('#detailError');
         detailErrorHolder.innerHTML = `<p class="errors">${detailMsg}</p>`;
     }
 
-    // eventos generales
+    // Eventos generales
     name.addEventListener('blur', nameValidation);
     name.addEventListener('input', nameValidation);
 
-    // solo se ejecutan en la página de crear/editar categorías
+    // Solo se ejecutan en la página de crear/editar categorías
     if(window.location.pathname.includes('category')){
         errors.detailError = true;
         detail.addEventListener('blur', detailValidation);
         detail.addEventListener('input', detailValidation);
     }
 
-    // validación al hacer submit del formulario
+    // Validación al hacer submit del formulario
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
         nameValidation();
-        // solo se ejecuta en la página de crear/editar categorías
+        // Solo se ejecuta en la página de crear/editar categorías
         if(window.location.pathname.includes('category')){
             errors.detailError = true;
             detailValidation();
@@ -75,6 +76,4 @@ window.onload = () => {
             form.submit();
         }
     })
-
-
-}
+})

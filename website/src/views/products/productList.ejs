@@ -96,7 +96,7 @@
                             <% } else if(categoryId){ %>
                                 <a href="<%= idPage == 1 ? '#' : `/products/list/${(idPage-1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
                             <% } else { %>
-                                <a href="<%= idPage == 1 ? '#' : '/products/list/'+ (idPage-1)%>" class= "page-navbar-arrows" id="previous">
+                                <a href="<%= idPage == 1 ? '#' : `/products/list/${idPage-1}`%>" class= "page-navbar-arrows" id="previous">
                             <% } %>  
                                     <i class="fa fa-angle-left"></i>
                                 </a>
@@ -116,7 +116,7 @@
                             <% } else if(categoryId){ %>
                                 <a href="<%= idPage == pages ? '#' : `/products/list/${(idPage+1)}/${categoryId}`%>" class= "page-navbar-arrows" id="previous">
                             <% } else { %>
-                                <a href="<%= idPage == pages ? '#' : '/products/list/'+ (idPage+1)%>" class= "page-navbar-arrows" id="previous">
+                                <a href="<%= idPage == pages ? '#' : `/products/list/${idPage+1}`%>" class= "page-navbar-arrows" id="previous">
                             <% } %>
                                 <i class="fa fa-angle-right"></i>
                             </a>
