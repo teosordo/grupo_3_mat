@@ -157,6 +157,17 @@ li.errors{
 #navbar li{
     padding:1rem 0;
 }
+#navbar .catName .fa-info-circle, .detailCat{
+    visibility:hidden;
+    overflow:hidden;
+    display: none;
+    color:rgb(162, 154, 154)
+}
+#navbar .catName:hover .fa-info-circle{
+    visibility: visible;
+    overflow: visible;
+    display: inline-block;
+}
 #navbar a{
     text-decoration: none;
     color: #47525E;
@@ -274,8 +285,8 @@ li.errors{
         justify-content: space-between;
     }
     #navbar{
-        overflow: hidden;
         visibility: hidden;
+        overflow: hidden;
     }
     /******** CLASES *********/
     /* Encabezado*/

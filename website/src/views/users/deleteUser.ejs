@@ -29,9 +29,7 @@
                     </ul>
                 </article>
                 <section id="option-buttons">
-                    <form action="/users/list" method="GET">
-                        <button type="submit" id="option-one">Volver</button>
-                    </form>
+                    <button id="cancel-button">Cancelar</button>
                     <form action="/users/destroy/<%=users.id%>" method="POST">
                         <button type="submit" id="option-two">Borrar usuario</button>
                     </form>
@@ -42,6 +40,7 @@
     </main>
     <!-- FOOTER -->
     <%- include('../includes/footer')  %> 
+    <script src='/js/formValidators/cancel.js'></script>
     <script src="/js/nav.js"></script>
 </body>
 </html>

@@ -24,24 +24,6 @@ module.exports = [
                return false
             }
         }).withMessage('El link debe empezar con youtube.com/embed/'),
-    /* body('image') // ------------------------------------------------------- Mati
-        .custom((value, {req}) => {
-            if(req.file == null){
-                throw new Error('Debe subir al menos una imagen')
-            }else{
-                return true
-            }
-        }).bail()
-        .custom((value, {req}) =>{
-            let authExt = ['jpg','png','jpeg'];
-            let ext = req.file.filename.split('.').pop();
-            if(authExt.includes(ext)){
-                return true 
-            }else{
-                let extStr = authExt.toString()
-                throw new Error(`Las extensiones permitidas son ${extStr}`)
-            }
-        }), */
     body('color')
         .notEmpty().withMessage('Debe elegir al menos 1 color').bail(),
     body('characteristics')
@@ -50,7 +32,7 @@ module.exports = [
     body('specs')
         .notEmpty().withMessage('Debe ingresar las especificaciones').bail()
         .isLength({min: 20}).withMessage('Las especificacionses del producto deben superar los 20 caracteres'),
-    body('image') // --------------------------------------------------------- Teo
+    body('image')
         .custom((value, {req}) =>{
             if(req.file == undefined){
                 throw new Error('Debes subir al menos una imagen')

@@ -2,10 +2,11 @@
     <h2>Categorías</h2>
     <ul>
         <% category.forEach(element =>{ %>
-            <li><a href="/products/list/1/<%= element.id %> "><%=element.name%></a></li>
+            <li class="catName catSelected"><a href="/products/list/1/<%= element.id %> "><%=element.name%></a> <i class="fas fa-info-circle"></i></li>
+            <li class="detail detailCat"><%= element.detail%></li>
         <% }) %>
         <% if(user){ %> 
-            <a href="/users/cart" id="cartNav"><i class="fas fa-shopping-cart"></i></a>
+            <li><a href="/users/cart" id="cartNav"><i class="fas fa-shopping-cart"></i></a></li>
         <% } %>
         <% if (user && user.admin) { %>
             <li id="productCreate"><a href="/products/options">Opciones para productos</a></li>
