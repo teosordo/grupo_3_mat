@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2021 a las 00:56:11
+-- Tiempo de generación: 28-09-2021 a las 01:26:14
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -21,17 +21,6 @@ SET time_zone = "+00:00";
 -- Base de datos: `matech_db`
 --
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `brands`
---
-
-CREATE TABLE `brands` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Volcado de datos para la tabla `brands`
 --
@@ -41,20 +30,6 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 (2, 'Generic Brand 2'),
 (3, 'Generic Brand 3'),
 (4, 'Generic Brand 4');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `carts`
---
-
-CREATE TABLE `carts` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `total_products` int(11) DEFAULT NULL,
-  `final_price` decimal(10,0) DEFAULT NULL,
-  `purchase_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `carts`
@@ -72,32 +47,6 @@ INSERT INTO `carts` (`id`, `user_id`, `total_products`, `final_price`, `purchase
 (9, 18, NULL, NULL, NULL),
 (10, 19, NULL, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cart_products`
---
-
-CREATE TABLE `cart_products` (
-  `id` int(11) NOT NULL,
-  `cart_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `products_price` decimal(10,0) NOT NULL,
-  `products_amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categories`
---
-
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `detail` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Volcado de datos para la tabla `categories`
 --
@@ -112,17 +61,6 @@ INSERT INTO `categories` (`id`, `name`, `detail`) VALUES
 (7, 'Coolers', '¿Qué es un cooler? Este elemento se encarga de mantener la temperatura del equipo en el estado ideal, con el objetivo de que el extremo calor que se produce en los ordenadores no acabe con la estabilidad de los mismos. '),
 (8, 'Memorias RAM', '¿Qué es la memoria RAM? La memoria RAM tiene dos características que la diferencian del resto de tipos de almacenamiento. Por una parte tiene una enorme velocidad, y por otra los datos sólo se almacenan de forma temporal.Cuanta más RAM tengas más aplicaciones podrás gestionar a la vez.');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `colors`
---
-
-CREATE TABLE `colors` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Volcado de datos para la tabla `colors`
 --
@@ -135,18 +73,6 @@ INSERT INTO `colors` (`id`, `name`) VALUES
 (3, 'rojo'),
 (5, 'verde'),
 (6, 'violeta');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `images`
---
-
-CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `images`
@@ -194,27 +120,6 @@ INSERT INTO `images` (`id`, `name`, `product_id`) VALUES
 (39, 'image-1631989196198pngegg (11).png.png', 41),
 (40, 'image-1631989240325pngegg (11).png.png', 42);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `products`
---
-
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `brand_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `originalPrice` decimal(10,0) NOT NULL,
-  `discount` int(11) DEFAULT NULL,
-  `price` decimal(10,0) NOT NULL,
-  `stock` int(11) DEFAULT 0,
-  `warranty` varchar(255) DEFAULT NULL,
-  `video` varchar(255) DEFAULT NULL,
-  `characteristics` varchar(1500) NOT NULL,
-  `specs` varchar(1500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Volcado de datos para la tabla `products`
 --
@@ -260,18 +165,6 @@ INSERT INTO `products` (`id`, `name`, `brand_id`, `category_id`, `originalPrice`
 (40, 'Memoria Ram K99 16GB ', 4, 8, '11000', 0, '11000', 50, '4 meses', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.'),
 (41, 'Memoria Ram GRR 8GB', 1, 8, '6599', 0, '6599', 50, '6 meses', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.'),
 (42, 'Memoria Ram GRR 16GB', 1, 8, '12359', 0, '12359', 40, '6 meses', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia condimentum mi quis molestie. Morbi aliquet libero tellus, nec blandit purus consequat et. Nullam rhoncus fringilla congue. Donec placerat turpis turpis, a mattis quam viverra ut. Fusce pulvinar at libero at laoreet. Praesent et orci viverra, lacinia nisi in, semper odio. Aliquam at interdum mi. Etiam non ante sodales, facilisis dolor et, lacinia arcu. Phasellus mollis lacus turpis, a accumsan metus pulvinar sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a nulla eget felis mattis condimentum id in urna. Maecenas ac finibus sem.');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `products_colors`
---
-
-CREATE TABLE `products_colors` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `products_colors`
@@ -352,16 +245,6 @@ INSERT INTO `products_colors` (`id`, `product_id`, `color_id`) VALUES
 (78, 42, 3),
 (79, 42, 5);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sequelizemeta`
---
-
-CREATE TABLE `sequelizemeta` (
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 --
 -- Volcado de datos para la tabla `sequelizemeta`
 --
@@ -376,22 +259,6 @@ INSERT INTO `sequelizemeta` (`name`) VALUES
 ('20210808201052-users.js'),
 ('20210809141523-carts.js'),
 ('20210809142828-carts_products.js');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `firstName` varchar(40) NOT NULL,
-  `lastName` varchar(50) NOT NULL,
-  `username` varchar(14) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `avatar` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -415,181 +282,6 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `username`, `email`, `passwo
 (17, 'Hat', 'Kid', 'hatkid', 'hatkid@gmail.com', '$2a$10$wLdMpzFf.VLyVgLbt03lfOe0if95rrBG01AspPgg93d5SenYMR7nu', 'avatar-1631993645171042a5f1cab2d1ccf90e879dc5592576a.jpg.jpg'),
 (18, 'Digi', 'Test', 'digitest', 'digitest@gmail.com', '$2a$10$NplU6VbAA0Ap0OAP28CByOBbxRHSGlGo6oquFotur/Qvlze3VCmeC', 'avatar-1631994851553Agumon.jpg.jpg'),
 (19, 'Otro', 'Test', 'otrotest', 'otrotest@gmail.com', '$2a$10$32cCnJkFw.3JGqj.0QIsjObxeXE5OkOHU8YuYRLXYDowaGRl6csYC', 'avatar-1631994927745MV5BMTMyNzQxMjc3OF5BMl5BanBnXkFtZTcwNjQ4MTI2NQ@@._V1_.jpg.jpg');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indices de la tabla `carts`
---
-ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indices de la tabla `cart_products`
---
-ALTER TABLE `cart_products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cart_id` (`cart_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indices de la tabla `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indices de la tabla `colors`
---
-ALTER TABLE `colors`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indices de la tabla `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indices de la tabla `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `brand_id` (`brand_id`),
-  ADD KEY `category_id` (`category_id`);
-
---
--- Indices de la tabla `products_colors`
---
-ALTER TABLE `products_colors`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `color_id` (`color_id`);
-
---
--- Indices de la tabla `sequelizemeta`
---
-ALTER TABLE `sequelizemeta`
-  ADD PRIMARY KEY (`name`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `brands`
---
-ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `carts`
---
-ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `cart_products`
---
-ALTER TABLE `cart_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de la tabla `colors`
---
-ALTER TABLE `colors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
---
--- AUTO_INCREMENT de la tabla `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-
---
--- AUTO_INCREMENT de la tabla `products_colors`
---
-ALTER TABLE `products_colors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `carts`
---
-ALTER TABLE `carts`
-  ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `cart_products`
---
-ALTER TABLE `cart_products`
-  ADD CONSTRAINT `cart_products_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`),
-  ADD CONSTRAINT `cart_products_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-
---
--- Filtros para la tabla `images`
---
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-
---
--- Filtros para la tabla `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
-
---
--- Filtros para la tabla `products_colors`
---
-ALTER TABLE `products_colors`
-  ADD CONSTRAINT `products_colors_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `products_colors_ibfk_2` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
