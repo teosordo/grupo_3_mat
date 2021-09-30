@@ -40,31 +40,32 @@ function LastProductCreated(){
 
                     {product && product.brand && product.category &&
                     <>
-                    {product.images.map((image, index) => 
-                        <figure key={index} className="image">
-                            <img src={image} alt="product-image"></img>
-                        </figure>
-                    )}
-                    <section className="item-container">
-                        <section className="item">
-                            <h3>Nombre:</h3>
-                            <p>{product.name}</p>
-                        </section>
-                    </section>
+                        {product.images.map((image, index) => 
+                            <figure key={index} className="image">
+                                <img src={image} alt="product-image"></img>
+                            </figure>
+                        )}
                         
-                    <section className="item-container">
-                        <section className="item">
-                            <h3>Marca:</h3>
-                            <p>{product.brand.name}</p>
+                        <section className="item-container">
+                            <section className="item">
+                                <h3>Nombre:</h3>
+                                <p>{product.name}</p>
+                            </section>
                         </section>
-                    </section>
-                        
-                    <section className="item-container">
-                        <section className="item">
-                            <h3>Categoría:</h3>
-                            <p>{product.category.name}</p>
+                            
+                        <section className="item-container">
+                            <section className="item">
+                                <h3>Marca:</h3>
+                                <p>{product.brand.name}</p>
+                            </section>
                         </section>
-                    </section>
+                            
+                        <section className="item-container">
+                            <section className="item">
+                                <h3>Categoría:</h3>
+                                <p>{product.category.name}</p>
+                            </section>
+                        </section>
                     </> }
             </article>
         </section>

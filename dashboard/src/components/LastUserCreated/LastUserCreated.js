@@ -40,29 +40,34 @@ function LastUserCreated(){
 
             <article className="info">
                 {users.length === 0 && <p>Cargando...</p>}
-                <figure className="image">
-                    <img src={user.avatar} alt="user-avatar"></img>
-                </figure>
-                <section className="item-container">
-                    <section className="item">
-                        <h3>Nombre:</h3>
-                        <p>{user.firstName} {user.lastName}</p>
+                {user && 
+                <>
+                    <figure className="image">
+                        <img src={user.avatar} alt="user-avatar"></img>
+                    </figure>
+                    
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Nombre:</h3>
+                            <p>{user.firstName} {user.lastName}</p>
+                        </section>
                     </section>
-                </section>
 
-                <section className="item-container">
-                    <section className="item">
-                        <h3>Username:</h3>
-                        <p>{user.username}</p>
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Username:</h3>
+                            <p>{user.username}</p>
+                        </section>
                     </section>
-                </section>
 
-                <section className="item-container">
-                    <section className="item">
-                        <h3>Email:</h3>
-                        <p>{user.email}</p>
+                    <section className="item-container">
+                        <section className="item">
+                            <h3>Email:</h3>
+                            <p>{user.email}</p>
+                        </section>
                     </section>
-                </section>
+                </>}
+                
             </article>
         </section>
     )
