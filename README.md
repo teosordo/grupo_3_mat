@@ -20,8 +20,7 @@ ___
 ## Integrantes
   - ### Teo Sordó
     ~~~
-    Estudiante de Artes Multimediales. En mi tiempo libre me gusta tocar el bajo, ver películas,
-    series, anime, jugar videojuegos o charlar con amigos.
+    Estudiante de Artes Multimediales y Digital House.
     ~~~
   - ### Angélica Dutra
     ~~~
@@ -60,7 +59,7 @@ ___
 ___
 
 ## Fuentes a usar
-  - **Barlow semi condensed** para titulos
+  - **Barlow semi condensed** para títulos
   - **Montserrat** para textos
 ___
 
